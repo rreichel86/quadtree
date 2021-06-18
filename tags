@@ -1,0 +1,1923 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+1	feaps2.for	/^1     continue$/;"	l	subroutine:f3d	file:
+1	feaps2.for	/^1     if(ior.lt.0) then$/;"	l	subroutine:esideb	file:
+1	feaps2.for	/^1     pg(1) = 0.0d0$/;"	l	subroutine:gaus1D	file:
+1	feaps2.for	/^1     shp(2,1) = (1 - xsi)*0.5d0$/;"	l	subroutine:shape1D	file:
+1	feaps3.for	/^1     continue$/;"	l	subroutine:ploadi	file:
+1	feaps3.for	/^1     i = 0   $/;"	l	subroutine:pnewcot	file:
+1	feaps3.for	/^1     if(ior.gt.0) then$/;"	l	subroutine:pconst	file:
+1	feaps3.for	/^1     ior = iabs(ior)$/;"	l	subroutine:pcontr	file:
+1	feaps3.for	/^1     r(1) = 0.d0$/;"	l	subroutine:pgauss	file:
+1	feaps4.for	/^1     call pintio(yyy,8)$/;"	l	subroutine:pnums	file:
+1	feaps4.for	/^1     if(numnp.gt.numnpic) inptctrl=1$/;"	l	subroutine:pmesh	file:
+1	feaps5.for	/^1     call pzero(dx,3)$/;"	l	subroutine:node_line	file:
+1	feaps5.for	/^1     inquire(file=fres,exist=exst)$/;"	l	subroutine:restrt	file:
+1	feaps5.for	/^1     nex = 0$/;"	l	subroutine:setval	file:
+10	feaps1.for	/^10        continue$/;"	l	subroutine:tblk	file:
+10	feaps1.for	/^10    continue$/;"	l	subroutine:blkgen	file:
+10	feaps1.for	/^10    continue$/;"	l	subroutine:blkgenco	file:
+10	feaps1.for	/^10    continue$/;"	l	subroutine:blkgendx	file:
+10	feaps1.for	/^10    continue$/;"	l	subroutine:blktem	file:
+10	feaps2.for	/^  10      continue$/;"	l	subroutine:f3d	file:
+10	feaps2.for	/^10    continue$/;"	l	subroutine:eload1	file:
+10	feaps2.for	/^10    continue$/;"	l	subroutine:mateerr	file:
+10	feaps3.for	/^  10  read(ior,1000,err=901,end=902) yyy$/;"	l	subroutine:plinka	file:
+10	feaps3.for	/^10      continue$/;"	l	subroutine:plink	file:
+10	feaps3.for	/^10      read(ior,1000) (titl(i),i=1,20)$/;"	l	subroutine:pcontr	file:
+10	feaps3.for	/^10    continue$/;"	l	subroutine:pnewcot	file:
+10	feaps3.for	/^10    g10(1) = 0.9739065285171717200779640d0$/;"	l	subroutine:pgauss	file:
+10	feaps3.for	/^10    if(let(1:1).eq.' '.or.ichar(let(1:1)).eq.0) then$/;"	l	subroutine:pconst	file:
+10	feaps4.for	/^10            continue$/;"	l	subroutine:seteq	file:
+10	feaps4.for	/^10          read (*,1000,err=11,end=12) y$/;"	l	subroutine:opnfil	file:
+10	feaps4.for	/^10    if(ior.gt.0) read(ior,1000,err=111) o$/;"	l	subroutine:pmesh	file:
+10	feaps4.for	/^10    kk = 1$/;"	l	subroutine:trans2	file:
+10	feaps5.for	/^   10 continue$/;"	l	subroutine:nwprof	file:
+10	feaps5.for	/^10              continue$/;"	l	subroutine:rstprf	file:
+10	feaps5.for	/^10      j = j + 1$/;"	l	subroutine:serchl	file:
+10	feaps5.for	/^10    continue$/;"	l	subroutine:prfrst	file:
+10	feaps5.for	/^10    if(sig0(2).lt.sig0(3)) then$/;"	l	subroutine:pstres1	file:
+10	feaps5.for	/^10    xs(i:i) = xss(i)$/;"	l	subroutine:pinval	file:
+10	feaps5.for	/^10    xs(i:i) = xss(i)$/;"	l	subroutine:pinval2	file:
+10	feaps6.for	/^10          read (*,1000,err=11,end=12) y$/;"	l	subroutine:writer	file:
+10	feaps6.for	/^10    continue$/;"	l	subroutine:vblk	file:
+100	feaps1.for	/^100         continue$/;"	l	subroutine:dasbly	file:
+100	feaps1.for	/^100         continue$/;"	l	subroutine:tblk	file:
+100	feaps1.for	/^100       continue$/;"	l	subroutine:datri1	file:
+100	feaps1.for	/^100   call dinput(td,6)$/;"	l	subroutine:aload	file:
+100	feaps1.for	/^100   continue$/;"	l	subroutine:acheck	file:
+100	feaps1.for	/^100   continue$/;"	l	subroutine:bjac3d	file:
+100	feaps1.for	/^100   continue$/;"	l	subroutine:chkblk	file:
+100	feaps1.for	/^100   continue$/;"	l	subroutine:ckbrk8	file:
+100	feaps1.for	/^100   continue$/;"	l	subroutine:ckisop	file:
+100	feaps1.for	/^100   continue$/;"	l	subroutine:dasol1	file:
+100	feaps1.for	/^100   continue$/;"	l	subroutine:datest	file:
+100	feaps1.for	/^100   if(ior.lt.0) write(*,5000)$/;"	l	subroutine:blkgen	file:
+100	feaps1.for	/^100   if(ior.lt.0) write(*,5000)$/;"	l	subroutine:blkgenco	file:
+100	feaps1.for	/^100   if(ior.lt.0) write(*,5000)$/;"	l	subroutine:blkgendx	file:
+100	feaps1.for	/^100   if(ior.lt.0) write(*,5000)$/;"	l	subroutine:blktem	file:
+100	feaps1.for	/^100   if(ior.lt.0) write(*,5000)$/;"	l	subroutine:blktri	file:
+100	feaps2.for	/^  100   continue$/;"	l	subroutine:front	file:
+100	feaps2.for	/^  100   continue$/;"	l	subroutine:iprint	file:
+100	feaps2.for	/^  100   continue$/;"	l	subroutine:mprint	file:
+100	feaps2.for	/^  100   continue$/;"	l	subroutine:mprinte	file:
+100	feaps2.for	/^  100   continue$/;"	l	subroutine:mprintp	file:
+100	feaps2.for	/^  100 continue$/;"	l	function:dotid	file:
+100	feaps2.for	/^  100 continue$/;"	l	subroutine:opnum	file:
+100	feaps2.for	/^100       continue$/;"	l	subroutine:modify	file:
+100	feaps2.for	/^100     continue$/;"	l	subroutine:dredu	file:
+100	feaps2.for	/^100     continue$/;"	l	subroutine:esiden	file:
+100	feaps2.for	/^100     if(ior.lt.0) write(*,2001)$/;"	l	subroutine:esideb	file:
+100	feaps2.for	/^100     if(y(i+n1).eq.' ') then$/;"	l	subroutine:just	file:
+100	feaps2.for	/^100   a(n,j) = -a(n,j)\/d$/;"	l	subroutine:invert	file:
+100	feaps2.for	/^100   continue$/;"	l	function:dot	file:
+100	feaps2.for	/^100   continue$/;"	l	function:gamma1	file:
+100	feaps2.for	/^100   continue$/;"	l	subroutine:cjint	file:
+100	feaps2.for	/^100   continue$/;"	l	subroutine:eprint	file:
+100	feaps2.for	/^100   continue$/;"	l	subroutine:evalex	file:
+100	feaps2.for	/^100   continue$/;"	l	subroutine:injint	file:
+100	feaps2.for	/^100   continue$/;"	l	subroutine:pevpak	file:
+100	feaps2.for	/^100   continue$/;"	l	subroutine:shape1D	file:
+100	feaps2.for	/^100   format(\/,9x,'Cuthill-McKee Optimization of nodes (OPTN)',\/,$/;"	l	subroutine:optn	file:
+100	feaps2.for	/^100   if(ior.lt.0) write(*,2010)$/;"	l	subroutine:genvec2	file:
+100	feaps2.for	/^100   if(ior.lt.0) write(*,2010)$/;"	l	subroutine:genvec3	file:
+100	feaps2.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:eload	file:
+100	feaps2.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:isect	file:
+100	feaps2.for	/^100   istep = istep + 1$/;"	l	subroutine:eigi	file:
+100	feaps2.for	/^100   l   = n$/;"	l	subroutine:genvec	file:
+100	feaps2.for	/^100   l   = n$/;"	l	subroutine:genvec1	file:
+100	feaps2.for	/^100   l  = n$/;"	l	subroutine:invec	file:
+100	feaps2.for	/^100   x(i) = y(i)\/scale$/;"	l	subroutine:norm	file:
+100	feaps3.for	/^  100 continue$/;"	l	subroutine:nodew	file:
+100	feaps3.for	/^100                 continue$/;"	l	subroutine:parexp	file:
+100	feaps3.for	/^100         continue$/;"	l	subroutine:pcfour	file:
+100	feaps3.for	/^100         st(m,i) = st(m,i) + st(nc,i)$/;"	l	subroutine:pcktie	file:
+100	feaps3.for	/^100         xl(i,nk) = x(i,ii)$/;"	l	subroutine:ploadl	file:
+100	feaps3.for	/^100     continue$/;"	l	subroutine:modu	file:
+100	feaps3.for	/^100     continue$/;"	l	subroutine:phist	file:
+100	feaps3.for	/^100   continue$/;"	l	function:pcomp	file:
+100	feaps3.for	/^100   continue$/;"	l	function:pdiff	file:
+100	feaps3.for	/^100   continue$/;"	l	subroutine:pangl	file:
+100	feaps3.for	/^100   continue$/;"	l	subroutine:pcheck	file:
+100	feaps3.for	/^100   continue$/;"	l	subroutine:pload	file:
+100	feaps3.for	/^100   continue$/;"	l	subroutine:ploadf	file:
+100	feaps3.for	/^100   d(n) = 1.0d0$/;"	l	subroutine:piden	file:
+100	feaps3.for	/^100   do 101 i = 1,20$/;"	l	subroutine:pcontr	file:
+100	feaps3.for	/^100   if (ior.gt.0)  then$/;"	l	subroutine:pintio	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3000)$/;"	l	subroutine:ploadi	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:panglee	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:panglev	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:pblock	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:pblockr	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:pedgeb	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:pedgeg	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:pedges	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:pedgesd	file:
+100	feaps3.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:ppload	file:
+100	feaps3.for	/^100   if(prt)                write(iow,2001) head1$/;"	l	subroutine:pdirec	file:
+100	feaps4.for	/^  100   call dinput(td,1)$/;"	l	subroutine:pnums	file:
+100	feaps4.for	/^100     continue$/;"	l	subroutine:prefl	file:
+100	feaps4.for	/^100   b(n) = a(n)$/;"	l	subroutine:pmove	file:
+100	feaps4.for	/^100   b(n) = a(n)*fac$/;"	l	subroutine:pmoves	file:
+100	feaps4.for	/^100   call pzero(td,11) $/;"	l	subroutine:qloadi	file:
+100	feaps4.for	/^100   continue$/;"	l	function:ipos	file:
+100	feaps4.for	/^100   continue$/;"	l	function:ipos1	file:
+100	feaps4.for	/^100   continue$/;"	l	subroutine:pmacio	file:
+100	feaps4.for	/^100   continue$/;"	l	subroutine:pmovec	file:
+100	feaps4.for	/^100   continue$/;"	l	subroutine:pmoveca	file:
+100	feaps4.for	/^100   continue$/;"	l	subroutine:pmovei	file:
+100	feaps4.for	/^100   continue$/;"	l	subroutine:setmac	file:
+100	feaps4.for	/^100   continue$/;"	l	subroutine:storpl1	file:
+100	feaps4.for	/^100   continue$/;"	l	subroutine:vazero	file:
+100	feaps4.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:polar	file:
+100	feaps4.for	/^100   if(prt) write(iow,2022)$/;"	l	subroutine:pmesh	file:
+100	feaps5.for	/^100     continue$/;"	l	function:propld	file:
+100	feaps5.for	/^100     continue$/;"	l	subroutine:promul1	file:
+100	feaps5.for	/^100     continue$/;"	l	subroutine:prtjint	file:
+100	feaps5.for	/^100     continue$/;"	l	subroutine:prtrea	file:
+100	feaps5.for	/^100     continue$/;"	l	subroutine:ptrans	file:
+100	feaps5.for	/^100     continue$/;"	l	subroutine:sblk	file:
+100	feaps5.for	/^100     continue$/;"	l	subroutine:sblkdx	file:
+100	feaps5.for	/^100   continue$/;"	l	subroutine:pconsi	file:
+100	feaps5.for	/^100   continue$/;"	l	subroutine:pconsi2	file:
+100	feaps5.for	/^100   continue$/;"	l	subroutine:prtdis	file:
+100	feaps5.for	/^100   continue$/;"	l	subroutine:pstr3d	file:
+100	feaps5.for	/^100   continue$/;"	l	subroutine:pzeroi	file:
+100	feaps5.for	/^100   continue$/;"	l	subroutine:setval	file:
+100	feaps5.for	/^100   errco = .true.$/;"	l	subroutine:pinval	file:
+100	feaps5.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:rot	file:
+100	feaps5.for	/^100   if(lflg) then$/;"	l	subroutine:reader	file:
+100	feaps5.for	/^100   inodeused=1$/;"	l	function:inodeused	file:
+100	feaps5.for	/^100   ixm(i) = ixl(i)$/;"	l	subroutine:pstores	file:
+100	feaps5.for	/^100   v(n) = 0.d0$/;"	l	subroutine:pzero	file:
+100	feaps5.for	/^100   vmax = dmax1(vmax,dabs(v(n)))$/;"	l	subroutine:scalev	file:
+100	feaps6.for	/^  100       continue$/;"	l	subroutine:trblk	file:
+100	feaps6.for	/^100         shp(2,i) = t(i)*(0.5+s(i)*ss)$/;"	l	subroutine:shape	file:
+100	feaps6.for	/^100       continue$/;"	l	subroutine:tienod	file:
+100	feaps6.for	/^100       continue$/;"	l	subroutine:vblk	file:
+100	feaps6.for	/^100      continue$/;"	l	subroutine:storeh	file:
+100	feaps6.for	/^100     if(ior.lt.0) write(*,3001)$/;"	l	subroutine:sphere	file:
+100	feaps6.for	/^100   continue$/;"	l	subroutine:shp3d	file:
+100	feaps6.for	/^100   continue$/;"	l	subroutine:shp3dt	file:
+100	feaps6.for	/^100   if(ior.lt.0) write(*,3000)$/;"	l	subroutine:xmodif	file:
+100	feaps6.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:transx	file:
+100	feaps6.for	/^100   if(lflg) then$/;"	l	subroutine:writer	file:
+100	feaps6.for	/^100   k = 8$/;"	l	subroutine:shap2	file:
+1000	Qtree.f90	/^1000    format(i6','f32.16','f32.16)$/;"	l	subroutine:QtreeSR	file:
+1000	Qtree_module.f90	/^1000    format(i6','i6','i6','i6,','i6','i6','i6','i6,','i6','i6','i6','i6,','i6','i6','i6','i6)$/;"	l	subroutine:connectivity	file:
+1000	feaps1.for	/^1000  format(201a1)$/;"	l	subroutine:dinput	file:
+1000	feaps1.for	/^1000  format(201a1)$/;"	l	subroutine:dinput2	file:
+1000	feaps1.for	/^1000  format(5x,'###### factorization warning:',i5,' neg. diagonal el.')$/;"	l	subroutine:datri	file:
+1000	feaps2.for	/^1000  format(1x,'*FEAP: used Memory in blank common in Elements\/KB:',\/$/;"	l	subroutine:length	file:
+1000	feaps2.for	/^1000  format(\/'Inverse Iteration: ',i2,' iterations',\/,$/;"	l	subroutine:eigi	file:
+1000	feaps2.for	/^1000  format(a4)$/;"	l	subroutine:esideb	file:
+1000	feaps3.for	/^ 1000 format(a2,76a1)$/;"	l	subroutine:pconst	file:
+1000	feaps3.for	/^1000  format (a80)$/;"	l	subroutine:plinka	file:
+1000	feaps3.for	/^1000  format(20a4)$/;"	l	subroutine:pcontr	file:
+1000	feaps3.for	/^1000  format(a)$/;"	l	subroutine:pintio	file:
+1000	feaps3.for	/^1000  format(a80)$/;"	l	subroutine:pform	file:
+1000	feaps3.for	/^1000  format(i5,1x,a4,3e15.5)$/;"	l	subroutine:phist	file:
+1000	feaps4.for	/^1000  format(2(a4,11x),3f15.0)$/;"	l	subroutine:setmac	file:
+1000	feaps4.for	/^1000  format(\/3x,'M A C R O   P A R A M E T E R S'\/)$/;"	l	subroutine:plshowm	file:
+1000	feaps4.for	/^1000  format(a1)$/;"	l	subroutine:histex	file:
+1000	feaps4.for	/^1000  format(a1)$/;"	l	subroutine:opnfil	file:
+1000	feaps4.for	/^1000  format(a1,i6,6(1x,e10.4))$/;"	l	subroutine:storpl1	file:
+1000	feaps4.for	/^1000  format(a4)$/;"	l	subroutine:pnums	file:
+1000	feaps4.for	/^1000  format(a4,6x,a4)$/;"	l	subroutine:pmesh	file:
+1000	feaps5.for	/^ 1000 format(75a1)$/;"	l	subroutine:setval	file:
+1000	feaps5.for	/^1000  format('insufficient storage for array ',a,'(required:',i12,$/;"	l	subroutine:pseta	file:
+1000	feaps5.for	/^1000  format(1x,8e12.5,\/,1x,8e12.5)$/;"	l	subroutine:readf	file:
+1000	feaps5.for	/^1000  format(1x,8e12.5,\/,1x,8e12.5)$/;"	l	subroutine:writef	file:
+1000	feaps5.for	/^1000  format(f15.0)$/;"	l	subroutine:pinval2	file:
+1000	feaps5.for	/^1000  format(f21.0)$/;"	l	subroutine:pinval	file:
+1000	feaps6.for	/^1000  format(a1)$/;"	l	subroutine:writer	file:
+1000	main.f90	/^    1000 format ('  ','The input file mame is: ', A) $/;"	l	program:quadtree_main	file:
+1001	feaps2.for	/^1001  format(\/,1x,'*FEAP: used time for calculation  ',$/;"	l	subroutine:length	file:
+1001	feaps3.for	/^1001  format(10i8)$/;"	l	subroutine:pcontr	file:
+1001	feaps3.for	/^1001  format(a1)$/;"	l	subroutine:phist	file:
+1001	feaps5.for	/^1001  format(' Debug Pseta: Begin: ',i10,' Length: ',i10,' Free: ',i10$/;"	l	subroutine:pseta	file:
+1002	feaps3.for	/^1002  format(2(a4,11x),3f15.0)$/;"	l	subroutine:pcontr	file:
+1002	feaps5.for	/^1002  format(a80)$/;"	l	subroutine:pseta	file:
+101	feaps1.for	/^101     continue$/;"	l	subroutine:aload	file:
+101	feaps2.for	/^101     if(ior.lt.0) write(*,2001)$/;"	l	subroutine:genrsum	file:
+101	feaps2.for	/^101   if(ior.lt.0) write(*,2010)$/;"	l	subroutine:genvec	file:
+101	feaps2.for	/^101   if(ior.lt.0) write(*,2010)$/;"	l	subroutine:genvec1	file:
+101	feaps2.for	/^101   if(ior.lt.0) write(*,3002)$/;"	l	subroutine:eload	file:
+101	feaps2.for	/^101   if(ior.lt.0) write(*,3002)$/;"	l	subroutine:invec	file:
+101	feaps3.for	/^ 101  error = .false.$/;"	l	subroutine:parse	file:
+101	feaps3.for	/^101   continue$/;"	l	subroutine:pblock	file:
+101	feaps3.for	/^101   continue$/;"	l	subroutine:pblockr	file:
+101	feaps3.for	/^101   continue$/;"	l	subroutine:pedges	file:
+101	feaps3.for	/^101   continue$/;"	l	subroutine:pedgesd	file:
+101	feaps3.for	/^101   continue$/;"	l	subroutine:pgauss	file:
+101	feaps3.for	/^101   do i = 1,nsvq,8$/;"	l	subroutine:ploadi	file:
+101	feaps3.for	/^101   head(i) = titl(i)$/;"	l	subroutine:pcontr	file:
+101	feaps4.for	/^101       continue$/;"	l	subroutine:histex	file:
+101	feaps4.for	/^101   if(ior.lt.0) write(*,3002)$/;"	l	subroutine:qloadi	file:
+101	feaps4.for	/^101   if(prt) write(iow,2021)$/;"	l	subroutine:pmesh	file:
+101	feaps5.for	/^101       call dinput(td,8)$/;"	l	function:propld	file:
+101	feaps5.for	/^101     continue$/;"	l	subroutine:prtjint	file:
+101	feaps5.for	/^101     continue$/;"	l	subroutine:prtrea	file:
+1010	main.f90	/^        1010 format(' ','Error opening file: iostat =', i6) $/;"	l	program:quadtree_main	file:
+102	feaps1.for	/^102     continue$/;"	l	subroutine:aload	file:
+102	feaps2.for	/^102   continue$/;"	l	subroutine:genvec	file:
+102	feaps2.for	/^102   continue$/;"	l	subroutine:genvec1	file:
+102	feaps4.for	/^102     continue$/;"	l	subroutine:histex	file:
+102	feaps4.for	/^102   call dinput(td,3)$/;"	l	subroutine:qloadi	file:
+103	feaps2.for	/^103   continue$/;"	l	subroutine:invec	file:
+103	feaps2.for	/^103   x(i,n) = x(i,n) + alpha*xl(i) ! new$/;"	l	subroutine:genvec1	file:
+103	feaps2.for	/^103   x(i,n) = xl(i)$/;"	l	subroutine:genvec	file:
+103	feaps3.for	/^103         call dinput(td,il-is+1)$/;"	l	subroutine:plink	file:
+103	feaps3.for	/^103       call dinput(td,il-is+1)$/;"	l	subroutine:pblock	file:
+103	feaps3.for	/^103       call dinput(td,il-is+1)$/;"	l	subroutine:pedgeb	file:
+103	feaps3.for	/^103       call dinput(td,il-is+1)$/;"	l	subroutine:pedges	file:
+103	feaps3.for	/^103     call dinput(td,il-is+1)$/;"	l	subroutine:pblockr	file:
+103	feaps4.for	/^103       write(*,2002) (wd(i,jct(ll)),i=1,4),lct(ll),(ct(i,ll),i=1,3)$/;"	l	subroutine:histex	file:
+103	feaps4.for	/^103   if(ior.lt.0) write(*,2008) ll$/;"	l	subroutine:pmesh	file:
+104	feaps2.for	/^104   lg  = isign(lg,n-l)$/;"	l	subroutine:invec	file:
+104	feaps2.for	/^104   lg = isign(lg,n-l)$/;"	l	subroutine:genvec	file:
+104	feaps2.for	/^104   lg = isign(lg,n-l)$/;"	l	subroutine:genvec1	file:
+104	feaps3.for	/^104         continue$/;"	l	subroutine:plink	file:
+104	feaps3.for	/^104       continue$/;"	l	subroutine:pblock	file:
+104	feaps3.for	/^104       continue$/;"	l	subroutine:pedgeb	file:
+104	feaps3.for	/^104       continue$/;"	l	subroutine:pedges	file:
+104	feaps3.for	/^104     continue$/;"	l	subroutine:pblockr	file:
+105	feaps2.for	/^  105   continue$/;"	l	subroutine:iprint	file:
+105	feaps2.for	/^  105   continue$/;"	l	subroutine:mprint	file:
+105	feaps2.for	/^  105   continue$/;"	l	subroutine:mprinte	file:
+105	feaps2.for	/^  105   continue$/;"	l	subroutine:mprintp	file:
+105	feaps2.for	/^105     continue$/;"	l	subroutine:esideb	file:
+105	feaps2.for	/^105     continue$/;"	l	subroutine:meshck	file:
+105	feaps2.for	/^105     xl(i) = (x1-x2)\/xli$/;"	l	subroutine:invec	file:
+105	feaps2.for	/^105   format(  9x,'Node difference after  optimization =',i5)$/;"	l	subroutine:optn	file:
+105	feaps2.for	/^105   xl(i) = (x(i,n)-x(i,l))\/xli$/;"	l	subroutine:genvec	file:
+105	feaps2.for	/^105   xl(i) = (x(i,n)-x(i,l))\/xli$/;"	l	subroutine:genvec1	file:
+105	feaps3.for	/^105       continue$/;"	l	subroutine:plink	file:
+105	feaps3.for	/^105      continue$/;"	l	subroutine:pblock	file:
+105	feaps3.for	/^105     continue$/;"	l	subroutine:pblockr	file:
+105	feaps3.for	/^105     continue$/;"	l	subroutine:pedgeb	file:
+105	feaps3.for	/^105     continue$/;"	l	subroutine:pedges	file:
+105	feaps6.for	/^  105     continue$/;"	l	subroutine:trblk	file:
+105	feaps6.for	/^105     shp(j,i) = shp(j,i) - 0.25d0*shp(j,9)$/;"	l	subroutine:shap2	file:
+106	feaps2.for	/^  106   continue$/;"	l	subroutine:mprint	file:
+106	feaps2.for	/^  106   continue$/;"	l	subroutine:mprinte	file:
+106	feaps2.for	/^  106   continue$/;"	l	subroutine:mprintp	file:
+106	feaps2.for	/^106   l = l + lg$/;"	l	subroutine:genvec	file:
+106	feaps2.for	/^106   l = l + lg$/;"	l	subroutine:genvec1	file:
+106	feaps2.for	/^106   l = l + lg$/;"	l	subroutine:invec	file:
+106	feaps3.for	/^106   if(ior.lt.0) write(*,3002)$/;"	l	subroutine:pedgeb	file:
+106	feaps6.for	/^106   if(ix(i).ne.0) shp(j,i) = shp(j,i) - 0.5d0*shp(j,9)$/;"	l	subroutine:shap2	file:
+107	feaps2.for	/^107   continue$/;"	l	subroutine:invec	file:
+107	feaps2.for	/^107   x(i,l) = x(i,l-lg) + xl(i)$/;"	l	subroutine:genvec	file:
+107	feaps2.for	/^107   x(i,l) = x(i,l-lg) + xl(i)$/;"	l	subroutine:genvec1	file:
+107	feaps3.for	/^107         continue$/;"	l	subroutine:pform	file:
+108	feaps2.for	/^108   continue$/;"	l	subroutine:genvec	file:
+108	feaps2.for	/^108   continue$/;"	l	subroutine:genvec1	file:
+108	feaps2.for	/^108   continue$/;"	l	subroutine:invec	file:
+108	feaps3.for	/^108     continue$/;"	l	subroutine:pform	file:
+109	feaps2.for	/^109   if(.not.prt) return$/;"	l	subroutine:genvec1	file:
+109	feaps2.for	/^109   if(.not.prt) return$/;"	l	subroutine:genvec2	file:
+109	feaps2.for	/^109   if(.not.prt) return$/;"	l	subroutine:invec	file:
+109	feaps2.for	/^109   if(inptctrl.eq.1.and.numnp.ne.0.and.cdd.eq.' coordinates') $/;"	l	subroutine:genvec	file:
+11	feaps2.for	/^  11    continue$/;"	l	subroutine:f3d	file:
+11	feaps3.for	/^11       w(i) = lw1(j)*lw1(k)$/;"	l	subroutine:pnewcot	file:
+11	feaps3.for	/^11    g11(1) = 0.9782286581460569928039380d0$/;"	l	subroutine:pgauss	file:
+11	feaps4.for	/^11          call        errclr ('OPNFIL')$/;"	l	subroutine:opnfil	file:
+11	feaps4.for	/^11    if(iii.lt.0) write(iow,3003)$/;"	l	subroutine:pmesh	file:
+11	feaps6.for	/^11          call errclr ('WRITER')$/;"	l	subroutine:writer	file:
+110	feaps1.for	/^  110   continue$/;"	l	subroutine:ckbrk8	file:
+110	feaps1.for	/^  110   continue$/;"	l	subroutine:ckisop	file:
+110	feaps1.for	/^110   do 150 i = 1,nlc$/;"	l	subroutine:acheck	file:
+110	feaps2.for	/^  110 continue$/;"	l	subroutine:iprint	file:
+110	feaps2.for	/^  110 continue$/;"	l	subroutine:mprint	file:
+110	feaps2.for	/^  110 continue$/;"	l	subroutine:mprinte	file:
+110	feaps2.for	/^  110 continue$/;"	l	subroutine:mprintp	file:
+110	feaps2.for	/^110         continue$/;"	l	subroutine:evalex	file:
+110	feaps2.for	/^110         nl = n1 + i - j$/;"	l	subroutine:just	file:
+110	feaps2.for	/^110     continue       $/;"	l	subroutine:invec	file:
+110	feaps2.for	/^110     continue$/;"	l	function:gamma1	file:
+110	feaps2.for	/^110     continue$/;"	l	subroutine:esideb	file:
+110	feaps2.for	/^110     continue$/;"	l	subroutine:genvec	file:
+110	feaps2.for	/^110     continue$/;"	l	subroutine:genvec2	file:
+110	feaps2.for	/^110     continue$/;"	l	subroutine:injint	file:
+110	feaps2.for	/^110     continue$/;"	l	subroutine:meshck	file:
+110	feaps2.for	/^110   continue$/;"	l	subroutine:esiden	file:
+110	feaps2.for	/^110   continue$/;"	l	subroutine:genrsum	file:
+110	feaps2.for	/^110   continue$/;"	l	subroutine:genvec1	file:
+110	feaps2.for	/^110   continue$/;"	l	subroutine:modify	file:
+110	feaps2.for	/^110   continue$/;"	l	subroutine:optn	file:
+110	feaps3.for	/^110                 continue$/;"	l	subroutine:parexp	file:
+110	feaps3.for	/^110           continue$/;"	l	subroutine:pforme	file:
+110	feaps3.for	/^110       continue$/;"	l	subroutine:pcfour	file:
+110	feaps3.for	/^110       continue$/;"	l	subroutine:ploadl	file:
+110	feaps3.for	/^110      continue$/;"	l	subroutine:pcktie	file:
+110	feaps3.for	/^110     nn = n - 1$/;"	l	subroutine:phist	file:
+110	feaps3.for	/^110   continue ! end loop elements$/;"	l	subroutine:pform	file:
+110	feaps3.for	/^110   if(prt)              write(iow,2000) (i,i=1,ndf)$/;"	l	subroutine:pblock	file:
+110	feaps3.for	/^110   if(prt)              write(iow,2000) (i,i=1,ndf)$/;"	l	subroutine:pblockr	file:
+110	feaps3.for	/^110   if(prt)              write(iow,2000) iang1,iang2$/;"	l	subroutine:panglev	file:
+110	feaps3.for	/^110   xmx = x(1,n)$/;"	l	function:pdiff	file:
+110	feaps4.for	/^  110   call dinput(td,1)$/;"	l	subroutine:pnums	file:
+110	feaps4.for	/^110     continue$/;"	l	subroutine:prefl	file:
+110	feaps4.for	/^110   if(pcomp(clab1,wd(j),4)) go to 130$/;"	l	subroutine:pmacio	file:
+110	feaps4.for	/^110   jct(ll) = i$/;"	l	subroutine:setmac	file:
+110	feaps4.for	/^110   write(*,2018) yyy$/;"	l	subroutine:pmesh	file:
+110	feaps5.for	/^110         continue$/;"	l	subroutine:ptrans	file:
+110	feaps5.for	/^110   continue$/;"	l	subroutine:pstr3d	file:
+110	feaps5.for	/^110   continue$/;"	l	subroutine:setval	file:
+110	feaps5.for	/^110   v(n) = v(n)\/vmax$/;"	l	subroutine:scalev	file:
+110	feaps5.for	/^110   valm(i) = valu(i)$/;"	l	subroutine:pstores	file:
+110	feaps6.for	/^  110     continue$/;"	l	subroutine:trblk	file:
+110	feaps6.for	/^110         shp(i,3) = shp(i,3)+shp(i,4)$/;"	l	subroutine:shape	file:
+110	feaps6.for	/^110     continue$/;"	l	subroutine:shp3d	file:
+110	feaps6.for	/^110   continue$/;"	l	subroutine:storeh	file:
+110	feaps6.for	/^110   tol(i) = (xmx - xmn)*sn$/;"	l	subroutine:tienod	file:
+111	feaps2.for	/^111     call perform(numnp+ik,2*numnp,2,29)$/;"	l	subroutine:optn	file:
+111	feaps2.for	/^111     mct = mct - 1$/;"	l	subroutine:genvec	file:
+111	feaps2.for	/^111   mct = mct - 1$/;"	l	subroutine:genvec1	file:
+111	feaps2.for	/^111   mct = mct - 1$/;"	l	subroutine:genvec2	file:
+111	feaps3.for	/^ 111    continue$/;"	l	subroutine:pform	file:
+111	feaps3.for	/^111   continue$/;"	l	subroutine:pgauss	file:
+111	feaps4.for	/^111         continue$/;"	l	subroutine:pmacio	file:
+111	feaps4.for	/^111   call  errclr ('PMESH ')$/;"	l	subroutine:pmesh	file:
+112	feaps2.for	/^112     if(ior.gt.0) then$/;"	l	subroutine:genvec	file:
+112	feaps2.for	/^112   if(ior.gt.0) then$/;"	l	subroutine:genvec1	file:
+112	feaps2.for	/^112   if(ior.gt.0) then$/;"	l	subroutine:genvec2	file:
+113	feaps2.for	/^113   continue$/;"	l	subroutine:genvec	file:
+113	feaps2.for	/^113   continue$/;"	l	subroutine:genvec1	file:
+113	feaps2.for	/^113   continue$/;"	l	subroutine:genvec2	file:
+113	feaps2.for	/^113   continue$/;"	l	subroutine:invec	file:
+115	feaps4.for	/^  115   call dinput(td,1)$/;"	l	subroutine:pnums	file:
+115	feaps6.for	/^115   continue$/;"	l	subroutine:shp3d	file:
+118	feaps4.for	/^  118   call dinput(td,3+nen)$/;"	l	subroutine:pnums	file:
+12	feaps1.for	/^12    y(i:i) = yy(i)$/;"	l	subroutine:dcheck	file:
+12	feaps2.for	/^  12  continue$/;"	l	subroutine:f3d	file:
+12	feaps3.for	/^12    g12(1) = 0.9815606342467192506905491d0$/;"	l	subroutine:pgauss	file:
+12	feaps4.for	/^12          call        endclr ('OPNFIL',y)$/;"	l	subroutine:opnfil	file:
+12	feaps4.for	/^12    call polar(x,ndm,prt)$/;"	l	subroutine:pmesh	file:
+12	feaps5.for	/^12      do i = 1,ndm$/;"	l	subroutine:prtreas	file:
+12	feaps6.for	/^12          call endclr ('WRITER',y)$/;"	l	subroutine:writer	file:
+120	feaps2.for	/^120     continue$/;"	l	subroutine:evalex	file:
+120	feaps2.for	/^120     continue$/;"	l	subroutine:f3d	file:
+120	feaps2.for	/^120     continue$/;"	l	subroutine:optn	file:
+120	feaps2.for	/^120     do 130 i = 1,nde$/;"	l	subroutine:esideb	file:
+120	feaps2.for	/^120   continue$/;"	l	subroutine:esiden	file:
+120	feaps2.for	/^120   continue$/;"	l	subroutine:meshck	file:
+120	feaps3.for	/^120               st(m,i) = st(nc,i)$/;"	l	subroutine:pcktie	file:
+120	feaps3.for	/^120       continue$/;"	l	subroutine:parexp	file:
+120	feaps3.for	/^120       continue$/;"	l	subroutine:pforme	file:
+120	feaps3.for	/^120     nad = nad + inc2$/;"	l	subroutine:ploadl	file:
+120	feaps3.for	/^120   continue$/;"	l	subroutine:panglb	file:
+120	feaps4.for	/^120   do 130 i = 1,list$/;"	l	subroutine:pmesh	file:
+120	feaps4.for	/^120   name(i  ) = '.'$/;"	l	subroutine:proced	file:
+120	feaps6.for	/^  120   continue$/;"	l	subroutine:trblk	file:
+120	feaps6.for	/^120       if(nel.gt.4) call shap2(ss,tt,shp,ix,nel)$/;"	l	subroutine:shape	file:
+120	feaps6.for	/^120   continue$/;"	l	subroutine:shp3d	file:
+120	feaps6.for	/^120   continue$/;"	l	subroutine:shp3dt	file:
+121	feaps2.for	/^121   continue$/;"	l	subroutine:f3d	file:
+121	feaps2.for	/^121   continue$/;"	l	subroutine:meshck	file:
+121	feaps3.for	/^121   continue$/;"	l	subroutine:pgauss	file:
+123	feaps2.for	/^123   continue$/;"	l	subroutine:meshck	file:
+125	feaps3.for	/^125       continue$/;"	l	subroutine:parexp	file:
+125	feaps6.for	/^125   continue$/;"	l	subroutine:shp3d	file:
+125	feaps6.for	/^125   continue$/;"	l	subroutine:shp3dt	file:
+13	feaps3.for	/^13    g13(1)  = 0.9841830547185881494728294d0$/;"	l	subroutine:pgauss	file:
+13	feaps4.for	/^13          if(y.ne.'y'.and.y.ne.'Y') then$/;"	l	subroutine:opnfil	file:
+13	feaps4.for	/^13    call pedges(x,id,idl,ndm,ndf,numnp,c2,prt)$/;"	l	subroutine:pmesh	file:
+13	feaps6.for	/^13          if(y.ne.'y' .or. y.ne.'Y') return$/;"	l	subroutine:writer	file:
+130	feaps2.for	/^130         continue$/;"	l	subroutine:evalex	file:
+130	feaps2.for	/^130     continue$/;"	l	subroutine:esideb	file:
+130	feaps2.for	/^130     index=newjt(i)$/;"	l	subroutine:optn	file:
+130	feaps3.for	/^130         continue$/;"	l	subroutine:pcktie	file:
+130	feaps3.for	/^130   continue$/;"	l	subroutine:parexp	file:
+130	feaps3.for	/^130   continue$/;"	l	subroutine:pforme	file:
+130	feaps4.for	/^130   continue$/;"	l	subroutine:prefl	file:
+130	feaps4.for	/^130   if(pcomp(cc,wd(i),4)) go to 140$/;"	l	subroutine:pmesh	file:
+130	feaps4.for	/^130   jct(ll) = j$/;"	l	subroutine:pmacio	file:
+130	feaps6.for	/^  130 continue$/;"	l	subroutine:trblk	file:
+130	feaps6.for	/^130          xs(i,j) = xs(i,j) + x(i,k)*shp(j,k)$/;"	l	subroutine:shape	file:
+131	feaps3.for	/^131   continue$/;"	l	subroutine:pgauss	file:
+131	feaps4.for	/^131   if(iopl1.eq.1) then$/;"	l	subroutine:proced	file:
+131	feaps6.for	/^  131 continue$/;"	l	subroutine:trblk	file:
+135	feaps4.for	/^135   if (hadd) then$/;"	l	subroutine:pmacio	file:
+14	feaps3.for	/^14    g14(1)  = 0.9862838086968123388415973d0$/;"	l	subroutine:pgauss	file:
+14	feaps4.for	/^14    call dinput(td,3)$/;"	l	subroutine:pmesh	file:
+140	feaps2.for	/^140       continue$/;"	l	subroutine:edgupd	file:
+140	feaps2.for	/^140     continue$/;"	l	subroutine:evalex	file:
+140	feaps2.for	/^140     continue$/;"	l	subroutine:optn	file:
+140	feaps2.for	/^140   continue$/;"	l	subroutine:invert	file:
+140	feaps3.for	/^140   continue$/;"	l	subroutine:pcktie	file:
+140	feaps3.for	/^140   continue$/;"	l	subroutine:pfuncs	file:
+140	feaps4.for	/^140       n = n + 1$/;"	l	subroutine:proced	file:
+140	feaps4.for	/^140   ll = ll + 1$/;"	l	subroutine:pmacio	file:
+140	feaps4.for	/^140   ll = ll + 1$/;"	l	subroutine:pmesh	file:
+140	feaps6.for	/^140         shp(1,i) = tp$/;"	l	subroutine:shape	file:
+141	feaps3.for	/^141   continue$/;"	l	subroutine:pgauss	file:
+15	feaps3.for	/^15    g15(1)  = 0.9879925180204854284895657d0$/;"	l	subroutine:pgauss	file:
+15	feaps4.for	/^15    j = 0$/;"	l	subroutine:pmesh	file:
+150	feaps1.for	/^150   continue$/;"	l	subroutine:acheck	file:
+150	feaps2.for	/^150     continue$/;"	l	subroutine:edgupd	file:
+150	feaps2.for	/^150     minmax=maxi$/;"	l	subroutine:optn	file:
+150	feaps2.for	/^150   a(i,n) = a(i,n)\/d$/;"	l	subroutine:invert	file:
+150	feaps3.for	/^  150     continue$/;"	l	subroutine:nodel	file:
+150	feaps3.for	/^  150   continue$/;"	l	subroutine:nodew	file:
+150	feaps3.for	/^150     continue$/;"	l	subroutine:phist	file:
+150	feaps3.for	/^150   CONTINUE$/;"	l	subroutine:parse	file:
+150	feaps3.for	/^150   continue$/;"	l	subroutine:ploadl	file:
+150	feaps3.for	/^150   if(nde*ned.gt.0) then$/;"	l	subroutine:pcontr	file:
+150	feaps4.for	/^150       continue$/;"	l	subroutine:proced	file:
+150	feaps4.for	/^150   jct(ll)= nnx$/;"	l	subroutine:pmacio	file:
+150	feaps5.for	/^150     continue$/;"	l	subroutine:promul1	file:
+150	feaps5.for	/^150   if(ior.lt.0) then$/;"	l	subroutine:setval	file:
+151	feaps3.for	/^151   continue$/;"	l	subroutine:pgauss	file:
+151	feaps5.for	/^151     read (*,1000,err=152,end=153) xt$/;"	l	subroutine:setval	file:
+152	feaps5.for	/^152     call  errclr ('SETVAL')$/;"	l	subroutine:setval	file:
+153	feaps5.for	/^153     call  endclr ('SETVAL',xt)$/;"	l	subroutine:setval	file:
+154	feaps5.for	/^154     write(iow,2002) xt$/;"	l	subroutine:setval	file:
+155	feaps2.for	/^155     continue$/;"	l	subroutine:optn	file:
+16	feaps3.for	/^16    g16(1)  = 0.9894009349916499325961542d0$/;"	l	subroutine:pgauss	file:
+16	feaps4.for	/^16    coflg = .true.$/;"	l	subroutine:pmesh	file:
+160	feaps2.for	/^160       continue$/;"	l	subroutine:evalex	file:
+160	feaps3.for	/^160        II=II+1$/;"	l	subroutine:parse	file:
+160	feaps4.for	/^160       call trans2(yyy)$/;"	l	subroutine:proced	file:
+160	feaps5.for	/^160     continue$/;"	l	subroutine:setval	file:
+161	feaps3.for	/^161   continue$/;"	l	subroutine:pgauss	file:
+17	feaps3.for	/^17    g17(1)  = 0.9905754753144173356754340d0$/;"	l	subroutine:pgauss	file:
+17	feaps4.for	/^17    call sphere(x,ndm,prt)$/;"	l	subroutine:pmesh	file:
+170	feaps3.for	/^170   CONTINUE$/;"	l	subroutine:parse	file:
+170	feaps4.for	/^170       close(ios)$/;"	l	subroutine:proced	file:
+171	feaps3.for	/^171   continue$/;"	l	subroutine:pgauss	file:
+18	feaps3.for	/^18    g18(1)  = 0.9915651684209309467300160d0$/;"	l	subroutine:pgauss	file:
+18	feaps4.for	/^18    call blktem(ndm,t,prt)$/;"	l	subroutine:pmesh	file:
+180	feaps3.for	/^  180       continue$/;"	l	subroutine:nodew	file:
+181	feaps3.for	/^181   continue$/;"	l	subroutine:pgauss	file:
+19	feaps3.for	/^19    g19(1)  = 0.9924068438435844031890177d0$/;"	l	subroutine:pgauss	file:
+19	feaps4.for	/^19    continue$/;"	l	subroutine:pmesh	file:
+191	feaps3.for	/^191   continue$/;"	l	subroutine:pgauss	file:
+1999	Qtree.f90	/^1999    format(\/4x,'Q T R E E  M E S H')$/;"	l	subroutine:QtreeSR	file:
+2	feaps2.for	/^2     continue$/;"	l	subroutine:f3d	file:
+2	feaps2.for	/^2     one = 1.d0$/;"	l	subroutine:shape1D	file:
+2	feaps2.for	/^2     pg(1) = -dsqrt(3.0d0)\/3.0d0$/;"	l	subroutine:gaus1D	file:
+2	feaps3.for	/^2         do i = 1,ns$/;"	l	subroutine:ploadi	file:
+2	feaps3.for	/^2     g = 1.d0\/dsqrt(3.d0)$/;"	l	subroutine:pgauss	file:
+2	feaps3.for	/^2     i = 0   $/;"	l	subroutine:pnewcot	file:
+2	feaps4.for	/^2     continue$/;"	l	subroutine:pmesh	file:
+2	feaps5.for	/^2     call pzero(p,3)$/;"	l	subroutine:node_line	file:
+20	feaps1.for	/^20    continue$/;"	l	subroutine:blkgen	file:
+20	feaps1.for	/^20    continue$/;"	l	subroutine:blkgenco	file:
+20	feaps1.for	/^20    continue$/;"	l	subroutine:blkgendx	file:
+20	feaps1.for	/^20    continue$/;"	l	subroutine:blktem	file:
+20	feaps1.for	/^20    continue$/;"	l	subroutine:blktri	file:
+20	feaps2.for	/^  20      continue$/;"	l	subroutine:f3d	file:
+20	feaps2.for	/^20            continue$/;"	l	subroutine:optn	file:
+20	feaps2.for	/^20      mat2       = n3 ! change$/;"	l	subroutine:mateerr	file:
+20	feaps2.for	/^20    ipos = i$/;"	l	subroutine:dochar2	file:
+20	feaps3.for	/^20    g20(1)  = 0.9931285991850949247861224d0$/;"	l	subroutine:pgauss	file:
+20	feaps4.for	/^20          continue$/;"	l	subroutine:seteq	file:
+20	feaps4.for	/^20    call incon(x,ndm,prt)$/;"	l	subroutine:pmesh	file:
+20	feaps4.for	/^20    continue$/;"	l	subroutine:trans2	file:
+20	feaps5.for	/^20            continue$/;"	l	subroutine:rstprf	file:
+20	feaps5.for	/^20      continue$/;"	l	subroutine:serchl	file:
+20	feaps5.for	/^20    ipos=0$/;"	l	subroutine:node_line	file:
+200	feaps1.for	/^ 200    write(iow,2000) nn,y(1:nn*15)$/;"	l	subroutine:dcheck	file:
+200	feaps1.for	/^200       continue$/;"	l	subroutine:tblk	file:
+200	feaps1.for	/^200     continue$/;"	l	subroutine:bjac3d	file:
+200	feaps1.for	/^200   continue$/;"	l	subroutine:acheck	file:
+200	feaps1.for	/^200   continue$/;"	l	subroutine:dasbly	file:
+200	feaps1.for	/^200   continue$/;"	l	subroutine:dasol1	file:
+200	feaps1.for	/^200   continue$/;"	l	subroutine:datri1	file:
+200	feaps1.for	/^200   if(prt) then$/;"	l	subroutine:aload	file:
+200	feaps1.for	/^200   y(i) = yy(i:i)$/;"	l	subroutine:chkblk	file:
+200	feaps2.for	/^  200   continue$/;"	l	subroutine:front	file:
+200	feaps2.for	/^  200 nstart  = 0$/;"	l	subroutine:opnum	file:
+200	feaps2.for	/^200         continue$/;"	l	subroutine:esiden	file:
+200	feaps2.for	/^200     continue$/;"	l	subroutine:dredu	file:
+200	feaps2.for	/^200     if(ior.lt.0) write(*,2002)$/;"	l	subroutine:esideb	file:
+200	feaps2.for	/^200   continue$/;"	l	subroutine:edgupd	file:
+200	feaps2.for	/^200   continue$/;"	l	subroutine:eload	file:
+200	feaps2.for	/^200   continue$/;"	l	subroutine:invert	file:
+200	feaps2.for	/^200   continue$/;"	l	subroutine:isect	file:
+200	feaps2.for	/^200   continue$/;"	l	subroutine:shape1D	file:
+200	feaps2.for	/^200   cvtc2i = n$/;"	l	function:cvtc2i	file:
+200	feaps3.for	/^  200   continue$/;"	l	subroutine:nodew	file:
+200	feaps3.for	/^  200 continue$/;"	l	subroutine:nodel	file:
+200	feaps3.for	/^ 200  call errclr('PCHARR')$/;"	l	subroutine:pcharr	file:
+200	feaps3.for	/^200         continue$/;"	l	subroutine:pcfour	file:
+200	feaps3.for	/^200       continue$/;"	l	subroutine:phist	file:
+200	feaps3.for	/^200   close(ior)  ! close input file to have access by other programs$/;"	l	subroutine:pcontr	file:
+200	feaps3.for	/^200   continue$/;"	l	function:pdiff	file:
+200	feaps3.for	/^200   continue$/;"	l	subroutine:panglee	file:
+200	feaps3.for	/^200   continue$/;"	l	subroutine:pblockr	file:
+200	feaps3.for	/^200   continue$/;"	l	subroutine:pcheck	file:
+200	feaps3.for	/^200   continue$/;"	l	subroutine:pedgeb	file:
+200	feaps3.for	/^200   continue$/;"	l	subroutine:pedgeg	file:
+200	feaps3.for	/^200   continue$/;"	l	subroutine:pedges	file:
+200	feaps3.for	/^200   continue$/;"	l	subroutine:pedgesd	file:
+200	feaps3.for	/^200   yyy(I:I) = YY(I)$/;"	l	subroutine:parse	file:
+200	feaps4.for	/^ 200  numnp  = numn$/;"	l	subroutine:pnums	file:
+200	feaps4.for	/^200         call dinput(td,il)$/;"	l	subroutine:pmesh	file:
+200	feaps4.for	/^200       ct(1,i) = 0.0d0 ! from F83$/;"	l	subroutine:pmacio	file:
+200	feaps4.for	/^200     continue$/;"	l	subroutine:prefl	file:
+200	feaps4.for	/^200     read(ios,'(a)',end=300) x1  ! read  line in procedure file$/;"	l	subroutine:proced	file:
+200	feaps4.for	/^200   if(itype.eq.0 .or. itype. eq. 12) then$/;"	l	subroutine:polar	file:
+200	feaps4.for	/^200   ipos = n$/;"	l	function:ipos	file:
+200	feaps4.for	/^200   ipos1 = n$/;"	l	function:ipos1	file:
+200	feaps5.for	/^200     continue$/;"	l	function:propld	file:
+200	feaps5.for	/^200   continue$/;"	l	subroutine:promul1	file:
+200	feaps5.for	/^200   continue$/;"	l	subroutine:prtdii2	file:
+200	feaps5.for	/^200   continue$/;"	l	subroutine:prtstr	file:
+200	feaps5.for	/^200   continue$/;"	l	subroutine:rot	file:
+200	feaps5.for	/^200   continue$/;"	l	subroutine:sblk	file:
+200	feaps5.for	/^200   continue$/;"	l	subroutine:sblkdx	file:
+200	feaps5.for	/^200   if(lflg) then$/;"	l	subroutine:reader	file:
+200	feaps6.for	/^200       continue$/;"	l	subroutine:tienod	file:
+200	feaps6.for	/^200     continue$/;"	l	subroutine:vblk	file:
+200	feaps6.for	/^200     if(prt)              write(iow,2001) n,(xg(i,n),i=1,ndm)$/;"	l	subroutine:xmodif	file:
+200	feaps6.for	/^200     r = x(1,n)$/;"	l	subroutine:sphere	file:
+200	feaps6.for	/^200     x(1,n) = x(1,n) - dx$/;"	l	subroutine:transx	file:
+200	feaps6.for	/^200   if(lflg) then$/;"	l	subroutine:writer	file:
+2000	Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeSR	file:
+2000	feaps1.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput	file:
+2000	feaps1.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput2	file:
+2000	feaps1.for	/^2000  format(' >Element',i4,' coordinates not input for nodes:'\/$/;"	l	subroutine:ckbrk8	file:
+2000	feaps1.for	/^2000  format(' >Element',i4,' coordinates not input for nodes:'\/$/;"	l	subroutine:ckisop	file:
+2000	feaps1.for	/^2000  format(\/'   n o d e   g e n e r a t i o n s  for cohesive zones'\/$/;"	l	subroutine:blkgenco	file:
+2000	feaps1.for	/^2000  format(\/'   n o d e   g e n e r a t i o n s'\/$/;"	l	subroutine:blkgen	file:
+2000	feaps1.for	/^2000  format(\/'   n o d e   g e n e r a t i o n s'\/$/;"	l	subroutine:blkgendx	file:
+2000	feaps1.for	/^2000  format(\/'   n o d e   g e n e r a t i o n s'\/$/;"	l	subroutine:blktri	file:
+2000	feaps1.for	/^2000  format(\/'   t e m p   g e n e r a t i o n s'\/$/;"	l	subroutine:blktem	file:
+2000	feaps1.for	/^2000  format(\/'  n o d a l   t e m p e r a t u r e s'\/$/;"	l	subroutine:tblk	file:
+2000	feaps1.for	/^2000  format(\/' *ERROR* attempting to input',i3,' value(s).',$/;"	l	subroutine:dcheck	file:
+2000	feaps1.for	/^2000  format(\/5x,'L o a d s  o n  e l e m e n t s',\/,5x,$/;"	l	subroutine:aload	file:
+2000	feaps2.for	/^ 2000 format (' ** ERROR in ',a6,' ** end of file encountered')$/;"	l	subroutine:endclr	file:
+2000	feaps2.for	/^ 2000 format(5x,'matrix ',a,5x,'THREAD',i4,\/1x,'row\/col',i6,5i12)$/;"	l	subroutine:mprintp	file:
+2000	feaps2.for	/^ 2000 format(5x,'matrix ',a10\/1x,'row\/col',i4,8i8)$/;"	l	subroutine:iprint	file:
+2000	feaps2.for	/^ 2000 format(5x,'matrix ',a\/1x,'row\/col',i6,5i12)$/;"	l	subroutine:mprint	file:
+2000	feaps2.for	/^ 2000 format(5x,'matrix ',a\/1x,'row\/col',i6,5i14)$/;"	l	subroutine:mprinte	file:
+2000	feaps2.for	/^ 2000 format(\/1x,'Calculation of Minimum Front'\/)$/;"	l	subroutine:opnum	file:
+2000	feaps2.for	/^2000  format('  Input: edbc or edgb'\/'  ->',$)$/;"	l	subroutine:esideb	file:
+2000	feaps2.for	/^2000  format('  Mat.\/El.  ',i6,' not defined')$/;"	l	subroutine:meshck	file:
+2000	feaps2.for	/^2000  format(' Input: node#, inc.'\/3x,'>',$)$/;"	l	subroutine:genrsum	file:
+2000	feaps2.for	/^2000  format(' subspace size reduced to',i4,' by number of nonzero lumpe$/;"	l	subroutine:numass	file:
+2000	feaps2.for	/^2000  format(\/'    M A T E R I A L  M o d i f i c a t i o n s'\/\/$/;"	l	subroutine:mateerr	file:
+2000	feaps2.for	/^2000  format(\/'    M e s h   R e f i n e m e n t s   F o r',i4,'%',$/;"	l	subroutine:elmterr	file:
+2000	feaps2.for	/^2000  format(\/' Actual sum of n o d a l  forces along line'\/,$/;"	l	subroutine:eload	file:
+2000	feaps2.for	/^2000  format(\/'no convergence for eigenvalue after',i2,' iterations',\/,$/;"	l	subroutine:eigi	file:
+2000	feaps2.for	/^2000  format(\/,' Intersections generated with ISEC on ')$/;"	l	subroutine:isect	file:
+2000	feaps2.for	/^2000  format(\/10x,'  Edge Connection List'$/;"	l	subroutine:eprint	file:
+2000	feaps2.for	/^2000  format(\/5x,'Imperfect nodal coordinates',\/,$/;"	l	subroutine:genvec3	file:
+2000	feaps2.for	/^2000  format(\/5x,'initial nodal',2a4\/\/7x,'node',6(i7,a4,a2)\/$/;"	l	subroutine:invec	file:
+2000	feaps2.for	/^2000  format(\/5x,'nodal',3a4,3a4\/\/6x,'node',12(i7,a4,a2)\/$/;"	l	subroutine:genvec1	file:
+2000	feaps2.for	/^2000  format(\/5x,'nodal',3a4\/\/6x,'node',6(i7,a4,a2)\/$/;"	l	subroutine:genvec	file:
+2000	feaps2.for	/^2000  format(\/5x,'nodal',3a4\/\/6x,'node',6(i7,a4,a2)\/$/;"	l	subroutine:genvec2	file:
+2000	feaps2.for	/^2000  format(\/\/,5x,'Element numbers for J-integral',\/)$/;"	l	subroutine:injint	file:
+2000	feaps3.for	/^ 2000 format(' Incorrect statement - reinput ')$/;"	l	subroutine:pcheck	file:
+2000	feaps3.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconst	file:
+2000	feaps3.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconstm	file:
+2000	feaps3.for	/^2000  format('  no. macro option   value-1      value-2',$/;"	l	subroutine:phist	file:
+2000	feaps3.for	/^2000  format(1h ,19a4,a3\/\/14x,a16\/14x,a16\/14x,a16$/;"	l	subroutine:pcontr	file:
+2000	feaps3.for	/^2000  format(\/'   Fourier harmonic = ',i3,'  Factor =',e12.5\/1x)$/;"	l	subroutine:pcfour	file:
+2000	feaps3.for	/^2000  format(\/'  b l o c k     n o d a l    a n g l e s ',$/;"	l	subroutine:panglev	file:
+2000	feaps3.for	/^2000  format(\/'  b l o c k   n o d a l    b . c .'\/$/;"	l	subroutine:pblock	file:
+2000	feaps3.for	/^2000  format(\/'  e d g e    n o d a l    a n g l e s ',$/;"	l	subroutine:panglee	file:
+2000	feaps3.for	/^2000  format(\/'  e d g e    n o d a l    b . c .'\/$/;"	l	subroutine:pedges	file:
+2000	feaps3.for	/^2000  format(\/'  e d g e    n o d a l    prescribed b.c. values'\/$/;"	l	subroutine:pedgesd	file:
+2000	feaps3.for	/^2000  format(\/'  e d g e(g) n o d a l    b . c .'\/$/;"	l	subroutine:pedgeg	file:
+2000	feaps3.for	/^2000  format(\/'  n o d a l  b. c. along line    '\/$/;"	l	subroutine:pedgeb	file:
+2000	feaps3.for	/^2000  format(\/'  p o i n t    l o a d   and    b . c .'\/$/;"	l	subroutine:ppload	file:
+2000	feaps3.for	/^2000  format(\/'radial block  n o d a l    b . c .'\/$/;"	l	subroutine:pblockr	file:
+2000	feaps3.for	/^2000  format(a1,20a4\/\/'     s u r f a c e   l o a d i n g'\/\/$/;"	l	subroutine:ploadi	file:
+2000	feaps4.for	/^2000  format(' **ERROR** dof',i2,' for element',i5,' is',i6)$/;"	l	subroutine:prefl	file:
+2000	feaps4.for	/^2000  format(' A procedure named ',a,' exist. Continue?  (y\/n) >',$)$/;"	l	subroutine:opnfil	file:
+2000	feaps4.for	/^2000  format('E l e m e n t s'\/\/4x,'elmt    matl',$/;"	l	subroutine:showelem	file:
+2000	feaps4.for	/^2000  format('N o d a l   C o o r d i n a t e s',\/,$/;"	l	subroutine:showcoor	file:
+2000	feaps4.for	/^2000  format('N o d a l   F o r c e s',\/,$/;"	l	subroutine:showforc	file:
+2000	feaps4.for	/^2000  format('N o d a l   b o u n d a r y  c o n d i t i o n s',\/,$/;"	l	subroutine:showboun	file:
+2000	feaps4.for	/^2000  format('N o d a l  V a l u e s  for node ',i6,\/,$/;"	l	subroutine:shownode	file:
+2000	feaps4.for	/^2000  format(7x,a4,1x,a4,1x,3g12.5)$/;"	l	subroutine:pmacio	file:
+2000	feaps4.for	/^2000  format(\/$/;"	l	subroutine:polar	file:
+2000	feaps4.for	/^2000  format(\/'     nodal b.c.'\/$/;"	l	subroutine:pmesh	file:
+2000	feaps4.for	/^2000  format(\/' *** No previous instruction of this type executed')$/;"	l	subroutine:histex	file:
+2000	feaps4.for	/^2000  format(\/,'  QLOA element loads',$)$/;"	l	subroutine:qloadi	file:
+2000	feaps4.for	/^2000  format(e15.8)$/;"	l	subroutine:readv1	file:
+2000	feaps5.for	/^ 2000 format(3x,A30,A1,F10.3,A4,A1,F16.0)$/;"	l	subroutine:pmemo_out	file:
+2000	feaps5.for	/^2000  format('  List of used arrays in Common M',\/$/;"	l	subroutine:pseta_out	file:
+2000	feaps5.for	/^2000  format(10x,'Material  Element Type  Hist.terms H1  Hist.terms H3')$/;"	l	subroutine:sethis	file:
+2000	feaps5.for	/^2000  format(30x,'Proportional Load Table')$/;"	l	function:propld	file:
+2000	feaps5.for	/^2000  format(\/'   n o d a l   s t r e s s e s'\/$/;"	l	subroutine:prtstr	file:
+2000	feaps5.for	/^2000  format(\/'  No.   Eigenvalue')$/;"	l	subroutine:prtom	file:
+2000	feaps5.for	/^2000  format(\/'  SIGQ [S_11, S_22, S_33, T_12, T_13, T_23]',$/;"	l	subroutine:prtreas	file:
+2000	feaps5.for	/^2000  format(\/'  n o d a l    m a t e r i a l  f o r c e s'\/5x,$/;"	l	subroutine:prtjint	file:
+2000	feaps5.for	/^2000  format(\/'  n o d a l    r e a c t i o n s'\/5x,$/;"	l	subroutine:prtrea	file:
+2000	feaps5.for	/^2000  format(\/'  n o d a l   ',a,5x,$/;"	l	subroutine:prtdis	file:
+2000	feaps5.for	/^2000  format(\/,$/;"	l	subroutine:rot	file:
+2000	feaps6.for	/^2000  format(' * * ERROR * * call with wrong quadrature, l =',i3)$/;"	l	subroutine:tgauss	file:
+2000	feaps6.for	/^2000  format(\/$/;"	l	subroutine:sphere	file:
+2000	feaps6.for	/^2000  format(\/'  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:vblk	file:
+2000	feaps6.for	/^2000  format(\/,$/;"	l	subroutine:transx	file:
+2000	feaps6.for	/^2000  format(\/,$/;"	l	subroutine:xmodif	file:
+2000	feaps6.for	/^2000  format(\/6x,' t i e  - - -  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:tienod	file:
+2001	Qtree.f90	/^2001    format(5x,'Press RETURN to continue')    $/;"	l	subroutine:QtreeSR	file:
+2001	feaps1.for	/^2001  format(' >Element',i4,' has negative jacobian at nodes:'\/$/;"	l	subroutine:ckbrk8	file:
+2001	feaps1.for	/^2001  format(' >Element',i4,' has negative jacobian at nodes:'\/$/;"	l	subroutine:ckisop	file:
+2001	feaps1.for	/^2001  format(5x,6(1x,e12.5),2x,i1,2x,4x,i2)$/;"	l	subroutine:aload	file:
+2001	feaps1.for	/^2001  format(i10,1p1e13.4)$/;"	l	subroutine:tblk	file:
+2001	feaps1.for	/^2001  format(i9,1p3e12.3)$/;"	l	subroutine:blkgen	file:
+2001	feaps1.for	/^2001  format(i9,1p3e12.3)$/;"	l	subroutine:blkgenco	file:
+2001	feaps1.for	/^2001  format(i9,1p3e12.3)$/;"	l	subroutine:blkgendx	file:
+2001	feaps1.for	/^2001  format(i9,1p3e12.3)$/;"	l	subroutine:blktem	file:
+2001	feaps1.for	/^2001  format(i9,1p3e12.3)$/;"	l	subroutine:blktri	file:
+2001	feaps2.for	/^ 2001 format(5x,'Next element on front=',i6)$/;"	l	subroutine:opnum	file:
+2001	feaps2.for	/^ 2001 format(i4,3x,1p6e12.4)$/;"	l	subroutine:mprint	file:
+2001	feaps2.for	/^ 2001 format(i4,3x,1p6e12.4)$/;"	l	subroutine:mprintp	file:
+2001	feaps2.for	/^ 2001 format(i4,3x,1p6e14.6)$/;"	l	subroutine:mprinte	file:
+2001	feaps2.for	/^ 2001 format(i4,9i8)$/;"	l	subroutine:iprint	file:
+2001	feaps2.for	/^2001  format('  Input:  n1, n2, b.c.-codes'\/'  ->',$)$/;"	l	subroutine:esideb	file:
+2001	feaps2.for	/^2001  format('  Node number ',i4,' for element ',i4,' > max. node')$/;"	l	subroutine:meshck	file:
+2001	feaps2.for	/^2001  format(' From         Point ',3(1x,e12.5),\/,$/;"	l	subroutine:isect	file:
+2001	feaps2.for	/^2001  format(' Input: dof, type'\/3x,'>',$)$/;"	l	subroutine:genrsum	file:
+2001	feaps2.for	/^2001  format(5x,' Point not found, coordinates=:  ',3e14.6)   $/;"	l	subroutine:genvec3	file:
+2001	feaps2.for	/^2001  format(5x,8i6)$/;"	l	subroutine:injint	file:
+2001	feaps2.for	/^2001  format(\/5x,'Modifaction of coordinates with random numbers',\/$/;"	l	subroutine:genvec2	file:
+2001	feaps2.for	/^2001  format(i15,'  |',9i5)$/;"	l	subroutine:eprint	file:
+2001	feaps2.for	/^2001  format(i5,6(e12.5))$/;"	l	subroutine:eload	file:
+2001	feaps2.for	/^2001  format(i8,1p5e12.4)$/;"	l	subroutine:elmterr	file:
+2001	feaps2.for	/^2001  format(i8,1pe12.4,2i7)$/;"	l	subroutine:mateerr	file:
+2001	feaps3.for	/^ 2001 format('   No.',i3,'>',a1,' = ',74a1)$/;"	l	subroutine:pcheck	file:
+2001	feaps3.for	/^ 2001 format(\/'  p a r a m e t e r   v a l u e s')$/;"	l	subroutine:pconst	file:
+2001	feaps3.for	/^ 2001 format(\/'  p a r a m e t e r   v a l u e s')$/;"	l	subroutine:pconstm	file:
+2001	feaps3.for	/^2001  format(10i8\/(8x,9i8))$/;"	l	subroutine:pblock	file:
+2001	feaps3.for	/^2001  format(10i8\/(8x,9i8))$/;"	l	subroutine:pblockr	file:
+2001	feaps3.for	/^2001  format(10i8\/(8x,9i8))$/;"	l	subroutine:pedgeb	file:
+2001	feaps3.for	/^2001  format(10i8\/(8x,9i8))$/;"	l	subroutine:pedgeg	file:
+2001	feaps3.for	/^2001  format(10i8\/(8x,9i8))$/;"	l	subroutine:pedges	file:
+2001	feaps3.for	/^2001  format(1x,'link nodes(tied to)',i6,'(',i6,')',' to',$/;"	l	subroutine:plink	file:
+2001	feaps3.for	/^2001  format(5x,6(i5,'-value '))$/;"	l	subroutine:ploadi	file:
+2001	feaps3.for	/^2001  format(\/ ' n o d a l  d i r e c t o r  ',a72,\/)$/;"	l	subroutine:pdirec	file:
+2001	feaps3.for	/^2001  format(\/'   Fourier solution:',i3,' terms.'\/$/;"	l	subroutine:pcfour	file:
+2001	feaps3.for	/^2001  format(i5,2(2x,a4),3g13.4)$/;"	l	subroutine:phist	file:
+2001	feaps3.for	/^2001  format(i6,2x,8(e12.5,1x)\/(8x,8(e12.5,1x)))$/;"	l	subroutine:ppload	file:
+2001	feaps3.for	/^2001  format(i8,3x,g12.5)$/;"	l	subroutine:panglee	file:
+2001	feaps3.for	/^2001  format(i8,3x,g12.5)$/;"	l	subroutine:panglev	file:
+2001	feaps3.for	/^2001  format(i8,9f8.4\/(8x,9f8.4))$/;"	l	subroutine:pedgesd	file:
+2001	feaps4.for	/^2001  format(' No procedure or macro command named ',a,' exists.')$/;"	l	subroutine:opnfil	file:
+2001	feaps4.for	/^2001  format(10i8\/(16x,8i8))$/;"	l	subroutine:showelem	file:
+2001	feaps4.for	/^2001  format(1p6e12.5:\/(1p6e12.5))$/;"	l	subroutine:shownode	file:
+2001	feaps4.for	/^2001  format(5x,'Actual time........................... ',f12.5)$/;"	l	subroutine:plshowm	file:
+2001	feaps4.for	/^2001  format(\/'  m a c r o   i n s t r u c t i o n s'\/$/;"	l	subroutine:pmacio	file:
+2001	feaps4.for	/^2001  format(\/' *** Error *** no match of this macro name')$/;"	l	subroutine:histex	file:
+2001	feaps4.for	/^2001  format(\/,2x,'Mat.No',1x,'EL.typ',$/;"	l	subroutine:qloadi	file:
+2001	feaps4.for	/^2001  format(\/4x,'E q u a t i o n \/ P r o b l e m   S u m m a r y:'\/$/;"	l	subroutine:profil	file:
+2001	feaps4.for	/^2001  format(\/5x,'elements'\/\/6x,'elmt    matl',$/;"	l	subroutine:pmesh	file:
+2001	feaps4.for	/^2001  format(a80)$/;"	l	subroutine:proced	file:
+2001	feaps4.for	/^2001  format(i10,9i7\/(10x,9i7))$/;"	l	subroutine:showboun	file:
+2001	feaps4.for	/^2001  format(i6,1p6e12.5:\/(6x,1p6e12.5))$/;"	l	subroutine:showcoor	file:
+2001	feaps4.for	/^2001  format(i6,1p6e12.5:\/(6x,1p6e12.5))$/;"	l	subroutine:showforc	file:
+2001	feaps4.for	/^2001  format(i8,6f12.4)$/;"	l	subroutine:polar	file:
+2001	feaps5.for	/^ 2001 format(2x,a1,' = ',74a1\/'   >',$)$/;"	l	subroutine:setval	file:
+2001	feaps5.for	/^ 2001 format(3x,A30,A1,A14,A1,A16)$/;"	l	subroutine:pmemo_out	file:
+2001	feaps5.for	/^2001  format('   File does not exist: ',a229)$/;"	l	subroutine:readerb	file:
+2001	feaps5.for	/^2001  format('   File name for a read has been set to ',a4)$/;"	l	subroutine:reader	file:
+2001	feaps5.for	/^2001  format('**datri warning: sign of diagonal changed  ',$/;"	l	subroutine:prtdii2	file:
+2001	feaps5.for	/^2001  format(2x,i5,5x,a15,i15,i15,f15.3)$/;"	l	subroutine:pseta_out	file:
+2001	feaps5.for	/^2001  format(4i15)$/;"	l	subroutine:sethis	file:
+2001	feaps5.for	/^2001  format(\/,' number    type      tmin',10x,'tmax',\/i3,i10,7x,g10.4,$/;"	l	function:propld	file:
+2001	feaps5.for	/^2001  format(i4,3x,e15.8)$/;"	l	subroutine:prtom	file:
+2001	feaps5.for	/^2001  format(i5,1p26e16.5)$/;"	l	subroutine:prtstr	file:
+2001	feaps5.for	/^2001  format(i6,1p9e12.5:\/(6x,1p9e12.5))$/;"	l	subroutine:prtdis	file:
+2001	feaps5.for	/^2001  format(i8,3f12.4)$/;"	l	subroutine:rot	file:
+2001	feaps5.for	/^2001  format(i9,1p6e11.3:\/(9x,1p6e11.3))$/;"	l	subroutine:prtjint	file:
+2001	feaps5.for	/^2001  format(i9,1p6e11.3:\/(9x,1p6e11.3))$/;"	l	subroutine:prtrea	file:
+2001	feaps6.for	/^2001  format('   Output file for write operations is named ',a4)$/;"	l	subroutine:writer	file:
+2001	feaps6.for	/^2001  format('File name for a read has been set to ',a4)$/;"	l	subroutine:summariz	file:
+2001	feaps6.for	/^2001  format(6x,'    The following nodes have been deleted:'\/)$/;"	l	subroutine:tienod	file:
+2001	feaps6.for	/^2001  format(i10,5f13.4)$/;"	l	subroutine:vblk	file:
+2001	feaps6.for	/^2001  format(i8,3e12.4)$/;"	l	subroutine:xmodif	file:
+2001	feaps6.for	/^2001  format(i8,3f12.4)$/;"	l	subroutine:transx	file:
+2001	feaps6.for	/^2001  format(i8,6f12.4\/(8x,6f12.4))$/;"	l	subroutine:sphere	file:
+2002	feaps1.for	/^2002  format(5x,'Load case 1: constant load q_0 ',e12.5)$/;"	l	subroutine:aload	file:
+2002	feaps1.for	/^2002  format(5x,'node',3(i6,a6))$/;"	l	subroutine:blkgen	file:
+2002	feaps1.for	/^2002  format(5x,'node',3(i6,a6))$/;"	l	subroutine:blkgenco	file:
+2002	feaps1.for	/^2002  format(5x,'node',3(i6,a6))$/;"	l	subroutine:blkgendx	file:
+2002	feaps1.for	/^2002  format(5x,'node',3(i6,a6))$/;"	l	subroutine:blktri	file:
+2002	feaps1.for	/^2002  format(5x,'node',6x,' Temp.')$/;"	l	subroutine:blktem	file:
+2002	feaps2.for	/^ 2002 format('*** INCON *** Unknown option -> ',i3)$/;"	l	subroutine:formfe	file:
+2002	feaps2.for	/^ 2002 format(5x,'Next node numbered =',i6)$/;"	l	subroutine:opnum	file:
+2002	feaps2.for	/^2002  format (' ** ERROR in ',a6,' ** reinput last record')$/;"	l	subroutine:errclr	file:
+2002	feaps2.for	/^2002  format('  Data for node ',i4,'( at element',i4,' ) not input')$/;"	l	subroutine:meshck	file:
+2002	feaps2.for	/^2002  format('  Input: dir, xx, b.c.-codes'\/'  ->',$)$/;"	l	subroutine:esideb	file:
+2002	feaps2.for	/^2002  format(' Input: direction, xi-value.'\/3x,'>',$)$/;"	l	subroutine:genrsum	file:
+2002	feaps2.for	/^2002  format(5x,' No of points found:  ',i10)   $/;"	l	subroutine:genvec3	file:
+2002	feaps2.for	/^2002  format(\/,' Load generation with ELOAD on ',a8,\/,$/;"	l	subroutine:eload	file:
+2002	feaps2.for	/^2002  format(\/,' The following nodes lie on intersections:')$/;"	l	subroutine:isect	file:
+2002	feaps3.for	/^2002  format('  Remove command:',i5,2(2x,a4),3g13.4\/3x,'(y or n)? >',$)$/;"	l	subroutine:phist	file:
+2002	feaps3.for	/^2002  format(1x,'link nodes on ',i2,' coord.(value ',e12.5,')',$/;"	l	subroutine:plink	file:
+2002	feaps3.for	/^2002  format(\/'   Fourier sum for ',i3,' terms at ',f7.2,' degrees;'\/$/;"	l	subroutine:pcfour	file:
+2002	feaps3.for	/^2002  format(\/'  ANGL Generation with VANG:',\/$/;"	l	subroutine:panglev	file:
+2002	feaps3.for	/^2002  format(\/'  BOUN Generation with EBOUN on axis ',i3,$/;"	l	subroutine:pedges	file:
+2002	feaps3.for	/^2002  format(\/'  BOUN Generation with RBOU:',\/$/;"	l	subroutine:pblockr	file:
+2002	feaps3.for	/^2002  format(\/'  BOUN Generation with VBOU:',\/$/;"	l	subroutine:pblock	file:
+2002	feaps3.for	/^2002  format(\/'  DISP Generation with EDIS on axis ',i3,$/;"	l	subroutine:pedgesd	file:
+2002	feaps3.for	/^2002  format(\/,' BOUN generation with EDGE on ',a8,\/,$/;"	l	subroutine:pedgeb	file:
+2002	feaps3.for	/^2002  format(\/8i8)$/;"	l	subroutine:ploadi	file:
+2002	feaps3.for	/^2002  format(i6,2x,8(i12,1x)  \/(8x,8(i12,1x)))$/;"	l	subroutine:ppload	file:
+2002	feaps4.for	/^2002  format(' No file named ',a,' exists.                      ')$/;"	l	subroutine:opnfil	file:
+2002	feaps4.for	/^2002  format('Forces',\/,6(i6,a6):\/(6(i6,a6)))$/;"	l	subroutine:shownode	file:
+2002	feaps4.for	/^2002  format(1x,i5,1x,i5,1x,10f12.5)$/;"	l	subroutine:qloadi	file:
+2002	feaps4.for	/^2002  format(2x,10i8\/(18x,8i8))$/;"	l	subroutine:pmesh	file:
+2002	feaps4.for	/^2002  format(5x,'Actual time increment................. ',f12.5)$/;"	l	subroutine:plshowm	file:
+2002	feaps4.for	/^2002  format(5x,'using : ',a4,a9,1x,a55)$/;"	l	subroutine:profil	file:
+2002	feaps4.for	/^2002  format(\/' Macro to be executed.'\/10x,'--> ',4a1,1x,a4,3e12.5$/;"	l	subroutine:histex	file:
+2002	feaps5.for	/^ 2002 format('  Correction:>',75a1)$/;"	l	subroutine:setval	file:
+2002	feaps5.for	/^ 2002 format(3x,62('-'))$/;"	l	subroutine:pmemo_out	file:
+2002	feaps5.for	/^2002  format('**datri warning: red. diagonal zero ',$/;"	l	subroutine:prtdii2	file:
+2002	feaps5.for	/^2002  format(12x,a,i15,i15,f15.3)$/;"	l	subroutine:pseta_out	file:
+2002	feaps5.for	/^2002  format(\/'   n o d a l   s t r e s s e s'\/$/;"	l	subroutine:prtstr	file:
+2002	feaps5.for	/^2002  format(\/'  n o d a l   ',a,5x,$/;"	l	subroutine:prtdis	file:
+2002	feaps6.for	/^2002  format(6x,10i5)$/;"	l	subroutine:tienod	file:
+2003	feaps1.for	/^2003  format('**datri warning 4** rank failure for zero unreduced',$/;"	l	subroutine:datri1	file:
+2003	feaps1.for	/^2003  format(5x,'Load case 2: cos-load: q_0= ',e12.5,$/;"	l	subroutine:aload	file:
+2003	feaps2.for	/^ 2003 format(5x,'Node with no element attached =',i7)$/;"	l	subroutine:opnum	file:
+2003	feaps2.for	/^2003  format('  Element   ',i6,' not defined')$/;"	l	subroutine:meshck	file:
+2003	feaps2.for	/^2003  format(' Load case 1: const. loads in global 1-3 direction:',\/,$/;"	l	subroutine:eload	file:
+2003	feaps2.for	/^2003  format(2x,14i5,\/,2x,14i5)$/;"	l	subroutine:isect	file:
+2003	feaps3.for	/^2003  format('   Fourier summation: Harmonic',i3,', factor =',e12.5)$/;"	l	subroutine:pcfour	file:
+2003	feaps3.for	/^2003  format(' EDGE: Point is not on defined circle')$/;"	l	subroutine:pedgeb	file:
+2003	feaps3.for	/^2003  format(' Error: invalid type ',i3,' of director under base')$/;"	l	subroutine:pdirec	file:
+2003	feaps3.for	/^2003  format(2x,'#### more than 1 node found in Macro POIN',\/,$/;"	l	subroutine:ppload	file:
+2003	feaps3.for	/^2003  format(4x,1p6e12.4)$/;"	l	subroutine:ploadi	file:
+2003	feaps3.for	/^2003  format(4x,9f8.4\/(4x,9f8.4))$/;"	l	subroutine:pedgesd	file:
+2003	feaps3.for	/^2003  format(4x,9i8\/(4x,9i8))$/;"	l	subroutine:pedges	file:
+2003	feaps3.for	/^2003  format(5x,'link nodes(tied to) ',i6,'(',i6,')',' to',i6,'(',i6,')'$/;"	l	subroutine:plink	file:
+2003	feaps4.for	/^2003  format('  Elements',12(1x,i5)\/(10x,12(1x,i5)))$/;"	l	subroutine:qloadi	file:
+2003	feaps4.for	/^2003  format('Macro>',$)$/;"	l	subroutine:pmacio	file:
+2003	feaps4.for	/^2003  format(5x,'Actual load parameter................. ',e12.5)$/;"	l	subroutine:plshowm	file:
+2003	feaps4.for	/^2003  format(5x,'material set',i3,' for element type',i3,\/$/;"	l	subroutine:pmesh	file:
+2003	feaps4.for	/^2003  format(\/' *** Error *** loop\/next execution not permitted')$/;"	l	subroutine:histex	file:
+2003	feaps5.for	/^ 2003 format('   List of allocated arrays ')$/;"	l	subroutine:pmemo_out	file:
+2003	feaps5.for	/^2003  format( 2x,'prt sum',1p6e11.3:\/(9x,1p6e11.3))$/;"	l	subroutine:prtrea	file:
+2003	feaps5.for	/^2003  format(' Input: type, exponent, tmin, tmax, a(i),i=1,4')$/;"	l	function:propld	file:
+2003	feaps5.for	/^2003  format('**datri warning: loss of at least 7 digits ',$/;"	l	subroutine:prtdii2	file:
+2003	feaps5.for	/^2003  format(\/'  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:sblk	file:
+2003	feaps5.for	/^2003  format(\/'  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:sblkco	file:
+2003	feaps5.for	/^2003  format(\/'  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:sblkdx	file:
+2003	feaps5.for	/^2003  format(i6,1p9e12.5:\/(6x,1p9e12.5))$/;"	l	subroutine:prtdis	file:
+2003	feaps6.for	/^2003  format(10x,'No nodes have been removed by the tie command'\/1x)$/;"	l	subroutine:tienod	file:
+2003	feaps6.for	/^2003  format(\/'  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:trblk	file:
+2004	feaps1.for	/^2004  format(' Condition check: D-max',e11.4,'; D-min',e11.4,$/;"	l	subroutine:datri1	file:
+2004	feaps1.for	/^2004  format(5x,'  Node',3x,' load value')$/;"	l	subroutine:aload	file:
+2004	feaps2.for	/^ 2004 format(5x,'Starting node number =',i7\/)$/;"	l	subroutine:opnum	file:
+2004	feaps2.for	/^2004  format('  Node      ',i6,' not defined')$/;"	l	subroutine:meshck	file:
+2004	feaps3.for	/^2004  format(' No. of bcs\/dof',\/,2x,6i8)$/;"	l	subroutine:pedgeb	file:
+2004	feaps3.for	/^2004  format(5x,'link nodes(tied to) in',i3,'-dir',\/,  $/;"	l	subroutine:plink	file:
+2004	feaps3.for	/^2004  format(a1,20a4\/\/'     s u r f a c e   l o a d i n g'\/\/$/;"	l	subroutine:ploadi	file:
+2004	feaps4.for	/^2004  format('  Element ',i5,' belongs not to Material  ',i5)   $/;"	l	subroutine:qloadi	file:
+2004	feaps4.for	/^2004  format('Boundary  conditions',\/,$/;"	l	subroutine:shownode	file:
+2004	feaps4.for	/^2004  format(5x,'No. of calculated Eigenvectors (pairs) ',i5)$/;"	l	subroutine:plshowm	file:
+2004	feaps4.for	/^2004  format(\/2x,'m a t e r i a l  p r o p e r t i e s')$/;"	l	subroutine:pmesh	file:
+2004	feaps5.for	/^2004  format( ' Zero a(2) in sawtooth function - reinput prop')$/;"	l	function:propld	file:
+2004	feaps5.for	/^2004  format( 6x,'sum',1p6e11.3:\/(9x,1p6e11.3))$/;"	l	subroutine:prtrea	file:
+2004	feaps5.for	/^2004  format(i10,5f13.4)$/;"	l	subroutine:sblk	file:
+2004	feaps5.for	/^2004  format(i10,5f13.4)$/;"	l	subroutine:sblkdx	file:
+2004	feaps5.for	/^2004  format(i10,i10,5f13.4)$/;"	l	subroutine:sblkco	file:
+2004	feaps6.for	/^2004  format(\/,6x,'Tie: Gap Tolerance =',1p,1e12.5\/1x)$/;"	l	subroutine:tienod	file:
+2004	feaps6.for	/^2004  format(i10,5f13.4)$/;"	l	subroutine:trblk	file:
+2005	feaps1.for	/^2005  format(5x,i6,3x,e12.5)$/;"	l	subroutine:aload	file:
+2005	feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s cohesive zones'\/$/;"	l	subroutine:blkgenco	file:
+2005	feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s'\/$/;"	l	subroutine:blkgen	file:
+2005	feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s'\/$/;"	l	subroutine:blkgendx	file:
+2005	feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s'\/$/;"	l	subroutine:blktri	file:
+2005	feaps2.for	/^2005  format('  Nodes\/El. ',i6,' not defined')$/;"	l	subroutine:meshck	file:
+2005	feaps2.for	/^2005  format(' Load case 5: boundary terms for warping function:',\/,$/;"	l	subroutine:eload	file:
+2005	feaps3.for	/^2005  format(' ** ERROR ** Not that many items in list, nn =',i4)$/;"	l	subroutine:phist	file:
+2005	feaps3.for	/^2005  format(1x,9i5,1x,1p3e12.4)$/;"	l	subroutine:ploadi	file:
+2005	feaps3.for	/^2005  format(5x,'link nodes(tied to) in',i3,i3,'-dir',\/,  $/;"	l	subroutine:plink	file:
+2005	feaps4.for	/^2005  format(5x,'Arclength calculation ................ ',a3)$/;"	l	subroutine:plshowm	file:
+2005	feaps4.for	/^2005  format(9i7\/(9i7))$/;"	l	subroutine:shownode	file:
+2005	feaps5.for	/^2005  format(1x,A,A,A,A,A)$/;"	l	subroutine:prterr	file:
+2006	feaps1.for	/^2006  format(10i8\/(16x,8i8))$/;"	l	subroutine:blkgenco	file:
+2006	feaps1.for	/^2006  format(10i8\/(16x,8i8))$/;"	l	subroutine:blkgendx	file:
+2006	feaps1.for	/^2006  format(10i8\/(16x,8i8))$/;"	l	subroutine:blktri	file:
+2006	feaps1.for	/^2006  format(11i8\/(16x,9i8))$/;"	l	subroutine:blkgen	file:
+2006	feaps2.for	/^2006  format(' tol = ',e12.5,' for boundary(=1) =',i5,\/,$/;"	l	subroutine:eload	file:
+2006	feaps3.for	/^2006  format(1x,'Wrong Node Number in SLOA')$/;"	l	subroutine:ploadi	file:
+2006	feaps3.for	/^2006  format(5x,'link nodes(tied to) in',i3,'-dir',\/,  $/;"	l	subroutine:plink	file:
+2006	feaps4.for	/^2006  format(5x,'Extended System calc. ................ ',a3)$/;"	l	subroutine:plshowm	file:
+2007	feaps1.for	/^2007  format('Increments:',16g10.5,\/,(11x,16g10.5))$/;"	l	subroutine:blkgendx	file:
+2007	feaps2.for	/^2007  format(' ELOAD: Point is not on defined circle')$/;"	l	subroutine:eload	file:
+2007	feaps3.for	/^2007  format(5x,'link nodes(tied to) on b.c. in 1-2-dir',\/,  $/;"	l	subroutine:plink	file:
+2007	feaps4.for	/^2007  format(5x,'Dynamic   calculation ................ ',a3)$/;"	l	subroutine:plshowm	file:
+2007	feaps4.for	/^2007  format(i10,9i7\/(10x,9i7))$/;"	l	subroutine:pmesh	file:
+2008	feaps1.for	/^2008  format('Material  :',16f5.0,\/,(11x,16f5.0))$/;"	l	subroutine:blkgendx	file:
+2008	feaps2.for	/^2008  format(' Load case 6: boundary terms for stress function:',\/,$/;"	l	subroutine:eload	file:
+2008	feaps2.for	/^2008  format(i10,' has not been input or generated')$/;"	l	subroutine:genvec	file:
+2008	feaps2.for	/^2008  format(i10,' has not been input or generated')$/;"	l	subroutine:genvec1	file:
+2008	feaps2.for	/^2008  format(i10,' has not been input or generated')$/;"	l	subroutine:genvec2	file:
+2008	feaps3.for	/^2008  format(\/,3x,'F i n a l  l i n k  c o n d i t i o n s',\/,$/;"	l	subroutine:plink	file:
+2008	feaps4.for	/^2008  format(' Enter "help" for list of commands, "end" to exit'\/$/;"	l	subroutine:pmesh	file:
+2008	feaps4.for	/^2008  format(5x,'Contact   calculation ................ ',a3)$/;"	l	subroutine:plshowm	file:
+2009	feaps2.for	/^2009  format(' for ',a11,' Elements',\/)$/;"	l	subroutine:eload	file:
+2009	feaps2.for	/^2009  format(i10,12f13.4:\/(10x,6f13.4))$/;"	l	subroutine:genvec1	file:
+2009	feaps2.for	/^2009  format(i10,6e14.6)$/;"	l	subroutine:genvec3	file:
+2009	feaps2.for	/^2009  format(i10,6f13.4:\/(10x,6f13.4))$/;"	l	subroutine:genvec2	file:
+2009	feaps2.for	/^2009  format(i10,6f13.4:\/(10x,6f13.4))$/;"	l	subroutine:invec	file:
+2009	feaps2.for	/^2009  format(i10,6f13.5:\/(10x,6f13.5))$/;"	l	subroutine:genvec	file:
+2009	feaps3.for	/^2009  format(5x,13i6)$/;"	l	subroutine:plink	file:
+2009	feaps4.for	/^2009  format('read,end')$/;"	l	subroutine:pmesh	file:
+2009	feaps4.for	/^2009  format(5x,'Computation of consist. mass matrix... ',a3)$/;"	l	subroutine:plshowm	file:
+201	feaps3.for	/^201   continue$/;"	l	subroutine:pgauss	file:
+201	feaps4.for	/^201         continue$/;"	l	subroutine:pmesh	file:
+201	feaps5.for	/^201   continue$/;"	l	subroutine:sblk	file:
+201	feaps5.for	/^201   continue$/;"	l	subroutine:sblkdx	file:
+201	feaps6.for	/^201         do kk = 1,numel  ! find mate of node k$/;"	l	subroutine:tienod	file:
+2010	feaps2.for	/^2010  format(' Input: node#, inc., values'\/3x,'>',$)$/;"	l	subroutine:genvec	file:
+2010	feaps2.for	/^2010  format(' Input: node#, inc., values'\/3x,'>',$)$/;"	l	subroutine:genvec1	file:
+2010	feaps2.for	/^2010  format(' Input: node1, node2, inc.'\/3x,'>',$)$/;"	l	subroutine:genvec2	file:
+2010	feaps2.for	/^2010  format(' Input: x,y,z perfect, x,y,z imperf.'\/3x,'>',$)$/;"	l	subroutine:genvec3	file:
+2010	feaps2.for	/^2010  format(' Load case 3: const. normal loads in 1-2 plane:',$/;"	l	subroutine:eload	file:
+2010	feaps2.for	/^2010  format(\/,9x,'Hoit\/Wilson Front Optimization (OPTI)')$/;"	l	subroutine:opnum	file:
+2010	feaps2.for	/^2010  format(\/10x,'  Edge Node Boundary Conditions'$/;"	l	subroutine:esideb	file:
+2010	feaps2.for	/^2010  format(\/5x,'Nodes for sum of reaction forces for dof  ',i3)       $/;"	l	subroutine:genrsum	file:
+2010	feaps3.for	/^2010  format(' No file named ',a55,' exists.                      ')$/;"	l	subroutine:plink	file:
+2010	feaps4.for	/^2010  format(' Input: elmt#, matl#, (ix(i),i=1,nen), inc'\/3x,'>')$/;"	l	subroutine:pmesh	file:
+2010	feaps4.for	/^2010  format(5x,'Computation of lumped   mass matrix... ',a3)$/;"	l	subroutine:plshowm	file:
+2010	feaps5.for	/^2010  format(1x,A13,3(e15.7))$/;"	l	subroutine:prterr	file:
+2011	feaps2.for	/^2011  format(' Load case 4: const. normal loads axisymmetric:',$/;"	l	subroutine:eload	file:
+2011	feaps3.for	/^2011    format(\/5x,'Tie nodes from',i8,' to ',i8\/1x)$/;"	l	subroutine:pcontr	file:
+2011	feaps4.for	/^2011  format(' Input: matl#, elmt type'\/3x,'>',$)$/;"	l	subroutine:pmesh	file:
+2011	feaps4.for	/^2011  format(5x,'Tolerance for calculation............. ',e14.5)$/;"	l	subroutine:plshowm	file:
+2012	feaps2.for	/^2012  format(' SUM ',6(e12.5))$/;"	l	subroutine:eload	file:
+2012	feaps3.for	/^2012    format(\/5x,'Tie nodes on line from node 1 to node 2',\/,$/;"	l	subroutine:pcontr	file:
+2012	feaps4.for	/^2012  format(' Input: node#, inc., (b. codes, i=1,ndf)'\/3x,'>',$)$/;"	l	subroutine:pmesh	file:
+2012	feaps4.for	/^2012  format(5x,'Print option set to................... ',a4)$/;"	l	subroutine:plshowm	file:
+2013	feaps2.for	/^2013  format(' SUMA',6(e12.5))$/;"	l	subroutine:eload	file:
+2013	feaps3.for	/^2013    format(\/5x,'Tie: direction =',f3.0,' X =',1p,1e12.5\/1x)$/;"	l	subroutine:pcontr	file:
+2013	feaps4.for	/^2013  format(5x,'Tplo (load-disp. curve)(0=off 1=on)... ',i4)$/;"	l	subroutine:plshowm	file:
+2013	feaps4.for	/^2013  format(\/\/'    Angles set for directions ',i1,i1)$/;"	l	subroutine:pmesh	file:
+2014	feaps3.for	/^2014    format(\/5x,'Tie from material',i4,' to material',i4\/1x)$/;"	l	subroutine:pcontr	file:
+2014	feaps4.for	/^2014  format(' No file named ',a55,' exists.                      ')$/;"	l	subroutine:pmesh	file:
+2014	feaps4.for	/^2014  format(5x,'Tplo acts on.... node = ',i4,'.... dof = ',i4)$/;"	l	subroutine:plshowm	file:
+2015	feaps2.for	/^2015  format(\/10x,'  For x(',i1,') = ',e12.5$/;"	l	subroutine:esideb	file:
+2015	feaps3.for	/^2015    format(\/5x,'Tie all nodes with common coordinates'\/1x)$/;"	l	subroutine:pcontr	file:
+2015	feaps4.for	/^2015  format(5x,'               global number:',20i3)$/;"	l	subroutine:pmesh	file:
+2015	feaps4.for	/^2015  format(5x,'Displ. for polar coord. (cart = 0)...  ',i4)$/;"	l	subroutine:plshowm	file:
+2016	feaps3.for	/^2016    format(\/5x,'Tie nodes on line from node 1 to node 2',\/,$/;"	l	subroutine:pcontr	file:
+2016	feaps4.for	/^2016  format(5x,'Proportional load table 1:')$/;"	l	subroutine:plshowm	file:
+2016	feaps4.for	/^2016  format(i10,' has not been input or generated')$/;"	l	subroutine:pmesh	file:
+2017	feaps3.for	/^2017  format ('ndm =  ',i1,': SET NUMBER OF GLOBAL DOFs (ndm) > 5 TO USE$/;"	l	subroutine:pcontr	file:
+2017	feaps4.for	/^2017  format(' Input: 1-7 Parameter for solver'\/3x,'>',$)$/;"	l	subroutine:pmesh	file:
+2017	feaps4.for	/^2017  format(5x,'prop = ',f5.2,'+',f5.2,'*t+',f5.2,'*[sin ',f5.2,'*t]**'$/;"	l	subroutine:plshowm	file:
+2018	feaps3.for	/^2018    format('     Time for Profile',37x,'t=',0pf9.4)$/;"	l	subroutine:pcontr	file:
+2018	feaps4.for	/^2018  format(5x,'tmin  = ',e10.5,'         tmax  = ',e10.5)$/;"	l	subroutine:plshowm	file:
+2018	feaps4.for	/^2018  format(a80)$/;"	l	subroutine:pmesh	file:
+2019	feaps4.for	/^2019  format(' Element numbering from ELEM has been modified with ELEC',$/;"	l	subroutine:pmesh	file:
+2019	feaps4.for	/^2019  format(5x,'Total Memory in blank common in KB:')$/;"	l	subroutine:plshowm	file:
+202	feaps4.for	/^202             call dinput(td,il-is+1)$/;"	l	subroutine:pmesh	file:
+202	feaps6.for	/^202         if(jn3.eq.n3 .and.kn4.eq.n4) goto 203  ! nodes to tie$/;"	l	subroutine:tienod	file:
+2020	feaps2.for	/^2020  format(10x,'  --n1---n2--+--',8a8)$/;"	l	subroutine:esideb	file:
+2020	feaps2.for	/^2020  format(20(5x,'nodes ',10(i8,1x)\/))$/;"	l	subroutine:genrsum	file:
+2020	feaps4.for	/^2020  format(5x,'-------------------------------------------',\/$/;"	l	subroutine:pmesh	file:
+2020	feaps4.for	/^2020  format(5x,'avail: ',f9.1,' used: ',f9.1,' percent used: ',f5.2)$/;"	l	subroutine:plshowm	file:
+2021	feaps4.for	/^2021  format(5x,'avail. nodes:',10(1x,i4) )$/;"	l	subroutine:plshowm	file:
+2021	feaps4.for	/^2021  format(\/2x,'m a t e r i a l  p a r a m e t e r s')$/;"	l	subroutine:pmesh	file:
+2022	feaps4.for	/^2022  format(5x,'using : ',1x,a55)$/;"	l	subroutine:plshowm	file:
+2022	feaps4.for	/^2022  format(\/2x,'e l e m e n t  p a r a m e t e r s')$/;"	l	subroutine:pmesh	file:
+2023	feaps4.for	/^2023  format(5x,'-------------------------------------------',\/$/;"	l	subroutine:pmesh	file:
+203	feaps1.for	/^203       call dinput(td,il-is+1)$/;"	l	subroutine:blkgendx	file:
+203	feaps2.for	/^203       call dinput(td,il-is+1)$/;"	l	subroutine:genvec	file:
+203	feaps2.for	/^203     call dinput(td,il-is+1)$/;"	l	subroutine:genvec1	file:
+203	feaps4.for	/^203             continue$/;"	l	subroutine:pmesh	file:
+203	feaps6.for	/^203       do i = 1,numnp$/;"	l	subroutine:tienod	file:
+2030	feaps1.for	/^2030  format(' insuff. storage temp: final node =',i5,' max. node =',i5)$/;"	l	subroutine:blktem	file:
+2030	feaps1.for	/^2030  format(' insufficient storage: final node =',i5,' max. node =',i5)$/;"	l	subroutine:blkgen	file:
+2030	feaps1.for	/^2030  format(' insufficient storage: final node =',i5,' max. node =',i5)$/;"	l	subroutine:blkgenco	file:
+2030	feaps1.for	/^2030  format(' insufficient storage: final node =',i5,' max. node =',i5)$/;"	l	subroutine:blkgendx	file:
+2030	feaps1.for	/^2030  format(' insufficient storage: final node =',i5,' max. node =',i5)$/;"	l	subroutine:blktri	file:
+2030	feaps2.for	/^2030  format(11x,2i5,'  |',8i8)$/;"	l	subroutine:esideb	file:
+2031	feaps1.for	/^2031  format(' insufficient storage: final element =',i5,$/;"	l	subroutine:blkgen	file:
+2031	feaps1.for	/^2031  format(' insufficient storage: final element =',i5,$/;"	l	subroutine:blkgenco	file:
+2031	feaps1.for	/^2031  format(' insufficient storage: final element =',i5,$/;"	l	subroutine:blkgendx	file:
+2031	feaps1.for	/^2031  format(' insufficient storage: final element =',i5,$/;"	l	subroutine:blktri	file:
+204	feaps1.for	/^204       continue$/;"	l	subroutine:blkgendx	file:
+204	feaps2.for	/^204       continue$/;"	l	subroutine:genvec	file:
+204	feaps2.for	/^204     continue$/;"	l	subroutine:genvec1	file:
+204	feaps4.for	/^204           continue$/;"	l	subroutine:pmesh	file:
+2040	feaps2.for	/^2040  format(\/10x,'  Edge Node Forced Conditions'$/;"	l	subroutine:esideb	file:
+205	feaps1.for	/^205     continue$/;"	l	subroutine:blkgendx	file:
+205	feaps2.for	/^205     continue$/;"	l	subroutine:esideb	file:
+205	feaps2.for	/^205     continue$/;"	l	subroutine:genvec	file:
+205	feaps2.for	/^205     continue$/;"	l	subroutine:genvec1	file:
+205	feaps4.for	/^205         continue$/;"	l	subroutine:pmesh	file:
+205	feaps4.for	/^205       if(k.eq.0) then$/;"	l	subroutine:pmacio	file:
+2050	feaps2.for	/^2050  format(10x,'  --n1---n2--+--',8a13)$/;"	l	subroutine:esideb	file:
+2060	feaps2.for	/^2060  format(11x,2i5,'  |',1p8e13.4)$/;"	l	subroutine:esideb	file:
+2060	feaps5.for	/^2060  format(' ** ERROR ** File ',a4,' does not exist')$/;"	l	subroutine:reader	file:
+2060	feaps6.for	/^2060  format(' ** WARNING ** File ',a4,' exists. Erase? (y or n) >',$)$/;"	l	subroutine:writer	file:
+2060	feaps6.for	/^2060  format('File ',a4,' does not exist')$/;"	l	subroutine:summariz	file:
+2061	feaps6.for	/^2061  format(' ** ERROR ** File ',a4,' exists.')$/;"	l	subroutine:writer	file:
+2070	feaps5.for	/^2070  format(' ** ERROR ** READ requested ',a4,' but found ',a4)$/;"	l	subroutine:reader	file:
+2070	feaps5.for	/^2070  format(' ** ERROR ** READ requested ',a4,' but found ',a4)$/;"	l	subroutine:readerb	file:
+2070	feaps6.for	/^2070  format(' ** ERROR ** Nodal stresses do not exist for tape write')$/;"	l	subroutine:writer	file:
+2070	feaps6.for	/^2070  format('SUMM requested ',a4,' but found ',a4)$/;"	l	subroutine:summariz	file:
+2080	feaps5.for	/^2080  format(' ** ERROR ** End of file on a read command for ',a4)$/;"	l	subroutine:reader	file:
+2080	feaps5.for	/^2080  format(' ** ERROR ** End of file on a read command for ',a4)$/;"	l	subroutine:readerb	file:
+2080	feaps6.for	/^2080  format(' ** ERROR ** on a tape write command for ',a4)$/;"	l	subroutine:writer	file:
+2080	feaps6.for	/^2080  format('End of file on a summ command for ',a4)$/;"	l	subroutine:summariz	file:
+2090	feaps5.for	/^2090  format(' ** ERROR ** on a read command for ',a4)$/;"	l	subroutine:reader	file:
+2090	feaps5.for	/^2090  format(' ** ERROR ** on a read command for ',a4)$/;"	l	subroutine:readerb	file:
+2090	feaps6.for	/^2090  format(' ** ERROR ** No write file is open.')$/;"	l	subroutine:writer	file:
+2090	feaps6.for	/^2090  format('on a summ command for ',a4)$/;"	l	subroutine:summariz	file:
+2099	feaps2.for	/^2099  format(' Load case 9: Analytical traction for a infinite plate',\/,$/;"	l	subroutine:eload	file:
+2099	feaps5.for	/^2099  format(' ** ERROR ** No read file is open.')$/;"	l	subroutine:reader	file:
+21	feaps1.for	/^21        if(ior.lt.0) write(*,5001)$/;"	l	subroutine:blkgen	file:
+21	feaps1.for	/^21        if(ior.lt.0) write(*,5001)$/;"	l	subroutine:blkgendx	file:
+21	feaps1.for	/^21        if(ior.lt.0) write(*,5001)$/;"	l	subroutine:blktem	file:
+21	feaps1.for	/^21      if(ior.lt.0) write(*,5001)$/;"	l	subroutine:blkgenco	file:
+21	feaps1.for	/^21      if(ior.lt.0) write(*,5001)$/;"	l	subroutine:blktri	file:
+21	feaps2.for	/^  21    continue$/;"	l	subroutine:f3d	file:
+21	feaps3.for	/^21       w(i) = lw2(j)*lw2(k)$/;"	l	subroutine:pnewcot	file:
+21	feaps3.for	/^21    w(i) = 1.d0$/;"	l	subroutine:pgauss	file:
+21	feaps4.for	/^21    coflg = i.eq.21$/;"	l	subroutine:pmesh	file:
+210	feaps1.for	/^210   continue$/;"	l	subroutine:acheck	file:
+210	feaps1.for	/^210   continue$/;"	l	subroutine:bjac3d	file:
+210	feaps2.for	/^210           continue$/;"	l	subroutine:esideb	file:
+210	feaps2.for	/^210         ine(j) = n$/;"	l	subroutine:esiden	file:
+210	feaps3.for	/^210         continue$/;"	l	subroutine:pedgeg	file:
+210	feaps3.for	/^210         continue$/;"	l	subroutine:pedgesd	file:
+210	feaps3.for	/^210       continue$/;"	l	subroutine:pcfour	file:
+210	feaps3.for	/^210       continue$/;"	l	subroutine:pedges	file:
+210	feaps3.for	/^210     continue$/;"	l	subroutine:pcheck	file:
+210	feaps4.for	/^210         continue$/;"	l	subroutine:pmesh	file:
+210	feaps4.for	/^210     call acheck(xx,yy,15,75,75)$/;"	l	subroutine:proced	file:
+210	feaps4.for	/^210     do 220 i = 1,i2-1$/;"	l	subroutine:prefl	file:
+210	feaps5.for	/^210           continue$/;"	l	subroutine:ptrans	file:
+210	feaps6.for	/^  210   continue$/;"	l	subroutine:trblk	file:
+2100	feaps6.for	/^2100  format('Add DISP from file ',a4,' with factor ',f10.5)$/;"	l	subroutine:summariz	file:
+211	feaps5.for	/^211             continue$/;"	l	subroutine:ptrans	file:
+213	feaps1.for	/^213       call dinput(td,il-is+1)$/;"	l	subroutine:blkgendx	file:
+214	feaps1.for	/^214       continue$/;"	l	subroutine:blkgendx	file:
+215	feaps1.for	/^215     continue$/;"	l	subroutine:blkgendx	file:
+215	feaps4.for	/^215     continue$/;"	l	subroutine:pmesh	file:
+215	feaps5.for	/^215           continue$/;"	l	subroutine:ptrans	file:
+216	feaps5.for	/^216             continue$/;"	l	subroutine:ptrans	file:
+22	feaps2.for	/^  22  continue$/;"	l	subroutine:f3d	file:
+220	feaps2.for	/^  220   numb = numb - 1$/;"	l	subroutine:front	file:
+220	feaps2.for	/^220       continue$/;"	l	subroutine:esideb	file:
+220	feaps2.for	/^220     continue$/;"	l	subroutine:esiden	file:
+220	feaps4.for	/^220     continue$/;"	l	subroutine:prefl	file:
+220	feaps4.for	/^220   continue$/;"	l	subroutine:pmesh	file:
+220	feaps5.for	/^220     continue$/;"	l	subroutine:ptrans	file:
+220	feaps6.for	/^  220 continue$/;"	l	subroutine:trblk	file:
+2200	feaps6.for	/^2200  format('Add STRE from file ',a4,' with factor ',f10.5)$/;"	l	subroutine:summariz	file:
+221	feaps6.for	/^  221 continue$/;"	l	subroutine:trblk	file:
+223	feaps1.for	/^223       call dinput(td,il-is+1)$/;"	l	subroutine:blkgendx	file:
+224	feaps1.for	/^224       continue$/;"	l	subroutine:blkgendx	file:
+225	feaps1.for	/^225     continue$/;"	l	subroutine:blkgendx	file:
+23	feaps4.for	/^23    if(iii.lt.0) write(iow,3003)$/;"	l	subroutine:pmesh	file:
+23	feaps5.for	/^23      write(*,25) fres$/;"	l	subroutine:restrt	file:
+230	feaps2.for	/^230     continue$/;"	l	subroutine:esideb	file:
+230	feaps2.for	/^230   continue$/;"	l	subroutine:esiden	file:
+230	feaps2.for	/^230   format(\/,' old node no. new node no.')$/;"	l	subroutine:optn	file:
+230	feaps4.for	/^230   continue$/;"	l	subroutine:prefl	file:
+233	feaps1.for	/^233       call dinput(td,il-is+1)$/;"	l	subroutine:blkgendx	file:
+234	feaps1.for	/^234       continue$/;"	l	subroutine:blkgendx	file:
+235	feaps1.for	/^235     continue$/;"	l	subroutine:blkgendx	file:
+24	feaps4.for	/^24    call dinput(td,1)$/;"	l	subroutine:pmesh	file:
+24	feaps5.for	/^24      rewind ios$/;"	l	subroutine:restrt	file:
+240	feaps6.for	/^240     continue ! loop j$/;"	l	subroutine:tienod	file:
+249	feaps4.for	/^249   ll = -2  ! QUIT$/;"	l	subroutine:pmacio	file:
+25	feaps4.for	/^25    call pblock(x,id,idl,ndm,ndf,numnp,prt)$/;"	l	subroutine:pmesh	file:
+25	feaps5.for	/^25      format('Error, the file is not un-\/formatted!  ',a229)$/;"	l	subroutine:restrt	file:
+250	feaps2.for	/^250   format(3x,i6,3x,i6)$/;"	l	subroutine:optn	file:
+250	feaps3.for	/^250           continue$/;"	l	subroutine:phist	file:
+250	feaps4.for	/^250   asc1 = ct(1,ll)$/;"	l	subroutine:pmacio	file:
+250	feaps4.for	/^250   if(prt) write(iow,2001) n,(x(i,n),i=1,ndm)$/;"	l	subroutine:polar	file:
+250	feaps5.for	/^250   if(prt)              write(iow,2001) n,(x(i,n),i=1,ndm)$/;"	l	subroutine:rot	file:
+250	feaps6.for	/^250     if(prt) then$/;"	l	subroutine:sphere	file:
+250	feaps6.for	/^250   continue   ! loop k$/;"	l	subroutine:tienod	file:
+250	feaps6.for	/^250   if(prt)              write(iow,2001) n,(x(i,n),i=1,ndm)$/;"	l	subroutine:transx	file:
+2500	feaps6.for	/^2500  format('Clear fields for DISP and STRE')$/;"	l	subroutine:summariz	file:
+26	feaps4.for	/^26    call pedgeg(x,id,idl,ndm,ndf,numnp,prt)$/;"	l	subroutine:pmesh	file:
+260	feaps6.for	/^260     continue$/;"	l	subroutine:tienod	file:
+27	feaps4.for	/^27    call pblockr(x,id,idl,ndm,ndf,numnp,prt)$/;"	l	subroutine:pmesh	file:
+270	feaps6.for	/^270   continue$/;"	l	subroutine:tienod	file:
+275	feaps2.for	/^275   continue$/;"	l	subroutine:dpacku	file:
+28	feaps4.for	/^28    ldir = 1$/;"	l	subroutine:pmesh	file:
+280	feaps6.for	/^280       continue$/;"	l	subroutine:tienod	file:
+290	feaps6.for	/^290   continue$/;"	l	subroutine:tienod	file:
+3	feaps2.for	/^3     one = 1.d0$/;"	l	subroutine:shape1D	file:
+3	feaps2.for	/^3     pg(1) = -dsqrt(3.d0\/5.d0)$/;"	l	subroutine:gaus1D	file:
+3	feaps3.for	/^3     g = dsqrt(0.6d0)$/;"	l	subroutine:pgauss	file:
+3	feaps3.for	/^3     h = 1.d0\/9.d0$/;"	l	subroutine:pnewcot	file:
+3	feaps4.for	/^3     if(prt) write(iow,2004) $/;"	l	subroutine:pmesh	file:
+30	feaps2.for	/^30            jmem(jnti)=jmem(jnti)+1$/;"	l	subroutine:optn	file:
+30	feaps2.for	/^30    do i = ipos+1,229$/;"	l	subroutine:dochar2	file:
+30	feaps4.for	/^30      continue$/;"	l	subroutine:seteq	file:
+30	feaps4.for	/^30      continue$/;"	l	subroutine:trans2	file:
+30	feaps4.for	/^30    goto 103$/;"	l	subroutine:pmesh	file:
+30	feaps5.for	/^30      continue$/;"	l	subroutine:rstprf	file:
+300	feaps1.for	/^300     continue$/;"	l	subroutine:tblk	file:
+300	feaps1.for	/^300   continue$/;"	l	subroutine:dasol1	file:
+300	feaps2.for	/^300                 continue$/;"	l	subroutine:esiden	file:
+300	feaps2.for	/^300     if(ior.lt.0) write(*,2001)$/;"	l	subroutine:esideb	file:
+300	feaps2.for	/^300   continue$/;"	l	subroutine:shape1D	file:
+300	feaps2.for	/^300   format($/;"	l	subroutine:optn	file:
+300	feaps3.for	/^  300 continue$/;"	l	subroutine:nodel	file:
+300	feaps3.for	/^300       continue$/;"	l	subroutine:phist	file:
+300	feaps3.for	/^300   if(tfl) then$/;"	l	subroutine:pcontr	file:
+300	feaps4.for	/^300     close(ios)$/;"	l	subroutine:proced	file:
+300	feaps4.for	/^300   continue$/;"	l	subroutine:plotdf	file:
+300	feaps4.for	/^300   if(ior.lt.0) write(*,2011)$/;"	l	subroutine:pmesh	file:
+300	feaps4.for	/^300   write(yyy,3000) ni,ne$/;"	l	subroutine:polar	file:
+300	feaps5.for	/^300       continue$/;"	l	subroutine:sblk	file:
+300	feaps5.for	/^300       continue$/;"	l	subroutine:sblkdx	file:
+300	feaps5.for	/^300   if(lflg) rewind ird$/;"	l	subroutine:reader	file:
+300	feaps5.for	/^300   write(yyy,3000) ni,ne$/;"	l	subroutine:rot	file:
+300	feaps6.for	/^300   continue$/;"	l	subroutine:vblk	file:
+300	feaps6.for	/^300   if(lflg) then$/;"	l	subroutine:writer	file:
+300	feaps6.for	/^300   write(yyy,3000) ni,ne$/;"	l	subroutine:sphere	file:
+300	feaps6.for	/^300   write(yyy,3000) ni,ne$/;"	l	subroutine:transx	file:
+3000	feaps1.for	/^3000  format(' **ERROR** Block node',i3,' is undefined')$/;"	l	subroutine:tblk	file:
+3000	feaps1.for	/^3000  format(' Singularity in factoring matrix by datri.'\/,$/;"	l	subroutine:datri1	file:
+3000	feaps2.for	/^3000  format('  **ERROR** attempt to generate node',i5,' in',2a4)$/;"	l	subroutine:invec	file:
+3000	feaps2.for	/^3000  format(' Try to generate node',i5,' for macro ',3a4)$/;"	l	subroutine:genvec	file:
+3000	feaps2.for	/^3000  format(' Try to generate node',i5,' for macro ',3a4)$/;"	l	subroutine:genvec1	file:
+3000	feaps2.for	/^3000  format(10x,' *ERROR* No pair:',2i5)$/;"	l	subroutine:esideb	file:
+3000	feaps3.for	/^ 3000 format(' Use "list" to give current values - <CR> to exit'\/$/;"	l	subroutine:pconst	file:
+3000	feaps3.for	/^3000  format(' Input: el-type, #-nodes, #-vals, ld-type'\/'   >',$)$/;"	l	subroutine:ploadi	file:
+3000	feaps3.for	/^3000  format(5x,'**ERROR** link file does not exist')$/;"	l	subroutine:plink	file:
+3000	feaps4.for	/^3000  format($/;"	l	subroutine:polar	file:
+3000	feaps4.for	/^3000  format('  Procedure Definition - Terminate with "end". ')$/;"	l	subroutine:proced	file:
+3000	feaps4.for	/^3000  format(' **WARNING** Illegal command ',a4,' in procedure.')$/;"	l	subroutine:setmac	file:
+3000	feaps5.for	/^3000  format($/;"	l	subroutine:rot	file:
+3000	feaps5.for	/^3000  format(' -> No line search - Energy positive at full step.')$/;"	l	subroutine:serchl	file:
+3000	feaps6.for	/^3000  format($/;"	l	subroutine:transx	file:
+3000	feaps6.for	/^3000  format('  **ERROR** attempt to convert nodes ni = ',i6,$/;"	l	subroutine:sphere	file:
+3000	feaps6.for	/^3000  format(' **ERROR** Block node',i3,' is undefined')$/;"	l	subroutine:vblk	file:
+3000	feaps6.for	/^3000  format(' Input: Type,1. and last node, parameter  >',$)$/;"	l	subroutine:xmodif	file:
+3001	feaps1.for	/^3001  format('Input: x_min,x_max,y_min,y_max,[z_min,z_max] ) >',$)$/;"	l	subroutine:aload	file:
+3001	feaps2.for	/^3001  format(' Input: P_1(x,y,z) P_2(x,y,z) tol >',$)$/;"	l	subroutine:isect	file:
+3001	feaps2.for	/^3001  format(' Try  to input values for node',i5,' for macro ',3a4)$/;"	l	subroutine:genvec1	file:
+3001	feaps2.for	/^3001  format(' Try  to input values for node',i5,' for macro ',3a4)$/;"	l	subroutine:genvec2	file:
+3001	feaps2.for	/^3001  format(' Try to make input values for node',i5,' for macro ',3a4,$/;"	l	subroutine:genvec	file:
+3001	feaps2.for	/^3001  format(' Try to make input values for node',i5,' for macro init',$/;"	l	subroutine:invec	file:
+3001	feaps2.for	/^3001  format('Input:P_1(x,y,[z]),P_2(x,y,[z]),[P_3(x,y,[z])],',\/,$/;"	l	subroutine:eload	file:
+3001	feaps3.for	/^3001  format(' ** ERROR ** No items in list, nn = ',i3)$/;"	l	subroutine:phist	file:
+3001	feaps3.for	/^3001  format(' Input: P_1(x,y,(z)) P_2(x,y,(z)),<P_3(x,y,(z))>',$/;"	l	subroutine:pedgeb	file:
+3001	feaps3.for	/^3001  format(' Input: Ra,Re,Pa,Pe,Za,Ze,(idl(i),i=1,ndf)',' >',$)$/;"	l	subroutine:pblockr	file:
+3001	feaps3.for	/^3001  format(' Input: X1a,X1e,X2a,X2e,X3a,X3e,(idl(i),i=1,ndf)',' >',$)$/;"	l	subroutine:pblock	file:
+3001	feaps3.for	/^3001  format(' Input: ndir,x(ndir),(f(i),i=1,ndf)','   >',$)$/;"	l	subroutine:pedgesd	file:
+3001	feaps3.for	/^3001  format(' Input: ndir,x(ndir),(idl(i),i=1,ndf)','   >',$)$/;"	l	subroutine:pedgeg	file:
+3001	feaps3.for	/^3001  format(' Input: ndir,x(ndir),(idl(i),i=1,ndf)','   >',$)$/;"	l	subroutine:pedges	file:
+3001	feaps3.for	/^3001  format(' Input: ndir,x(ndir),angle','   >',$)$/;"	l	subroutine:panglee	file:
+3001	feaps3.for	/^3001  format(' Input: x(1,ndm)\/\/F(1,ndf)\/\/bc(1,ndf)  >',$)$/;"	l	subroutine:ppload	file:
+3001	feaps3.for	/^3001  format(5x,'**Stop** linked node ',i5,' does not exist.')$/;"	l	subroutine:plink	file:
+3001	feaps4.for	/^3001  format('  Procedure Statement',i3,' >',$)$/;"	l	subroutine:proced	file:
+3001	feaps4.for	/^3001  format(' *ERROR* Problem does not permit a solution:'\/$/;"	l	subroutine:pnums	file:
+3001	feaps4.for	/^3001  format(' *WARNING* Maximum number of command statements =',i4$/;"	l	subroutine:pmacio	file:
+3001	feaps4.for	/^3001  format(' Element',i7,' appears after element',i5)$/;"	l	subroutine:pmesh	file:
+3001	feaps4.for	/^3001  format(' Input: node-1,node-2,inc, x0, y0'\/'   >',$)$/;"	l	subroutine:polar	file:
+3001	feaps4.for	/^3001  format('Input: q(1)-q(10) due to element >',$)$/;"	l	subroutine:qloadi	file:
+3001	feaps5.for	/^3001  format(' -> Iteration',i3,' Step Size =',e12.5,' Energy =',e12.5,$/;"	l	subroutine:serchl	file:
+3001	feaps5.for	/^3001  format(' Input: node-1,node-2,inc, axis, angl'\/'   >',$)$/;"	l	subroutine:rot	file:
+3001	feaps6.for	/^3001  format(' Input: node-1,node-2,inc, dx, dy, (dz)'\/'   >',$)$/;"	l	subroutine:transx	file:
+3001	feaps6.for	/^3001  format(' Input: node-1,node-2,inc, x0, y0, z0'\/'   >',$)$/;"	l	subroutine:sphere	file:
+3002	feaps1.for	/^3002  format('Input: idof,ietyp >',$)$/;"	l	subroutine:aload	file:
+3002	feaps2.for	/^3002  format(' Input: node, inc, v(i),i=1,ndf'\/'   >',$)$/;"	l	subroutine:invec	file:
+3002	feaps2.for	/^3002  format('Input:iload,icase,loads due to icase >',$)$/;"	l	subroutine:eload	file:
+3002	feaps3.for	/^3002  format(' Input: (idl(i),i=1,ndf) >',$)$/;"	l	subroutine:pedgeb	file:
+3002	feaps3.for	/^3002  format(5x,'Currently history list contains',i4,' items.'\/$/;"	l	subroutine:phist	file:
+3002	feaps3.for	/^3002  format(5x,'Link node ',i5,' to node ',i5,' : dof ',i3,$/;"	l	subroutine:plink	file:
+3002	feaps4.for	/^3002  format('  **WARNING** Illegal command ',a4,' in procedure.')$/;"	l	subroutine:proced	file:
+3002	feaps4.for	/^3002  format(' *ERROR* Number of block increments incorrect:'\/$/;"	l	subroutine:pnums	file:
+3002	feaps4.for	/^3002  format(' *ERROR* PMACIO: Maximum number of command instructions',$/;"	l	subroutine:pmacio	file:
+3002	feaps4.for	/^3002  format(' Element',i7,' has illegal nodes')$/;"	l	subroutine:pmesh	file:
+3002	feaps4.for	/^3002  format('Input: (elem1,elem2,...., >',$)$/;"	l	subroutine:qloadi	file:
+3002	feaps5.for	/^3002  format(' Rotate around axis ',i4,'not allowed!')$/;"	l	subroutine:rot	file:
+3003	feaps3.for	/^3003  format(5x,'Link node ',i5,' to node ',i5,' : dof ',i3,$/;"	l	subroutine:plink	file:
+3003	feaps4.for	/^3003  format(' **WARNING** element connections necessary to use '$/;"	l	subroutine:pmesh	file:
+3005	feaps4.for	/^3005  format(' Node number ',i7,' for BOUN not possible ')$/;"	l	subroutine:pmesh	file:
+301	feaps1.for	/^301   continue$/;"	l	subroutine:tblk	file:
+301	feaps6.for	/^301   continue$/;"	l	subroutine:vblk	file:
+302	feaps4.for	/^302   continue$/;"	l	subroutine:pmesh	file:
+303	feaps4.for	/^303     call dinput(td,il-is+1)$/;"	l	subroutine:pmesh	file:
+304	feaps4.for	/^304     continue$/;"	l	subroutine:pmesh	file:
+305	feaps2.for	/^305             if(i.eq.ned) then$/;"	l	subroutine:esiden	file:
+305	feaps2.for	/^305     continue$/;"	l	subroutine:esideb	file:
+305	feaps4.for	/^305     continue$/;"	l	subroutine:pmesh	file:
+307	feaps4.for	/^307   continue$/;"	l	subroutine:pmesh	file:
+31	feaps3.for	/^31       w(i) = lw3(j)*lw3(k)*h$/;"	l	subroutine:pnewcot	file:
+31	feaps3.for	/^31    w(i) = h*lw(i)$/;"	l	subroutine:pgauss	file:
+31	feaps4.for	/^31    goto 103$/;"	l	subroutine:pmesh	file:
+310	feaps2.for	/^310                 continue$/;"	l	subroutine:esiden	file:
+310	feaps2.for	/^310     continue$/;"	l	subroutine:esideb	file:
+313	feaps4.for	/^313   continue$/;"	l	subroutine:pmesh	file:
+314	feaps4.for	/^314   continue$/;"	l	subroutine:pmesh	file:
+315	feaps4.for	/^315   continue$/;"	l	subroutine:pmesh	file:
+316	feaps4.for	/^316   ie(nie-1,ma) = iel$/;"	l	subroutine:pmesh	file:
+32	feaps4.for	/^32    if(ior.lt.0) write(*,2017)$/;"	l	subroutine:pmesh	file:
+320	feaps2.for	/^320         continue$/;"	l	subroutine:esiden	file:
+320	feaps2.for	/^320     do 330 i = 1,nde$/;"	l	subroutine:esideb	file:
+33	feaps4.for	/^33    call curvin(m)$/;"	l	subroutine:pmesh	file:
+330	feaps2.for	/^330       continue$/;"	l	subroutine:esiden	file:
+330	feaps2.for	/^330     continue$/;"	l	subroutine:esideb	file:
+339	feaps2.for	/^ 339  continue$/;"	l	subroutine:b3d	file:
+34	feaps4.for	/^34    call pedgeb(x,id,idl,ndm,ndf,numnp,prt)$/;"	l	subroutine:pmesh	file:
+340	feaps2.for	/^ 340    continue$/;"	l	subroutine:b3d	file:
+340	feaps2.for	/^340   continue$/;"	l	subroutine:esiden	file:
+341	feaps2.for	/^ 341      continue$/;"	l	subroutine:b3d	file:
+35	feaps4.for	/^35    call dinput(td,1)$/;"	l	subroutine:pmesh	file:
+350	feaps2.for	/^  350     ie = 0$/;"	l	subroutine:opnum	file:
+350	feaps2.for	/^ 350  continue$/;"	l	subroutine:b3d	file:
+350	feaps2.for	/^350   continue$/;"	l	subroutine:esiden	file:
+350	feaps3.for	/^  350     continue$/;"	l	subroutine:nodel	file:
+36	feaps4.for	/^36    goto 5$/;"	l	subroutine:pmesh	file:
+37	feaps4.for	/^37    continue$/;"	l	subroutine:pmesh	file:
+370	feaps2.for	/^  370           continue$/;"	l	subroutine:opnum	file:
+38	feaps4.for	/^38    call transx(x,ndm,numnp,prt)$/;"	l	subroutine:pmesh	file:
+380	feaps2.for	/^  380       continue$/;"	l	subroutine:opnum	file:
+380	feaps3.for	/^  380       continue$/;"	l	subroutine:nodew	file:
+39	feaps4.for	/^39    call rot(x,ndm,numnp,prt)$/;"	l	subroutine:pmesh	file:
+4	feaps2.for	/^4         if(prt) then$/;"	l	subroutine:isect	file:
+4	feaps2.for	/^4     b = (2.d0\/7.d0)*dsqrt(6.d0\/5.d0)$/;"	l	subroutine:gaus1D	file:
+4	feaps2.for	/^4     one = 1.d0$/;"	l	subroutine:shape1D	file:
+4	feaps3.for	/^4     g = dsqrt(4.8d0)$/;"	l	subroutine:pgauss	file:
+4	feaps3.for	/^4     h = 1.d0\/16.d0$/;"	l	subroutine:pnewcot	file:
+4	feaps3.for	/^4     if(prt)              write(iow,2000)        (i,i=1,ndf)$/;"	l	subroutine:pedges	file:
+4	feaps3.for	/^4     if(prt)              write(iow,2000)        (i,i=1,ndf)$/;"	l	subroutine:pedgesd	file:
+4	feaps3.for	/^4     if(prt)              write(iow,2000) (i,i=1,ndf)$/;"	l	subroutine:pedgeb	file:
+4	feaps3.for	/^4     if(prt)              write(iow,2000) (i,i=1,ndf)$/;"	l	subroutine:pedgeg	file:
+4	feaps3.for	/^4     if(prt)              write(iow,2000) iang1,iang2$/;"	l	subroutine:panglee	file:
+4	feaps4.for	/^4     if(prt) write(iow,2000) (i,i=1,ndf)$/;"	l	subroutine:pmesh	file:
+40	feaps1.for	/^40              continue$/;"	l	subroutine:tblk	file:
+40	feaps2.for	/^40          continue$/;"	l	subroutine:optn	file:
+40	feaps4.for	/^40    continue$/;"	l	subroutine:pmesh	file:
+40	feaps4.for	/^40    continue$/;"	l	subroutine:seteq	file:
+40	feaps5.for	/^40        continue$/;"	l	subroutine:rstprf	file:
+40	feaps5.for	/^40      continue$/;"	l	subroutine:setval	file:
+40	feaps5.for	/^40    continue$/;"	l	subroutine:setval2	file:
+40	feaps6.for	/^   40     continue$/;"	l	subroutine:trblk	file:
+40	feaps6.for	/^40          continue$/;"	l	subroutine:vblk	file:
+400	feaps1.for	/^400   continue$/;"	l	subroutine:dasol1	file:
+400	feaps2.for	/^  400     continue$/;"	l	subroutine:opnum	file:
+400	feaps2.for	/^400   error = .true.$/;"	l	subroutine:intio	file:
+400	feaps2.for	/^400   go to 1$/;"	l	subroutine:esideb	file:
+400	feaps3.for	/^  400   continue$/;"	l	subroutine:nodew	file:
+400	feaps3.for	/^  400 continue$/;"	l	subroutine:nodel	file:
+400	feaps3.for	/^400   call errclr('PCFOUR')$/;"	l	subroutine:pcfour	file:
+400	feaps3.for	/^400   call perform(0,1,1,31)$/;"	l	subroutine:pcontr	file:
+400	feaps4.for	/^400   l  = n$/;"	l	subroutine:pmesh	file:
+400	feaps4.for	/^400   write(iow,4000)$/;"	l	subroutine:pmacio	file:
+400	feaps5.for	/^400     continue$/;"	l	subroutine:sblk	file:
+400	feaps5.for	/^400     continue$/;"	l	subroutine:sblkdx	file:
+400	feaps5.for	/^400   if(lflg) close(ird)$/;"	l	subroutine:reader	file:
+400	feaps6.for	/^400         continue$/;"	l	subroutine:vblk	file:
+400	feaps6.for	/^400   close(iwd)$/;"	l	subroutine:writer	file:
+4000	feaps3.for	/^4000  format(5x,' node(tied to) ',i6,'(',i6,')')$/;"	l	subroutine:plink	file:
+4000	feaps4.for	/^4000  format(' error in pmacio ** unbalanced loop\/next macros')$/;"	l	subroutine:pmacio	file:
+4000	feaps6.for	/^4000  format(' **ERROR** attempt to convert spherical coordinates'\/$/;"	l	subroutine:sphere	file:
+4001	feaps3.for	/^4001  format(5x,' node(tied to) ',i6,'(',i6,')',$/;"	l	subroutine:plink	file:
+4001	feaps4.for	/^4001  format(' error in pmacio ** loops nested deeper than 8')$/;"	l	subroutine:pmacio	file:
+4001	feaps5.for	/^4001  format(' numnp,numel,nummat,ndm,ndf,nrt,fl(9),ttim')$/;"	l	subroutine:restrt	file:
+4002	feaps4.for	/^4002  format(' *ERROR* PMACIO: "loop" must precede "next" instruction')$/;"	l	subroutine:pmacio	file:
+4002	feaps5.for	/^4002  format(6i10,l5,e18.9)$/;"	l	subroutine:restrt	file:
+4003	feaps4.for	/^4003  format(' *ERROR* PMACIO: "if" must precede "endi"f instruction')$/;"	l	subroutine:pmacio	file:
+4003	feaps5.for	/^4003  format(' displacements (nneq)')$/;"	l	subroutine:restrt	file:
+4004	feaps4.for	/^4004  format(' *ERROR* PMACIO: Unbalanced if\/endif commands')$/;"	l	subroutine:pmacio	file:
+4004	feaps5.for	/^4004  format(' mf,mq,mfmax')$/;"	l	subroutine:restrt	file:
+4005	feaps5.for	/^4005  format(5i7)$/;"	l	subroutine:restrt	file:
+4006	feaps5.for	/^4006  format(' eigenvalues  (neq)')$/;"	l	subroutine:restrt	file:
+4007	feaps5.for	/^4007  format(' eigenvectors (neq)')$/;"	l	subroutine:restrt	file:
+4008	feaps5.for	/^4008  format(' prop,rlnew,c0,cs1,cs2,ds0,r,det0,xn')$/;"	l	subroutine:restrt	file:
+4009	feaps5.for	/^4009  format(9e18.9)$/;"	l	subroutine:restrt	file:
+401	feaps3.for	/^ 401  call  errclr ('PMACIO')$/;"	l	subroutine:parse	file:
+401	feaps4.for	/^401   if(ior.lt.0) write(*,2012)$/;"	l	subroutine:pmesh	file:
+401	feaps4.for	/^401   write(iow,4001)$/;"	l	subroutine:pmacio	file:
+401	feaps5.for	/^401   continue$/;"	l	subroutine:sblk	file:
+401	feaps5.for	/^401   continue$/;"	l	subroutine:sblkdx	file:
+4010	feaps5.for	/^4010  format(' transient values v,a,... stored with neq, length=nneq')$/;"	l	subroutine:restrt	file:
+4012	feaps5.for	/^4012  format(' ttim')$/;"	l	subroutine:restrt	file:
+4013	feaps5.for	/^4013  format(e18.9,3i12)$/;"	l	subroutine:restrt	file:
+4014	feaps5.for	/^4014  format(' edge data')$/;"	l	subroutine:restrt	file:
+4015	feaps5.for	/^4015  format(' crack data')$/;"	l	subroutine:restrt	file:
+4016	feaps5.for	/^4016  format(l10)$/;"	l	subroutine:restrt	file:
+4017	feaps5.for	/^4017  format(' director data')$/;"	l	subroutine:restrt	file:
+402	feaps3.for	/^ 402  call  endclr ('PMACIO',x)$/;"	l	subroutine:parse	file:
+402	feaps4.for	/^402   continue$/;"	l	subroutine:pmesh	file:
+402	feaps4.for	/^402   write(iow,4002)$/;"	l	subroutine:pmacio	file:
+4020	feaps5.for	/^4020  format(a80)$/;"	l	subroutine:restrt	file:
+403	feaps4.for	/^403         call dinput(td,il-is+1)$/;"	l	subroutine:pmesh	file:
+403	feaps4.for	/^403   write(iow,4003)$/;"	l	subroutine:pmacio	file:
+404	feaps4.for	/^404         continue$/;"	l	subroutine:pmesh	file:
+404	feaps4.for	/^404   write(iow,4004)$/;"	l	subroutine:pmacio	file:
+405	feaps4.for	/^405       continue$/;"	l	subroutine:pmesh	file:
+407	feaps4.for	/^407   if(l.ne.0.and.idli.eq.0.and.idil.lt.0) id(i,n) = -1$/;"	l	subroutine:pmesh	file:
+408	feaps3.for	/^408       if(f(i,n).ne.0.d0) go to 409$/;"	l	subroutine:pedgesd	file:
+408	feaps3.for	/^408       if(id(i,n).ne.0) go to 409$/;"	l	subroutine:pblockr	file:
+408	feaps3.for	/^408       if(id(i,n).ne.0) go to 409$/;"	l	subroutine:pedgeb	file:
+408	feaps3.for	/^408       if(id(i,n).ne.0) go to 409$/;"	l	subroutine:pedgeg	file:
+408	feaps3.for	/^408       if(id(i,n).ne.0) go to 409$/;"	l	subroutine:pedges	file:
+408	feaps3.for	/^408      if(id(i,n).ne.0) go to 409$/;"	l	subroutine:pblock	file:
+408	feaps4.for	/^408   l = l + lg$/;"	l	subroutine:pmesh	file:
+409	feaps3.for	/^409      if(prt)              write(iow,2001) n,(id(i,n),i=1,ndf)$/;"	l	subroutine:pblock	file:
+409	feaps3.for	/^409     continue$/;"	l	subroutine:pedgeb	file:
+409	feaps3.for	/^409     if(prt) write(iow,2001) n,(f(i,n),i=1,ndf)$/;"	l	subroutine:pedgesd	file:
+409	feaps3.for	/^409     if(prt) write(iow,2001) n,(id(i,n),i=1,ndf)$/;"	l	subroutine:pblockr	file:
+409	feaps3.for	/^409     if(prt) write(iow,2001) n,(id(i,n),i=1,ndf)$/;"	l	subroutine:pedgeg	file:
+409	feaps3.for	/^409     if(prt) write(iow,2001) n,(id(i,n),i=1,ndf)$/;"	l	subroutine:pedges	file:
+409	feaps4.for	/^409   if(id(i,l-lg).lt.0) id(i,l) = -1$/;"	l	subroutine:pmesh	file:
+41	feaps3.for	/^41       w(i) = lw4(j)*lw4(k)*h$/;"	l	subroutine:pnewcot	file:
+41	feaps3.for	/^41    continue$/;"	l	subroutine:pgauss	file:
+41	feaps4.for	/^41    call xmodif(x,ndm,numnp,prt)$/;"	l	subroutine:pmesh	file:
+410	feaps2.for	/^410   continue$/;"	l	subroutine:eload	file:
+410	feaps3.for	/^410   continue$/;"	l	subroutine:pblock	file:
+410	feaps3.for	/^410   continue$/;"	l	subroutine:pblockr	file:
+410	feaps3.for	/^410   continue$/;"	l	subroutine:pedgeb	file:
+410	feaps3.for	/^410   continue$/;"	l	subroutine:pedgeg	file:
+410	feaps3.for	/^410   continue$/;"	l	subroutine:pedges	file:
+410	feaps3.for	/^410   continue$/;"	l	subroutine:pedgesd	file:
+410	feaps4.for	/^410   do 413 n = 1,numnp$/;"	l	subroutine:pmesh	file:
+411	feaps4.for	/^411   if(id(i,n).ne.0) go to 412$/;"	l	subroutine:pmesh	file:
+411	feaps6.for	/^411         continue$/;"	l	subroutine:vblk	file:
+412	feaps4.for	/^412   if(prt) write(iow,2007) n,(id(i,n),i=1,ndf)$/;"	l	subroutine:pmesh	file:
+412	feaps6.for	/^412         continue$/;"	l	subroutine:vblk	file:
+413	feaps4.for	/^413   continue$/;"	l	subroutine:pmesh	file:
+415	feaps6.for	/^415         continue$/;"	l	subroutine:vblk	file:
+42	feaps4.for	/^42    goto 103$/;"	l	subroutine:pmesh	file:
+45	feaps3.for	/^45            continue ! jdm$/;"	l	subroutine:plink	file:
+450	feaps2.for	/^  450     continue$/;"	l	subroutine:opnum	file:
+5	feaps2.for	/^5     a = 5.d0\/9.d0$/;"	l	subroutine:gaus1D	file:
+5	feaps3.for	/^5     g5(1) = 0.9061798459386639927976269d0$/;"	l	subroutine:pgauss	file:
+5	feaps3.for	/^5     h = 1.d0\/2025.d0$/;"	l	subroutine:pnewcot	file:
+5	feaps4.for	/^5     call genvec(ndf,f,' ext. loads ',prt,error,.false.)$/;"	l	subroutine:pmesh	file:
+50	feaps1.for	/^50              continue$/;"	l	subroutine:tblk	file:
+50	feaps1.for	/^50      continue$/;"	l	subroutine:cfunc	file:
+50	feaps1.for	/^50      d(n) = 0.0d0$/;"	l	subroutine:dinput	file:
+50	feaps1.for	/^50      d(n) = 0.0d0$/;"	l	subroutine:dinput2	file:
+50	feaps1.for	/^50    continue$/;"	l	subroutine:datri1	file:
+50	feaps1.for	/^50    continue$/;"	l	subroutine:dcheck	file:
+50	feaps2.for	/^  50   cd(i) = cdd(4*(i-1)+1:4*(i-1)+4)$/;"	l	subroutine:genvec1	file:
+50	feaps2.for	/^  50  cd(i) = cdd(4*(i-1)+1:4*(i-1)+4)$/;"	l	subroutine:genvec	file:
+50	feaps2.for	/^50        continue$/;"	l	subroutine:optn	file:
+50	feaps2.for	/^50    continue$/;"	l	subroutine:ini	file:
+50	feaps3.for	/^  50  Y(I:I) = YY(I)$/;"	l	subroutine:pintio	file:
+50	feaps3.for	/^50            continue$/;"	l	subroutine:parexp	file:
+50	feaps3.for	/^50          continue$/;"	l	subroutine:pcktie	file:
+50	feaps4.for	/^50        continue$/;"	l	subroutine:vazero	file:
+50	feaps4.for	/^50    call ppload(x,f,id,ndm,ndf,numnp,prt)$/;"	l	subroutine:pmesh	file:
+50	feaps4.for	/^50    continue$/;"	l	subroutine:prefl	file:
+50	feaps5.for	/^50      asum(k) = 0.$/;"	l	subroutine:prtrea	file:
+50	feaps5.for	/^50      continue$/;"	l	subroutine:setval	file:
+50	feaps5.for	/^50    continue$/;"	l	subroutine:rstprf	file:
+50	feaps5.for	/^50    continue$/;"	l	subroutine:setval2	file:
+50	feaps6.for	/^   50 continue$/;"	l	subroutine:trblk	file:
+50	feaps6.for	/^50              continue$/;"	l	subroutine:vblk	file:
+500	feaps1.for	/^500   continue$/;"	l	subroutine:dasol1	file:
+500	feaps2.for	/^  500 continue$/;"	l	subroutine:opnum	file:
+500	feaps3.for	/^  500   continue$/;"	l	subroutine:nodew	file:
+500	feaps3.for	/^500   continue$/;"	l	subroutine:pcontr	file:
+500	feaps6.for	/^500       continue$/;"	l	subroutine:vblk	file:
+500	feaps6.for	/^500   call pzero(b,nneq)$/;"	l	subroutine:summariz	file:
+5000	feaps1.for	/^5000  format(' Input: nn,nr,nod1,nuel1,ma'\/3x,'>',$)$/;"	l	subroutine:blktri	file:
+5000	feaps1.for	/^5000  format(' Input: nn,nr,ns,ni,ne,ma,nodinc,ntyp'\/3x,'>',$)$/;"	l	subroutine:blkgen	file:
+5000	feaps1.for	/^5000  format(' Input: nn,nr,ns,ni,ne,ma,nodinc,ntyp'\/3x,'>',$)$/;"	l	subroutine:blkgendx	file:
+5000	feaps1.for	/^5000  format(' Input: nn,nr,ns,ni,ne,ma1,ma2,ma3,ityp'\/3x,'>',$)$/;"	l	subroutine:blkgenco	file:
+5000	feaps1.for	/^5000  format(' Input: nn,nr,ns,nt,ni,nodinc'\/3x,'>',$)$/;"	l	subroutine:blktem	file:
+5001	feaps1.for	/^5001  format(' Input: node, Temp'\/3x,'>',$)$/;"	l	subroutine:blktem	file:
+5001	feaps1.for	/^5001  format(' Input: node, x-1, x-2, x-3'\/3x,'>',$)$/;"	l	subroutine:blkgen	file:
+5001	feaps1.for	/^5001  format(' Input: node, x-1, x-2, x-3'\/3x,'>',$)$/;"	l	subroutine:blkgenco	file:
+5001	feaps1.for	/^5001  format(' Input: node, x-1, x-2, x-3'\/3x,'>',$)$/;"	l	subroutine:blkgendx	file:
+5001	feaps1.for	/^5001  format(' Input: node, x-1, x-2, x-3'\/3x,'>',$)$/;"	l	subroutine:blktri	file:
+501	feaps1.for	/^501       continue$/;"	l	subroutine:blkgenco	file:
+501	feaps1.for	/^501       continue$/;"	l	subroutine:blkgendx	file:
+501	feaps1.for	/^501       continue$/;"	l	subroutine:blktri	file:
+501	feaps1.for	/^501     continue$/;"	l	subroutine:blkgen	file:
+502	feaps1.for	/^502     continue$/;"	l	subroutine:blkgenco	file:
+502	feaps1.for	/^502     continue$/;"	l	subroutine:blkgendx	file:
+502	feaps1.for	/^502     continue$/;"	l	subroutine:blktri	file:
+502	feaps1.for	/^502   continue$/;"	l	subroutine:blkgen	file:
+51	feaps1.for	/^51    if(ior.gt.0) then$/;"	l	subroutine:dinput	file:
+51	feaps3.for	/^51       w(i) = lw5(j)*lw5(k)*h$/;"	l	subroutine:pnewcot	file:
+51	feaps3.for	/^51    continue$/;"	l	subroutine:pgauss	file:
+51	feaps4.for	/^51    call aload(x,f,ix,id,ndm,ndf,nen1,prt)$/;"	l	subroutine:pmesh	file:
+511	feaps6.for	/^511       continue$/;"	l	subroutine:vblk	file:
+512	feaps6.for	/^512       continue$/;"	l	subroutine:vblk	file:
+515	feaps6.for	/^515       continue$/;"	l	subroutine:vblk	file:
+52	feaps1.for	/^52    if(lsave) write(lfile,1000) xxx$/;"	l	subroutine:dinput	file:
+52	feaps4.for	/^52    call dinput(td,3)$/;"	l	subroutine:pmesh	file:
+520	feaps3.for	/^520   continue      $/;"	l	subroutine:pcontr	file:
+53	feaps4.for	/^53    if(iii.lt.0) write(iow,3003)$/;"	l	subroutine:pmesh	file:
+54	feaps3.for	/^54                continue$/;"	l	subroutine:plink	file:
+54	feaps4.for	/^54    call ialloc(irpt,numnp,'RSUM',flrsum)$/;"	l	subroutine:pmesh	file:
+55	feaps1.for	/^55    continue$/;"	l	subroutine:cfunc	file:
+55	feaps2.for	/^55    format(' Node    No.assoc. nodes    node numbers')$/;"	l	subroutine:optn	file:
+55	feaps3.for	/^55                continue$/;"	l	subroutine:plink	file:
+55	feaps4.for	/^55    call genvec(ndf,f,' presc.displ',prt,error,.false.)$/;"	l	subroutine:pmesh	file:
+550	feaps3.for	/^550   continue$/;"	l	subroutine:pcontr	file:
+56	feaps2.for	/^56    format(13(1x,i5))$/;"	l	subroutine:optn	file:
+56	feaps3.for	/^56                continue$/;"	l	subroutine:plink	file:
+57	feaps2.for	/^57      write(iow,56) i,jmem(i),(memjt(i,j),j=1,nbmax)$/;"	l	subroutine:optn	file:
+57	feaps3.for	/^57              continue$/;"	l	subroutine:plink	file:
+59	feaps4.for	/^59    goto 103$/;"	l	subroutine:pmesh	file:
+6	feaps3.for	/^6     g6(1) = 0.9324695142031520278123016d0$/;"	l	subroutine:pgauss	file:
+6	feaps3.for	/^6     h = 1.d0\/20736.d0$/;"	l	subroutine:pnewcot	file:
+6	feaps4.for	/^6     call genvec(1,t,' temperature',prt,error,.false.)$/;"	l	subroutine:pmesh	file:
+60	feaps1.for	/^ 60   continue$/;"	l	subroutine:dcheck	file:
+60	feaps1.for	/^60    continue$/;"	l	subroutine:dinput	file:
+60	feaps1.for	/^60    continue$/;"	l	subroutine:dinput2	file:
+60	feaps2.for	/^60      continue$/;"	l	subroutine:optn	file:
+60	feaps4.for	/^60     call genvec2(ndm,x,'x=x+rnd*fact',prt,error,.true.)$/;"	l	subroutine:pmesh	file:
+60	feaps5.for	/^60    do 100 i = 1,75$/;"	l	subroutine:setval	file:
+60	feaps6.for	/^60          continue$/;"	l	subroutine:vblk	file:
+600	feaps2.for	/^  600     continue$/;"	l	subroutine:front	file:
+600	feaps2.for	/^  600 continue$/;"	l	subroutine:opnum	file:
+600	feaps3.for	/^  600 continue$/;"	l	subroutine:nodew	file:
+600	feaps3.for	/^600   call  errclr ('PCONTR')$/;"	l	subroutine:pcontr	file:
+600	feaps6.for	/^600      continue$/;"	l	subroutine:vblk	file:
+601	feaps3.for	/^601   return$/;"	l	subroutine:pcontr	file:
+601	feaps6.for	/^601    continue$/;"	l	subroutine:vblk	file:
+6011	feaps6.for	/^6011   continue$/;"	l	subroutine:vblk	file:
+6012	feaps6.for	/^6012    continue$/;"	l	subroutine:vblk	file:
+6014	feaps6.for	/^6014    continue$/;"	l	subroutine:vblk	file:
+6015	feaps6.for	/^6015    continue$/;"	l	subroutine:vblk	file:
+61	feaps3.for	/^61              continue$/;"	l	subroutine:plink	file:
+61	feaps3.for	/^61       w(i) = lw6(j)*lw6(k)*h$/;"	l	subroutine:pnewcot	file:
+61	feaps3.for	/^61    continue$/;"	l	subroutine:pgauss	file:
+61	feaps4.for	/^61    if(flqloa) then$/;"	l	subroutine:pmesh	file:
+611	feaps6.for	/^611      continue$/;"	l	subroutine:vblk	file:
+612	feaps6.for	/^612     continue$/;"	l	subroutine:vblk	file:
+615	feaps6.for	/^615     continue$/;"	l	subroutine:vblk	file:
+62	feaps3.for	/^62              continue$/;"	l	subroutine:plink	file:
+62	feaps4.for	/^62    call isect(x,id,ndm,ndf,numnp,prt)$/;"	l	subroutine:pmesh	file:
+63	feaps3.for	/^63              continue$/;"	l	subroutine:plink	file:
+63	feaps4.for	/^63    call genvec3(ndm,x,prt)$/;"	l	subroutine:pmesh	file:
+64	feaps3.for	/^64            continue$/;"	l	subroutine:plink	file:
+64	feaps4.for	/^64    continue$/;"	l	subroutine:pmesh	file:
+640	feaps4.for	/^640   call dinput(td,il)$/;"	l	subroutine:pmesh	file:
+641	feaps4.for	/^641       call dinput(td,il-is+1)$/;"	l	subroutine:pmesh	file:
+642	feaps4.for	/^642     do i = 1,numel,50$/;"	l	subroutine:pmesh	file:
+65	feaps2.for	/^65    continue$/;"	l	subroutine:optn	file:
+65	feaps3.for	/^65            continue$/;"	l	subroutine:plink	file:
+65	feaps4.for	/^65    call dinput(td,4)$/;"	l	subroutine:pmesh	file:
+66	feaps3.for	/^66            continue$/;"	l	subroutine:plink	file:
+66	feaps4.for	/^66    go to 103$/;"	l	subroutine:pmesh	file:
+67	feaps3.for	/^67            continue$/;"	l	subroutine:plink	file:
+67	feaps4.for	/^67    go to 103$/;"	l	subroutine:pmesh	file:
+68	feaps4.for	/^68    if(iii.lt.0) write(iow,3003)$/;"	l	subroutine:pmesh	file:
+69	feaps4.for	/^69    call readerb(x,ix,ndm,numnp,nen,nen1,numel)$/;"	l	subroutine:pmesh	file:
+7	feaps3.for	/^7     g7(1) = 0.9491079123427585245261897d0$/;"	l	subroutine:pgauss	file:
+7	feaps3.for	/^7     h = 1.d0\/176400.d0$/;"	l	subroutine:pnewcot	file:
+7	feaps4.for	/^7     if(error)$/;"	l	subroutine:pmesh	file:
+70	feaps1.for	/^70    no = 1$/;"	l	subroutine:dinput	file:
+70	feaps1.for	/^70    no = 1$/;"	l	subroutine:dinput2	file:
+70	feaps4.for	/^70    goto 103$/;"	l	subroutine:pmesh	file:
+700	feaps2.for	/^  700 continue$/;"	l	subroutine:opnum	file:
+700	feaps3.for	/^700   call  endclr ('PCONTR',titl(1))$/;"	l	subroutine:pcontr	file:
+71	feaps3.for	/^71          continue$/;"	l	subroutine:plink	file:
+71	feaps3.for	/^71       w(i) = lw7(j)*lw7(k)*h$/;"	l	subroutine:pnewcot	file:
+71	feaps3.for	/^71    continue$/;"	l	subroutine:pgauss	file:
+71	feaps4.for	/^71    continue$/;"	l	subroutine:pmesh	file:
+72	feaps3.for	/^72          continue$/;"	l	subroutine:plink	file:
+72	feaps4.for	/^72    continue$/;"	l	subroutine:pmesh	file:
+73	feaps3.for	/^73          continue$/;"	l	subroutine:plink	file:
+73	feaps4.for	/^73    continue$/;"	l	subroutine:pmesh	file:
+74	feaps3.for	/^74          continue ! i2$/;"	l	subroutine:plink	file:
+74	feaps4.for	/^74    call umesh1(idl,ie,d,id,x,ix,f,t,ndd,nie,ndf,ndm,nen1,iii,prt)$/;"	l	subroutine:pmesh	file:
+75	feaps3.for	/^75          continue ! i2$/;"	l	subroutine:plink	file:
+75	feaps4.for	/^75    call umesh2(idl,ie,d,id,x,ix,f,t,ndd,nie,ndf,ndm,nen1,iii,prt)$/;"	l	subroutine:pmesh	file:
+75	feaps5.for	/^75        asum(k) = asum(k) + dabs(r(k,i))$/;"	l	subroutine:prtrea	file:
+76	feaps3.for	/^76          continue ! i2$/;"	l	subroutine:plink	file:
+76	feaps4.for	/^76    call umesh3(idl,ie,d,id,x,ix,f,t,ndd,nie,ndf,ndm,nen1,iii,prt)$/;"	l	subroutine:pmesh	file:
+77	feaps3.for	/^77          continue ! ixy$/;"	l	subroutine:plink	file:
+77	feaps4.for	/^77    call umesh4(idl,ie,d,id,x,ix,f,t,ndd,nie,ndf,ndm,nen1,iii,prt)$/;"	l	subroutine:pmesh	file:
+771	feaps3.for	/^771           continue          $/;"	l	subroutine:plink	file:
+78	feaps4.for	/^78    call umesh5(idl,ie,d,id,x,ix,f,t,ndd,nie,ndf,ndm,nen1,iii,prt)$/;"	l	subroutine:pmesh	file:
+79	feaps4.for	/^79    call pedgesd(x,f,ndm,ndf,numnp,prt)$/;"	l	subroutine:pmesh	file:
+8	feaps3.for	/^8     g8(1) = 0.9602898564975362316835609d0$/;"	l	subroutine:pgauss	file:
+8	feaps3.for	/^8     h = 1.d0\/298598400.d0$/;"	l	subroutine:pnewcot	file:
+8	feaps4.for	/^8     prt = i.eq.8$/;"	l	subroutine:pmesh	file:
+80	feaps1.for	/^80    continue$/;"	l	subroutine:dinput	file:
+80	feaps1.for	/^80    continue$/;"	l	subroutine:dinput2	file:
+80	feaps4.for	/^80    call dinput(td,nen)$/;"	l	subroutine:pmesh	file:
+81	feaps3.for	/^81        continue$/;"	l	subroutine:plink	file:
+81	feaps3.for	/^81       w(i) = lw8(j)*lw8(k)*h$/;"	l	subroutine:pnewcot	file:
+81	feaps3.for	/^81    continue$/;"	l	subroutine:pgauss	file:
+81	feaps4.for	/^81    call epsq_me(prt)$/;"	l	subroutine:pmesh	file:
+82	feaps3.for	/^82        continue$/;"	l	subroutine:plink	file:
+82	feaps4.for	/^82    go to 16$/;"	l	subroutine:pmesh	file:
+83	feaps3.for	/^83        continue$/;"	l	subroutine:plink	file:
+83	feaps4.for	/^83    lenKnv1=0$/;"	l	subroutine:pmesh	file:
+8301	feaps4.for	/^8301  continue$/;"	l	subroutine:pmesh	file:
+831	feaps4.for	/^831   continue$/;"	l	subroutine:pmesh	file:
+84	feaps3.for	/^84        continue ! i1  $/;"	l	subroutine:plink	file:
+84	feaps4.for	/^84    lenKnv2 = 0$/;"	l	subroutine:pmesh	file:
+8401	feaps4.for	/^8401  continue$/;"	l	subroutine:pmesh	file:
+841	feaps4.for	/^841   continue$/;"	l	subroutine:pmesh	file:
+85	feaps3.for	/^85        continue ! i1  $/;"	l	subroutine:plink	file:
+85	feaps4.for	/^85    call dinput(td,1)$/;"	l	subroutine:pmesh	file:
+8501	feaps4.for	/^8501  continue$/;"	l	subroutine:pmesh	file:
+86	feaps3.for	/^86        continue ! i1  $/;"	l	subroutine:plink	file:
+86	feaps4.for	/^86    call genvec(ndf,f0,' loads F0   ',prt,error,.false.)$/;"	l	subroutine:pmesh	file:
+87	feaps3.for	/^87        continue ! iz$/;"	l	subroutine:plink	file:
+87	feaps4.for	/^87    goto 103$/;"	l	subroutine:pmesh	file:
+88	feaps4.for	/^88    goto 103$/;"	l	subroutine:pmesh	file:
+89	feaps4.for	/^89    goto 103$/;"	l	subroutine:pmesh	file:
+9	feaps3.for	/^9     g9(1) = 0.9681602395076260898355762d0$/;"	l	subroutine:pgauss	file:
+90	feaps1.for	/^90    if(xxx(n).eq.' '.or.xxx(n).eq.',') then$/;"	l	subroutine:dinput	file:
+90	feaps1.for	/^90    if(xxx(n).eq.' '.or.xxx(n).eq.',') then$/;"	l	subroutine:dinput2	file:
+90	feaps4.for	/^90    goto 103$/;"	l	subroutine:pmesh	file:
+90	feaps5.for	/^90          continue$/;"	l	subroutine:prtrea	file:
+900	feaps1.for	/^900   write(iow,3000) k$/;"	l	subroutine:tblk	file:
+900	feaps4.for	/^900   call  endclr ('PMACIO',y)$/;"	l	subroutine:histex	file:
+900	feaps4.for	/^900   call  endclr ('PMESH ',cc)$/;"	l	subroutine:pmesh	file:
+900	feaps6.for	/^900   write(iow,3000) k$/;"	l	subroutine:vblk	file:
+901	feaps1.for	/^901   call  errclr ('DINPUT')$/;"	l	subroutine:dinput	file:
+901	feaps3.for	/^ 901  call errclr('PLINKA')$/;"	l	subroutine:plinka	file:
+901	feaps3.for	/^901   call  errclr ('PCONST')$/;"	l	subroutine:pconst	file:
+901	feaps3.for	/^901   call  errclr ('PINTIO')$/;"	l	subroutine:pintio	file:
+901	feaps4.for	/^901       if(ior.lt.0) write(*,2011)$/;"	l	subroutine:pmesh	file:
+902	feaps1.for	/^902   call  endclr ('DINPUT',xxx(1))$/;"	l	subroutine:dinput	file:
+902	feaps3.for	/^ 902  call endclr('PLINKA',yyy)$/;"	l	subroutine:plinka	file:
+902	feaps3.for	/^902   call  endclr ('PCONST',let)$/;"	l	subroutine:pconst	file:
+902	feaps3.for	/^902   call  endclr ('PINTIO',x)$/;"	l	subroutine:pintio	file:
+91	feaps3.for	/^91    continue$/;"	l	subroutine:pgauss	file:
+91	feaps4.for	/^91    goto 103$/;"	l	subroutine:pmesh	file:
+91	feaps5.for	/^91      continue$/;"	l	subroutine:prtrea	file:
+92	feaps1.for	/^92        n = n + 1$/;"	l	subroutine:dinput	file:
+92	feaps1.for	/^92      n = n + 1$/;"	l	subroutine:dinput2	file:
+92	feaps4.for	/^92    goto 103$/;"	l	subroutine:pmesh	file:
+93	feaps4.for	/^93    if(iii.lt.0) write(iow,3003)$/;"	l	subroutine:pmesh	file:
+94	feaps4.for	/^94    go to 103$/;"	l	subroutine:pmesh	file:
+95	feaps4.for	/^95    call scorS(ndm,x)$/;"	l	subroutine:pmesh	file:
+96	feaps4.for	/^96    call selmS(ndm,ndf,nen,nen1,x,ix,id,prt,iblk)$/;"	l	subroutine:pmesh	file:
+97	feaps4.for	/^97    continue$/;"	l	subroutine:pmesh	file:
+970	feaps5.for	/^970   write(yyy,2070) ct,cc$/;"	l	subroutine:reader	file:
+970	feaps6.for	/^970   write(yyy,2070) ct,cc$/;"	l	subroutine:summariz	file:
+98	feaps4.for	/^98    continue$/;"	l	subroutine:pmesh	file:
+980	feaps5.for	/^980   write(yyy,2080) ct$/;"	l	subroutine:reader	file:
+980	feaps5.for	/^980   write(yyy,2080) ct$/;"	l	subroutine:readerb	file:
+980	feaps6.for	/^980   write(iow,2080) ct$/;"	l	subroutine:writer	file:
+980	feaps6.for	/^980   write(yyy,2080) ct$/;"	l	subroutine:summariz	file:
+99	feaps4.for	/^99    continue$/;"	l	subroutine:pmesh	file:
+990	feaps5.for	/^990   write(yyy,2090) ct$/;"	l	subroutine:reader	file:
+990	feaps5.for	/^990   write(yyy,2090) ct$/;"	l	subroutine:readerb	file:
+990	feaps6.for	/^990   write(iow,2090)$/;"	l	subroutine:writer	file:
+990	feaps6.for	/^990   write(yyy,2090) ct$/;"	l	subroutine:summariz	file:
+999	feaps5.for	/^999   write(iow,2099)$/;"	l	subroutine:reader	file:
+AR	Makefile	/^AR="ar"$/;"	m
+Boundary	Qtree_module.f90	/^    type(point) :: Boundary(/;"	k	type:Qtree
+CC	Makefile	/^CC="gcc"$/;"	m
+CFLAGS	Makefile	/^CFLAGS=$(SPECIALFLAGS) $(OPTFLAGS) $(PRJ_CFLAGS) -I$(SDKPATH)\/usr\/include$/;"	m
+FC	Makefile	/^FC="gfortran"$/;"	m
+FFLAGS	Makefile	/^FFLAGS=$(SPECIALFLAGS) $(OPTFLAGS) $(PRJ_FFLAGS) -J\/Users\/rainerreichel\/Documents\/Quadtree\/modules $/;"	m
+HowManyPoints	Qtree.f90	/^subroutine HowManyPoints(/;"	s
+HowManySeeds	Qtree.f90	/^subroutine HowManySeeds(/;"	s
+IDIR	Makefile	/^IDIR=-I"\/Applications\/Simply Fortran.app\/Contents\/Resources\/gcc\/include\/" $/;"	m
+LDIR	Makefile	/^LDIR=-L"\/Applications\/Simply Fortran.app\/Contents\/Resources\/gcc\/lib\/" $/;"	m
+Merge	SortSearch_module.f90	/^subroutine Merge(/;"	s	module:SortSearch_module
+MergeSort	SortSearch_module.f90	/^recursive subroutine MergeSort(/;"	s	module:SortSearch_module
+MergeSortSR	SortSearch_module.f90	/^subroutine MergeSortSR(/;"	s	module:SortSearch_module
+MergeSort_2	SortSearch_module.f90	/^recursive subroutine MergeSort_2(/;"	s	module:SortSearch_module
+Merge_2	SortSearch_module.f90	/^subroutine Merge_2 /;"	s	module:SortSearch_module
+NE	Qtree_module.f90	/^    type (Qtree), pointer :: NE /;"	k	type:Qtree
+NW	Qtree_module.f90	/^    type (Qtree), pointer :: NW /;"	k	type:Qtree
+OPTFLAGS	Makefile	/^OPTFLAGS= -g$/;"	m
+PRJTK	Makefile	/^PRJTK="sfprjtk"$/;"	m
+PRJ_CFLAGS	Makefile	/^PRJ_CFLAGS=$/;"	m
+PRJ_FFLAGS	Makefile	/^PRJ_FFLAGS= -ffree-line-length-256 -ffixed-line-length-256$/;"	m
+PRJ_LFLAGS	Makefile	/^PRJ_LFLAGS=$/;"	m
+Q	Qtree_module.f90	/^    type (Qt/;"	k	type:Qtrees
+QIntrsPts	Qtree_module.f90	/^   recursive subroutine QIntrsPts(/;"	s	module:Qtree_module
+QsDelete	Qtree_module.f90	/^     recursive subroutine QsDelete(/;"	s	module:Qtree_module
+QtrBalance	Qtree_module.f90	/^    recursive subroutine QtrBalance(/;"	s	module:Qtree_module
+QtrDataReset	Qtree_module.f90	/^        subroutine QtrDataReset(/;"	s	module:Qtree_data
+QtrDelete	Qtree_module.f90	/^    subroutine QtrDelete(/;"	s	module:Qtree_module
+QtrFindNeighborQ	Qtree_module.f90	/^    subroutine QtrFindNeighborQ(/;"	s	module:Qtree_module
+QtrInit	Qtree_module.f90	/^     subroutine QtrInit(/;"	s	module:Qtree_module
+QtrInputReset	Qtree_module.f90	/^        subroutine QtrInputReset(/;"	s	module:Qtree_input
+QtrSearchQ	Qtree_module.f90	/^    recursive subroutine QtrSearchQ(/;"	s	module:Qtree_module
+QtrSubdivide	Qtree_module.f90	/^    recursive subroutine QtrSubdivide(/;"	s	module:Qtree_module
+Qtree	Qtree_module.f90	/^type Qtree /;"	t	module:Qtree_module
+QtreeSR	Qtree.f90	/^subroutine QtreeSR(/;"	s
+Qtree_data	Qtree_module.f90	/^module Qtree_data /;"	m
+Qtree_input	Qtree_module.f90	/^module Qtree_input$/;"	m
+Qtree_module	Qtree_module.f90	/^module  Qtree_module$/;"	m
+Qtrees	Qtree_module.f90	/^type Qtrees$/;"	t	module:Qtree_module
+RCFLAGS	Makefile	/^RCFLAGS=-O coff$/;"	m
+RM	Makefile	/^RM=rm -f$/;"	m
+SDKPATH	Makefile	/^SDKPATH=`xcrun --show-sdk-path`$/;"	m
+SE	Qtree_module.f90	/^    type (Qtree), pointer :: SE /;"	k	type:Qtree
+SPECIALFLAGS	Makefile	/^SPECIALFLAGS=$(IDIR)$/;"	m
+SW	Qtree_module.f90	/^    type (Qtree), pointer :: SW /;"	k	type:Qtree
+SortSearch_module	SortSearch_module.f90	/^module  SortSearch_module$/;"	m
+WRC	Makefile	/^WRC="windres"$/;"	m
+aHelperPoints	main.f90	/^    logical, allocatable :: aHelperPoints(/;"	v	program:quadtree_main
+acheck	feaps1.for	/^      subroutine acheck(/;"	s
+addext	feaps4.for	/^      subroutine addext(/;"	s
+aidx	main.f90	/^    integer :: num_node, counter, idx, aidx,/;"	v	program:quadtree_main
+aload	feaps1.for	/^      subroutine aload(/;"	s
+alpha	main.f90	/^    real(kind=8) :: alpha,/;"	v	program:quadtree_main
+array_to_point	Point_Module.f90	/^    subroutine  array_to_point(/;"	s	module:point_module
+array_to_vector	Vector_Module.f90	/^        subroutine  array_to_vector(/;"	s	module:vector_module
+b3d	feaps2.for	/^      subroutine b3d(/;"	s
+binarySearch	SortSearch_module.f90	/^recursive function binarySearch /;"	f	module:SortSearch_module
+binarySearch_2	SortSearch_module.f90	/^subroutine binarySearch_2 /;"	s	module:SortSearch_module
+bjac3d	feaps1.for	/^      subroutine bjac3d /;"	s
+blkgen	feaps1.for	/^      subroutine blkgen(/;"	s
+blkgenco	feaps1.for	/^      subroutine blkgenco(/;"	s
+blkgendx	feaps1.for	/^      subroutine blkgendx(/;"	s
+blktem	feaps1.for	/^      subroutine blktem(/;"	s
+blktri	feaps1.for	/^      subroutine blktri(/;"	s
+center	Geom_Module.f90	/^        type(point) :: center$/;"	k	type:polygon
+center	Qtree_module.f90	/^    type(point) :: center$/;"	k	type:Qtree
+centerPoint	main.f90	/^    type(point) :: centerPoint$/;"	v	program:quadtree_main
+cfunc	feaps1.for	/^      subroutine cfunc(/;"	s
+chkblk	feaps1.for	/^      subroutine chkblk(/;"	s
+cjint	feaps2.for	/^      subroutine cjint(/;"	s
+ckbrk8	feaps1.for	/^      subroutine ckbrk8 /;"	s
+ckisop	feaps1.for	/^      subroutine ckisop(/;"	s
+colini	feaps2.for	/^      common \/colini\//;"	c	subroutine:ini
+connect_h_neighbor	Qtree_module.f90	/^    subroutine connect_h_neighbor(/;"	s	module:Qtree_module
+connect_h_seeds	Qtree_module.f90	/^    subroutine connect_h_seeds(/;"	s	module:Qtree_module
+connectivity	Qtree_module.f90	/^    recursive subroutine connectivity(/;"	s	module:Qtree_module
+containsPoint	Qtree.f90	/^logical function containsPoint(/;"	f
+coordinates	Qtree_module.f90	/^    recursive subroutine coordinates(/;"	s	module:Qtree_module
+copyhis	feaps1.for	/^      subroutine copyhis(/;"	s
+counter	Qtree_module.f90	/^    integer :: num_node, num_elem, counter$/;"	v	module:Qtree_data
+counter	main.f90	/^    integer :: num_node, counter,/;"	v	program:quadtree_main
+curvedat	feaps2.for	/^      common \/curvedat\//;"	c	subroutine:ini
+cvtc2i	feaps2.for	/^      integer function cvtc2i(/;"	f
+cvti2c	feaps2.for	/^      function cvti2c(/;"	f
+dasbly	feaps1.for	/^      subroutine dasbly(/;"	s
+dasol	feaps1.for	/^      subroutine dasol /;"	s
+dasol1	feaps1.for	/^      subroutine dasol1 /;"	s
+data_seeds	Qtree_module.f90	/^    logical :: data_seeds$/;"	v	module:Qtree_input
+datest	feaps1.for	/^      subroutine datest(/;"	s
+datri	feaps1.for	/^      subroutine datri /;"	s
+datri1	feaps1.for	/^      subroutine datri1(/;"	s
+dcheck	feaps1.for	/^      subroutine dcheck(/;"	s
+debug_zhl	Qtree_module.f90	/^    integer :: debug_zhl$/;"	v	module:Qtree_data
+detkt	feaps1.for	/^      subroutine detkt(/;"	s
+dinput	feaps1.for	/^      subroutine dinput(/;"	s
+dinput2	feaps1.for	/^      subroutine dinput2(/;"	s
+divisions	main.f90	/^    integer, allocatable :: divisions(/;"	v	program:quadtree_main
+dochar1	feaps2.for	/^      subroutine dochar1(/;"	s
+dochar2	feaps2.for	/^      subroutine dochar2(/;"	s
+dosets	feaps2.for	/^      subroutine dosets(/;"	s
+dot	feaps2.for	/^      double precision function dot(/;"	f
+dot_product	Vector_Module.f90	/^       function dot_product(/;"	f	module:vector_module
+dotid	feaps2.for	/^      double precision function dotid(/;"	f
+dpacku	feaps2.for	/^      subroutine dpacku /;"	s
+dredu	feaps2.for	/^      subroutine dredu(/;"	s
+dxi	main.f90	/^    real(kind=8) :: dxi,/;"	v	program:quadtree_main
+edgupd	feaps2.for	/^      subroutine edgupd(/;"	s
+eidx	main.f90	/^    integer :: num_node, counter, idx, aidx, eidx$/;"	v	program:quadtree_main
+eigi	feaps2.for	/^      subroutine eigi /;"	s
+elem	Qtree_module.f90	/^    integer, allocatable :: elem(/;"	k	type:Qtree
+elements	Qtree_module.f90	/^    integer, allocatable :: elements(/;"	v	module:Qtree_data
+ellipse	Qtree.f90	/^    subroutine ellipse /;"	s
+elm_typ_ma	Qtree_module.f90	/^    integer, allocatable :: elm_typ_ma(/;"	v	module:Qtree_data
+elmterr	feaps2.for	/^      subroutine elmterr(/;"	s
+eload	feaps2.for	/^      subroutine eload(/;"	s
+eload1	feaps2.for	/^      subroutine eload1(/;"	s
+eload2	feaps2.for	/^      subroutine eload2(/;"	s
+eload3	feaps2.for	/^      subroutine eload3(/;"	s
+endclr	feaps2.for	/^      subroutine endclr /;"	s
+eprint	feaps2.for	/^      subroutine eprint(/;"	s
+equal_to	Point_Module.f90	/^    function equal_to /;"	f	module:point_module
+errclr	feaps2.for	/^      subroutine    errclr /;"	s
+esideb	feaps2.for	/^      subroutine esideb(/;"	s
+esiden	feaps2.for	/^      subroutine esiden(/;"	s
+evalex	feaps2.for	/^      subroutine evalex(/;"	s
+f3d	feaps2.for	/^      subroutine f3d(/;"	s
+filename	main.f90	/^    character(len=20) filename$/;"	v	program:quadtree_main
+filter3	Qtree_module.f90	/^    recursive subroutine filter3(/;"	s	module:Qtree_module
+formfe	feaps2.for	/^      subroutine formfe(/;"	s
+front	feaps2.for	/^      subroutine front(/;"	s
+gamma1	feaps2.for	/^      double precision function gamma1(/;"	f
+gaus1D	feaps2.for	/^      subroutine gaus1D(/;"	s
+genrsum	feaps2.for	/^      subroutine genrsum(/;"	s
+genvec	feaps2.for	/^      subroutine genvec(/;"	s
+genvec1	feaps2.for	/^      subroutine genvec1(/;"	s
+genvec2	feaps2.for	/^      subroutine genvec2(/;"	s
+genvec3	feaps2.for	/^      subroutine genvec3(/;"	s
+greater_equal_than	Point_Module.f90	/^    function greater_equal_than(/;"	f	module:point_module
+greater_than	Point_Module.f90	/^    function greater_than(/;"	f	module:point_module
+gshape3	feaps6.for	/^      subroutine gshape3(/;"	s
+helperPoints	main.f90	/^    type(point), allocatable :: vertices(:), helperPoints(/;"	v	program:quadtree_main
+histex	feaps4.for	/^      subroutine histex(/;"	s
+i	main.f90	/^    in/;"	v	program:quadtree_main
+idx	main.f90	/^    integer :: num_node, counter, idx,/;"	v	program:quadtree_main
+ini	feaps2.for	/^      subroutine ini$/;"	s
+init	Geom_Module.f90	/^        logical :: init /;"	k	type:polygon
+injint	feaps2.for	/^      subroutine injint(/;"	s
+inodeused	feaps5.for	/^      function inodeused(/;"	f
+int1d	feaps2.for	/^      subroutine int1d(/;"	s
+int2d	feaps2.for	/^      subroutine int2d(/;"	s
+int3d	feaps2.for	/^      subroutine int3d(/;"	s
+int3dt	feaps2.for	/^      subroutine int3dt(/;"	s
+int_times_vector	Vector_Module.f90	/^        function int_times_vector(/;"	f	module:vector_module
+intio	feaps2.for	/^      subroutine intio(/;"	s
+intrsc_point	Point_Module.f90	/^type :: intrsc_point$/;"	t	module:intrsc_point_module
+intrsc_point_module	Point_Module.f90	/^module intrsc_point_module$/;"	m
+intrsc_points	Qtree_module.f90	/^    type(intrsc_point) :: intrsc_points(/;"	k	type:Qtree
+intrsc_pt	Geom_Module.f90	/^    subroutine intrsc_pt(/;"	s	module:segment_module
+intrsc_pt2	Geom_Module.f90	/^    subroutine intrsc_pt2(/;"	s	module:segment_module
+intrsc_segment_polygon	Geom_Module.f90	/^    subroutine intrsc_segment_polygon(/;"	s	module:polygon_module
+intrsc_segment_polygon_2	Geom_Module.f90	/^     subroutine intrsc_segment_polygon_2(/;"	s	module:polygon_module
+invec	feaps2.for	/^      subroutine invec(/;"	s
+invert	feaps2.for	/^      subroutine invert(/;"	s
+ipos	feaps4.for	/^      integer function ipos(/;"	f
+ipos1	feaps4.for	/^      integer function ipos1(/;"	f
+iprint	feaps2.for	/^      subroutine iprint(/;"	s
+iprttie	feaps5.for	/^      integer function iprttie(/;"	f
+isQ_in	Qtree_module.f90	/^     logical function isQ_in(/;"	f	module:Qtree_module
+isect	feaps2.for	/^      subroutine isect(/;"	s
+istat	main.f90	/^    integer i, j, k, istat$/;"	v	program:quadtree_main
+j	main.f90	/^    integer i, j,/;"	v	program:quadtree_main
+jdlen	feaps4.for	/^      common \/jdlen\//;"	c	subroutine:profil
+just	feaps2.for	/^      subroutine just(/;"	s
+k	main.f90	/^    integer i, j, k,/;"	v	program:quadtree_main
+kernel	Geom_Module.f90	/^        type(point), allocatable :: kernel(/;"	k	type:polygon
+length	feaps2.for	/^      subroutine length$/;"	s
+less_equal_than	Point_Module.f90	/^    function less_equal_than(/;"	f	module:point_module
+less_than	Point_Module.f90	/^    function less_than(/;"	f	module:point_module
+level	Qtree_module.f90	/^    integer :: level /;"	k	type:Qtree
+level_min	Qtree_module.f90	/^    integer :: level_min,/;"	v	module:Qtree_input
+mat_nro	Geom_Module.f90	/^        integer :: mat_nro /;"	k	type:polygon
+mat_nro	main.f90	/^    integer :: num_vertices, num_helperPoints, mat_nro$/;"	v	program:quadtree_main
+mat_nros	Qtree_module.f90	/^    integer :: mat_nros(/;"	k	type:Qtree
+mate_zhl	Qtree_module.f90	/^    integer :: mate_zhl$/;"	v	module:Qtree_data
+mateerr	feaps2.for	/^      subroutine mateerr(/;"	s
+max_seed_Q	Qtree_module.f90	/^    integer :: level_min, max_seed_Q$/;"	v	module:Qtree_input
+meshck	feaps2.for	/^      subroutine meshck(/;"	s
+modify	feaps2.for	/^      subroutine modify(/;"	s
+modu	feaps3.for	/^      subroutine modu(/;"	s
+mprint	feaps2.for	/^      subroutine mprint(/;"	s
+mprinte	feaps2.for	/^      subroutine mprinte(/;"	s
+mprintp	feaps2.for	/^      subroutine mprintp(/;"	s
+node_line	feaps5.for	/^      subroutine node_line(/;"	s
+nodel	feaps3.for	/^      subroutine nodel(/;"	s
+nodes	Qtree_module.f90	/^    type(point), allocatable :: nodes(/;"	v	module:Qtree_data
+nodes_mask	Qtree_module.f90	/^    logical, allocatable :: nodes_mask(/;"	v	module:Qtree_data
+nodew	feaps3.for	/^      subroutine nodew(/;"	s
+norm	feaps2.for	/^      subroutine norm(/;"	s
+num_elem	Qtree_module.f90	/^    integer :: num_node, num_elem,/;"	v	module:Qtree_data
+num_helperPoints	main.f90	/^    integer :: num_vertices, num_helperPoints,/;"	v	program:quadtree_main
+num_intrsc_points	Qtree_module.f90	/^    integer :: num_intrsc_points /;"	k	type:Qtree
+num_intrsc_pts	Qtree_module.f90	/^    integer :: num_intrsc_pts$/;"	v	module:Qtree_data
+num_mat_sets	Qtree_module.f90	/^    integer :: num_mat_sets /;"	k	type:Qtree
+num_mat_sets	Qtree_module.f90	/^    integer :: num_poly, num_seeds, num_mat_sets$/;"	v	module:Qtree_input
+num_node	Qtree_module.f90	/^    integer :: num_node,/;"	v	module:Qtree_data
+num_node	main.f90	/^    integer :: num_node,/;"	v	program:quadtree_main
+num_poly	Qtree_module.f90	/^    integer :: num_poly,/;"	v	module:Qtree_input
+num_seeds	Qtree_module.f90	/^    integer :: num_poly, num_seeds,/;"	v	module:Qtree_input
+num_vertices	Geom_Module.f90	/^        integer :: num_vertices /;"	k	type:polygon
+num_vertices	main.f90	/^    integer :: num_vertices,/;"	v	program:quadtree_main
+numass	feaps2.for	/^      subroutine numass(/;"	s
+nwprof	feaps5.for	/^      subroutine nwprof(/;"	s
+opnfil	feaps4.for	/^      subroutine opnfil(/;"	s
+opnum	feaps2.for	/^      subroutine opnum(/;"	s
+optn	feaps2.for	/^      subroutine optn(/;"	s
+orientation	Point_Module.f90	/^    function orientation(/;"	f	module:point_module
+padd	feaps3.for	/^      function padd(/;"	f
+pangl	feaps3.for	/^      subroutine pangl(/;"	s
+panglb	feaps3.for	/^      subroutine panglb(/;"	s
+panglb1	feaps3.for	/^      subroutine panglb1(/;"	s
+panglee	feaps3.for	/^      subroutine panglee(/;"	s
+panglev	feaps3.for	/^      subroutine panglev(/;"	s
+parexp	feaps3.for	/^      subroutine parexp(/;"	s
+parse	feaps3.for	/^      subroutine parse(/;"	s
+pblock	feaps3.for	/^      subroutine pblock(/;"	s
+pblockr	feaps3.for	/^      subroutine pblockr(/;"	s
+pcfour	feaps3.for	/^      subroutine pcfour(/;"	s
+pcharr	feaps3.for	/^      subroutine pcharr(/;"	s
+pcheck	feaps3.for	/^      subroutine pcheck(/;"	s
+pcktie	feaps3.for	/^      subroutine pcktie(/;"	s
+pcomp	feaps3.for	/^      logical function pcomp(/;"	f
+pconsi	feaps5.for	/^      subroutine pconsi(/;"	s
+pconsi2	feaps5.for	/^      subroutine pconsi2(/;"	s
+pconst	feaps3.for	/^      subroutine pconst(/;"	s
+pconstm	feaps3.for	/^      subroutine pconstm(/;"	s
+pcontr	feaps3.for	/^      subroutine pcontr$/;"	s
+pdiff	feaps3.for	/^      double precision function pdiff(/;"	f
+pdirec	feaps3.for	/^      subroutine pdirec(/;"	s
+pdirec1	feaps3.for	/^      subroutine pdirec1(/;"	s
+pdirec2	feaps3.for	/^      subroutine pdirec2(/;"	s
+pdirec3	feaps3.for	/^      subroutine pdirec3(/;"	s
+pedgeb	feaps3.for	/^      subroutine pedgeb(/;"	s
+pedgeg	feaps3.for	/^      subroutine pedgeg(/;"	s
+pedges	feaps3.for	/^      subroutine pedges(/;"	s
+pedgesd	feaps3.for	/^      subroutine pedgesd(/;"	s
+pevpak	feaps2.for	/^      subroutine pevpak(/;"	s
+pform	feaps3.for	/^      subroutine pform(/;"	s
+pforme	feaps3.for	/^      subroutine pforme(/;"	s
+pfuncs	feaps3.for	/^      subroutine pfuncs(/;"	s
+pgauss	feaps3.for	/^      subroutine pgauss(/;"	s
+phist	feaps3.for	/^      subroutine phist(/;"	s
+piden	feaps3.for	/^      subroutine piden(/;"	s
+pintio	feaps3.for	/^      subroutine pintio(/;"	s
+pinval	feaps5.for	/^      subroutine pinval(/;"	s
+pinval2	feaps5.for	/^      subroutine pinval2(/;"	s
+plamina_base	feaps3.for	/^      subroutine plamina_base(/;"	s
+plink	feaps3.for	/^      subroutine plink(/;"	s
+plinka	feaps3.for	/^      subroutine plinka$/;"	s
+pload	feaps3.for	/^      subroutine pload(/;"	s
+ploadf	feaps3.for	/^      subroutine ploadf(/;"	s
+ploadi	feaps3.for	/^      subroutine ploadi$/;"	s
+ploadl	feaps3.for	/^      subroutine ploadl(/;"	s
+ploadq	feaps3.for	/^      subroutine ploadq(/;"	s
+ploads	feaps3.for	/^      subroutine ploads(/;"	s
+plobatto	feaps3.for	/^      subroutine plobatto(/;"	s
+plotdf	feaps4.for	/^      subroutine plotdf(/;"	s
+plotdf1	feaps4.for	/^      subroutine plotdf1(/;"	s
+plshowm	feaps4.for	/^      subroutine plshowm(/;"	s
+pmacio	feaps4.for	/^      subroutine pmacio /;"	s
+pmemo_out	feaps5.for	/^      subroutine pmemo_out(/;"	s
+pmesh	feaps4.for	/^      subroutine pmesh(/;"	s
+pmove	feaps4.for	/^      subroutine pmove(/;"	s
+pmovec	feaps4.for	/^      subroutine pmovec(/;"	s
+pmoveca	feaps4.for	/^      subroutine pmoveca(/;"	s
+pmovedt	feaps4.for	/^      subroutine pmovedt(/;"	s
+pmovei	feaps4.for	/^      subroutine pmovei(/;"	s
+pmoves	feaps4.for	/^      subroutine pmoves(/;"	s
+pmovest	feaps4.for	/^      subroutine pmovest(/;"	s
+pnewcot	feaps3.for	/^      subroutine pnewcot(/;"	s
+pnums	feaps4.for	/^      subroutine pnums(/;"	s
+point	Point_Module.f90	/^Type :: point /;"	t	module:point_module
+point_in_polygonSR	Geom_Module.f90	/^    subroutine point_in_polygonSR /;"	s	module:polygon_module
+point_module	Point_Module.f90	/^module point_module$/;"	m
+point_to_array	Point_Module.f90	/^    subroutine  point_to_array(/;"	s	module:point_module
+point_to_vector	Vector_Module.f90	/^        subroutine  point_to_vector(/;"	s	module:vector_module
+polar	feaps4.for	/^      subroutine polar(/;"	s
+polygon	Geom_Module.f90	/^    Type :: polygon$/;"	t	module:polygon_module
+polygon_CCW_test	Geom_Module.f90	/^    function polygon_CCW_test(/;"	f	module:polygon_module
+polygon_delete	Geom_Module.f90	/^    subroutine polygon_delete(/;"	s	module:polygon_module
+polygon_dist	Geom_Module.f90	/^    subroutine polygon_dist(/;"	s	module:polygon_module
+polygon_init	Geom_Module.f90	/^    subroutine polygon_init(/;"	s	module:polygon_module
+polygon_kernel	Geom_Module.f90	/^    subroutine polygon_kernel(/;"	s	module:polygon_module
+polygon_module	Geom_Module.f90	/^module polygon_module$/;"	m
+polygons	Qtree_module.f90	/^    type(polygon), allocatable :: polygons(/;"	v	module:Qtree_input
+polykernel	Geom_Module.f90	/^    subroutine polykernel(/;"	s	module:polygon_module
+pos	Point_Module.f90	/^    type(point) :: pos$/;"	k	type:intrsc_point
+pos	Point_Module.f90	/^    type(point) :: pos$/;"	k	type:seed_point
+ppload	feaps3.for	/^      subroutine ppload(/;"	s
+pqrblk	feaps6.for	/^      subroutine pqrblk(/;"	s
+prefl	feaps4.for	/^      subroutine prefl(/;"	s
+prfrst	feaps5.for	/^      subroutine prfrst(/;"	s
+proced	feaps4.for	/^      subroutine proced /;"	s
+profil	feaps4.for	/^      subroutine profil /;"	s
+profupd	feaps4.for	/^      subroutine profupd(/;"	s
+promul	feaps5.for	/^      subroutine promul(/;"	s
+promul1	feaps5.for	/^      subroutine promul1(/;"	s
+propld	feaps5.for	/^      double precision function propld(/;"	f
+prtdii1	feaps5.for	/^      subroutine prtdii1(/;"	s
+prtdii2	feaps5.for	/^      subroutine prtdii2(/;"	s
+prtdis	feaps5.for	/^      subroutine prtdis(/;"	s
+prterr	feaps5.for	/^      subroutine prterr(/;"	s
+prtjint	feaps5.for	/^      subroutine prtjint(/;"	s
+prtom	feaps5.for	/^      subroutine prtom(/;"	s
+prtrea	feaps5.for	/^      subroutine prtrea(/;"	s
+prtreas	feaps5.for	/^      subroutine prtreas(/;"	s
+prtrsum	feaps5.for	/^      subroutine prtrsum(/;"	s
+prtstr	feaps5.for	/^      subroutine prtstr(/;"	s
+prxtie	feaps5.for	/^      subroutine prxtie(/;"	s
+pseta	feaps5.for	/^      subroutine pseta(/;"	s
+pseta_out	feaps5.for	/^      subroutine pseta_out(/;"	s
+pstores	feaps5.for	/^      subroutine pstores(/;"	s
+pstr3d	feaps5.for	/^      subroutine pstr3d(/;"	s
+pstres	feaps5.for	/^      subroutine pstres(/;"	s
+pstres1	feaps5.for	/^      subroutine pstres1(/;"	s
+psub	feaps3.for	/^      function psub(/;"	f
+pt2pt_dist	Point_Module.f90	/^    function pt2pt_dist(/;"	f	module:point_module
+pt2segm_dist	Geom_Module.f90	/^    function pt2segm_dist /;"	f	module:segment_module
+pt_1	Geom_Module.f90	/^        type(point) :: pt_1$/;"	k	type:segment
+pt_2	Geom_Module.f90	/^        type(point) :: pt_2$/;"	k	type:segment
+pt_in_segment	Geom_Module.f90	/^    function pt_in_segment /;"	f	module:segment_module
+ptrans	feaps5.for	/^      subroutine ptrans(/;"	s
+ptrans1	feaps5.for	/^      subroutine ptrans1(/;"	s
+pzero	feaps5.for	/^      subroutine pzero(/;"	s
+pzeroi	feaps5.for	/^      subroutine pzeroi(/;"	s
+qloada	feaps4.for	/^      subroutine qloada(/;"	s
+qloadi	feaps4.for	/^      subroutine qloadi(/;"	s
+quadtree_main	main.f90	/^program quadtree_main$/;"	p
+radius	main.f90	/^    real(kind=8) :: alpha, radius(/;"	v	program:quadtree_main
+read_seeds	Qtree.f90	/^    subroutine read_seeds(/;"	s
+reader	feaps5.for	/^      subroutine reader(/;"	s
+readerb	feaps5.for	/^      subroutine readerb(/;"	s
+readf	feaps5.for	/^      subroutine readf(/;"	s
+readv1	feaps4.for	/^      subroutine readv1(/;"	s
+real_times_vector	Vector_Module.f90	/^        function real_times_vector(/;"	f	module:vector_module
+rectRectCollision	Qtree_module.f90	/^    logical function rectRectCollision(/;"	f	module:Qtree_module
+ref	Qtree_module.f90	/^    integer :: ref(/;"	k	type:Qtree
+restrt	feaps5.for	/^      subroutine restrt(/;"	s
+right_cross	Geom_Module.f90	/^    function right_cross(/;"	f	module:polygon_module
+rot	feaps5.for	/^      subroutine rot(/;"	s
+rstprf	feaps5.for	/^      subroutine rstprf(/;"	s
+sblk	feaps5.for	/^      subroutine sblk(/;"	s
+sblkco	feaps5.for	/^      subroutine sblkco(/;"	s
+sblkdx	feaps5.for	/^      subroutine sblkdx(/;"	s
+sc_nodes	Qtree_module.f90	/^    type(point), allocatable :: nodes(:), temp_nodes(:), sc_nodes(/;"	v	module:Qtree_data
+scalev	feaps5.for	/^      subroutine scalev(/;"	s
+seed_point	Point_Module.f90	/^type :: seed_point$/;"	t	module:seed_point_module
+seed_point_module	Point_Module.f90	/^module seed_point_module$/;"	m
+seeds	Qtree_module.f90	/^    type(point), allocatable :: seeds(/;"	v	module:Qtree_input
+seeds	Qtree_module.f90	/^    type(seed_point), allocatable :: seeds(/;"	k	type:Qtree
+segment	Geom_Module.f90	/^    Type :: segment /;"	t	module:segment_module
+segment_module	Geom_Module.f90	/^module segment_module /;"	m
+serchl	feaps5.for	/^      subroutine serchl(/;"	s
+setdibc	feaps5.for	/^      subroutine setdibc(/;"	s
+seteq	feaps4.for	/^      subroutine seteq(/;"	s
+sethis	feaps5.for	/^      subroutine sethis(/;"	s
+setmac	feaps4.for	/^      subroutine setmac(/;"	s
+setpcd	feaps4.for	/^      subroutine setpcd(/;"	s
+setval	feaps5.for	/^      subroutine setval(/;"	s
+setval2	feaps5.for	/^      subroutine setval2(/;"	s
+shap2	feaps6.for	/^      subroutine shap2(/;"	s
+shape	feaps6.for	/^      subroutine shape(/;"	s
+shape1D	feaps2.for	/^      subroutine shape1D(/;"	s
+shapef	feaps6.for	/^      subroutine shapef(/;"	s
+showboun	feaps4.for	/^      subroutine showboun(/;"	s
+showcoor	feaps4.for	/^      subroutine showcoor(/;"	s
+showelem	feaps4.for	/^      subroutine showelem(/;"	s
+showforc	feaps4.for	/^      subroutine showforc(/;"	s
+shownode	feaps4.for	/^      subroutine shownode(/;"	s
+shp2dc	feaps6.for	/^      subroutine shp2dc(/;"	s
+shp3d	feaps6.for	/^      subroutine shp3d(/;"	s
+shp3dc	feaps6.for	/^      subroutine shp3dc(/;"	s
+shp3dt	feaps6.for	/^      subroutine shp3dt(/;"	s
+sides	Geom_Module.f90	/^        type(segment), allocatable :: sides(/;"	k	type:polygon
+signo	Qtree_module.f90	/^    integer :: signo(/;"	k	type:Qtree
+sortPolygonsSR	SortSearch_module.f90	/^subroutine sortPolygonsSR(/;"	s	module:SortSearch_module
+sphere	feaps6.for	/^      subroutine sphere(/;"	s
+status	Qtree_module.f90	/^    logical :: status(/;"	k	type:Qtree
+storeh	feaps6.for	/^      subroutine storeh(/;"	s
+storpl	feaps4.for	/^      subroutine storpl(/;"	s
+storpl1	feaps4.for	/^      subroutine storpl1(/;"	s
+storps	feaps4.for	/^      subroutine storps(/;"	s
+summariz	feaps6.for	/^      subroutine summariz(/;"	s
+tblk	feaps1.for	/^      subroutine tblk(/;"	s
+td	main.f90	/^    real(kind=8) :: td(/;"	v	program:quadtree_main
+temp_nodes	Qtree_module.f90	/^    type(point), allocatable :: nodes(:), temp_nodes(/;"	v	module:Qtree_data
+tgauss	feaps6.for	/^      subroutine tgauss(/;"	s
+tienod	feaps6.for	/^      subroutine tienod(/;"	s
+tmpPoints	main.f90	/^    type(point), allocatable :: vertices(:), helperPoints(:), tmpPoints(/;"	v	program:quadtree_main
+token	main.f90	/^    character(len=5) :: token$/;"	v	program:quadtree_main
+trans2	feaps4.for	/^      subroutine trans2 /;"	s
+transx	feaps6.for	/^      subroutine transx(/;"	s
+trblk	feaps6.for	/^      subroutine trblk(/;"	s
+ucase	Qtree.f90	/^    subroutine ucase /;"	s
+umacr1	feaps6.for	/^      subroutine umacr1(/;"	s
+umacr2	feaps6.for	/^      subroutine umacr2(/;"	s
+umacr3	feaps6.for	/^      subroutine umacr3(/;"	s
+umacr4	feaps6.for	/^      subroutine umacr4(/;"	s
+umacr5	feaps6.for	/^      subroutine umacr5(/;"	s
+umesh1	feaps6.for	/^      subroutine umesh1(/;"	s
+umesh2	feaps6.for	/^      subroutine umesh2(/;"	s
+umesh3	feaps6.for	/^      subroutine umesh3(/;"	s
+umesh4	feaps6.for	/^      subroutine umesh4(/;"	s
+umesh5	feaps6.for	/^      subroutine umesh5(/;"	s
+vazero	feaps4.for	/^      subroutine vazero(/;"	s
+vblk	feaps6.for	/^      subroutine vblk(/;"	s
+vector	Vector_Module.f90	/^    Type :: vector /;"	t	module:vector_module
+vector_add_pv	Vector_Module.f90	/^        function vector_add_pv(/;"	f	module:vector_module
+vector_add_vp	Vector_Module.f90	/^        function vector_add_vp(/;"	f	module:vector_module
+vector_add_vv	Vector_Module.f90	/^        function vector_add_vv(/;"	f	module:vector_module
+vector_div_int	Vector_Module.f90	/^       function vector_div_int(/;"	f	module:vector_module
+vector_div_real	Vector_Module.f90	/^       function vector_div_real(/;"	f	module:vector_module
+vector_module	Vector_Module.f90	/^module vector_module$/;"	m
+vector_subtract_pp	Vector_Module.f90	/^        function vector_subtract_pp(/;"	f	module:vector_module
+vector_subtract_vv	Vector_Module.f90	/^        function vector_subtract_vv(/;"	f	module:vector_module
+vector_times_int	Vector_Module.f90	/^        function vector_times_int(/;"	f	module:vector_module
+vector_times_real	Vector_Module.f90	/^        function vector_times_real(/;"	f	module:vector_module
+vector_to_array	Vector_Module.f90	/^        subroutine  vector_to_array(/;"	s	module:vector_module
+vector_to_point	Vector_Module.f90	/^        subroutine  vector_to_point(/;"	s	module:vector_module
+vertex_concavity	Geom_Module.f90	/^    subroutine vertex_concavity /;"	s	module:polygon_module
+vertices	Geom_Module.f90	/^        type(point), allocatable :: vertices(/;"	k	type:polygon
+vertices	main.f90	/^    type(point), allocatable :: vertices(/;"	v	program:quadtree_main
+whichPoints	Qtree.f90	/^subroutine whichPoints(/;"	s
+whichSeeds	Qtree.f90	/^subroutine whichSeeds(/;"	s
+wpoly	Point_Module.f90	/^    integer :: wpoly$/;"	k	type:intrsc_point
+wpoly	Point_Module.f90	/^    integer :: wpoly$/;"	k	type:seed_point
+wpoly	Qtree_module.f90	/^    integer :: wpoly(/;"	k	type:Qtree
+write_seeds	Qtree.f90	/^    subroutine write_seeds(/;"	s
+writef	feaps5.for	/^      subroutine writef(/;"	s
+writer	feaps6.for	/^      subroutine writer(/;"	s
+writerb	feaps6.for	/^      subroutine writerb(/;"	s
+wside	Point_Module.f90	/^    integer :: wside$/;"	k	type:intrsc_point
+x	Point_Module.f90	/^    real*8 :: x$/;"	k	type:point
+x	Vector_Module.f90	/^        real*8 :: x$/;"	k	type:vector
+xcoord	main.f90	/^    real(kind=8) :: dxi, xi, xcoord,/;"	v	program:quadtree_main
+xi	main.f90	/^    real(kind=8) :: dxi,/;"	v	program:quadtree_main
+xmax	Geom_Module.f90	/^        real*8 :: xmin, xmax,/;"	k	type:polygon
+xmin	Geom_Module.f90	/^        real*8 :: xmin,/;"	k	type:polygon
+xmodif	feaps6.for	/^      subroutine xmodif(/;"	s
+y	Point_Module.f90	/^    real*8 :: y$/;"	k	type:point
+y	Vector_Module.f90	/^        real*8 :: y$/;"	k	type:vector
+ycoord	main.f90	/^    real(kind=8) :: dxi, xi, xcoord, ycoord$/;"	v	program:quadtree_main
+ymax	Geom_Module.f90	/^        real*8 :: xmin, xmax, ymin, ymax$/;"	k	type:polygon
+ymin	Geom_Module.f90	/^        real*8 :: xmin, xmax, ymin,/;"	k	type:polygon
