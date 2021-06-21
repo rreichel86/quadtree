@@ -1,4 +1,4 @@
-      subroutine pintio(y,ifld)
+      subroutine pintio(ior,y,ifld)
 c----------------------------------------------------------------------
 c      Purpose: Character string input routine for data
 c               N.B. This routine has largely been superceded by
@@ -11,8 +11,9 @@ c      Outputs:
 c         y      - Character string input, in field widths of ifld
 c
 c----------------------------------------------------------------------
-      USE iofile
-      USE iosave
+      ! USE iofile
+      ! USE iosave
+      integer ior
       CHARACTER*80 X,Y
       CHARACTER*1 XX(80),YY(80)
       EQUIVALENCE (X,XX)
@@ -22,7 +23,7 @@ c.... read a record from the input file
       else
         read (  *,1000,err=901,end=902) x
       end if
-      if(lsave) write(lfile,1000) x
+!       if(lsave) write(lfile,1000) x
 c.... adjust and move the record to the y-array
 c.kneb       call acheck(x,y,ifld,80,80)
       call acheck(xx,yy,ifld,80,80)
