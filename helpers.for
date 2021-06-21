@@ -1059,3 +1059,119 @@ cww1000  format(80a1)
 2000  format(' ** ERROR ** too many items requested, limit = 16')
       end
 
+      integer function ipos(file,nn)
+c----------------------------------------------------------------------
+c
+c      Purpose: determine length of a character string
+c
+c      Inputs:
+c         file(nn) - name
+c
+c      Outputs:
+c         ipos     - length of character string
+c    
+c----------------------------------------------------------------------
+      character*1 file(nn)
+      do 100 n = nn,1,-1
+        if(file(n).ne.' ') go to 200
+100   continue
+      ipos = 0
+      return
+200   ipos = n
+      return
+      end
+c
+      function padd(val)
+c----------------------------------------------------------------------
+c     for pfuncs: calculate increase of value      
+c----------------------------------------------------------------------
+c
+      implicit  none
+      real*8    padd, val, xval
+      data      xval /0.0d0/
+c     Look at parameter
+      if(val.eq.0.0d0) then
+        xval = 0.0d0
+      else
+        xval = xval + val
+      endif
+      padd = xval
+      end
+c
+      subroutine pcheck(nc,xs,error)
+c-----------------------------------------------------------------
+c      Purpose: Check that input string contains admissible data
+c               and parentheses match.  Convert all input letters
+c               to lower case for further processing
+
+c      Inputs:
+c         nc     - Number of characters to check
+c         xs(*)  - Character array
+
+c      Outputs:
+c         error  - Flag, true if error occurs
+c-----------------------------------------------------------------
+      implicit double precision (a-h,o-z)
+      logical error
+      character*1 x(75),xs(75)
+c.... make sure that all of x is in lower case and blanks are removed
+      i = 0
+      do 100 j = 1,75
+        x(j) = ' '
+        if(xs(j).ne.' ' .and. xs(j).ne.'=' .and. xs(j).ne.',') then
+          i = i + 1
+          x(i)  = xs(j)
+          xs(j) = ' '
+          n = ichar( x(i) )
+          if(n.ge.65 .and. n.le.90) x(i) = char(n + 32)
+        end if
+100   continue
+c.... move back and check the characters for incorrect parenthesis
+      error = .false.
+      n = 0
+      do 200 j = 1,i
+        xs(j) = x(j)
+        if(xs(j).eq.'(') n = n+1
+        if(xs(j).eq.')') n = n-1
+        if(n.lt.0 .or. n.gt.1 ) error = .true.
+200   continue
+      if(n.ne.0) error = .true.
+      n = ichar(xs(1))
+      if(n.lt.97 .or. n.gt.122) error = .true.
+c.... check the characters for incorrect parameters
+      if(.not.error) then
+        do 210 j = 2,i
+          n = ichar(xs(j))
+          if(.not.(n.ge.97 .and. n.le.122) .and.
+     1       .not.(n.ge.40 .and. n.le.57) ) then
+            error = .true.
+          end if
+210     continue
+      end if
+      if(error) then
+        write(*,2000)
+      else
+        write(*,2001) nc,(xs(j),j=1,i)
+      end if
+      return
+ 2000 format(' Incorrect statement - reinput ')
+ 2001 format('   No.',i3,'>',a1,' = ',74a1)
+      end
+c
+      function psub(val)
+c----------------------------------------------------------------------
+c     for pfuncs: calculate decrease of value      
+c----------------------------------------------------------------------
+c
+      implicit  none
+      real*8    psub, val, xval
+      data      xval / 0.0d0 /
+c     Look at parameter
+      if(val.eq.0.0d0) then
+        xval = 0.0d0
+      else
+        xval = xval - val
+      endif
+      psub = xval
+      end
+c
