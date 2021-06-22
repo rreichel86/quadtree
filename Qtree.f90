@@ -166,10 +166,10 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     call cpu_time(finish)
     write(*,1999)
     write(*,2000) finish-start
-    !CALL EXECUTE_COMMAND_LINE ('matlab -nodesktop -nosplash -r "QtreePlotMesh"')
     write(*,2001)
     read * 
     
+    ! CALL EXECUTE_COMMAND_LINE("matlab -nodesktop -nosplash -r 'QtreePlotMesh'")
     return
     
 1000    format(i6','f32.16','f32.16)
