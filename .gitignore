@@ -1,3 +1,7 @@
 modules/**
 obj/**
 build/**
+*.dat
+selm.txt
+scor.txt
+*.out
