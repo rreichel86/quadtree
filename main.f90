@@ -1,19 +1,23 @@
 program quadtree_main
 
 
-     use point_module
+    use codat
+    use iofile
+    use iosave
+    use point_module
     use polygon_module
     use Qtree_module
     use Qtree_input
+    use Qtree_data
     
     implicit none
     
-    integer i, j, k, istat
+    integer i, j, k, istat, zhl
     real(kind=8) :: td(10)
     character(len=5) :: token
     
     integer :: num_vertices, num_helperPoints, mat_nro
-    integer :: num_node, counter, idx, aidx, eidx
+    integer :: ipos,cumDiv, idx, aidx, eidx
     integer, allocatable :: divisions(:)
     logical, allocatable :: aHelperPoints(:)
     type(point), allocatable :: vertices(:), helperPoints(:), tmpPoints(:)
@@ -21,32 +25,36 @@ program quadtree_main
     real(kind=8) :: alpha, radius(2)
     real(kind=8) :: dxi, xi, xcoord, ycoord
     
-    character(len=20) filename
-    
-    
+    character(len=20) filenameIn
+    character cc*4, yyy*80, xxx*80
+    logical pcomp
+    integer num_nodes_elem, region
     
     td = 0d0
+    coflg = .false.
     
+    write(*,1000)
+    1000 format (5x,'Please enter input file name') 
+    !read(*,*) filenameIn
+    filenameIn = 'Test.txt'
+    write(*,1010) filenameIn
+    1010 format (5x,'The input file mame is: ', A) 
     
-    
-    
-    
-    
-    
-    write(*,*) 'Please enter input file name'
-    !read(*,*) filename 
-    filename = 'iYeti.txt'
-    write(*,1000) filename
-    1000 format ('  ','The input file mame is: ', A) 
-    
-    open(unit=56, file=filename, status='old', action='Read', iostat=istat)
-    
+
+    iow = 0
+    lfile = .false.
+    lread = .false.
+    lsave = .false.
+    open(unit=59, file=filenameIn, status='old', iostat=istat)
+    ior = 59
     if (istat == 0) then
-        
+       
         do 
-            
-            read(56, *) token   
-            
+1           call pintio(59,yyy,8)
+            read(yyy,1020,err=1) cc
+            1020 format(a4)
+            write(*,*) ' '
+
             ! poly
             ! num_poly,num_mapa_sets
             ! // Definition einer Ellipse
@@ -67,144 +75,162 @@ program quadtree_main
             ! ....
             ! num_poly
             
-            if (token .eq. 'poly ') then
-                
-                read(56,*) td(1:2)
+            ! if (token .eq. 'poly ') then
+            if (pcomp(cc,'poly',4)) then
+                write(*,*) '     <POLY>'
+                call dinput(td,2)
                 num_poly = int(td(1))
-                
+                num_mat_sets = int(td(2))
+
                 allocate(polygons(num_poly), stat=istat)
-                
+
                 ! Loop over all polygons
                 do i = 1, num_poly 
-                    
-                    read(56,*) td(1:10)
-                    mat_nro = int(td(3))
-                    num_vertices = int(td(4))
-                    num_helperPoints = int(td(5))
-                    radius = td(6:7)
-                    centerPoint = point(td(8),td(9))
-                    alpha = td(10)
-                    
-                    ! Definition einer Ellipse
-                    if (radius(1) .gt. 0d0) then 
-                        
-                        allocate(vertices(num_vertices), stat=istat)
-                        vertices = point(0d0,0d0)
-                        
-                        call ellipse(radius(1),radius(2),centerPoint,alpha,num_vertices,vertices)
-                        
-                        call polygon_init(polygons(i), vertices, mat_nro)
-                        
-                        deallocate(vertices, stat=istat)
-                        
-                    ! Definition eines belibigen Polygonzuges
-                    else 
-                        
-                        allocate(tmpPoints(num_vertices),divisions(num_vertices), &
+
+                call dinput(td,10)
+                mat_nro = int(td(3))
+                num_vertices = int(td(4))
+                num_helperPoints = int(td(5))
+                radius = td(6:7)
+                centerPoint = point(td(8),td(9))
+                alpha = td(10)
+
+                if (num_mat_sets .lt. mat_nro) mat_nro = 0
+                ! Definition einer Ellipse
+                if (radius(1) .gt. 0d0) then 
+
+                    allocate(vertices(num_vertices), stat=istat)
+                    vertices = point(0d0,0d0)
+
+                    call ellipse(radius(1),radius(2),centerPoint,alpha,num_vertices,vertices)
+
+                    call polygon_init(polygons(i), vertices, mat_nro)
+
+                    deallocate(vertices, stat=istat)
+
+                ! Definition eines belibigen Polygonzuges
+                else 
+
+                    allocate(tmpPoints(num_vertices),divisions(num_vertices), &
                         & helperPoints(num_vertices), aHelperPoints(num_vertices), &
                         & stat = istat)
-                        
-                        
-                        tmpPoints = point(0d0, 0d0)
-                        divisions = 0
-                        helperPoints = point(0d0, 0d0)
-                        aHelperPoints = .false.
-                        counter = 0
-                        
-                        ! Loop over vertices 
-                        do j = 1, num_vertices
-                            read(56,*) td(1:4)
-                            divisions(j) = int(td(2))
-                            tmpPoints(j) = point(td(3),td(4))
-                            if (divisions(j) .gt. 0) counter = counter + divisions(j) - 1
-                        end do
-                        
-                        ! Loop over helper points 
-                        do k = 1, num_helperPoints
-                            read(56,*) td(1:3)
-                            idx = int(td(1))
-                            helperPoints(idx) = point(td(2),td(3)) 
-                            aHelperPoints(idx) = .true.
-                        end do 
-                        
-                        allocate(vertices(num_vertices + counter), stat=istat)
-                        
-                        vertices = point(0d0,0d0)
-                        
-                        
-                        counter = 0
-                        do j = 1, num_vertices
-                            counter = counter + 1
-                            vertices(counter) = tmpPoints(j)
-                            if (divisions(j) .eq. 0) cycle
-                            dxi = 2.d0 / divisions(j) 
-                            xi = -1.d0 + dxi
-                            
-                            aidx = i
-                            eidx = i+1
-                            if (i .eq. num_vertices) eidx = 1
-                            
-                            do k = 1, divisions(j) - 1
-                                counter = counter + 1
-                                
-                                if (aHelperPoints(aidx)) then 
-                                    
-                                    xcoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%x + &
-                                    &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%x + &
-                                    &   1 - xi**2 * helperPoints(aidx)%x
-                                    
-                                    ycoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%y + &
-                                    &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%y + &
-                                    &   1 - xi**2 * helperPoints(aidx)%y
-                                    
-                                
-                                else
-                                    
-                                    xcoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%x + &
-                                    &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%x 
-                                    
-                                    ycoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%y + &
-                                    &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%y 
-                                    
-                                    
-                                end if 
-                                vertices(counter) = point(xcoord,ycoord)
-                                xi = xi + dxi
-                                
-                            end do
-                            
-                        end do
-                        
-                        deallocate(tmpPoints, divisions, helperPoints, aHelperPoints, &
-                        & stat = istat)
-                        
-                        call polygon_init(polygons(i), vertices, mat_nro)
-                        
-                        deallocate(vertices, stat=istat)
-                        
-                        
+
+
+                    tmpPoints = point(0d0, 0d0)
+                    divisions = 0
+                    helperPoints = point(0d0, 0d0)
+                    aHelperPoints = .false.
+                    cumDiv = 0
+
+                    ! Loop over vertices 
+                    do j = 1, num_vertices
+                        call dinput(td,4)
+                        divisions(j) = int(td(2))
+                        tmpPoints(j) = point(td(3),td(4))
+                        if (divisions(j) .gt. 0) cumDiv = cumDiv + divisions(j) - 1
+                    end do
+                    ! end loop over vertices
+
+                    ! Loop over helper points 
+                    do k = 1, num_helperPoints
+                        call dinput(td, 3)
+                        idx = int(td(1))
+                        helperPoints(idx) = point(td(2),td(3)) 
+                        aHelperPoints(idx) = .true.
+                    end do 
+                    ! end loop over helper points
+
+                    allocate(vertices(num_vertices + cumDiv), stat=istat)
+
+                    vertices = point(0d0,0d0)
+
+
+                    ipos = 0
+                    do j = 1, num_vertices
+                    ipos = ipos + 1
+                    vertices(ipos) = tmpPoints(j)
+                    if (divisions(j) .eq. 0) cycle
+                    dxi = 2.d0 / divisions(j) 
+                    xi = -1.d0 + dxi
+
+                    aidx = i
+                    eidx = i+1
+                    if (i .eq. num_vertices) eidx = 1
+
+                    do k = 1, divisions(j) - 1
+                    ipos = ipos + 1
+
+                    if (aHelperPoints(aidx)) then 
+
+                        xcoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%x + &
+                            &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%x + &
+                            &   1 - xi**2 * helperPoints(aidx)%x
+
+                        ycoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%y + &
+                            &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%y + &
+                            &   1 - xi**2 * helperPoints(aidx)%y
+
+
+                    else
+
+                        xcoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%x + &
+                            &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%x 
+
+                        ycoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%y + &
+                            &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%y 
+
+
                     end if 
-                    
+                    vertices(ipos) = point(xcoord,ycoord)
+                    xi = xi + dxi
+
+                    end do
+
+                    end do
+
+                    deallocate(tmpPoints, divisions, helperPoints, aHelperPoints, &
+                        & stat = istat)
+
+                    call polygon_init(polygons(i), vertices, mat_nro)
+
+                    deallocate(vertices, stat=istat)
+
+
+                end if 
+
                 end do  
-                
-                ! seed (Optional)
-                ! num_seeds
-                ! nro,division,x-coord,y-coord
-                ! ....
-                ! num_seeds
+                ! end loop over all polygons
+
+                write(*,*) '     </POLY>'
+
+
+
+            ! ! seed (Optional)
+            ! ! num_seeds
+            ! ! nro,division,x-coord,y-coord
+            ! ! ....
+            ! ! num_seeds
             
-            else if (token .eq. 'seed ') then
+            ! else if (token .eq. 'seed ') then
+            else if (pcomp(cc,'seed',4)) then
                 
+                write(*,*) '     <SEED>'
+                write(*,*) '     </SEED>'
                 
-                ! qtree
-                ! level_min, max_seeds_cells
+            ! qtree
+            ! level_min, max_seeds_cells
             
-            else if (token .eq. 'qtree') then
-                read(56,*) td(1:2)
+            ! else if (token .eq. 'qtree') then
+            else if (pcomp(cc,'qtre',4)) then
+                write(*,*) '     <QTRE>'
+                call dinput(td,2)
                 level_min = int(td(1))
                 max_seed_q = 1
+                write(*,*) '     </QTRE>'
             
-            else if (token .eq. 'end  ') then 
+            ! else if (token .eq. 'end  ') then 
+            else if (pcomp(cc,'end',3)) then 
+                write(*,*) '     </END>'
                 
                 exit
                 
@@ -213,23 +239,84 @@ program quadtree_main
         end do 
     
     else 
-        write(*,1010) istat
-        1010 format(' ','Error opening file: iostat =', i6) 
+        write(*,1070) istat
+        1070 format(' ','Error opening file: iostat =', i6) 
         
     end if 
     
-    close(unit=56)
+    close(unit=59)
     
-!    if (polygons(1)%init) then
-!        if (allocated(seeds)) then
-!            num_seeds = size(seeds)
-!        call QtreeSR0(num_poly,polygons, num_seeds, seeds) 
-!        else 
-!            call QtreeSR1(num_poly,polygons)
-!        end if  
-!    end if 
-!    
+    if (polygons(1)%init) then
+        if (allocated(seeds)) then
+            num_seeds = size(seeds)
+            call QtreeSR(num_poly,polygons, num_seeds, seeds) 
+        else 
+            call QtreeSR(num_poly,polygons, 0, point(0d0,0d0))
+        end if  
+    end if 
     
+    ! ! write out polygons' vertices
+    ! open(unit=60, file='coor.txt', status='unknown')
+    ! do i = 1, num_poly
+    !     ! get current polygon's number of vertices
+    !     zhl = polygons(i)%num_vertices
+    !     do j = 1, zhl
+    !         write(60, '(2f32.16)') polygons(i)%vertices(j)%x, polygons(i)%vertices(j)%y
+    !     end do 
+    ! end do
+    ! close(60)
+
+    ! write out polygons' vertices
+    open(unit=60, file='iTest.feap', status='unknown')
+    ! do i = 1, num_node
+    !     write(60, '(2f32.16)') nodes(i)%x, nodes(i)%y
+    ! end do
+    
+        !FEAP
+        write(60,2000)
+        !COOR
+        write(60,3000)
+        ! The indices (1:num_nodes) correspond to polygonal elements' vertices
+        ! and the indices (num_nodes + 1 : num_nodes + num_elem) correspond to 
+        ! the scaling center of the respective polygonal element.
+        do i=1, num_node + num_elem
+            write(60, 3010) i, nodes(i)
+        end do 
+        !ELEM
+        write(60,4000)
+        do i=1, num_elem
+            num_nodes_elem = elements(i,1)
+            region = elements(i,2)
+            
+            k = elm_typ_ma(num_nodes_elem, region)
+            write(60, 4010, advance='no') i, k
+            do j= 1, num_nodes_elem
+                write(60, 4020, advance='no') elements(i,2+j)
+            end do 
+            write(60, 4030) num_node + i
+        end do
+        !MATE
+        write(60,5000)
+        !END 
+        write(60,6000)
+        !INTE
+        write(60,7000)
+        !STOP
+        write(60,8000)
+    close(60)
+
+2000 format('feap')
+3000 format(/,'coor')
+3010 format(i6,',,',f22.16,',',f22.16)
+4000 format(/,'elem')
+4010 format(i6,',',i6,',')
+4020 format(i6,',')
+4030 format(i6)
+5000 format(/,'mate')
+6000 format(/,'end')
+7000 format('inte')
+8000 format('stop')
+
 end program quadtree_main
 
 
