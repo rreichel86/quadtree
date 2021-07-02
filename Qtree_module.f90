@@ -100,6 +100,7 @@ type Qtree
     type (Qtree), pointer :: SW => null()
     type (Qtree), pointer :: NE => null()
     type (Qtree), pointer :: SE => null()
+    type (Qtree), pointer :: father => null()
     !type (Qtrees), pointer :: children(:)
     
 end type
@@ -2454,10 +2455,13 @@ contains
             
             
             level = Qtr%level + 1
+
+            ! NW Child 
             Qtr%NW%level = level
             Qtr%NW%ref = Qtr%ref
             Qtr%NW%ref(2*level-1)= 1
             Qtr%NW%ref(2*level)= 1
+            Qtr%NW%father => Qtr
             boundary= [xmin,ymid,xmid,ymid,xmid,ymax,xmin,ymax]
             
             do i = 1,4
@@ -2467,11 +2471,13 @@ contains
             x0 = sum(Qtr%NW%Boundary(1:4)%x)/4.d0
             y0 = sum(Qtr%NW%Boundary(1:4)%y)/4.d0
             Qtr%NW%center = point(x0,y0)
-            
+
+            ! SW Child 
             Qtr%SW%level = level
             Qtr%SW%ref = Qtr%ref
             Qtr%SW%ref(2*level-1)= 1
             Qtr%SW%ref(2*level)= 2
+            Qtr%SW%father => Qtr
             boundary= [xmin,ymin,xmid,ymin,xmid,ymid,xmin,ymid]
             
             do i = 1,4
@@ -2481,11 +2487,13 @@ contains
             x0 = sum(Qtr%SW%Boundary(1:4)%x)/4.d0
             y0 = sum(Qtr%SW%Boundary(1:4)%y)/4.d0
             Qtr%SW%center = point(x0,y0)
-            
+
+            ! NE Child
             Qtr%NE%level = level
             Qtr%NE%ref = Qtr%ref
             Qtr%NE%ref(2*level-1)= 2
             Qtr%NE%ref(2*level)= 1
+            Qtr%NE%father => Qtr
             boundary= [xmid,ymid,xmax,ymid,xmax,ymax,xmid,ymax]
             
             
@@ -2496,11 +2504,13 @@ contains
             x0 = sum(Qtr%NE%Boundary(1:4)%x)/4.d0
             y0 = sum(Qtr%NE%Boundary(1:4)%y)/4.d0
             Qtr%NE%center = point(x0,y0)
-            
+
+            ! SE Child
             Qtr%SE%level = level
             Qtr%SE%ref = Qtr%ref
             Qtr%SE%ref(2*level-1)= 2
             Qtr%SE%ref(2*level)= 2
+            Qtr%SE%father => Qtr
             boundary= [xmid,ymin,xmax,ymin,xmax,ymid,xmid,ymid]
             
             do i = 1,4
