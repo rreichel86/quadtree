@@ -1626,6 +1626,52 @@ contains
     end subroutine 
     
 
+    subroutine QtrRefNeighbourQ(level,ref,dir,Ntyp,status)
+
+        implicit none 
+        integer, intent(in) :: level
+        integer, intent(inout) :: ref(2*level)
+        integer, intent(in) :: dir, Ntyp
+        logical, intent(out) :: status
+
+        integer :: N(level,2), lim(2)
+        integer :: l
+
+        status = .true.
+        !lim(1:2) = 1
+        
+        ! covert into integer form N_x and N_y
+        N(1:level,1) = ref(1:2*level:2)
+        N(1:level,2) = ref(2:2*level:2)
+
+        do l = 1, level 
+           N(l,1) = N(l,1) - 1
+           N(l,2) = N(l,2) - 1
+        end do
+
+        ! compute lim_x and lim_y 
+        lim(1) = calcLim(level, N(1:level,1))
+        lim(2) = calcLim(level, N(1:level,2))
+
+        if (Ntyp == 0) then
+            call refEdgeNeighbourQ(dir, level, lim, N, status)
+        else if (Ntyp == 1) then
+            call refCornerNeighbourQ(dir, level, lim, N, status)
+        end if
+        
+        ! determine reference of searched neighbour by interweaving new N_x and N_y
+        if (status) then 
+            do l = 1, level 
+               N(l,1) = N(l,1) + 1
+               N(l,2) = N(l,2) + 1
+            end do
+            
+            ref(1:2*level:2) = N(1:level,1)
+            ref(2:2*level:2) = N(1:level,2)
+        end if 
+
+    end subroutine
+
     subroutine refEdgeNeighbourQ(dir, level, lim, N, status)
     ! refEdgeNeighbourQ: perform binary transformation to obtain the
     ! 4 possible edge neighbours:
