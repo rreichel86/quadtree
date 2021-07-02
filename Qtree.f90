@@ -19,16 +19,12 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     integer :: nv, nt
     type (seed_point), allocatable :: total_pts(:)
 
-    
     real*8 :: pi, start, finish, xinp, yinp
     integer :: istat, i,j, index, zhl1, zhl2
-    
-    !call polygon_kernel(polygons(1))
     
     pi = 4.*atan(1.)
     
     call cpu_time(start)
-    
 
     nv = 0 
     do i = 1, np
@@ -102,7 +98,6 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     !status - The Qtree is generated (balanced)
     !status - The FE mesh generation begins
     
-    
     ! Sort read node coords in "Temp_nodes"
     call MergeSortSR(num_node, Temp_nodes)
 
@@ -118,27 +113,18 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     end do
     
     call coordinates(root,root)
-    !call filter3(root,root)
-    
     
     num_node = count(nodes_mask)
     Allocate (nodes(num_node+num_elem), elements(num_elem,16), elm_typ_ma(12,num_mat_sets), Stat=istat)
-    !call printmatrix2(12,num_mat_sets,elm_typ_ma,0)
     nodes(1:num_node) = pack(Temp_nodes,nodes_mask)
     
     call MergeSortSR(num_node, nodes(1:num_node))
     deallocate( Temp_nodes, nodes_mask, Stat = istat)
     ! end filter node coords
     
-    
-    
     open(unit=55, file='selm.txt', status='unknown')
-        !write(55, '(i6)') num_elem
         call connectivity(root,root)
     close(55)
-    
-    !write(*,*) sum(elm_typ_ma)
-    !call printmatrix2(12,num_mat_sets,elm_typ_ma,0)
     
     mate_zhl = 0
     do i = 1, 12
@@ -149,11 +135,8 @@ subroutine QtreeSR(np, polygons, ns, seeds)
                 elm_typ_ma(i,j) = mate_zhl
            end if      
            
-        
         end do 
     end do 
-    
-    !call printmatrix2(12,num_mat_sets,elm_typ_ma,0)
     
     open(unit=56, file='scor.txt', status='unknown')
         !write(56, '(i6)') num_node
@@ -162,20 +145,15 @@ subroutine QtreeSR(np, polygons, ns, seeds)
         end do
     close(56)
     
-   
     call cpu_time(finish)
     write(*,1999)
     write(*,2000) finish-start
-    write(*,2001)
-    read * 
     
-    ! CALL EXECUTE_COMMAND_LINE("matlab -nodesktop -nosplash -r 'QtreePlotMesh'")
     return
     
 1000    format(i6','f32.16','f32.16)
 1999    format(/4x,'Q T R E E  M E S H')
 2000    format(5x,'Total Time            =',f10.3,' seconds')   
-2001    format(5x,'Press RETURN to continue')    
     
 end subroutine    
 
@@ -196,7 +174,6 @@ subroutine HowManyPoints(bx,n,pts,azhl)
         end do
         azhl = count(temp,1)
         
-        
 end subroutine
 
 subroutine HowManySeeds(bx,n,seeds,azhl)
@@ -215,7 +192,6 @@ subroutine HowManySeeds(bx,n,seeds,azhl)
             temp(i) = containsPoint(bx,seeds(i)%pos)
         end do
         azhl = count(temp,1)
-        
         
 end subroutine
 
@@ -278,7 +254,6 @@ logical function containsPoint(bx,pt)
         
     end function
     
-    
     subroutine write_seeds(arr)
     use point_module
     implicit none 
@@ -311,7 +286,6 @@ logical function containsPoint(bx,pt)
         
         close(57)
         
-    
     end subroutine
     
     subroutine ellipse (a,b,pt_c,alpha,n,pts)
