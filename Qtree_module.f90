@@ -1552,7 +1552,7 @@ contains
         end if 
     end subroutine
     
-    
+    ! TODO: Improve subroutine QtrBalance()
     recursive subroutine QtrBalance(root,Qtr,level_min)
         
         implicit none
