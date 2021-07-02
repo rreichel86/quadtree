@@ -595,6 +595,7 @@
 200	temp/feaps6.for	/^200     x(1,n) = x(1,n) - dx$/;"	l	subroutine:transx	file:
 200	temp/feaps6.for	/^200   if(lflg) then$/;"	l	subroutine:writer	file:
 2000	Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeSR	file:
+2000	Qtree_module.f90	/^        2000 format(' o ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2000	helpers.for	/^ 2000 format (' ** ERROR in ',a6,' ** end of file encountered')$/;"	l	subroutine:endclr	file:
 2000	helpers.for	/^ 2000 format(' Incorrect statement - reinput ')$/;"	l	subroutine:pcheck	file:
 2000	helpers.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconst	file:
@@ -681,6 +682,7 @@
 2000	temp/feaps6.for	/^2000  format(\/,$/;"	l	subroutine:transx	file:
 2000	temp/feaps6.for	/^2000  format(\/,$/;"	l	subroutine:xmodif	file:
 2000	temp/feaps6.for	/^2000  format(\/6x,' t i e  - - -  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:tienod	file:
+2001	Qtree_module.f90	/^            2001 format(' n ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2001	helpers.for	/^ 2001 format('   No.',i3,'>',a1,' = ',74a1)$/;"	l	subroutine:pcheck	file:
 2001	helpers.for	/^ 2001 format(2x,a1,' = ',74a1\/'   >',$)$/;"	l	subroutine:setval	file:
 2001	helpers.for	/^ 2001 format(\/'  p a r a m e t e r   v a l u e s')$/;"	l	subroutine:pconst	file:
@@ -761,6 +763,7 @@
 2001	temp/feaps6.for	/^2001  format(i8,3e12.4)$/;"	l	subroutine:xmodif	file:
 2001	temp/feaps6.for	/^2001  format(i8,3f12.4)$/;"	l	subroutine:transx	file:
 2001	temp/feaps6.for	/^2001  format(i8,6f12.4\/(8x,6f12.4))$/;"	l	subroutine:sphere	file:
+2002	Qtree_module.f90	/^            2002 format(' c ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2002	helpers.for	/^ 2002 format('  Correction:>',75a1)$/;"	l	subroutine:setval	file:
 2002	helpers.for	/^2002  format (' ** ERROR in ',a6,' ** reinput last record')$/;"	l	subroutine:errclr	file:
 2002	temp/feaps1.for	/^2002  format(5x,'Load case 1: constant load q_0 ',e12.5)$/;"	l	subroutine:aload	file:
