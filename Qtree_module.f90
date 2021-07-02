@@ -206,7 +206,7 @@ contains
        
     end subroutine
     
-    subroutine connect_h_neighbor(ctrl,root,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
+    subroutine connect_h_neighbor(ctrl,root,Qtr,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
         use Qtree_data
         use point_module
         
@@ -742,7 +742,7 @@ contains
                         
                         end if    
                            
-                        call connect_h_neighbor(1,root,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
+                        call connect_h_neighbor(1,root,Qtr,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
                         zhl = zhl + 1
                         
                 end do
@@ -998,11 +998,11 @@ contains
                         end if    
                         
                            
-                        if (cc) call connect_h_neighbor(1,root,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
+                        if (cc) call connect_h_neighbor(1,root,Qtr,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
                          zhl = zhl + 1
                         cc = .true.
                         
-                        if (cc_2) call connect_h_neighbor(2,root,itr_nro,ref,level,zhl_2,temp_coor_2,wpoly_2,signo_2) ! ??
+                        if (cc_2) call connect_h_neighbor(2,root,Qtr,itr_nro,ref,level,zhl_2,temp_coor_2,wpoly_2,signo_2) ! ??
                         zhl_2 = zhl_2 + 1 
                         cc_2 = .true.
                         
@@ -1090,7 +1090,7 @@ contains
                 signo(zhl) = Qtr%signo(itr_nro) 
                 wpoly(zhl) = Qtr%wpoly(itr_nro)
                             
-                call connect_h_neighbor(2,root,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
+                call connect_h_neighbor(2,root,Qtr,itr_nro,ref,level,zhl,temp_coor,wpoly,signo)
                 zhl = zhl + 1
                
                end do
