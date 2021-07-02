@@ -6,6 +6,7 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 1	helpers.for	/^1     if(ior.gt.0) then$/;"	l	subroutine:pconst	file:
 1	helpers.for	/^1     nex = 0$/;"	l	subroutine:setval	file:
+1	main.f90	/^1           call pintio(59,yyy,8)$/;"	l	program:quadtree_main	file:
 1	temp/feaps2.for	/^1     continue$/;"	l	subroutine:f3d	file:
 1	temp/feaps2.for	/^1     if(ior.lt.0) then$/;"	l	subroutine:esideb	file:
 1	temp/feaps2.for	/^1     pg(1) = 0.0d0$/;"	l	subroutine:gaus1D	file:
@@ -51,9 +52,11 @@
 10	temp/feaps6.for	/^10    continue$/;"	l	subroutine:vblk	file:
 100	helpers.for	/^100                 continue$/;"	l	subroutine:parexp	file:
 100	helpers.for	/^100     if(y(i+n1).eq.' ') then$/;"	l	subroutine:just	file:
+100	helpers.for	/^100   continue$/;"	l	function:ipos	file:
 100	helpers.for	/^100   continue$/;"	l	function:pcomp	file:
 100	helpers.for	/^100   continue$/;"	l	subroutine:acheck	file:
 100	helpers.for	/^100   continue$/;"	l	subroutine:evalex	file:
+100	helpers.for	/^100   continue$/;"	l	subroutine:pcheck	file:
 100	helpers.for	/^100   continue$/;"	l	subroutine:pevpak	file:
 100	helpers.for	/^100   continue$/;"	l	subroutine:setval	file:
 100	helpers.for	/^100   errco = .true.$/;"	l	subroutine:pinval	file:
@@ -187,7 +190,7 @@
 1000	helpers.for	/^1000  format(201a1)$/;"	l	subroutine:dinput	file:
 1000	helpers.for	/^1000  format(a)$/;"	l	subroutine:pintio	file:
 1000	helpers.for	/^1000  format(f21.0)$/;"	l	subroutine:pinval	file:
-1000	main.f90	/^    1000 format ('  ','The input file mame is: ', A) $/;"	l	program:quadtree_main	file:
+1000	main.f90	/^    1000 format (5x,'Please enter input file name') $/;"	l	program:quadtree_main	file:
 1000	temp/feaps1.for	/^1000  format(201a1)$/;"	l	subroutine:dinput	file:
 1000	temp/feaps1.for	/^1000  format(201a1)$/;"	l	subroutine:dinput2	file:
 1000	temp/feaps1.for	/^1000  format(5x,'###### factorization warning:',i5,' neg. diagonal el.')$/;"	l	subroutine:datri	file:
@@ -240,12 +243,13 @@
 101	temp/feaps5.for	/^101       call dinput(td,8)$/;"	l	function:propld	file:
 101	temp/feaps5.for	/^101     continue$/;"	l	subroutine:prtjint	file:
 101	temp/feaps5.for	/^101     continue$/;"	l	subroutine:prtrea	file:
-1010	main.f90	/^        1010 format(' ','Error opening file: iostat =', i6) $/;"	l	program:quadtree_main	file:
+1010	main.f90	/^    1010 format (5x,'The input file mame is: ', A) $/;"	l	program:quadtree_main	file:
 102	temp/feaps1.for	/^102     continue$/;"	l	subroutine:aload	file:
 102	temp/feaps2.for	/^102   continue$/;"	l	subroutine:genvec	file:
 102	temp/feaps2.for	/^102   continue$/;"	l	subroutine:genvec1	file:
 102	temp/feaps4.for	/^102     continue$/;"	l	subroutine:histex	file:
 102	temp/feaps4.for	/^102   call dinput(td,3)$/;"	l	subroutine:qloadi	file:
+1020	main.f90	/^            1020 format(a4)$/;"	l	program:quadtree_main	file:
 103	temp/feaps2.for	/^103   continue$/;"	l	subroutine:invec	file:
 103	temp/feaps2.for	/^103   x(i,n) = x(i,n) + alpha*xl(i) ! new$/;"	l	subroutine:genvec1	file:
 103	temp/feaps2.for	/^103   x(i,n) = xl(i)$/;"	l	subroutine:genvec	file:
@@ -293,10 +297,15 @@
 107	temp/feaps2.for	/^107   x(i,l) = x(i,l-lg) + xl(i)$/;"	l	subroutine:genvec	file:
 107	temp/feaps2.for	/^107   x(i,l) = x(i,l-lg) + xl(i)$/;"	l	subroutine:genvec1	file:
 107	temp/feaps3.for	/^107         continue$/;"	l	subroutine:pform	file:
+1070	main.f90	/^        1070 format(5x,'Error opening file: iostat =', i6) $/;"	l	program:quadtree_main	file:
 108	temp/feaps2.for	/^108   continue$/;"	l	subroutine:genvec	file:
 108	temp/feaps2.for	/^108   continue$/;"	l	subroutine:genvec1	file:
 108	temp/feaps2.for	/^108   continue$/;"	l	subroutine:invec	file:
 108	temp/feaps3.for	/^108     continue$/;"	l	subroutine:pform	file:
+1080	main.f90	/^    1080 format(5x,'Type COMMAND to continue:'\/)$/;"	l	program:quadtree_main	file:
+1081	main.f90	/^    1081 format(7x,'MPLOT'\/ &$/;"	l	program:quadtree_main	file:
+1082	main.f90	/^    1082 format(3x,'> ',$)$/;"	l	program:quadtree_main	file:
+1083	main.f90	/^    1083 format(a5)$/;"	l	program:quadtree_main	file:
 109	temp/feaps2.for	/^109   if(.not.prt) return$/;"	l	subroutine:genvec1	file:
 109	temp/feaps2.for	/^109   if(.not.prt) return$/;"	l	subroutine:genvec2	file:
 109	temp/feaps2.for	/^109   if(.not.prt) return$/;"	l	subroutine:invec	file:
@@ -359,6 +368,7 @@
 110	temp/feaps6.for	/^110     continue$/;"	l	subroutine:shp3d	file:
 110	temp/feaps6.for	/^110   continue$/;"	l	subroutine:storeh	file:
 110	temp/feaps6.for	/^110   tol(i) = (xmx - xmn)*sn$/;"	l	subroutine:tienod	file:
+1100	main.f90	/^        1100 format(5x,'Undefined command')$/;"	l	program:quadtree_main	file:
 111	temp/feaps2.for	/^111     call perform(numnp+ik,2*numnp,2,29)$/;"	l	subroutine:optn	file:
 111	temp/feaps2.for	/^111     mct = mct - 1$/;"	l	subroutine:genvec	file:
 111	temp/feaps2.for	/^111   mct = mct - 1$/;"	l	subroutine:genvec1	file:
@@ -525,6 +535,8 @@
 200	helpers.for	/^ 200    write(iow,2000) nn,y(1:nn*15)$/;"	l	subroutine:dcheck	file:
 200	helpers.for	/^ 200  call errclr('PCHARR')$/;"	l	subroutine:pcharr	file:
 200	helpers.for	/^200   continue$/;"	l	subroutine:acheck	file:
+200	helpers.for	/^200   continue$/;"	l	subroutine:pcheck	file:
+200	helpers.for	/^200   ipos = n$/;"	l	function:ipos	file:
 200	temp/feaps1.for	/^ 200    write(iow,2000) nn,y(1:nn*15)$/;"	l	subroutine:dcheck	file:
 200	temp/feaps1.for	/^200       continue$/;"	l	subroutine:tblk	file:
 200	temp/feaps1.for	/^200     continue$/;"	l	subroutine:bjac3d	file:
@@ -584,9 +596,11 @@
 200	temp/feaps6.for	/^200   if(lflg) then$/;"	l	subroutine:writer	file:
 2000	Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeSR	file:
 2000	helpers.for	/^ 2000 format (' ** ERROR in ',a6,' ** end of file encountered')$/;"	l	subroutine:endclr	file:
+2000	helpers.for	/^ 2000 format(' Incorrect statement - reinput ')$/;"	l	subroutine:pcheck	file:
 2000	helpers.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconst	file:
 2000	helpers.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput	file:
 2000	helpers.for	/^2000  format(\/' *ERROR* attempting to input',i3,' value(s).',$/;"	l	subroutine:dcheck	file:
+2000	main.f90	/^2000 format('feap')$/;"	l	program:quadtree_main	file:
 2000	temp/feaps1.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput	file:
 2000	temp/feaps1.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput2	file:
 2000	temp/feaps1.for	/^2000  format(' >Element',i4,' coordinates not input for nodes:'\/$/;"	l	subroutine:ckbrk8	file:
@@ -667,7 +681,7 @@
 2000	temp/feaps6.for	/^2000  format(\/,$/;"	l	subroutine:transx	file:
 2000	temp/feaps6.for	/^2000  format(\/,$/;"	l	subroutine:xmodif	file:
 2000	temp/feaps6.for	/^2000  format(\/6x,' t i e  - - -  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:tienod	file:
-2001	Qtree.f90	/^2001    format(5x,'Press RETURN to continue')    $/;"	l	subroutine:QtreeSR	file:
+2001	helpers.for	/^ 2001 format('   No.',i3,'>',a1,' = ',74a1)$/;"	l	subroutine:pcheck	file:
 2001	helpers.for	/^ 2001 format(2x,a1,' = ',74a1\/'   >',$)$/;"	l	subroutine:setval	file:
 2001	helpers.for	/^ 2001 format(\/'  p a r a m e t e r   v a l u e s')$/;"	l	subroutine:pconst	file:
 2001	temp/feaps1.for	/^2001  format(' >Element',i4,' has negative jacobian at nodes:'\/$/;"	l	subroutine:ckbrk8	file:
@@ -992,6 +1006,7 @@
 21	temp/feaps3.for	/^21       w(i) = lw2(j)*lw2(k)$/;"	l	subroutine:pnewcot	file:
 21	temp/feaps3.for	/^21    w(i) = 1.d0$/;"	l	subroutine:pgauss	file:
 21	temp/feaps4.for	/^21    coflg = i.eq.21$/;"	l	subroutine:pmesh	file:
+210	helpers.for	/^210     continue$/;"	l	subroutine:pcheck	file:
 210	helpers.for	/^210   continue$/;"	l	subroutine:acheck	file:
 210	temp/feaps1.for	/^210   continue$/;"	l	subroutine:acheck	file:
 210	temp/feaps1.for	/^210   continue$/;"	l	subroutine:bjac3d	file:
@@ -1093,6 +1108,7 @@
 300	temp/feaps6.for	/^300   write(yyy,3000) ni,ne$/;"	l	subroutine:sphere	file:
 300	temp/feaps6.for	/^300   write(yyy,3000) ni,ne$/;"	l	subroutine:transx	file:
 3000	helpers.for	/^ 3000 format(' Use "list" to give current values - <CR> to exit'\/$/;"	l	subroutine:pconst	file:
+3000	main.f90	/^3000 format(\/,'coor')$/;"	l	program:quadtree_main	file:
 3000	temp/feaps1.for	/^3000  format(' **ERROR** Block node',i3,' is undefined')$/;"	l	subroutine:tblk	file:
 3000	temp/feaps1.for	/^3000  format(' Singularity in factoring matrix by datri.'\/,$/;"	l	subroutine:datri1	file:
 3000	temp/feaps2.for	/^3000  format('  **ERROR** attempt to generate node',i5,' in',2a4)$/;"	l	subroutine:invec	file:
@@ -1155,6 +1171,7 @@
 3005	temp/feaps4.for	/^3005  format(' Node number ',i7,' for BOUN not possible ')$/;"	l	subroutine:pmesh	file:
 301	temp/feaps1.for	/^301   continue$/;"	l	subroutine:tblk	file:
 301	temp/feaps6.for	/^301   continue$/;"	l	subroutine:vblk	file:
+3010	main.f90	/^3010 format(i6,',,',f22.16,',',f22.16)$/;"	l	program:quadtree_main	file:
 302	temp/feaps4.for	/^302   continue$/;"	l	subroutine:pmesh	file:
 303	temp/feaps4.for	/^303     call dinput(td,il-is+1)$/;"	l	subroutine:pmesh	file:
 304	temp/feaps4.for	/^304     continue$/;"	l	subroutine:pmesh	file:
@@ -1230,6 +1247,7 @@
 400	temp/feaps5.for	/^400   if(lflg) close(ird)$/;"	l	subroutine:reader	file:
 400	temp/feaps6.for	/^400         continue$/;"	l	subroutine:vblk	file:
 400	temp/feaps6.for	/^400   close(iwd)$/;"	l	subroutine:writer	file:
+4000	main.f90	/^4000 format(\/,'elem')$/;"	l	program:quadtree_main	file:
 4000	temp/feaps3.for	/^4000  format(5x,' node(tied to) ',i6,'(',i6,')')$/;"	l	subroutine:plink	file:
 4000	temp/feaps4.for	/^4000  format(' error in pmacio ** unbalanced loop\/next macros')$/;"	l	subroutine:pmacio	file:
 4000	temp/feaps6.for	/^4000  format(' **ERROR** attempt to convert spherical coordinates'\/$/;"	l	subroutine:sphere	file:
@@ -1252,6 +1270,7 @@
 401	temp/feaps4.for	/^401   write(iow,4001)$/;"	l	subroutine:pmacio	file:
 401	temp/feaps5.for	/^401   continue$/;"	l	subroutine:sblk	file:
 401	temp/feaps5.for	/^401   continue$/;"	l	subroutine:sblkdx	file:
+4010	main.f90	/^4010 format(i6,',',i6,',')$/;"	l	program:quadtree_main	file:
 4010	temp/feaps5.for	/^4010  format(' transient values v,a,... stored with neq, length=nneq')$/;"	l	subroutine:restrt	file:
 4012	temp/feaps5.for	/^4012  format(' ttim')$/;"	l	subroutine:restrt	file:
 4013	temp/feaps5.for	/^4013  format(e18.9,3i12)$/;"	l	subroutine:restrt	file:
@@ -1262,9 +1281,11 @@
 402	temp/feaps3.for	/^ 402  call  endclr ('PMACIO',x)$/;"	l	subroutine:parse	file:
 402	temp/feaps4.for	/^402   continue$/;"	l	subroutine:pmesh	file:
 402	temp/feaps4.for	/^402   write(iow,4002)$/;"	l	subroutine:pmacio	file:
+4020	main.f90	/^4020 format(i6,',')$/;"	l	program:quadtree_main	file:
 4020	temp/feaps5.for	/^4020  format(a80)$/;"	l	subroutine:restrt	file:
 403	temp/feaps4.for	/^403         call dinput(td,il-is+1)$/;"	l	subroutine:pmesh	file:
 403	temp/feaps4.for	/^403   write(iow,4003)$/;"	l	subroutine:pmacio	file:
+4030	main.f90	/^4030 format(i6)$/;"	l	program:quadtree_main	file:
 404	temp/feaps4.for	/^404         continue$/;"	l	subroutine:pmesh	file:
 404	temp/feaps4.for	/^404   write(iow,4004)$/;"	l	subroutine:pmacio	file:
 405	temp/feaps4.for	/^405       continue$/;"	l	subroutine:pmesh	file:
@@ -1340,6 +1361,7 @@
 500	temp/feaps3.for	/^500   continue$/;"	l	subroutine:pcontr	file:
 500	temp/feaps6.for	/^500       continue$/;"	l	subroutine:vblk	file:
 500	temp/feaps6.for	/^500   call pzero(b,nneq)$/;"	l	subroutine:summariz	file:
+5000	main.f90	/^5000 format(\/,'mate')$/;"	l	program:quadtree_main	file:
 5000	temp/feaps1.for	/^5000  format(' Input: nn,nr,nod1,nuel1,ma'\/3x,'>',$)$/;"	l	subroutine:blktri	file:
 5000	temp/feaps1.for	/^5000  format(' Input: nn,nr,ns,ni,ne,ma,nodinc,ntyp'\/3x,'>',$)$/;"	l	subroutine:blkgen	file:
 5000	temp/feaps1.for	/^5000  format(' Input: nn,nr,ns,ni,ne,ma,nodinc,ntyp'\/3x,'>',$)$/;"	l	subroutine:blkgendx	file:
@@ -1401,6 +1423,7 @@
 600	temp/feaps3.for	/^  600 continue$/;"	l	subroutine:nodew	file:
 600	temp/feaps3.for	/^600   call  errclr ('PCONTR')$/;"	l	subroutine:pcontr	file:
 600	temp/feaps6.for	/^600      continue$/;"	l	subroutine:vblk	file:
+6000	main.f90	/^6000 format(\/,'end')$/;"	l	program:quadtree_main	file:
 601	temp/feaps3.for	/^601   return$/;"	l	subroutine:pcontr	file:
 601	temp/feaps6.for	/^601    continue$/;"	l	subroutine:vblk	file:
 6011	temp/feaps6.for	/^6011   continue$/;"	l	subroutine:vblk	file:
@@ -1441,6 +1464,7 @@
 70	temp/feaps4.for	/^70    goto 103$/;"	l	subroutine:pmesh	file:
 700	temp/feaps2.for	/^  700 continue$/;"	l	subroutine:opnum	file:
 700	temp/feaps3.for	/^700   call  endclr ('PCONTR',titl(1))$/;"	l	subroutine:pcontr	file:
+7000	main.f90	/^7000 format('inte')$/;"	l	program:quadtree_main	file:
 71	temp/feaps3.for	/^71          continue$/;"	l	subroutine:plink	file:
 71	temp/feaps3.for	/^71       w(i) = lw7(j)*lw7(k)*h$/;"	l	subroutine:pnewcot	file:
 71	temp/feaps3.for	/^71    continue$/;"	l	subroutine:pgauss	file:
@@ -1468,6 +1492,7 @@
 80	temp/feaps1.for	/^80    continue$/;"	l	subroutine:dinput	file:
 80	temp/feaps1.for	/^80    continue$/;"	l	subroutine:dinput2	file:
 80	temp/feaps4.for	/^80    call dinput(td,nen)$/;"	l	subroutine:pmesh	file:
+8000	main.f90	/^8000 format('stop')$/;"	l	program:quadtree_main	file:
 81	temp/feaps3.for	/^81        continue$/;"	l	subroutine:plink	file:
 81	temp/feaps3.for	/^81       w(i) = lw8(j)*lw8(k)*h$/;"	l	subroutine:pnewcot	file:
 81	temp/feaps3.for	/^81    continue$/;"	l	subroutine:pgauss	file:
@@ -1578,6 +1603,7 @@ QtrDelete	Qtree_module.f90	/^    subroutine QtrDelete(/;"	s	module:Qtree_module
 QtrFindNeighborQ	Qtree_module.f90	/^    subroutine QtrFindNeighborQ(/;"	s	module:Qtree_module
 QtrInit	Qtree_module.f90	/^     subroutine QtrInit(/;"	s	module:Qtree_module
 QtrInputReset	Qtree_module.f90	/^        subroutine QtrInputReset(/;"	s	module:Qtree_input
+QtrRefNeighbourQ	Qtree_module.f90	/^    subroutine QtrRefNeighbourQ(/;"	s	module:Qtree_module
 QtrSearchQ	Qtree_module.f90	/^    recursive subroutine QtrSearchQ(/;"	s	module:Qtree_module
 QtrSubdivide	Qtree_module.f90	/^    recursive subroutine QtrSubdivide(/;"	s	module:Qtree_module
 Qtree	Qtree_module.f90	/^type Qtree /;"	t	module:Qtree_module
@@ -1606,7 +1632,7 @@ aeigr	module.for	/^      real*8,allocatable,dimension(:) :: eigmma,aeigr,/;"	v	m
 aeigv	module.for	/^      real*8,allocatable,dimension(:) :: eigmma,aeigr,aeigi,aeigv$/;"	v	module:uneig
 aengy	module.for	/^      real*8  aengy,/;"	v	module:endata
 aff	module.for	/^      logical aff$/;"	v	module:yltdata1
-aidx	main.f90	/^    integer :: num_node, counter, idx, aidx,/;"	v	program:quadtree_main
+aidx	main.f90	/^    integer :: ipos,cumDiv, idx, aidx,/;"	v	program:quadtree_main
 aifour1	module.for	/^      real*8, allocatable, dimension(:) :: aifour1,/;"	v	module:fodata
 aifour2	module.for	/^      real*8, allocatable, dimension(:) :: aifour1, aifour2$/;"	v	module:fodata
 aipma	module.for	/^      integer, allocatable, dimension(:) :: aipma$/;"	v	module:pdata7
@@ -1659,6 +1685,8 @@ bfgsbv	module.for	/^     +        bfgsbo,bfgsbd,bfgsbv,/;"	v	module:isbfgs
 bfgsbw	module.for	/^     +        bfgsbo,bfgsbd,bfgsbv,bfgsbw,/;"	v	module:isbfgs
 binarySearch	SortSearch_module.f90	/^recursive function binarySearch /;"	f	module:SortSearch_module
 binarySearch_2	SortSearch_module.f90	/^subroutine binarySearch_2 /;"	s	module:SortSearch_module
+binaryTransformation_2	Qtree_module.f90	/^    subroutine binaryTransformation_2(/;"	s	module:Qtree_module
+binaryTransformation_4	Qtree_module.f90	/^    subroutine binaryTransformation_4(/;"	s	module:Qtree_module
 bisw	module.for	/^      module bisw$/;"	m
 bjac3d	temp/feaps1.for	/^      subroutine bjac3d /;"	s
 blkgen	temp/feaps1.for	/^      subroutine blkgen(/;"	s
@@ -1673,6 +1701,8 @@ c2	module.for	/^      real*8 ttim,dt,dto,c1,c2,/;"	v	module:tdata
 c3	module.for	/^      real*8 ttim,dt,dto,c1,c2,c3,/;"	v	module:tdata
 c4	module.for	/^      real*8 ttim,dt,dto,c1,c2,c3,c4,/;"	v	module:tdata
 c5	module.for	/^      real*8 ttim,dt,dto,c1,c2,c3,c4,c5$/;"	v	module:tdata
+calcLim	Qtree_module.f90	/^    integer function calcLim(/;"	f	module:Qtree_module
+cc	main.f90	/^    character cc*/;"	v	program:quadtree_main
 cdat1	module.for	/^      module cdat1$/;"	m
 cdata	module.for	/^      module cdata$/;"	m
 center	Geom_Module.f90	/^        type(point) :: center$/;"	k	type:polygon
@@ -1743,7 +1773,6 @@ coor	module.for	/^      real*8, allocatable, dimension(:) :: coor,/;"	v	module:m
 coordinates	Qtree_module.f90	/^    recursive subroutine coordinates(/;"	s	module:Qtree_module
 copyhis	temp/feaps1.for	/^      subroutine copyhis(/;"	s
 counter	Qtree_module.f90	/^    integer :: num_node, num_elem, counter$/;"	v	module:Qtree_data
-counter	main.f90	/^    integer :: num_node, counter,/;"	v	program:quadtree_main
 cplus	module.for	/^      real*8  augf,cplus$/;"	v	module:augdat
 crit	module.for	/^      real*8, allocatable, dimension(:) :: crit$/;"	v	module:pcrit
 cs1	module.for	/^      real*8  rlnew,timold,ds0,alfa0,c0,cs1,/;"	v	module:arcl
@@ -1753,6 +1782,7 @@ cs2o	module.for	/^      real*8  sp,rm,cmax,unorm,cnorm,rold,cs1o,cs2o$/;"	v	modu
 csrja	module.for	/^      integer, allocatable, dimension(:) :: csrja,/;"	v	module:iscsr
 csrka	module.for	/^      integer, allocatable, dimension(:) :: csrja, csrka$/;"	v	module:iscsr
 ctis	module.for	/^      real*8   ctis(/;"	v	module:soltyp
+cumDiv	main.f90	/^    integer :: ipos,cumDiv,/;"	v	program:quadtree_main
 curvedat	temp/feaps2.for	/^      common \/curvedat\//;"	c	subroutine:ini
 cvtc2i	temp/feaps2.for	/^      integer function cvtc2i(/;"	f
 cvti2c	temp/feaps2.for	/^      function cvti2c(/;"	f
@@ -1842,7 +1872,7 @@ eflg	module.for	/^      logical extflg,eflg$/;"	v	module:ext2
 eh1	module.for	/^      real*8, allocatable, dimension(:) :: eh1,/;"	v	module:hdatam
 eh2	module.for	/^      real*8, allocatable, dimension(:) :: eh1,eh2,/;"	v	module:hdatam
 eh3	module.for	/^      real*8, allocatable, dimension(:) :: eh1,eh2,eh3$/;"	v	module:hdatam
-eidx	main.f90	/^    integer :: num_node, counter, idx, aidx, eidx$/;"	v	program:quadtree_main
+eidx	main.f90	/^    integer :: ipos,cumDiv, idx, aidx, eidx$/;"	v	program:quadtree_main
 eig1	module.for	/^      module eig1$/;"	m
 eigd	module.for	/^      real*8, allocatable, dimension(:) :: eigd,/;"	v	module:subdt
 eigflg	module.for	/^      logical eigflg$/;"	v	module:eig1
@@ -1946,7 +1976,7 @@ fepspg	module.for	/^      logical fepspg$/;"	v	module:epspu
 ff	module.for	/^      real*8  eold(3),vold(3),e(3),enorm,fold,ff,/;"	v	module:ppers
 fgmesh	module.for	/^     +              psview,fpath,fintnet,fadobe,fgmesh,/;"	v	module:feapprog
 file	module.for	/^      character*229 file(/;"	v	module:pathn
-filename	main.f90	/^    character(len=20) filename$/;"	v	program:quadtree_main
+filenameIn	main.f90	/^    character(len=20) filenameIn$/;"	v	program:quadtree_main
 fileno	module.for	/^      module fileno$/;"	m
 filter3	Qtree_module.f90	/^    recursive subroutine filter3(/;"	s	module:Qtree_module
 finp	module.for	/^      character*229 finp,/;"	v	module:comfil
@@ -2059,7 +2089,7 @@ icv	module.for	/^      integer icv$/;"	v	module:contval
 idata	module.for	/^      module idata$/;"	m
 idev	module.for	/^      integer iclear,idev,/;"	v	module:pdata2
 idis	module.for	/^      integer, allocatable, dimension(:) :: idis,/;"	v	module:hidden
-idx	main.f90	/^    integer :: num_node, counter, idx,/;"	v	program:quadtree_main
+idx	main.f90	/^    integer :: ipos,cumDiv, idx,/;"	v	program:quadtree_main
 idx	module.for	/^      integer nkn,nth,nknr,nthr,ndx,idx(/;"	v	module:yltdata1
 iedg	module.for	/^      integer ne4,nde,ned,nedg(100),iedg(/;"	v	module:edgdat
 iel	module.for	/^      integer n,ma,mct,iel,/;"	v	module:eldata
@@ -2142,6 +2172,8 @@ ipld	module.for	/^      integer iprd,ipld$/;"	v	module:pdam
 iplot	module.for	/^      integer iplot$/;"	v	module:pdata8
 ipola	module.for	/^      integer iclear,idev,iopl,imono,ipgl,icgm,ibor,ipola$/;"	v	module:pdata2
 ipord	module.for	/^      integer inord(100),ipord(/;"	v	module:pdata6
+ipos	helpers.for	/^      integer function ipos(/;"	f
+ipos	main.f90	/^    integer :: ipos,/;"	v	program:quadtree_main
 ipos	temp/feaps4.for	/^      integer function ipos(/;"	f
 ipos1	temp/feaps4.for	/^      integer function ipos1(/;"	f
 ippc	module.for	/^      integer  ippc,/;"	v	module:isprec
@@ -2177,7 +2209,7 @@ ispcg	module.for	/^      module ispcg$/;"	m
 ispgmr	module.for	/^      module ispgmr$/;"	m
 isprec	module.for	/^      module isprec$/;"	m
 ispv	module.for	/^      integer klay,mlay,intn,intv,npv,ipv,ispv$/;"	v	module:plslay
-istat	main.f90	/^    integer i, j, k, istat$/;"	v	program:quadtree_main
+istat	main.f90	/^    integer i, j, k, istat,/;"	v	program:quadtree_main
 istat	module.for	/^      module istat$/;"	m
 istruc	module.for	/^      integer ipan,istruc$/;"	v	module:pdatap
 istv	module.for	/^      integer      np,istv$/;"	v	module:strnam
@@ -2492,7 +2524,7 @@ num_intrsc_pts	Qtree_module.f90	/^    integer :: num_intrsc_pts$/;"	v	module:Qtr
 num_mat_sets	Qtree_module.f90	/^    integer :: num_mat_sets /;"	k	type:Qtree
 num_mat_sets	Qtree_module.f90	/^    integer :: num_poly, num_seeds, num_mat_sets$/;"	v	module:Qtree_input
 num_node	Qtree_module.f90	/^    integer :: num_node,/;"	v	module:Qtree_data
-num_node	main.f90	/^    integer :: num_node,/;"	v	program:quadtree_main
+num_nodes_elem	main.f90	/^    integer num_nodes_elem,/;"	v	program:quadtree_main
 num_poly	Qtree_module.f90	/^    integer :: num_poly,/;"	v	module:Qtree_input
 num_seeds	Qtree_module.f90	/^    integer :: num_poly, num_seeds,/;"	v	module:Qtree_input
 num_vertices	Geom_Module.f90	/^        integer :: num_vertices /;"	k	type:polygon
@@ -2531,6 +2563,7 @@ opnum	temp/feaps2.for	/^      subroutine opnum(/;"	s
 optin	module.for	/^      integer, allocatable, dimension(:) :: optin$/;"	v	module:mxasz
 optn	temp/feaps2.for	/^      subroutine optn(/;"	s
 orientation	Point_Module.f90	/^    function orientation(/;"	f	module:point_module
+padd	helpers.for	/^      function padd(/;"	f
 padd	temp/feaps3.for	/^      function padd(/;"	f
 pangl	temp/feaps3.for	/^      subroutine pangl(/;"	s
 panglb	temp/feaps3.for	/^      subroutine panglb(/;"	s
@@ -2552,10 +2585,12 @@ pcent	module.for	/^      module pcent$/;"	m
 pcfour	temp/feaps3.for	/^      subroutine pcfour(/;"	s
 pcharr	helpers.for	/^      subroutine pcharr(/;"	s
 pcharr	temp/feaps3.for	/^      subroutine pcharr(/;"	s
+pcheck	helpers.for	/^      subroutine pcheck(/;"	s
 pcheck	temp/feaps3.for	/^      subroutine pcheck(/;"	s
 pcktie	temp/feaps3.for	/^      subroutine pcktie(/;"	s
 pclip	module.for	/^      module pclip$/;"	m
 pcomp	helpers.for	/^      logical function pcomp(/;"	f
+pcomp	main.f90	/^    logical pcomp$/;"	v	program:quadtree_main
 pcomp	temp/feaps3.for	/^      logical function pcomp(/;"	f
 pconsi	temp/feaps5.for	/^      subroutine pconsi(/;"	s
 pconsi2	temp/feaps5.for	/^      subroutine pconsi2(/;"	s
@@ -2705,6 +2740,7 @@ pstores	temp/feaps5.for	/^      subroutine pstores(/;"	s
 pstr3d	temp/feaps5.for	/^      subroutine pstr3d(/;"	s
 pstres	temp/feaps5.for	/^      subroutine pstres(/;"	s
 pstres1	temp/feaps5.for	/^      subroutine pstres1(/;"	s
+psub	helpers.for	/^      function psub(/;"	f
 psub	temp/feaps3.for	/^      function psub(/;"	f
 psview	module.for	/^     +              psview,/;"	v	module:feapprog
 pt2pt_dist	Point_Module.f90	/^    function pt2pt_dist(/;"	f	module:point_module
@@ -2736,7 +2772,10 @@ readv1	temp/feaps4.for	/^      subroutine readv1(/;"	s
 real_times_vector	Vector_Module.f90	/^        function real_times_vector(/;"	f	module:vector_module
 rectRectCollision	Qtree_module.f90	/^    logical function rectRectCollision(/;"	f	module:Qtree_module
 ref	Qtree_module.f90	/^    integer :: ref(/;"	k	type:Qtree
+refCornerNeighbourQ	Qtree_module.f90	/^    subroutine refCornerNeighbourQ(/;"	s	module:Qtree_module
+refEdgeNeighbourQ	Qtree_module.f90	/^    subroutine refEdgeNeighbourQ(/;"	s	module:Qtree_module
 refl	module.for	/^      logical arcf,refl$/;"	v	module:arcl
+region	main.f90	/^    integer num_nodes_elem, region$/;"	v	program:quadtree_main
 resife2	module.for	/^      real*8   resife2$/;"	v	module:epsd1
 restrt	temp/feaps5.for	/^      subroutine restrt(/;"	s
 rfeap	module.for	/^      module rfeap$/;"	m
@@ -2876,7 +2915,7 @@ tm	module.for	/^      real*4  tma/;"	v	module:timex
 tm	module.for	/^      real*8 tm,/;"	v	module:implstep
 tma	module.for	/^      real*4  tma,/;"	v	module:timex
 tmpPoints	main.f90	/^    type(point), allocatable :: vertices(:), helperPoints(:), tmpPoints(/;"	v	program:quadtree_main
-token	main.f90	/^    character(len=5) :: token$/;"	v	program:quadtree_main
+token	main.f90	/^    character(len=5) token$/;"	v	program:quadtree_main
 tol	module.for	/^      real*8  tol,/;"	v	module:rdata
 tolc	module.for	/^      real*8 dscor(3,2),dsdcor(3),dsdcor2,tolc$/;"	v	module:dspos
 tolcg	module.for	/^      real*8  tolcg$/;"	v	module:ispcg
@@ -2986,6 +3025,7 @@ xn	module.for	/^      real*8  rlnew,timold,ds0,alfa0,c0,cs1,cs2,r,det0,detc,xn$/
 xp	module.for	/^      real*4  xp(/;"	v	module:pdatap
 xpp	module.for	/^      real*4  xp(400),xpp(/;"	v	module:pdatap
 xxp	module.for	/^      real*8        xxp(/;"	v	module:plotter
+xxx	main.f90	/^    character cc*4, yyy*80, xxx*/;"	v	program:quadtree_main
 xzm	module.for	/^      real*8  xmin(3),xmax(3),xzm(/;"	v	module:pdata4
 y	Point_Module.f90	/^    real*8 :: y$/;"	k	type:point
 y	Vector_Module.f90	/^        real*8 :: y$/;"	k	type:vector
@@ -3003,4 +3043,6 @@ ymint	module.for	/^      real*8  xmint,xmaxt,ymint,/;"	v	module:tplomax
 ypp	module.for	/^      real*4  xp(400),xpp(200),ypp(/;"	v	module:pdatap
 yydata	module.for	/^      module yydata$/;"	m
 yyp	module.for	/^      real*8        xxp(200),yyp(/;"	v	module:plotter
+yyy	main.f90	/^    character cc*4, yyy*/;"	v	program:quadtree_main
 yyy	module.for	/^      character yyy*/;"	v	module:yydata
+zhl	main.f90	/^    integer i, j, k, istat, zhl$/;"	v	program:quadtree_main
