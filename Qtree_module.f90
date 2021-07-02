@@ -213,7 +213,7 @@ contains
         implicit none
         
         integer, intent(in) :: ctrl
-        Type (Qtree), pointer :: root, Qtr, Qtr_out
+        Type (Qtree), pointer :: root, Qtr, NQ, AQ
         integer, intent(in) ::  itr_nro,  level, ref(2*level)
         integer, intent(inout) :: zhl, wpoly(14), signo(14)
         type (point), intent(inout) :: temp_coor(14)
@@ -254,9 +254,9 @@ contains
         if (existNQRef) then ! exist a ref?
                         
             ! ref -> Q
-            call QtrSearchQ(root,level,ref_tmp,1,Qtr_out)
+            call QtrSearchQ(root,level,ref_tmp,1,NQ)
             
-            QOchildren = [associated(Qtr_out%NW),associated(Qtr_out%SW),associated(Qtr_out%NE),associated(Qtr_out%SE)]
+            QOchildren = [associated(NQ%NW),associated(NQ%SW),associated(NQ%NE),associated(NQ%SE)]
             
             if (count(QOchildren).gt.0) then
             
@@ -265,18 +265,18 @@ contains
                     children(i)%Q => Null()
                 end do
                                 
-                children(1)%Q => Qtr_out%NW
-                children(2)%Q => Qtr_out%SW
-                children(3)%Q => Qtr_out%NE 
-                children(4)%Q => Qtr_out%SE
+                children(1)%Q => NQ%NW
+                children(2)%Q => NQ%SW
+                children(3)%Q => NQ%NE 
+                children(4)%Q => NQ%SE
                 
             end if                                     
             
-            cond0(1) =      isQ_in(Qtr_out)
-            cond0(2) = .not.isQ_in(Qtr_out) .and. Qtr_out%num_mat_sets .eq.1
+            cond0(1) =      isQ_in(NQ)
+            cond0(2) = .not.isQ_in(NQ) .and. NQ%num_mat_sets .eq.1
             
-            !if ( (Qtr_out%level .eq. level) .and. cond0(1) ) then
-            if ( (Qtr_out%level .eq. level) .and. count(QOchildren).gt.0) then  ! has same level as Neighbor and has Children
+            !if ( (NQ%level .eq. level) .and. cond0(1) ) then
+            if ( (NQ%level .eq. level) .and. count(QOchildren).gt.0) then  ! has same level as Neighbor and has Children
                                     
                 !if (count(QOchildren).eq.0) then  ! children?
                                      
