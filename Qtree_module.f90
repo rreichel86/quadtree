@@ -1706,31 +1706,54 @@ contains
         logical, intent(out) :: status
         
         ! local variable 
-        logical :: has_same_father = .true.
-        
+        logical :: has_same_father 
+
+        has_same_father = .true.
         status = .true.
 
         ! Check if the neighbour (dir) we are looking for has the saem father
         ! as the current Quad
         if ( (N(level,1) .eq. 0) .and. (N(level,2) .eq. 0) ) then ! NW Quad
-            if ( (dir .eq. 1) .or. (dir .eq. 4) )  has_same_father = .false.
+
+            if ( (dir .eq. 1) .or. (dir .eq. 4) )  then 
+                has_same_father = .false.
+            end if 
+
         else if ( (N(level,1) .eq. 0) .and. (N(level,2) .eq. 1) ) then ! SW Quad
-            if ( (dir .eq. 1) .or. (dir .eq. 2) )  has_same_father = .false.
+
+            if ( (dir .eq. 1) .or. (dir .eq. 2) )  then 
+                has_same_father = .false.
+            end if 
+
         else if ( (N(level,1) .eq. 1) .and. (N(level,2) .eq. 0) ) then ! NE Quad
-            if ( (dir .eq. 3) .or. (dir .eq. 4) )  has_same_father = .false.
+
+            if ( (dir .eq. 3) .or. (dir .eq. 4) )  then 
+                has_same_father = .false.
+            end if 
+
         else if ( (N(level,1) .eq. 1) .and. (N(level,2) .eq. 1) ) then ! SE Quad
-            if ( (dir .eq. 2) .or. (dir .eq. 3) )  has_same_father = .false.
+
+            if ( (dir .eq. 2) .or. (dir .eq. 3) )  then
+                has_same_father = .false.
+            end if 
+
         end if
 
         !has the same father ?
         if (has_same_father) then ! yes
         ! perform binary operation on N(level)
-            if ( (dir .eq. 1) .or. (dir .eq. 3) )  call binaryTransformation(level, N(1:level,1))
-            if ( (dir .eq. 2) .or. (dir .eq. 4) )  call binaryTransformation(level, N(1:level,2))
+            if ( (dir .eq. 1) .or. (dir .eq. 3) )  then
+                call binaryTransformation(level, N(1:level,1))
+            else if ( (dir .eq. 2) .or. (dir .eq. 4) )  then
+                call binaryTransformation(level, N(1:level,2))
+            end if 
         else ! no
         ! perform binary operation on N(level) to N(lim-1)
-            if ( (dir .eq. 1) .or. (dir .eq. 3) )  call binaryTransformation(lim(1), level, N(1:level,1), status)
-            if ( (dir .eq. 2) .or. (dir .eq. 4) )  call binaryTransformation(lim(2), level, N(1:level,2), status)
+            if ( (dir .eq. 1) .or. (dir .eq. 3) )  then 
+                call binaryTransformation(lim(1), level, N(1:level,1), status)
+            else if ( (dir .eq. 2) .or. (dir .eq. 4) )  then 
+                call binaryTransformation(lim(2), level, N(1:level,2), status)
+            end if 
         end if 
 
     end subroutine
