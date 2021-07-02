@@ -253,6 +253,37 @@ program quadtree_main
         else 
             call QtreeSR(num_poly,polygons, 0, point(0d0,0d0))
         end if  
+
+    ! TODO: MENU 
+    write(*,1080) 
+    write(*,1081)
+    write(*,1082)
+    !read(*,1083) token
+    token = 'exit'
+    1080 format(5x,'Type COMMAND to continue:'/)
+    1081 format(7x,'MPLOT'/ &
+        &       7x,'PARV'/ &
+        &       7x,'MFEM'/ &
+        &       7x,'FEAP'/ &
+        &       7x,'RFINE'/ &
+        &       7x,'EXIT'/)
+    1082 format(3x,'> ',$)
+    1083 format(a5)
+    if (pcomp(token,'mplot',5)) then
+        write(*,*) '    mplot'
+    else if (pcomp(token,'parv',4)) then
+        write(*,*) '    parv'
+    else if (pcomp(token,'mfem',4)) then
+        write(*,*) '    nfem'
+    else if (pcomp(token,'feap',4)) then
+        write(*,*) '    feap'
+    else if (pcomp(token,'rfine',5)) then
+        write(*,*) '    rfine'
+    else if (pcomp(token,'exit',4)) then
+        write(*,*) '    exit'
+    else 
+        write(*,1100) 
+        1100 format(5x,'Undefined command')
     end if 
 
     ! write out polygons' vertices
