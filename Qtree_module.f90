@@ -1598,6 +1598,38 @@ contains
         
     end subroutine 
     
+    subroutine nearestCommonAncestor(Q, levelNQ, refNQ, AQ)
+        implicit none
+        Type(Qtree), intent(in), pointer :: Q
+        integer, intent(in) :: levelNQ
+        integer, intent(in) :: refNQ(2*levelNQ)
+        type(Qtree), pointer :: AQ
+
+        ! local variables
+        integer l, NCA
+
+        NCA = 0
+        do l = levelNQ, 1, -1
+            if ( (Q%ref(2*l-1) .eq. refNQ(2*l-1)) .and. (Q%ref(2*l) .eq. refNQ(2*l)) ) then 
+                NCA = l
+                exit 
+            end if 
+        end do
+        
+        AQ => Q%father
+
+        do l = levelNQ, NCA, -1
+            if (AQ%level .gt. NCA) then
+                AQ => AQ%father
+            else
+                exit
+            end if
+        end do
+
+    end subroutine 
+
+
+
     recursive subroutine QtrSearchQ(Qtr,level,ref,i,Qtr_out)
         implicit none 
         Type (Qtree), intent(in), pointer :: Qtr
