@@ -1671,6 +1671,50 @@ contains
 
     end subroutine
 
+    subroutine refCornerNeighbourQ(dir, level, lim, N, existNQ)
+    ! refEdgeNeighbourQ: perform binary transformation to obtain the
+    ! 4 possible edge neighbours:
+    ! 1 - South West
+    ! 2 - South East
+    ! 3 - North East
+    ! 4 - North West
+
+        implicit none 
+        integer, intent(in) :: dir
+        integer, intent(in) :: level
+        integer, intent(in) :: lim(2)
+        integer, intent(inout) :: N(level,2)
+        logical, intent(out) :: existNQ
+        
+        ! local variable 
+        logical ::  existNQ_1, existNQ_2
+
+        existNQ_1 = .true.
+        existNQ_2 = .true.
+
+        existNQ = .true.
+
+
+        if ( N(level,2) .eq. 0 ) then  ! North Quads
+            if ( (dir .eq. 1) .or. (dir .eq. 2) )  call binaryTransformation(level, N(1:level,2))
+            if ( (dir .eq. 3) .or. (dir .eq. 4) )  call binaryTransformation(lim(2), level, N(1:level,2), existNQ_1)
+        else if ( N(level,2) .eq. 1 ) then  ! South Quads
+            if ( (dir .eq. 1) .or. (dir .eq. 2) )  call binaryTransformation(lim(2), level, N(1:level,2), existNQ_1)
+            if ( (dir .eq. 3) .or. (dir .eq. 4) )  call binaryTransformation(level, N(1:level,2))
+        end if 
+
+        if ( N(level,1) .eq. 0 ) then  ! West Quads
+            if ( (dir .eq. 2) .or. (dir .eq. 3) )  call binaryTransformation(level, N(1:level,1))
+            if ( (dir .eq. 1) .or. (dir .eq. 4) )  call binaryTransformation(lim(1), level, N(1:level,1), existNQ_2)
+        else if ( N(level,1) .eq. 1 ) then  ! East Quads
+            if ( (dir .eq. 2) .or. (dir .eq. 3) )  call binaryTransformation(lim(1), level, N(1:level,1), existNQ_2)
+            if ( (dir .eq. 1) .or. (dir .eq. 4) )  call binaryTransformation(level, N(1:level,1))
+        end if 
+
+        existNQ =  existNQ_1 .and. existNQ_2
+
+    end subroutine
+
     integer function calcLim(level, N)
     ! calcLim: calculate lim working backwards through N
     ! lim is teh level at which N(i) first becomes not equal to N(i-1)
