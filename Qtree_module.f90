@@ -74,6 +74,13 @@ use point_module
 use seed_point_module
 use intrsc_point_module
 
+
+interface binaryTransformation
+    module procedure binaryTransformation_2
+    module procedure binaryTransformation_4
+end interface 
+
+
 type Qtree 
 
     type(point) :: Boundary(4) 
@@ -1618,6 +1625,46 @@ contains
         end if 
     end subroutine 
     
+    
+    subroutine binaryTransformation_2(level, N)
+    ! binaryTransformation: perform binary operation on N
+
+        implicit none 
+        integer, intent(in) :: level
+        integer, intent(inout) :: N(level) 
+
+        N(level) = 1 - N(level)
+
+    end subroutine
+
+    subroutine binaryTransformation_4(lim, level, N, status)
+    ! binaryTransformation: perform binary operation on N
+
+        implicit none 
+        integer, intent(in) :: lim
+        integer, intent(in) :: level
+        integer, intent(inout) :: N(level) 
+        logical, intent(out) :: status
+
+        !local variable 
+        integer :: l
+
+        status = .true.
+
+        if (lim .eq. 1) then 
+            status = .false.
+            return 
+        end if 
+
+        ! N(i) = 1 -> N(i) = 0
+        ! N(i) = 0 -> N(i) = 1
+
+        do l = level, lim-1, -1
+            N(l) = 1 - N(l)
+        end do 
+
+    end subroutine
+
     subroutine QtrFindNeighborQ(level,ref,dir,status)
         implicit none 
         integer, intent(in) :: level
