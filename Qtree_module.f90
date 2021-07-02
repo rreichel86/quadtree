@@ -1897,6 +1897,7 @@ contains
 
     end subroutine
 
+    ! TODO: repace by subroutine QtrRefNeighbourQ()
     subroutine QtrFindNeighborQ(level,ref,dir,status)
         implicit none 
         integer, intent(in) :: level
