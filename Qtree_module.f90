@@ -1625,6 +1625,29 @@ contains
         end if 
     end subroutine 
     
+
+    integer function calcLim(level, N)
+    ! calcLim: calculate lim working backwards through N
+    ! lim is teh level at which N(i) first becomes not equal to N(i-1)
+
+        implicit none 
+        integer, intent(in) :: level
+        integer, intent(in) :: N(level)
+
+        !local variable
+        integer :: l
+
+        do l = level,1,-1
+            if (l .eq. 1) then
+                calcLim = l
+                exit
+            else if ( N(l) .ne. N(l-1) ) then
+                calcLim = l
+                exit
+            end if
+        end do
+
+    end function
     
     subroutine binaryTransformation_2(level, N)
     ! binaryTransformation: perform binary operation on N
