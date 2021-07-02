@@ -40,7 +40,8 @@ program quadtree_main
     write(*,1010) filenameIn
     1010 format (5x,'The input file mame is: ', A) 
     
-
+    ! TODO: subroutine readInputFile()
+    ! Read input file 
     iow = 0
     lfile = .false.
     lread = .false.
@@ -240,7 +241,7 @@ program quadtree_main
     
     else 
         write(*,1070) istat
-        1070 format(' ','Error opening file: iostat =', i6) 
+        1070 format(5x,'Error opening file: iostat =', i6) 
         
     end if 
     
@@ -253,6 +254,7 @@ program quadtree_main
         else 
             call QtreeSR(num_poly,polygons, 0, point(0d0,0d0))
         end if  
+    end if
 
     ! TODO: MENU 
     write(*,1080) 
