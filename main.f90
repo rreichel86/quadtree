@@ -254,17 +254,6 @@ program quadtree_main
             call QtreeSR(num_poly,polygons, 0, point(0d0,0d0))
         end if  
     end if 
-    
-    ! ! write out polygons' vertices
-    ! open(unit=60, file='coor.txt', status='unknown')
-    ! do i = 1, num_poly
-    !     ! get current polygon's number of vertices
-    !     zhl = polygons(i)%num_vertices
-    !     do j = 1, zhl
-    !         write(60, '(2f32.16)') polygons(i)%vertices(j)%x, polygons(i)%vertices(j)%y
-    !     end do 
-    ! end do
-    ! close(60)
 
     ! write out polygons' vertices
     open(unit=60, file='iTest.feap', status='unknown')
