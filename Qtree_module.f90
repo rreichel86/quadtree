@@ -1626,6 +1626,51 @@ contains
     end subroutine 
     
 
+    subroutine refEdgeNeighbourQ(dir, level, lim, N, status)
+    ! refEdgeNeighbourQ: perform binary transformation to obtain the
+    ! 4 possible edge neighbours:
+    ! 1 - West
+    ! 2 - South
+    ! 3 - East
+    ! 4 - North
+
+        implicit none 
+        integer, intent(in) :: dir
+        integer, intent(in) :: level
+        integer, intent(in) :: lim(2)
+        integer, intent(inout) :: N(level,2)
+        logical, intent(out) :: status
+        
+        ! local variable 
+        logical :: has_same_father = .true.
+        
+        status = .true.
+
+        ! Check if the neighbour (dir) we are looking for has the saem father
+        ! as the current Quad
+        if ( (N(level,1) .eq. 0) .and. (N(level,2) .eq. 0) ) then ! NW Quad
+            if ( (dir .eq. 1) .or. (dir .eq. 4) )  has_same_father = .false.
+        else if ( (N(level,1) .eq. 0) .and. (N(level,2) .eq. 1) ) then ! SW Quad
+            if ( (dir .eq. 1) .or. (dir .eq. 2) )  has_same_father = .false.
+        else if ( (N(level,1) .eq. 1) .and. (N(level,2) .eq. 0) ) then ! NE Quad
+            if ( (dir .eq. 3) .or. (dir .eq. 4) )  has_same_father = .false.
+        else if ( (N(level,1) .eq. 1) .and. (N(level,2) .eq. 1) ) then ! SE Quad
+            if ( (dir .eq. 2) .or. (dir .eq. 3) )  has_same_father = .false.
+        end if
+
+        !has the same father ?
+        if (has_same_father) then ! yes
+        ! perform binary operation on N(level)
+            if ( (dir .eq. 1) .or. (dir .eq. 3) )  call binaryTransformation(level, N(1:level,1))
+            if ( (dir .eq. 2) .or. (dir .eq. 4) )  call binaryTransformation(level, N(1:level,2))
+        else ! no
+        ! perform binary operation on N(level) to N(lim-1)
+            if ( (dir .eq. 1) .or. (dir .eq. 3) )  call binaryTransformation(lim(1), level, N(1:level,1), status)
+            if ( (dir .eq. 2) .or. (dir .eq. 4) )  call binaryTransformation(lim(2), level, N(1:level,2), status)
+        end if 
+
+    end subroutine
+
     integer function calcLim(level, N)
     ! calcLim: calculate lim working backwards through N
     ! lim is teh level at which N(i) first becomes not equal to N(i-1)
