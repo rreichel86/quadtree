@@ -114,8 +114,95 @@ type QtreeNode
     type(QtreeNode), pointer :: next => null()
 end type
 
+type QtreeList
+    type(QtreeNode), pointer :: HEAD => null()
+    type(QtreeNode), pointer :: TAIL => null()
+    contains
+    Procedure, Pass :: append_
+    Procedure, Pass :: pop_
+    Procedure, Pass :: print_
+    Procedure, PAss :: isEmpty_
+end type
+
 contains
     
+    subroutine append_(this, Q)
+        implicit none 
+        class(QtreeList) :: this
+        type(Qtree), pointer :: Q
+        
+        if ( .not. associated(this%HEAD) ) then
+
+            Allocate(this%HEAD)
+            this%TAIL => this%HEAD
+            this%TAIL%next => null()
+            this%TAIL%Q => Q
+
+        else
+
+            Allocate(this%TAIL%next)
+            this%TAIL => this%TAIL%next
+            this%TAIL%next => null()
+            this%TAIL%Q => Q
+
+        end if
+
+    end subroutine
+    
+    logical function isEmpty_(this)
+        implicit none 
+        class(QtreeList) :: this
+
+        isEmpty_ = .false.
+
+        if (  .not. associated(this%HEAD) .and. .not. associated(this%TAIL) ) then
+            write(*,*) '     list is empty!'
+            isEmpty_ = .true.
+        end if 
+
+    end function
+    
+    subroutine pop_(this, Q)
+        implicit none 
+        class(QtreeList) :: this
+        type(Qtree), pointer  :: Q
+        type(QtreeNode), pointer :: Qnode
+        
+        if ( this%isEmpty_() ) then
+            Q => null()
+            return
+        end if
+
+        allocate(Qnode)
+        Qnode => this%HEAD
+        this%HEAD => This%HEAD%next
+        
+        if ( .not. associated(this%HEAD) ) this%TAIL => null()
+            
+        Q => Qnode%Q
+        deallocate(Qnode)
+
+    end subroutine
+
+    subroutine print_(this)
+        implicit none
+        class(QtreeList) :: this
+        type(QtreeNode) , pointer :: Qnode
+
+        integer level, ref(36)
+
+        Qnode => this%HEAD
+        do
+            if ( .not. associated(Qnode) ) exit
+            level = Qnode%Q%level
+            ref = Qnode%Q%ref
+            write(*,2000) level, ref(1:2*level) 
+            2000 format(i2,' ',36i1)
+            Qnode => Qnode%next
+        end do
+
+    end subroutine
+
      logical function isQ_in(Qtr)
         implicit none 
         type(qtree), pointer :: Qtr
