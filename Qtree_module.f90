@@ -219,6 +219,28 @@ contains
 
     end subroutine
 
+    recursive subroutine QtrPrintLeaves(iow, Qtr)
+        implicit none
+        integer :: iow
+        type (Qtree), pointer :: Qtr
+        type (QtreeList), pointer :: QtrList
+
+        integer :: i
+
+        if (.not. associated(Qtr%NW)) then
+            do i = 1, 4
+                write(iow,'(2f22.16)') Qtr%Boundary(i)
+            end do 
+        else
+            call QtrPrintLeaves(iow, Qtr%NW)
+            call QtrPrintLeaves(iow, Qtr%SW)
+            call QtrPrintLeaves(iow, Qtr%NE)
+            call QtrPrintLeaves(iow, Qtr%SE)
+        end if
+
+    end subroutine
+
+
      logical function isQ_in(Qtr)
         implicit none 
         type(qtree), pointer :: Qtr
