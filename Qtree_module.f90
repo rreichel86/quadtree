@@ -1628,6 +1628,39 @@ contains
 
     end subroutine 
 
+    subroutine QtrSearchNeighbourQ(AQ,levelNQ,refNQ,NQ)
+        implicit none
+        type(Qtree), intent(in), pointer :: AQ
+        integer, intent(in) :: levelNQ
+        integer, intent(in) :: refNQ(2*levelNQ)
+        Type(Qtree), pointer :: NQ
+
+        ! local variables
+        integer l, NCA, pos(2)
+
+        NQ => AQ
+
+        NCA = AQ%level
+        do l = (NCA+1), levelNQ, 1
+            ! has children ?
+            if (associated(NQ%NW)) then ! yes
+                pos = [refNQ(2*l-1), refNQ(2*l)]
+                write(*,*) pos
+                if ( (pos(1) .eq. 1) .and. (pos(2) .eq. 1) ) then
+                    NQ => NQ%NW
+                else if ( (pos(1) .eq. 1) .and. (pos(2) .eq. 2) ) then
+                    NQ => NQ%SW
+                else if ( (pos(1) .eq. 2) .and. (pos(2) .eq. 1) ) then
+                    NQ => NQ%NE
+                else if ( (pos(1) .eq. 2) .and. (pos(2) .eq. 2) ) then
+                    NQ => NQ%SE
+                end if
+            else ! no
+                exit
+            end if
+        end do
+
+    end subroutine
 
 
     recursive subroutine QtrSearchQ(Qtr,level,ref,i,Qtr_out)
