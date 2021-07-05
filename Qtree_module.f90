@@ -348,10 +348,10 @@ contains
         integer, intent(inout) :: zhl, wpoly(14), signo(14)
         type (point), intent(inout) :: temp_coor(14)
        
-        logical :: existNQRef, existNQRef2, QOchildren(4)
+        logical :: existNQRef, QOchildren(4)
         logical :: cond0(2), cond1(2), cond2(2)
         logical :: cond3
-        integer :: i,signo_temp, wpoly_temp, istat, ref_tmp(2*level), ref_tmp2(2*level)
+        integer :: i,signo_temp, wpoly_temp, istat, refNQ(2*level)
         type(point) :: pt_temp
         type(QtreePtr), pointer :: children(:)
         
@@ -359,27 +359,12 @@ contains
         integer :: dir(4)
         
         existNQRef = .false.
-        existNQRef2 = .false.
         nb = ['SS','EE','NN','WW']
         dir = [2,3,4,1]
         pt_temp = point(0d0,0d0)
-        ref_tmp = ref
-        ref_tmp2 = ref
+        refNQ = ref
 
-        write(*,*) nb(itr_nro)
-        write(*,2000) ref(1:2*level)
-        2000 format(' o ',18i1)
-        call QtrRefNeighbourQ(level,ref_tmp2,dir(itr_nro),0,existNQRef2)
-        if (existNQRef2) then 
-            write(*,2001) ref_tmp2(1:2*level)
-            2001 format(' n ',18i1)
-        end if 
-        call QtrFindNeighborQ(level,ref_tmp,nb(itr_nro),existNQRef) ! Neighbors in a given direction -> ref
-        if (existNQRef) then 
-            write(*,2002) ref_tmp(1:2*level)
-            2002 format(' c ',18i1)
-        end if 
-        write(*,*)  ' '
+        call QtrRefNeighbourQ(level,refNQ,dir(itr_nro),0,existNQRef)
                                         
         if (existNQRef) then ! exist a ref?
                         
