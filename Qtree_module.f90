@@ -109,6 +109,11 @@ type QtreePtr
     type (Qtree), Pointer :: Q
 end type
 
+type QtreeNode
+    type(Qtree), pointer :: Q
+    type(QtreeNode), pointer :: next => null()
+end type
+
 contains
     
      logical function isQ_in(Qtr)
