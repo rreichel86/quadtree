@@ -343,7 +343,7 @@ contains
         implicit none
         
         integer, intent(in) :: ctrl
-        Type (Qtree), pointer :: root, Qtr, NQ, AQ
+        Type (Qtree), pointer :: Qtr, NQ, AQ
         integer, intent(in) ::  itr_nro,  level, ref(2*level)
         integer, intent(inout) :: zhl, wpoly(14), signo(14)
         type (point), intent(inout) :: temp_coor(14)
@@ -369,8 +369,9 @@ contains
         if (existNQRef) then ! exist a ref?
                         
             ! ref -> Q
-            call QtrSearchQ(root,level,ref_tmp,1,NQ)
-            
+            call nearestCommonAncestor(Qtr,level,refNQ,AQ)
+            call QtrSearchNeighbourQ(AQ,level,refNQ,NQ)
+
             QOchildren = [associated(NQ%NW),associated(NQ%SW),associated(NQ%NE),associated(NQ%SE)]
             
             if (count(QOchildren).gt.0) then
@@ -385,7 +386,7 @@ contains
                 children(3)%Q => NQ%NE 
                 children(4)%Q => NQ%SE
                 
-            end if                                     
+            end if
             
             cond0(1) =      isQ_in(NQ)
             cond0(2) = .not.isQ_in(NQ) .and. NQ%num_mat_sets .eq.1
@@ -518,8 +519,6 @@ contains
         end if  ! exist ref?
         
         if ( associated(children) ) deallocate (children, stat=istat)
-        
-        
         
     end subroutine 
     
