@@ -806,6 +806,7 @@
 2002	temp/feaps5.for	/^2002  format(\/'   n o d a l   s t r e s s e s'\/$/;"	l	subroutine:prtstr	file:
 2002	temp/feaps5.for	/^2002  format(\/'  n o d a l   ',a,5x,$/;"	l	subroutine:prtdis	file:
 2002	temp/feaps6.for	/^2002  format(6x,10i5)$/;"	l	subroutine:tienod	file:
+2003	Qtree_module.f90	/^            2003 format(' F ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2003	temp/feaps1.for	/^2003  format('**datri warning 4** rank failure for zero unreduced',$/;"	l	subroutine:datri1	file:
 2003	temp/feaps1.for	/^2003  format(5x,'Load case 2: cos-load: q_0= ',e12.5,$/;"	l	subroutine:aload	file:
 2003	temp/feaps2.for	/^ 2003 format(5x,'Node with no element attached =',i7)$/;"	l	subroutine:opnum	file:
@@ -835,6 +836,7 @@
 2003	temp/feaps5.for	/^2003  format(i6,1p9e12.5:\/(6x,1p9e12.5))$/;"	l	subroutine:prtdis	file:
 2003	temp/feaps6.for	/^2003  format(10x,'No nodes have been removed by the tie command'\/1x)$/;"	l	subroutine:tienod	file:
 2003	temp/feaps6.for	/^2003  format(\/'  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:trblk	file:
+2004	Qtree_module.f90	/^            2004 format(' t ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2004	temp/feaps1.for	/^2004  format(' Condition check: D-max',e11.4,'; D-min',e11.4,$/;"	l	subroutine:datri1	file:
 2004	temp/feaps1.for	/^2004  format(5x,'  Node',3x,' load value')$/;"	l	subroutine:aload	file:
 2004	temp/feaps2.for	/^ 2004 format(5x,'Starting node number =',i7\/)$/;"	l	subroutine:opnum	file:
@@ -853,6 +855,7 @@
 2004	temp/feaps5.for	/^2004  format(i10,i10,5f13.4)$/;"	l	subroutine:sblkco	file:
 2004	temp/feaps6.for	/^2004  format(\/,6x,'Tie: Gap Tolerance =',1p,1e12.5\/1x)$/;"	l	subroutine:tienod	file:
 2004	temp/feaps6.for	/^2004  format(i10,5f13.4)$/;"	l	subroutine:trblk	file:
+2005	Qtree_module.f90	/^            2005 format(' o ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2005	temp/feaps1.for	/^2005  format(5x,i6,3x,e12.5)$/;"	l	subroutine:aload	file:
 2005	temp/feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s cohesive zones'\/$/;"	l	subroutine:blkgenco	file:
 2005	temp/feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s'\/$/;"	l	subroutine:blkgen	file:
@@ -1607,6 +1610,7 @@ QtrFindNeighborQ	Qtree_module.f90	/^    subroutine QtrFindNeighborQ(/;"	s	module
 QtrInit	Qtree_module.f90	/^     subroutine QtrInit(/;"	s	module:Qtree_module
 QtrInputReset	Qtree_module.f90	/^        subroutine QtrInputReset(/;"	s	module:Qtree_input
 QtrRefNeighbourQ	Qtree_module.f90	/^    subroutine QtrRefNeighbourQ(/;"	s	module:Qtree_module
+QtrSearchNeighbourQ	Qtree_module.f90	/^    subroutine QtrSearchNeighbourQ(/;"	s	module:Qtree_module
 QtrSearchQ	Qtree_module.f90	/^    recursive subroutine QtrSearchQ(/;"	s	module:Qtree_module
 QtrSubdivide	Qtree_module.f90	/^    recursive subroutine QtrSubdivide(/;"	s	module:Qtree_module
 Qtree	Qtree_module.f90	/^type Qtree /;"	t	module:Qtree_module
@@ -1955,6 +1959,7 @@ fact	module.for	/^      real*8  scale,scaleg,s0(2),dx(2),sx(2),fact$/;"	v	module
 factx	module.for	/^      real*8  factx,/;"	v	module:epsdh
 facty	module.for	/^      real*8  factx,facty,/;"	v	module:epsdh
 fadobe	module.for	/^     +              psview,fpath,fintnet,fadobe,/;"	v	module:feapprog
+father	Qtree_module.f90	/^    type (Qtree), pointer :: father /;"	k	type:Qtree
 fcis	module.for	/^     +                 fcisf/;"	v	module:fe2tran
 fcisb	module.for	/^     +                 fcisf(10),fcisb(/;"	v	module:fe2tran
 fcisf	module.for	/^     +                 fcisf(/;"	v	module:fe2tran
@@ -2430,6 +2435,7 @@ ndis	module.for	/^      integer mu1,mu2,kflag,ite,ndis,/;"	v	module:arcl
 ndm	module.for	/^      integer ndf,ndm,/;"	v	module:sdata
 ndx	module.for	/^      integer nkn,nth,nknr,nthr,ndx,/;"	v	module:yltdata1
 ne4	module.for	/^      integer ne4,/;"	v	module:edgdat
+nearestCommonAncestor	Qtree_module.f90	/^    subroutine nearestCommonAncestor(/;"	s	module:Qtree_module
 ned	module.for	/^      integer ne4,nde,ned,/;"	v	module:edgdat
 nedg	module.for	/^      integer ne4,nde,ned,nedg(/;"	v	module:edgdat
 nel	module.for	/^      integer n,ma,mct,iel,nel$/;"	v	module:eldata
