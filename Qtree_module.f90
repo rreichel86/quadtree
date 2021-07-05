@@ -203,6 +203,22 @@ contains
 
     end subroutine
 
+    recursive subroutine Qtr2List(Qtr,QtrList)
+        implicit none 
+        type (Qtree), pointer :: Qtr
+        type (QtreeList), pointer :: QtrList
+
+        if (.not. associated(Qtr%NW)) then
+            call QtrList%append_(Qtr)
+        else
+            call Qtr2List(Qtr%NW,QtrList)
+            call Qtr2List(Qtr%SW,QtrList)
+            call Qtr2List(Qtr%NE,QtrList)
+            call Qtr2List(Qtr%SE,QtrList)
+        end if
+
+    end subroutine
+
      logical function isQ_in(Qtr)
         implicit none 
         type(qtree), pointer :: Qtr
