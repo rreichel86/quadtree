@@ -105,7 +105,7 @@ type Qtree
     
 end type
 
-type Qtrees
+type QtreePtr
     type (Qtree), Pointer :: Q
 end type
 
@@ -223,7 +223,7 @@ contains
         logical :: cond3
         integer :: i,signo_temp, wpoly_temp, istat, ref_tmp(2*level), ref_tmp2(2*level)
         type(point) :: pt_temp
-        type(Qtrees), pointer :: children(:)
+        type(QtreePtr), pointer :: children(:)
         
         character*2 :: nb(4)
         integer :: dir(4)
