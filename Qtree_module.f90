@@ -1843,54 +1843,6 @@ contains
 
     end subroutine
 
-
-    ! recursive subroutine QtrSearchQ(Qtr,level,ref,i,Qtr_out)
-    !     implicit none 
-    !     Type (Qtree), intent(in), pointer :: Qtr
-    !     integer, intent(in) :: level, ref(36), i
-    !     Type (Qtree), intent(out), pointer :: Qtr_out
-    !     logical :: Qchildren(4)
-    !     integer :: nx, ny
-    !   
-    !     Qchildren = [associated(Qtr%NW),associated(Qtr%SW),associated(Qtr%NE),associated(Qtr%SE)]
-    !   
-    !     if (count(QChildren).gt.0) then
-    !         nx = ref(2*i-1)
-    !         ny = ref(2*i) 
-    !
-    !         if (i.gt.level) then
-    !             Qtr_out => Qtr
-    !             return 
-    !         end if 
-    !
-    !         if ((nx.eq.1) .and. (ny.eq.1) .and. QChildren(1)) then      
-    !       
-    !             call QtrSearchQ(Qtr%NW,level,ref,i+1,Qtr_out)
-    !           
-    !         else if ((nx.eq.1) .and. (ny.eq.2) .and. QChildren(2)) then
-    !       
-    !             call QtrSearchQ(Qtr%SW,level,ref,i+1,Qtr_out)
-    !           
-    !         else if ((nx.eq.2) .and. (ny.eq.1) .and. QChildren(3)) then
-    !       
-    !             call QtrSearchQ(Qtr%NE,level,ref,i+1,Qtr_out)
-    !           
-    !         else if ((nx.eq.2) .and. (ny.eq.2) .and. QChildren(4)) then
-    !       
-    !             call QtrSearchQ(Qtr%SE,level,ref,i+1,Qtr_out)
-    !           
-    !         else     
-    !            Qtr_out => Qtr
-    !            return  
-    !         end if 
-    !       
-    !     else if (count(QChildren).eq.0) then
-    !         Qtr_out => Qtr
-    !         return
-    !     end if 
-    ! end subroutine 
-    
-
     subroutine QtrRefNeighbourQ(level,ref,dir,Ntyp,status)
 
         implicit none 
