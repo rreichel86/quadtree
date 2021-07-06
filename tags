@@ -595,7 +595,7 @@
 200	temp/feaps6.for	/^200     x(1,n) = x(1,n) - dx$/;"	l	subroutine:transx	file:
 200	temp/feaps6.for	/^200   if(lflg) then$/;"	l	subroutine:writer	file:
 2000	Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeSR	file:
-2000	Qtree_module.f90	/^        2000 format(' o ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
+2000	Qtree_module.f90	/^            2000 format(i2,' ',36i1)$/;"	l	subroutine:print_	file:
 2000	helpers.for	/^ 2000 format (' ** ERROR in ',a6,' ** end of file encountered')$/;"	l	subroutine:endclr	file:
 2000	helpers.for	/^ 2000 format(' Incorrect statement - reinput ')$/;"	l	subroutine:pcheck	file:
 2000	helpers.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconst	file:
@@ -682,7 +682,6 @@
 2000	temp/feaps6.for	/^2000  format(\/,$/;"	l	subroutine:transx	file:
 2000	temp/feaps6.for	/^2000  format(\/,$/;"	l	subroutine:xmodif	file:
 2000	temp/feaps6.for	/^2000  format(\/6x,' t i e  - - -  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:tienod	file:
-2001	Qtree_module.f90	/^            2001 format(' n ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2001	helpers.for	/^ 2001 format('   No.',i3,'>',a1,' = ',74a1)$/;"	l	subroutine:pcheck	file:
 2001	helpers.for	/^ 2001 format(2x,a1,' = ',74a1\/'   >',$)$/;"	l	subroutine:setval	file:
 2001	helpers.for	/^ 2001 format(\/'  p a r a m e t e r   v a l u e s')$/;"	l	subroutine:pconst	file:
@@ -763,7 +762,6 @@
 2001	temp/feaps6.for	/^2001  format(i8,3e12.4)$/;"	l	subroutine:xmodif	file:
 2001	temp/feaps6.for	/^2001  format(i8,3f12.4)$/;"	l	subroutine:transx	file:
 2001	temp/feaps6.for	/^2001  format(i8,6f12.4\/(8x,6f12.4))$/;"	l	subroutine:sphere	file:
-2002	Qtree_module.f90	/^            2002 format(' c ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2002	helpers.for	/^ 2002 format('  Correction:>',75a1)$/;"	l	subroutine:setval	file:
 2002	helpers.for	/^2002  format (' ** ERROR in ',a6,' ** reinput last record')$/;"	l	subroutine:errclr	file:
 2002	temp/feaps1.for	/^2002  format(5x,'Load case 1: constant load q_0 ',e12.5)$/;"	l	subroutine:aload	file:
@@ -806,7 +804,6 @@
 2002	temp/feaps5.for	/^2002  format(\/'   n o d a l   s t r e s s e s'\/$/;"	l	subroutine:prtstr	file:
 2002	temp/feaps5.for	/^2002  format(\/'  n o d a l   ',a,5x,$/;"	l	subroutine:prtdis	file:
 2002	temp/feaps6.for	/^2002  format(6x,10i5)$/;"	l	subroutine:tienod	file:
-2003	Qtree_module.f90	/^            2003 format(' F ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2003	temp/feaps1.for	/^2003  format('**datri warning 4** rank failure for zero unreduced',$/;"	l	subroutine:datri1	file:
 2003	temp/feaps1.for	/^2003  format(5x,'Load case 2: cos-load: q_0= ',e12.5,$/;"	l	subroutine:aload	file:
 2003	temp/feaps2.for	/^ 2003 format(5x,'Node with no element attached =',i7)$/;"	l	subroutine:opnum	file:
@@ -836,7 +833,6 @@
 2003	temp/feaps5.for	/^2003  format(i6,1p9e12.5:\/(6x,1p9e12.5))$/;"	l	subroutine:prtdis	file:
 2003	temp/feaps6.for	/^2003  format(10x,'No nodes have been removed by the tie command'\/1x)$/;"	l	subroutine:tienod	file:
 2003	temp/feaps6.for	/^2003  format(\/'  n o d a l   c o o r d i n a t e s'\/$/;"	l	subroutine:trblk	file:
-2004	Qtree_module.f90	/^            2004 format(' t ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2004	temp/feaps1.for	/^2004  format(' Condition check: D-max',e11.4,'; D-min',e11.4,$/;"	l	subroutine:datri1	file:
 2004	temp/feaps1.for	/^2004  format(5x,'  Node',3x,' load value')$/;"	l	subroutine:aload	file:
 2004	temp/feaps2.for	/^ 2004 format(5x,'Starting node number =',i7\/)$/;"	l	subroutine:opnum	file:
@@ -855,7 +851,6 @@
 2004	temp/feaps5.for	/^2004  format(i10,i10,5f13.4)$/;"	l	subroutine:sblkco	file:
 2004	temp/feaps6.for	/^2004  format(\/,6x,'Tie: Gap Tolerance =',1p,1e12.5\/1x)$/;"	l	subroutine:tienod	file:
 2004	temp/feaps6.for	/^2004  format(i10,5f13.4)$/;"	l	subroutine:trblk	file:
-2005	Qtree_module.f90	/^            2005 format(' o ',18i1)$/;"	l	subroutine:connect_h_neighbor	file:
 2005	temp/feaps1.for	/^2005  format(5x,i6,3x,e12.5)$/;"	l	subroutine:aload	file:
 2005	temp/feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s cohesive zones'\/$/;"	l	subroutine:blkgenco	file:
 2005	temp/feaps1.for	/^2005  format(\/'   e l e m e n t   c o n n e c t i o n s'\/$/;"	l	subroutine:blkgen	file:
@@ -1585,6 +1580,7 @@ AInoix	module.for	/^     +         AInipa,AInoix$/;"	v	module:isogeo
 AInpro	module.for	/^      real*8, allocatable, dimension(:) :: AInpro,/;"	v	module:isogeo
 AInstre	module.for	/^      real*8, allocatable, dimension(:) :: AInpro, AInstre$/;"	v	module:isogeo
 Boundary	Qtree_module.f90	/^    type(point) :: Boundary(/;"	k	type:Qtree
+HEAD	Qtree_module.f90	/^    type(QtreeNode), pointer :: HEAD /;"	k	type:QtreeList
 HowManyPoints	Qtree.f90	/^subroutine HowManyPoints(/;"	s
 HowManySeeds	Qtree.f90	/^subroutine HowManySeeds(/;"	s
 Iexactnormal	module.for	/^      integer  NURnpatch,NURlenkv(2),IldirP,Iexactnormal$/;"	v	module:isogeo
@@ -1600,28 +1596,32 @@ NURlenkv	module.for	/^      integer  NURnpatch,NURlenkv(/;"	v	module:isogeo
 NURnpatch	module.for	/^      integer  NURnpatch,/;"	v	module:isogeo
 NW	Qtree_module.f90	/^    type (Qtree), pointer :: NW /;"	k	type:Qtree
 OBJPATH	Makefile	/^OBJPATH= .\/obj$/;"	m
-Q	Qtree_module.f90	/^    type (Qt/;"	k	type:Qtrees
+Q	Qtree_module.f90	/^    type (Qt/;"	k	type:QtreePtr
+Q	Qtree_module.f90	/^    type(Qt/;"	k	type:QtreeNode
 QIntrsPts	Qtree_module.f90	/^   recursive subroutine QIntrsPts(/;"	s	module:Qtree_module
 QsDelete	Qtree_module.f90	/^     recursive subroutine QsDelete(/;"	s	module:Qtree_module
-QtrBalance	Qtree_module.f90	/^    recursive subroutine QtrBalance(/;"	s	module:Qtree_module
+Qtr2List	Qtree_module.f90	/^    recursive subroutine Qtr2List(/;"	s	module:Qtree_module
+QtrBalance	Qtree_module.f90	/^    subroutine QtrBalance(/;"	s	module:Qtree_module
 QtrDataReset	Qtree_module.f90	/^        subroutine QtrDataReset(/;"	s	module:Qtree_data
 QtrDelete	Qtree_module.f90	/^    subroutine QtrDelete(/;"	s	module:Qtree_module
-QtrFindNeighborQ	Qtree_module.f90	/^    subroutine QtrFindNeighborQ(/;"	s	module:Qtree_module
 QtrInit	Qtree_module.f90	/^     subroutine QtrInit(/;"	s	module:Qtree_module
 QtrInputReset	Qtree_module.f90	/^        subroutine QtrInputReset(/;"	s	module:Qtree_input
+QtrPrintLeaves	Qtree_module.f90	/^    recursive subroutine QtrPrintLeaves(/;"	s	module:Qtree_module
 QtrRefNeighbourQ	Qtree_module.f90	/^    subroutine QtrRefNeighbourQ(/;"	s	module:Qtree_module
 QtrSearchNeighbourQ	Qtree_module.f90	/^    subroutine QtrSearchNeighbourQ(/;"	s	module:Qtree_module
-QtrSearchQ	Qtree_module.f90	/^    recursive subroutine QtrSearchQ(/;"	s	module:Qtree_module
 QtrSubdivide	Qtree_module.f90	/^    recursive subroutine QtrSubdivide(/;"	s	module:Qtree_module
-Qtree	Qtree_module.f90	/^type Qtree /;"	t	module:Qtree_module
+Qtree	Qtree_module.f90	/^type Qtree$/;"	t	module:Qtree_module
+QtreeList	Qtree_module.f90	/^type QtreeList$/;"	t	module:Qtree_module
+QtreeNode	Qtree_module.f90	/^type QtreeNode$/;"	t	module:Qtree_module
+QtreePtr	Qtree_module.f90	/^type QtreePtr$/;"	t	module:Qtree_module
 QtreeSR	Qtree.f90	/^subroutine QtreeSR(/;"	s
-Qtree_data	Qtree_module.f90	/^module Qtree_data /;"	m
+Qtree_data	Qtree_module.f90	/^module Qtree_data$/;"	m
 Qtree_input	Qtree_module.f90	/^module Qtree_input$/;"	m
 Qtree_module	Qtree_module.f90	/^module  Qtree_module$/;"	m
-Qtrees	Qtree_module.f90	/^type Qtrees$/;"	t	module:Qtree_module
 SE	Qtree_module.f90	/^    type (Qtree), pointer :: SE /;"	k	type:Qtree
 SW	Qtree_module.f90	/^    type (Qtree), pointer :: SW /;"	k	type:Qtree
 SortSearch_module	SortSearch_module.f90	/^module  SortSearch_module$/;"	m
+TAIL	Qtree_module.f90	/^    type(QtreeNode), pointer :: TAIL /;"	k	type:QtreeList
 a	module.for	/^      real/;"	v	module:prlod
 aHelperPoints	main.f90	/^    logical, allocatable :: aHelperPoints(/;"	v	program:quadtree_main
 aang	module.for	/^      real*8, allocatable, dimension(:) :: aang,/;"	v	module:mdat2
@@ -1662,6 +1662,7 @@ angle	module.for	/^      real*8 dlm(6,1000),angle(/;"	v	module:yltdata2
 anr	module.for	/^      logical anr$/;"	v	module:aunr
 aold	module.for	/^      real*8  aengy,aold,/;"	v	module:endata
 apost	module.for	/^      integer, allocatable, dimension(:) :: apost$/;"	v	module:pindex
+append_	Qtree_module.f90	/^    subroutine append_(/;"	s	module:Qtree_module
 aqloa	module.for	/^      real*8, allocatable, dimension(:) :: aqloa$/;"	v	module:qload
 arcext	module.for	/^      module arcext$/;"	m
 arcf	module.for	/^      logical arcf,/;"	v	module:arcl
@@ -1713,7 +1714,6 @@ cc	main.f90	/^    character cc*/;"	v	program:quadtree_main
 cdat1	module.for	/^      module cdat1$/;"	m
 cdata	module.for	/^      module cdata$/;"	m
 center	Geom_Module.f90	/^        type(point) :: center$/;"	k	type:polygon
-center	Qtree_module.f90	/^    type(point) :: center$/;"	k	type:Qtree
 centerPoint	main.f90	/^    type(point) :: centerPoint$/;"	v	program:quadtree_main
 cfp	module.for	/^      real *8 cfp,/;"	v	module:pdata10
 cfunc	temp/feaps1.for	/^      subroutine cfunc(/;"	s
@@ -2200,6 +2200,7 @@ irfeap	module.for	/^      integer irfeap$/;"	v	module:rfeap
 irpt	module.for	/^      integer, allocatable, dimension(:) :: irpt$/;"	v	module:rsum
 irtyp	module.for	/^      integer*4        irtyp,/;"	v	module:fe2tran
 is	module.for	/^      integer ise/;"	v	module:isecn
+isEmpty_	Qtree_module.f90	/^    logical function isEmpty_(/;"	f	module:Qtree_module
 isQ_in	Qtree_module.f90	/^     logical function isQ_in(/;"	f	module:Qtree_module
 isalloc	module.for	/^      logical, dimension(maxnum)        :: isalloc$/;"	v	module:allocdata
 isbfgs	module.for	/^      module isbfgs$/;"	m
@@ -2444,6 +2445,7 @@ nen1	module.for	/^      integer ndf,ndm,nen1,/;"	v	module:sdata
 neq	module.for	/^      integer numnp,numel,nummat,nen,neq,/;"	v	module:cdata
 nerr	module.for	/^      integer iet(5),ioerr,nerr$/;"	v	module:errin2
 newf	module.for	/^      character*229 newf$/;"	v	module:istat
+next	Qtree_module.f90	/^    type(QtreeNode), pointer :: next /;"	k	type:QtreeNode
 nexte	module.for	/^      integer       nexte,/;"	v	module:plotter
 nf	module.for	/^      integer nf,/;"	v	module:fodata
 nfp	module.for	/^      integer nfp,/;"	v	module:pdata10
@@ -2706,6 +2708,7 @@ polygon_kernel	Geom_Module.f90	/^    subroutine polygon_kernel(/;"	s	module:poly
 polygon_module	Geom_Module.f90	/^module polygon_module$/;"	m
 polygons	Qtree_module.f90	/^    type(polygon), allocatable :: polygons(/;"	v	module:Qtree_input
 polykernel	Geom_Module.f90	/^    subroutine polykernel(/;"	s	module:polygon_module
+pop_	Qtree_module.f90	/^    subroutine pop_(/;"	s	module:Qtree_module
 pos	Point_Module.f90	/^    type(point) :: pos$/;"	k	type:intrsc_point
 pos	Point_Module.f90	/^    type(point) :: pos$/;"	k	type:seed_point
 ppers	module.for	/^      module ppers$/;"	m
@@ -2713,6 +2716,7 @@ ppload	temp/feaps3.for	/^      subroutine ppload(/;"	s
 pqrblk	temp/feaps6.for	/^      subroutine pqrblk(/;"	s
 prefl	temp/feaps4.for	/^      subroutine prefl(/;"	s
 prfrst	temp/feaps5.for	/^      subroutine prfrst(/;"	s
+print_	Qtree_module.f90	/^    subroutine print_(/;"	s	module:Qtree_module
 printh	module.for	/^      module printh$/;"	m
 prisdat	module.for	/^      module prisdat$/;"	m
 prlod	module.for	/^      module prlod$/;"	m
@@ -2885,6 +2889,7 @@ solver	module.for	/^     +          nrhs,mtype,iphase,msglvl,solver$/;"	v	module
 sortPolygonsSR	SortSearch_module.f90	/^subroutine sortPolygonsSR(/;"	s	module:SortSearch_module
 sp	module.for	/^      real*8  sp,/;"	v	module:stepc
 sphere	temp/feaps6.for	/^      subroutine sphere(/;"	s
+splitQ	Qtree_module.f90	/^    logical function splitQ(/;"	f	module:Qtree_module
 status	Qtree_module.f90	/^    logical :: status(/;"	k	type:Qtree
 stepc	module.for	/^      module stepc$/;"	m
 storeh	temp/feaps6.for	/^      subroutine storeh(/;"	s
