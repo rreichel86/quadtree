@@ -1,5 +1,5 @@
 
-module Qtree_data       
+module Qtree_data
     use point_module
     use polygon_module
     implicit none
@@ -30,14 +30,14 @@ module Qtree_data
              
         end subroutine
     
-end module    
+end module
     
 module Qtree_input
     use polygon_module
     use point_module
     logical :: data_seeds
     integer :: num_poly, num_seeds, num_mat_sets
-    type(polygon), allocatable :: polygons(:) 
+    type(polygon), allocatable :: polygons(:)
     type(point), allocatable :: seeds(:)
     integer :: level_min, max_seed_Q
     
@@ -45,7 +45,7 @@ module Qtree_input
     contains
         subroutine QtrInputReset()
             implicit none
-            integer :: i, istat, np 
+            integer :: i, istat, np
             np = num_poly
             num_poly = 0
             num_seeds = 0
@@ -56,8 +56,8 @@ module Qtree_input
             deallocate(seeds, stat=istat)
             
             do i = 1, np
-                call polygon_delete(polygons(i))          
-            end do 
+                call polygon_delete(polygons(i))
+            end do
             
             deallocate(polygons, stat=istat)
             
@@ -78,18 +78,17 @@ use intrsc_point_module
 interface binaryTransformation
     module procedure binaryTransformation_2
     module procedure binaryTransformation_4
-end interface 
+end interface
 
 
-type Qtree 
+type Qtree
 
-    type(point) :: Boundary(4) 
+    type(point) :: Boundary(4)
     integer, allocatable :: elem(:)
     type(seed_point), allocatable :: seeds(:)
-    type(point) :: center
     type(intrsc_point) :: intrsc_points(4)
     integer :: num_intrsc_points = 0
-    integer :: level = 0 
+    integer :: level = 0
     integer :: ref(36)
     integer :: signo(4) = 1
     integer :: wpoly(4) = 1
@@ -101,7 +100,6 @@ type Qtree
     type (Qtree), pointer :: NE => null()
     type (Qtree), pointer :: SE => null()
     type (Qtree), pointer :: father => null()
-    !type (Qtrees), pointer :: children(:)
     
 end type
 
@@ -124,10 +122,11 @@ type QtreeList
     Procedure, PAss :: isEmpty_
 end type
 
+
 contains
     
     subroutine append_(this, Q)
-        implicit none 
+        implicit none
         class(QtreeList) :: this
         type(Qtree), pointer :: Q
         
@@ -150,7 +149,7 @@ contains
     end subroutine
     
     logical function isEmpty_(this)
-        implicit none 
+        implicit none
         class(QtreeList) :: this
 
         isEmpty_ = .false.
@@ -158,12 +157,12 @@ contains
         if (  .not. associated(this%HEAD) .and. .not. associated(this%TAIL) ) then
             write(*,*) '     list is empty!'
             isEmpty_ = .true.
-        end if 
+        end if
 
     end function
     
     subroutine pop_(this, Q)
-        implicit none 
+        implicit none
         class(QtreeList) :: this
         type(Qtree), pointer  :: Q
         type(QtreeNode), pointer :: Qnode
@@ -196,7 +195,7 @@ contains
             if ( .not. associated(Qnode) ) exit
             level = Qnode%Q%level
             ref = Qnode%Q%ref
-            write(*,2000) level, ref(1:2*level) 
+            write(*,2000) level, ref(1:2*level)
             2000 format(i2,' ',36i1)
             Qnode => Qnode%next
         end do
@@ -204,7 +203,7 @@ contains
     end subroutine
 
     recursive subroutine Qtr2List(Qtr,QtrList)
-        implicit none 
+        implicit none
         type (Qtree), pointer :: Qtr
         type (QtreeList), pointer :: QtrList
 
@@ -230,7 +229,7 @@ contains
         if (.not. associated(Qtr%NW)) then
             do i = 1, 4
                 write(iow,'(2f22.16)') Qtr%Boundary(i)
-            end do 
+            end do
         else
             call QtrPrintLeaves(iow, Qtr%NW)
             call QtrPrintLeaves(iow, Qtr%SW)
@@ -242,13 +241,13 @@ contains
 
 
      logical function isQ_in(Qtr)
-        implicit none 
+        implicit none
         type(qtree), pointer :: Qtr
         logical :: in_cond(4), cq0
         integer :: ms, mwp, mip
         
          cq0 = .false.
-         ms = sum(Qtr%signo)        
+         ms = sum(Qtr%signo)
          mwp = sum(Qtr%wpoly)
          mip = Qtr%num_intrsc_points
          
@@ -276,7 +275,7 @@ contains
      end function
 
      recursive subroutine QsDelete(Qtr)
-        implicit none 
+        implicit none
         Type (Qtree), pointer :: Qtr
         logical :: Qchildren(4)
         integer :: istat
@@ -298,9 +297,9 @@ contains
             if (QChildren(3)) call QsDelete(Qtr%NE)
             if (QChildren(4)) call QsDelete(Qtr%SE)
             
-        end if 
+        end if
     
-    end subroutine 
+    end subroutine
     
      subroutine QtrInit(Qtr,n,Boundary)
         type(Qtree), pointer, intent(inout) :: Qtr 
@@ -1875,7 +1874,6 @@ contains
             ! has children ?
             if (associated(NQ%NW)) then ! yes
                 pos = [refNQ(2*l-1), refNQ(2*l)]
-                write(*,*) pos
                 if ( (pos(1) .eq. 1) .and. (pos(2) .eq. 1) ) then
                     NQ => NQ%NW
                 else if ( (pos(1) .eq. 1) .and. (pos(2) .eq. 2) ) then
@@ -2703,38 +2701,31 @@ contains
         use point_module
         use seed_point_module
         use Qtree_data 
-        
+
         implicit none
         Type (Qtree), pointer :: Qtr
         integer, intent(in) :: level_min
         integer, intent(in), optional  :: n
         type(seed_point), intent(in), optional :: seeds(*)
-        integer, intent(in), optional :: max_seed_Q 
-        
+        integer, intent(in), optional :: max_seed_Q
+
         real*8 :: xmin, xmax, ymin, ymax, xmid, ymid, x0, y0
         real*8 :: boundary(8)
         integer :: i, istat, level, azhl, numseeds
         logical :: containsPoint
-      
+
         if (Qtr%level .ge. 18) return
         if (.not. associated(Qtr%NW)) then
-            
+
             Allocate (Qtr%NW, Qtr%SW, Qtr%NE, Qtr%SE, Stat=istat)
-            
-            !nullify(Qtr%NW%NW, Qtr%NW%SW, Qtr%NW%NE, Qtr%NW%SE)
-            !nullify(Qtr%SW%NW, Qtr%SW%SW, Qtr%SW%NE, Qtr%SW%SE)
-            !nullify(Qtr%NE%NW, Qtr%NE%SW, Qtr%NE%NE, Qtr%NE%SE)
-            !nullify(Qtr%SE%NW, Qtr%SE%SW, Qtr%SE%NE, Qtr%SE%SE)
-            
+
             xmin = minval(Qtr%Boundary(1:4)%x)
             xmax = maxval(Qtr%Boundary(1:4)%x)
             ymin = minval(Qtr%Boundary(1:4)%y)
             ymax = maxval(Qtr%Boundary(1:4)%y)
             xmid = sum(Qtr%Boundary(1:4)%x)/4.d0
             ymid = sum(Qtr%Boundary(1:4)%y)/4.d0
-            
-            Qtr%center = point(xmid,ymid)
-            
+
             if (Qtr%level.eq.0) num_node = num_node + 9
             if (Qtr%level.gt.0) num_node = num_node + 5
             if (Qtr%level.eq.0) write(56,'(2f32.16)') xmin, ymin
@@ -2746,43 +2737,38 @@ contains
             write(56,'(2f32.16)') xmax, ymid
             write(56,'(2f32.16)') xmid, ymax
             write(56,'(2f32.16)') xmin, ymid
-            
-            
-            
-            
+
             level = Qtr%level + 1
 
-            ! NW Child 
+            ! NW Child
             Qtr%NW%level = level
             Qtr%NW%ref = Qtr%ref
             Qtr%NW%ref(2*level-1)= 1
             Qtr%NW%ref(2*level)= 1
             Qtr%NW%father => Qtr
             boundary= [xmin,ymid,xmid,ymid,xmid,ymax,xmin,ymax]
-            
+
             do i = 1,4
                 Qtr%NW%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
-            
+
             x0 = sum(Qtr%NW%Boundary(1:4)%x)/4.d0
             y0 = sum(Qtr%NW%Boundary(1:4)%y)/4.d0
-            Qtr%NW%center = point(x0,y0)
 
-            ! SW Child 
+            ! SW Child
             Qtr%SW%level = level
             Qtr%SW%ref = Qtr%ref
             Qtr%SW%ref(2*level-1)= 1
             Qtr%SW%ref(2*level)= 2
             Qtr%SW%father => Qtr
             boundary= [xmin,ymin,xmid,ymin,xmid,ymid,xmin,ymid]
-            
+
             do i = 1,4
                 Qtr%SW%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
-            
+
             x0 = sum(Qtr%SW%Boundary(1:4)%x)/4.d0
             y0 = sum(Qtr%SW%Boundary(1:4)%y)/4.d0
-            Qtr%SW%center = point(x0,y0)
 
             ! NE Child
             Qtr%NE%level = level
@@ -2791,15 +2777,13 @@ contains
             Qtr%NE%ref(2*level)= 1
             Qtr%NE%father => Qtr
             boundary= [xmid,ymid,xmax,ymid,xmax,ymax,xmid,ymax]
-            
-            
+
             do i = 1,4
                 Qtr%NE%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
-            
+
             x0 = sum(Qtr%NE%Boundary(1:4)%x)/4.d0
             y0 = sum(Qtr%NE%Boundary(1:4)%y)/4.d0
-            Qtr%NE%center = point(x0,y0)
 
             ! SE Child
             Qtr%SE%level = level
@@ -2808,205 +2792,195 @@ contains
             Qtr%SE%ref(2*level)= 2
             Qtr%SE%father => Qtr
             boundary= [xmid,ymin,xmax,ymin,xmax,ymid,xmid,ymid]
-            
+
             do i = 1,4
                 Qtr%SE%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
-            
+
             x0 = sum(Qtr%SE%Boundary(1:4)%x)/4.d0
             y0 = sum(Qtr%SE%Boundary(1:4)%y)/4.d0
-            Qtr%SE%center = point(x0,y0)
-     
+
             if (present(n) .and. present(seeds).and. present(max_seed_Q)) then
-                
-                
+
                 call HowManySeeds(Qtr%NW%Boundary,n,seeds,azhl)
                 if (azhl.gt.0) then
                     allocate(Qtr%NW%seeds(azhl))
                     call whichSeeds(Qtr%NW%Boundary,n,seeds,azhl,Qtr%NW%seeds)
-                 
+
                     if(azhl.eq.2) then
                         if (Qtr%NW%seeds(1)%pos == Qtr%NW%seeds(2)%pos) then 
-                          azhl = azhl - 1
+                            azhl = azhl - 1
                         end if 
                     end if
-                    
+
                     if((azhl.gt.max_seed_Q).or.(Qtr%NW%level.lt.level_min)) then
                         call QtrSubdivide(Qtr%NW,level_min,azhl,Qtr%NW%seeds,max_seed_Q)
-                        if (allocated (Qtr%NW%seeds).and.(azhl.gt.max_seed_Q)) deallocate (Qtr%NW%seeds)    
-                    end if   
-                    
+                        if (allocated (Qtr%NW%seeds).and.(azhl.gt.max_seed_Q)) deallocate (Qtr%NW%seeds)
+                    end if
+
                 else if ((azhl.eq.0).and.(Qtr%NW%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%NW,level_min)
-                !else 
-                
-                end if 
-            
-                
+                end if
+
+
                 call HowManySeeds(Qtr%SW%Boundary,n,seeds,azhl)
-                 if (azhl.gt.0) then
+                if (azhl.gt.0) then
                     allocate(Qtr%SW%seeds(azhl))
                     call whichSeeds(Qtr%SW%Boundary,n,seeds,azhl,Qtr%SW%seeds)
-                     
+
                     if(azhl.eq.2) then
-                        if (Qtr%SW%seeds(1)%pos == Qtr%SW%seeds(2)%pos) then 
-                          azhl = azhl - 1
-                        end if 
-                    end if 
-                   
-                     if((azhl.gt.max_seed_Q).or.(Qtr%SW%level.lt.level_min)) then
-                        call QtrSubdivide(Qtr%SW,level_min,azhl,Qtr%SW%seeds,max_seed_Q)
-                        if (allocated (Qtr%SW%seeds).and.(azhl.gt.max_seed_Q)) deallocate (Qtr%SW%seeds)    
+                        if (Qtr%SW%seeds(1)%pos == Qtr%SW%seeds(2)%pos) then
+                            azhl = azhl - 1
+                        end if
                     end if
-                        
+
+                    if((azhl.gt.max_seed_Q).or.(Qtr%SW%level.lt.level_min)) then
+                        call QtrSubdivide(Qtr%SW,level_min,azhl,Qtr%SW%seeds,max_seed_Q)
+                        if (allocated (Qtr%SW%seeds).and.(azhl.gt.max_seed_Q)) deallocate (Qtr%SW%seeds)
+                    end if
+
                 else if ((azhl.eq.0).and.(Qtr%SW%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%SW,level_min)
-                !else 
-                
-                end if 
-            
+                end if
+
                 call HowManySeeds(Qtr%NE%Boundary,n,seeds,azhl)
-                 if (azhl.gt.0) then
+                if (azhl.gt.0) then
                     allocate(Qtr%NE%seeds(azhl))
                     call whichSeeds(Qtr%NE%Boundary,n,seeds,azhl,Qtr%NE%seeds)
-                    
+
                     if(azhl.eq.2) then
                         if (Qtr%NE%seeds(1)%pos == Qtr%NE%seeds(2)%pos) then 
-                          azhl = azhl - 1
-                        end if 
-                    end if 
-                    
-                     if((azhl.gt.max_seed_Q).or.(Qtr%NE%level.lt.level_min)) then
+                            azhl = azhl - 1
+                        end if
+                    end if
+
+                    if((azhl.gt.max_seed_Q).or.(Qtr%NE%level.lt.level_min)) then
                         call QtrSubdivide(Qtr%NE,level_min,azhl,Qtr%NE%seeds,max_seed_Q)
-                        if (allocated (Qtr%NE%seeds).and.(azhl.gt.max_seed_Q)) deallocate (Qtr%NE%seeds)   
-                     end if
-                     
+                        if (allocated (Qtr%NE%seeds).and.(azhl.gt.max_seed_Q)) deallocate (Qtr%NE%seeds)
+                    end if
+
                 else if ((azhl.eq.0).and.(Qtr%NE%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%NE,level_min)
-                !else
-                
                 end if 
-            
+
                 call HowManySeeds(Qtr%SE%Boundary,n,seeds,azhl)
-                 if (azhl.gt.0) then
+                if (azhl.gt.0) then
                     allocate(Qtr%SE%seeds(azhl))
-                    call whichSeeds(Qtr%SE%Boundary,n,seeds,azhl,Qtr%SE%seeds)  
-                    
+                    call whichSeeds(Qtr%SE%Boundary,n,seeds,azhl,Qtr%SE%seeds)
+
                     if(azhl.eq.2) then
-                        if (Qtr%SE%seeds(1)%pos == Qtr%SE%seeds(2)%pos) then 
-                          azhl = azhl - 1
+                        if (Qtr%SE%seeds(1)%pos == Qtr%SE%seeds(2)%pos) then
+                            azhl = azhl - 1
                         end if 
                     end if 
-                    
-                     if((azhl.gt.max_seed_Q).or.(Qtr%SE%level.lt.level_min)) then
+
+                    if((azhl.gt.max_seed_Q).or.(Qtr%SE%level.lt.level_min)) then
                         call QtrSubdivide(Qtr%SE,level_min,azhl,Qtr%SE%seeds,max_seed_Q)
                         if (allocated (Qtr%SE%seeds).and.(azhl.gt.max_seed_Q)) deallocate (Qtr%SE%seeds) 
                     end if
-                    
+
                 else if ((azhl.eq.0).and.(Qtr%SE%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%SE,level_min)
-                !else
-                
                 end if 
-                
-           else 
-                
+
+            else 
+
                 if (allocated (Qtr%seeds)) then
-                
+
                     numseeds = size(Qtr%seeds)
-            
-                    call HowManySeeds(Qtr%NW%Boundary,numseeds,Qtr%seeds,azhl)    
+
+                    call HowManySeeds(Qtr%NW%Boundary,numseeds,Qtr%seeds,azhl)
                     if (azhl.gt.0) then
                         allocate(Qtr%NW%seeds(azhl))
                         call whichSeeds(Qtr%NW%Boundary,numseeds,Qtr%seeds,azhl,Qtr%NW%seeds)
-                    end if 
-                
+                    end if
+
                     call HowManySeeds(Qtr%SW%Boundary,numseeds,Qtr%seeds,azhl)
-                    if (azhl .gt.0) then 
+                    if (azhl .gt.0) then
                         allocate(Qtr%SW%seeds(azhl))
                         call whichSeeds(Qtr%SW%Boundary,numseeds,Qtr%seeds,azhl,Qtr%SW%seeds)
-                    end if 
-                
+                    end if
+
                     call HowManySeeds(Qtr%NE%Boundary,numseeds,Qtr%seeds,azhl)
                     if (azhl .gt.0) then
                         allocate(Qtr%NE%seeds(azhl))
                         call whichSeeds(Qtr%NE%Boundary,numseeds,Qtr%seeds,azhl,Qtr%NE%seeds)
-                    end if 
-                    
+                    end if
+
                     call HowManySeeds(Qtr%SE%Boundary,numseeds,Qtr%seeds,azhl)
                     if (azhl .gt.0) then
                         allocate(Qtr%SE%seeds(azhl))
                         call whichSeeds(Qtr%SE%Boundary,numseeds,Qtr%seeds,azhl,Qtr%SE%seeds)
-                    end if 
-            
-                
+                    end if
+
+
                     deallocate (Qtr%seeds) 
-            
-            
-                end if 
-           
-           
-           
+
+
+                end if
+
+
+
                 if(Qtr%NW%level.lt.level_min) then
                     call QtrSubdivide(Qtr%NW,level_min)
-                end if 
-            
+                end if
+
                 if(Qtr%SW%level.lt.level_min) then
                     call QtrSubdivide(Qtr%SW,level_min)
-                end if 
-            
+                end if
+
                 if(Qtr%NE%level.lt.level_min) then
                     call QtrSubdivide(Qtr%NE,level_min)
-                end if 
-            
+                end if
+
                 if(Qtr%SE%level.lt.level_min) then
                     call QtrSubdivide(Qtr%SE,level_min)
-                end if 
-                
-           end if
-          
+                end if
+
+            end if
+
         else if (associated(Qtr%NW)) then
-        
-          if (present(n) .and. present(seeds).and. present(max_seed_Q)) then
+
+            if (present(n) .and. present(seeds).and. present(max_seed_Q)) then
                 call HowManySeeds(Qtr%NW%Boundary,n,seeds,azhl)
                 if((azhl.gt.max_seed_Q).or.(Qtr%NW%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%NW,level_min,n,seeds,max_seed_Q)
-                end if 
-            
+                end if
+
                 call HowManySeeds(Qtr%SW%Boundary,n,seeds,azhl)
                 if((azhl.gt.max_seed_Q).or.(Qtr%SW%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%SW,level_min,n,seeds,max_seed_Q)
-                end if 
-            
+                end if
+
                 call HowManySeeds(Qtr%NE%Boundary,n,seeds,azhl)
                 if((azhl.gt.max_seed_Q).or.(Qtr%NE%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%NE,level_min,n,seeds,max_seed_Q)
-                end if 
-            
+                end if
+
                 call HowManySeeds(Qtr%SE%Boundary,n,seeds,azhl)
                 if((azhl.gt.max_seed_Q).or.(Qtr%SE%level.lt.level_min)) then
                     call QtrSubdivide(Qtr%SE,level_min,n,seeds,max_seed_Q)
-                end if 
-           else 
+                end if
+            else
                 if(Qtr%NW%level.lt.level_min) then
                     call QtrSubdivide(Qtr%NW,level_min)
-                end if 
-            
+                end if
+
                 if(Qtr%SW%level.lt.level_min) then
                     call QtrSubdivide(Qtr%SW,level_min)
-                end if 
-            
+                end if
+
                 if(Qtr%NE%level.lt.level_min) then
                     call QtrSubdivide(Qtr%NE,level_min)
-                end if 
-            
+                end if
+
                 if(Qtr%SE%level.lt.level_min) then
                     call QtrSubdivide(Qtr%SE,level_min)
-                end if 
-           end if
-           
-        end if 
-        
+                end if
+            end if
+
+        end if
+
     end subroutine
 
 
