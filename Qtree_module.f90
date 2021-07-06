@@ -1665,8 +1665,7 @@ contains
         end if 
     end subroutine
     
-    ! TODO: rename subroutine
-    subroutine Balance(QtrList)
+    subroutine QtrBalance(QtrList)
         implicit none 
         type(QtreeList), pointer :: QtrList
         type(Qtree), pointer :: Q, AQ, NQ
