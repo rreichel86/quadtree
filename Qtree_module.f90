@@ -1666,6 +1666,86 @@ contains
         end if 
     end subroutine
     
+    subroutine Balance(QtrList)
+        implicit none 
+        type(QtreeList), pointer :: QtrList
+        type(Qtree), pointer :: Q, AQ, NQ
+        type(QtreePtr), pointer :: neighbours(:)
+
+        integer :: i, counter, dir, level, levelNQ, refNQ(36)
+        logical :: existNQRef, isSplit
+
+        allocate(neighbours(4))
+        do i = 1, 4
+            neighbours(i)%Q => null()
+        end do
+
+        do
+            if ( QtrList%isEmpty_() ) exit
+            call QtrList%pop_(Q)
+
+            isSplit = .false.
+            counter = 0
+            ! Search for the current Quad's Neighbours
+            ! Loop over directions:
+            ! 1 - West
+            ! 2 - South
+            ! 3 - East 
+            ! 4 - North 
+            
+            do dir = 1, 4
+
+                level = Q%level
+                refNQ = Q%ref
+                existNQRef = .false.
+
+                ! Possible Quad's Neighbour at current direction
+                call QtrRefNeighbourQ(level,refNQ(1:2*level),dir,0,existNQRef)
+                if (existNQRef) then
+                   
+                    call nearestCommonAncestor(Q,level,refNQ(1:2*level),AQ)
+                    call QtrSearchNeighbourQ(AQ,level,refNQ(1:2*level),NQ)
+                    
+                    counter = counter + 1
+                    neighbours(counter)%Q => NQ
+                    
+                    if (isSplit) continue
+
+                    ! Check if current Quad has to be split
+                    if ( splitQ(Q, dir, NQ) ) then 
+                        ! split current Quad 
+                        call QtrSubdivide(Q,level+1)
+
+                        isSplit = .true.
+                        call QtrList%append_(Q%NW)
+                        call QtrList%append_(Q%SW)
+                        call QtrList%append_(Q%NE)
+                        call QtrList%append_(Q%SE)
+                    end if
+                end if
+            end do
+
+            ! if curret Quad was split
+            ! Check if current Quad's Neighbours need to be split 
+            if (isSplit) then
+                do i = 1, counter
+                    NQ => neighbours(i)%Q
+                    levelNQ = NQ%level
+                    ! Check if Quad's Neighbour is a leaf
+                    if ( .not. associated(NQ%NW) ) then
+                        ! Check if Quad's Neighbour is larger than
+                        ! the current Quad
+                        if ( (level+1) - levelNQ > 1 ) then
+                            call QtrList%append_(NQ)
+                        end if
+                    end if
+                end do
+            end if
+
+        end do
+
+    end subroutine
+
     ! TODO: Improve subroutine QtrBalance()
     recursive subroutine QtrBalance(root,Qtr,level_min)
         
@@ -1712,6 +1792,41 @@ contains
         
     end subroutine 
     
+    logical function splitQ(Q,dir,NQ)
+        implicit none 
+        type(Qtree), intent(in), pointer :: Q
+        integer, intent(in) :: dir 
+        type(Qtree), intent(in), pointer :: NQ
+        type(Qtree), pointer :: NQchild1, NQchild2
+        
+        splitQ = .false.
+        ! check if current Quad is a leaf
+        if ( associated(Q%NW) ) return
+
+        ! check if Quad's neighbour is a leaf
+        if ( .not. associated(NQ%NW) ) return
+
+        ! neighbour Quad's children to be checked
+        if (dir .eq. 1) then ! West NQ
+            NQchild1 => NQ%NE
+            NQchild2 => NQ%SE
+        else if (dir .eq. 3) then ! East NQ
+            NQchild1 => NQ%NW
+            NQchild2 => NQ%SW
+        else if (dir .eq. 2) then ! South NQ
+            NQchild1 => NQ%NW
+            NQchild2 => NQ%NE
+        else if (dir .eq. 4) then ! North NQ
+            NQchild1 => NQ%SW
+            NQchild2 => NQ%SE
+        end if
+
+        ! check if neighbour Quad's children are leaves
+        if ( associated(NQchild1%NW) ) splitQ = .true.
+        if ( associated(NQchild2%NW) ) splitQ = .true.
+
+    end function
+
     subroutine nearestCommonAncestor(Q, levelNQ, refNQ, AQ)
         implicit none
         Type(Qtree), intent(in), pointer :: Q
