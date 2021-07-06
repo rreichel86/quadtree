@@ -1746,51 +1746,6 @@ contains
 
     end subroutine
 
-    ! recursive subroutine QtrBalance(root,Qtr,level_min)
-    !   
-    !     implicit none
-    !     Type (Qtree), pointer :: root
-    !     Type (Qtree), pointer :: Qtr
-    !     Type (Qtree), pointer :: Qtr_out
-    !     integer, intent(in) :: level_min
-    !     logical :: status
-    !     integer :: i, ref(36), level
-    !     character*2 :: nb(8)
-    !   
-    !     nb = ['NN','NW','WW','SW','SS','SE','EE','NE']
-    !   
-    !     if (.not. associated(Qtr%NW)) then
-    !   
-    !          if (Qtr%level.gt.level_min) then
-    !                  
-    !             do i = 1,8
-    !                 ref = Qtr%ref
-    !                 level = Qtr%level
-    !                 call QtrFindNeighborQ(level,ref,nb(i),status)
-    !                     if (status) then
-    !                         call QtrSearchQ(root,level,ref,1,Qtr_out)
-    !                   
-    !                         if (Qtr_out%level .lt. level-1) then
-    !                             call QtrSubdivide(Qtr_out,Qtr_out%level+1)
-    !                         end if
-    !                       
-    !                     end if 
-    !             end do
-    !                 
-    !           
-    !          end if
-    !    
-    !     else if (associated(Qtr%NW)) then
-    !   
-    !         call QtrBalance(root,Qtr%NW,level_min)
-    !         call QtrBalance(root,Qtr%SW,level_min)
-    !         call QtrBalance(root,Qtr%NE,level_min)
-    !         call QtrBalance(root,Qtr%SE,level_min)
-    !       
-    !     end if 
-    !   
-    ! end subroutine 
-    
     logical function splitQ(Q,dir,NQ)
         implicit none 
         type(Qtree), intent(in), pointer :: Q
