@@ -296,44 +296,6 @@ subroutine readInputFile(filenameIn)
 
 end subroutine
 
-    ! TODO: subroutine writeFeapInputFile()
-!    open(unit=60, file='iTest.feap', status='unknown')
-!    ! do i = 1, num_node
-!    !     write(60, '(2f32.16)') nodes(i)%x, nodes(i)%y
-!    ! end do
-!    
-!        !FEAP
-!        write(60,2000)
-!        !COOR
-!        write(60,3000)
-!        ! The indices (1:num_nodes) correspond to polygonal elements' vertices
-!        ! and the indices (num_nodes + 1 : num_nodes + num_elem) correspond to 
-!        ! the scaling center of the respective polygonal element.
-!        do i=1, num_node + num_elem
-!            write(60, 3010) i, nodes(i)
-!        end do 
-!        !ELEM
-!        write(60,4000)
-!        do i=1, num_elem
-!            num_nodes_elem = elements(i,1)
-!            region = elements(i,2)
-!            
-!            k = elm_typ_ma(num_nodes_elem, region)
-!            write(60, 4010, advance='no') i, k
-!            do j= 1, num_nodes_elem
-!                write(60, 4020, advance='no') elements(i,2+j)
-!            end do 
-!            write(60, 4030) num_node + i
-!        end do
-!        !MATE
-!        write(60,5000)
-!        !END 
-!        write(60,6000)
-!        !INTE
-!        write(60,7000)
-!        !STOP
-!        write(60,8000)
-!    close(60)
 
 2000 format('feap')
 3000 format(/,'coor')
