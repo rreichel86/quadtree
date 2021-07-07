@@ -65,13 +65,26 @@ program quadtree_main
         
 
     else if (pcomp(token,'parv',4)) then
-        write(*,*) '    parv'
+
+        write(*,1085)
+        1085 format(5x,'parv'/)
+
     else if (pcomp(token,'mfem',4)) then
-        write(*,*) '    nfem'
+
+        write(*,1086)
+        1086 format(5x,'mfem'/)
+
     else if (pcomp(token,'feap',4)) then
-        write(*,*) '    feap'
+
+        write(*,1087)
+        1087 format(5x,'feap'/)
+        call writeFeapInputFile()
+
     else if (pcomp(token,'rfine',5)) then
-        write(*,*) '    rfine'
+
+        write(*,1088)
+        1088 format(5x,'rfine'/)
+
     else if (pcomp(token,'help',4)) then
         
         write(*,1081)
@@ -92,8 +105,8 @@ program quadtree_main
     else 
         write(*,1100) 
         1100 format(5x,'Undefined command')
-    end if 
 
+    end if
 
 end program quadtree_main
 
