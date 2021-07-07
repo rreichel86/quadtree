@@ -155,7 +155,6 @@ contains
         isEmpty_ = .false.
 
         if (  .not. associated(this%HEAD) .and. .not. associated(this%TAIL) ) then
-            write(*,*) '     list is empty!'
             isEmpty_ = .true.
         end if
 
