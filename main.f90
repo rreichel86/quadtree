@@ -16,7 +16,10 @@ program quadtree_main
     logical pcomp
     integer num_nodes_elem, region
     
-    
+    integer :: cstat, estat
+    character(len=100) :: cmsg
+
+
     write(*,1000)
     1000 format (5x,'Please enter input file name') 
     ! read(*,'(A)') filenameIn
@@ -53,7 +56,21 @@ program quadtree_main
     1082 format(3x,'> ',$)
     1083 format(a5)
     if (pcomp(token,'mplot',5)) then
-        write(*,*) '    mplot'
+
+        write(*,1084)
+        1084 format(5x,'mplot'/)
+        call execute_command_line("matlab -nodesktop -nosplash -r 'QtreePlotMesh; exit'", exitstat=estat, &
+            & cmdstat=cstat, cmdmsg=cmsg)
+
+        if (cstat .gt. 0) then
+            print *, "    Command execution failed with error ", trim(cmsg)
+        else if (cstat .lt. 0) then 
+            print *, "    Command execution not supported"
+        else
+            print *, "    Command completed with status ", estat
+        end if
+        
+
     else if (pcomp(token,'parv',4)) then
         write(*,*) '    parv'
     else if (pcomp(token,'mfem',4)) then
