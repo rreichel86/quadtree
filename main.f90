@@ -42,17 +42,10 @@ program quadtree_main
 
     ! TODO: MENU 
     write(*,1080) 
-    write(*,1081)
     write(*,1082)
     !read(*,1083) token
     token = 'exit'
     1080 format(5x,'Type COMMAND to continue:'/)
-    1081 format(7x,'MPLOT'/ &
-        &       7x,'PARV'/ &
-        &       7x,'MFEM'/ &
-        &       7x,'FEAP'/ &
-        &       7x,'RFINE'/ &
-        &       7x,'EXIT'/)
     1082 format(3x,'> ',$)
     1083 format(a5)
     if (pcomp(token,'mplot',5)) then
@@ -79,6 +72,17 @@ program quadtree_main
         write(*,*) '    feap'
     else if (pcomp(token,'rfine',5)) then
         write(*,*) '    rfine'
+    else if (pcomp(token,'help',4)) then
+        
+        write(*,1081)
+        1081 format(/5x,'MPLOT'/ &
+            &       5x,'PARV'/ &
+            &       5x,'MFEM'/ &
+            &       5x,'FEAP'/ &
+            &       5x,'RFINE'/ &
+            &       5x,'HELP'/ &
+            &       5x,'EXIT'/)
+
     else if (pcomp(token,'exit',4)) then
         write(*,*) '    exit'
     else 
