@@ -19,7 +19,7 @@ program quadtree_main
     
     write(*,1000)
     1000 format (5x,'Please enter input file name') 
-    !read(*,*) filenameIn
+    ! read(*,'(A)') filenameIn
     filenameIn = 'Test.txt'
     write(*,1010) filenameIn
     1010 format (5x,'The input file mame is: ', A) 
