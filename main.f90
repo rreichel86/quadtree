@@ -27,6 +27,52 @@ program quadtree_main
     ! Read input file 
     call readInputFile(filenameIn)
 
+    ! Generate Quadtree mesh
+    if (polygons(1)%init) then
+        if (allocated(seeds)) then
+            num_seeds = size(seeds)
+            call QtreeSR(num_poly,polygons, num_seeds, seeds) 
+        else
+            call QtreeSR(num_poly,polygons, 0, point(0d0,0d0))
+        end if
+    end if
+
+    ! TODO: MENU 
+    write(*,1080) 
+    write(*,1081)
+    write(*,1082)
+    !read(*,1083) token
+    token = 'exit'
+    1080 format(5x,'Type COMMAND to continue:'/)
+    1081 format(7x,'MPLOT'/ &
+        &       7x,'PARV'/ &
+        &       7x,'MFEM'/ &
+        &       7x,'FEAP'/ &
+        &       7x,'RFINE'/ &
+        &       7x,'EXIT'/)
+    1082 format(3x,'> ',$)
+    1083 format(a5)
+    if (pcomp(token,'mplot',5)) then
+        write(*,*) '    mplot'
+    else if (pcomp(token,'parv',4)) then
+        write(*,*) '    parv'
+    else if (pcomp(token,'mfem',4)) then
+        write(*,*) '    nfem'
+    else if (pcomp(token,'feap',4)) then
+        write(*,*) '    feap'
+    else if (pcomp(token,'rfine',5)) then
+        write(*,*) '    rfine'
+    else if (pcomp(token,'exit',4)) then
+        write(*,*) '    exit'
+    else 
+        write(*,1100) 
+        1100 format(5x,'Undefined command')
+    end if 
+
+    ! TODO: subroutine writeFeapInputFile()
+
+end program quadtree_main
+
 subroutine readInputFile(filenameIn)
     use codat
     use iofile
@@ -248,46 +294,7 @@ subroutine readInputFile(filenameIn)
     
     close(unit=ior)
     
-    if (polygons(1)%init) then
-        if (allocated(seeds)) then
-            num_seeds = size(seeds)
-            call QtreeSR(num_poly,polygons, num_seeds, seeds) 
-        else 
-            call QtreeSR(num_poly,polygons, 0, point(0d0,0d0))
-        end if  
-    end if
 
-    ! TODO: MENU 
-    write(*,1080) 
-    write(*,1081)
-    write(*,1082)
-    !read(*,1083) token
-    token = 'exit'
-    1080 format(5x,'Type COMMAND to continue:'/)
-    1081 format(7x,'MPLOT'/ &
-        &       7x,'PARV'/ &
-        &       7x,'MFEM'/ &
-        &       7x,'FEAP'/ &
-        &       7x,'RFINE'/ &
-        &       7x,'EXIT'/)
-    1082 format(3x,'> ',$)
-    1083 format(a5)
-    if (pcomp(token,'mplot',5)) then
-        write(*,*) '    mplot'
-    else if (pcomp(token,'parv',4)) then
-        write(*,*) '    parv'
-    else if (pcomp(token,'mfem',4)) then
-        write(*,*) '    nfem'
-    else if (pcomp(token,'feap',4)) then
-        write(*,*) '    feap'
-    else if (pcomp(token,'rfine',5)) then
-        write(*,*) '    rfine'
-    else if (pcomp(token,'exit',4)) then
-        write(*,*) '    exit'
-    else 
-        write(*,1100) 
-        1100 format(5x,'Undefined command')
-    end if 
 
     ! TODO: subroutine writeFeapInputFile()
 !    open(unit=60, file='iTest.feap', status='unknown')
@@ -339,9 +346,5 @@ subroutine readInputFile(filenameIn)
 6000 format(/,'end')
 7000 format('inte')
 8000 format('stop')
-
-end program quadtree_main
-
-
 
 end subroutine
