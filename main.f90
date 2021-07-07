@@ -40,7 +40,6 @@ program quadtree_main
     write(*,1010) filenameIn
     1010 format (5x,'The input file mame is: ', A) 
     
-    ! TODO: subroutine readInputFile()
     ! Read input file 
     call readInputFile(filenameIn)
 
