@@ -156,7 +156,7 @@ subroutine readInputFile(filenameIn)
 1           call pintio(ior,yyy,8)
             read(yyy,1020,err=1) cc
             1020 format(a4)
-            write(*,*) ' '
+            ! write(*,*) ' '
 
             ! [poly]
             ! num_poly,num_mapa_sets
@@ -179,7 +179,7 @@ subroutine readInputFile(filenameIn)
             ! num_poly
             
             if (pcomp(cc,'poly',4)) then
-                write(*,*) '     <POLY>'
+                ! write(*,*) '     <POLY>'
                 call dinput(td,2)
                 num_poly = int(td(1))
                 num_mat_sets = int(td(2))
@@ -298,7 +298,7 @@ subroutine readInputFile(filenameIn)
                 end do
                 ! end loop over all polygons
 
-                write(*,*) '     </POLY>'
+                ! write(*,*) '     </POLY>'
 
             ! [seed] (Optional)
             ! num_seeds
@@ -307,21 +307,21 @@ subroutine readInputFile(filenameIn)
             ! num_seeds
             else if (pcomp(cc,'seed',4)) then
                 
-                write(*,*) '     <SEED>'
-                write(*,*) '     </SEED>'
+                ! write(*,*) '     <SEED>'
+                ! write(*,*) '     </SEED>'
                 
             ! [qtree]
             ! level_min, max_seeds_cells
             else if (pcomp(cc,'qtre',4)) then
-                write(*,*) '     <QTRE>'
+                ! write(*,*) '     <QTRE>'
                 call dinput(td,2)
                 level_min = int(td(1))
                 max_seed_q = 1
-                write(*,*) '     </QTRE>'
+                ! write(*,*) '     </QTRE>'
 
             ! [end]
             else if (pcomp(cc,'end',3)) then
-                write(*,*) '     </END>'
+                ! write(*,*) '     </END>'
                 
                 exit
                 
