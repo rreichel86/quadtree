@@ -293,8 +293,8 @@ subroutine readInputFile(filenameIn)
     end if
     
     close(unit=ior)
-    
 
+end subroutine
 
     ! TODO: subroutine writeFeapInputFile()
 !    open(unit=60, file='iTest.feap', status='unknown')
