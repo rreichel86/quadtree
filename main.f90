@@ -42,21 +42,54 @@ program quadtree_main
     
     ! TODO: subroutine readInputFile()
     ! Read input file 
+    call readInputFile(filenameIn)
+
+subroutine readInputFile(filenameIn)
+    use codat
+    use iofile
+    use iosave
+    use point_module
+    use polygon_module
+    use Qtree_input
+
+    implicit none
+
+    character(len=20), intent(in) ::  filenameIn
+
+    real(kind=8) :: td(10)
+    character cc*4, yyy*80, xxx*80
+    logical pcomp
+    
+    integer :: num_vertices, num_helperPoints, mat_nro
+    integer :: ipos,cumDiv, idx, aidx, eidx
+    integer, allocatable :: divisions(:)
+    logical, allocatable :: aHelperPoints(:)
+    type(point), allocatable :: vertices(:), helperPoints(:), tmpPoints(:)
+    type(point) :: centerPoint
+    real(kind=8) :: alpha, radius(2)
+    real(kind=8) :: dxi, xi, xcoord, ycoord
+    
+    integer i, j, k, istat
+    
+    ior = 59
     iow = 0
-    lfile = .false.
+    lfile = 0
     lread = .false.
     lsave = .false.
-    open(unit=59, file=filenameIn, status='old', iostat=istat)
-    ior = 59
+    coflg = .false.
+
+    td = 0d0
+
+    open(unit=ior, file=filenameIn, status='old', iostat=istat)
     if (istat == 0) then
-       
-        do 
-1           call pintio(59,yyy,8)
+
+        do
+1           call pintio(ior,yyy,8)
             read(yyy,1020,err=1) cc
             1020 format(a4)
             write(*,*) ' '
 
-            ! poly
+            ! [poly]
             ! num_poly,num_mapa_sets
             ! // Definition einer Ellipse
             ! nro,typ,mapa_nro,num_vertices,num_helpers,a,b,xc,yc,alpha
@@ -76,7 +109,6 @@ program quadtree_main
             ! ....
             ! num_poly
             
-            ! if (token .eq. 'poly ') then
             if (pcomp(cc,'poly',4)) then
                 write(*,*) '     <POLY>'
                 call dinput(td,2)
@@ -97,6 +129,7 @@ program quadtree_main
                 alpha = td(10)
 
                 if (num_mat_sets .lt. mat_nro) mat_nro = 0
+
                 ! Definition einer Ellipse
                 if (radius(1) .gt. 0d0) then 
 
@@ -123,7 +156,7 @@ program quadtree_main
                     aHelperPoints = .false.
                     cumDiv = 0
 
-                    ! Loop over vertices 
+                    ! Loop over vertices
                     do j = 1, num_vertices
                         call dinput(td,4)
                         divisions(j) = int(td(2))
@@ -132,7 +165,7 @@ program quadtree_main
                     end do
                     ! end loop over vertices
 
-                    ! Loop over helper points 
+                    ! Loop over helper points
                     do k = 1, num_helperPoints
                         call dinput(td, 3)
                         idx = int(td(1))
@@ -145,48 +178,44 @@ program quadtree_main
 
                     vertices = point(0d0,0d0)
 
-
                     ipos = 0
                     do j = 1, num_vertices
-                    ipos = ipos + 1
-                    vertices(ipos) = tmpPoints(j)
-                    if (divisions(j) .eq. 0) cycle
-                    dxi = 2.d0 / divisions(j) 
-                    xi = -1.d0 + dxi
+                        ipos = ipos + 1
+                        vertices(ipos) = tmpPoints(j)
+                        if (divisions(j) .eq. 0) cycle
+                        dxi = 2.d0 / divisions(j)
+                        xi = -1.d0 + dxi
 
-                    aidx = i
-                    eidx = i+1
-                    if (i .eq. num_vertices) eidx = 1
+                        aidx = i
+                        eidx = i+1
+                        if (i .eq. num_vertices) eidx = 1
 
-                    do k = 1, divisions(j) - 1
-                    ipos = ipos + 1
+                        do k = 1, divisions(j) - 1
+                            ipos = ipos + 1
 
-                    if (aHelperPoints(aidx)) then 
+                            if (aHelperPoints(aidx)) then
 
-                        xcoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%x + &
-                            &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%x + &
-                            &   1 - xi**2 * helperPoints(aidx)%x
+                                xcoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%x + &
+                                    &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%x + &
+                                    &   1 - xi**2 * helperPoints(aidx)%x
 
-                        ycoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%y + &
-                            &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%y + &
-                            &   1 - xi**2 * helperPoints(aidx)%y
+                                ycoord =  (1/2.d0)*xi*(xi-1) * tmpPoints(aidx)%y + &
+                                    &  (1/2.d0)*xi*(xi+1) * tmpPoints(eidx)%y + &
+                                    &   1 - xi**2 * helperPoints(aidx)%y
 
+                            else
 
-                    else
+                                xcoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%x + &
+                                    &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%x
 
-                        xcoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%x + &
-                            &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%x 
+                                ycoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%y + &
+                                    &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%y
 
-                        ycoord =  (1/2.d0)*(xi-1) * tmpPoints(aidx)%y + &
-                            &  (1/2.d0)*(xi+1) * tmpPoints(eidx)%y 
+                            end if
+                            vertices(ipos) = point(xcoord,ycoord)
+                            xi = xi + dxi
 
-
-                    end if 
-                    vertices(ipos) = point(xcoord,ycoord)
-                    xi = xi + dxi
-
-                    end do
-
+                        end do
                     end do
 
                     deallocate(tmpPoints, divisions, helperPoints, aHelperPoints, &
@@ -196,56 +225,45 @@ program quadtree_main
 
                     deallocate(vertices, stat=istat)
 
-
-                end if 
-
-                end do  
+                end if
+                end do
                 ! end loop over all polygons
 
                 write(*,*) '     </POLY>'
 
-
-
-            ! ! seed (Optional)
-            ! ! num_seeds
-            ! ! nro,division,x-coord,y-coord
-            ! ! ....
-            ! ! num_seeds
-            
-            ! else if (token .eq. 'seed ') then
+            ! [seed] (Optional)
+            ! num_seeds
+            ! nro,division,x-coord,y-coord
+            ! ....
+            ! num_seeds
             else if (pcomp(cc,'seed',4)) then
                 
                 write(*,*) '     <SEED>'
                 write(*,*) '     </SEED>'
                 
-            ! qtree
+            ! [qtree]
             ! level_min, max_seeds_cells
-            
-            ! else if (token .eq. 'qtree') then
             else if (pcomp(cc,'qtre',4)) then
                 write(*,*) '     <QTRE>'
                 call dinput(td,2)
                 level_min = int(td(1))
                 max_seed_q = 1
                 write(*,*) '     </QTRE>'
-            
-            ! else if (token .eq. 'end  ') then 
-            else if (pcomp(cc,'end',3)) then 
+
+            ! [end]
+            else if (pcomp(cc,'end',3)) then
                 write(*,*) '     </END>'
                 
                 exit
                 
-            end if 
-            
-        end do 
-    
-    else 
+            end if
+        end do
+    else
         write(*,1070) istat
         1070 format(5x,'Error opening file: iostat =', i6) 
-        
-    end if 
+    end if
     
-    close(unit=59)
+    close(unit=ior)
     
     if (polygons(1)%init) then
         if (allocated(seeds)) then
@@ -343,3 +361,4 @@ end program quadtree_main
 
 
 
+end subroutine
