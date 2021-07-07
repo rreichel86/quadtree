@@ -84,7 +84,11 @@ program quadtree_main
             &       5x,'EXIT'/)
 
     else if (pcomp(token,'exit',4)) then
-        write(*,*) '    exit'
+        
+        write(*,1089)
+        1089 format(5x,'exit'/)
+        exit
+
     else 
         write(*,1100) 
         1100 format(5x,'Undefined command')
