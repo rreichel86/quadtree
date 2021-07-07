@@ -296,6 +296,53 @@ subroutine readInputFile(filenameIn)
 
 end subroutine
 
+subroutine writeFeapInputFile()
+
+    use Qtree_data
+
+    implicit none
+    
+    integer :: iow
+    integer i, j, k
+    integer num_nodes_elem, region
+
+    iow = 60
+
+    open(unit=iow, file='iTest.feap', status='unknown')
+
+        !FEAP
+        write(iow,2000)
+        !COOR
+        write(iow,3000)
+        ! The indices (1:num_nodes) correspond to polygonal elements' vertices
+        ! and the indices (num_nodes + 1 : num_nodes + num_elem) correspond to 
+        ! the scaling center of the respective polygonal element.
+        do i=1, num_node + num_elem
+            write(iow, 3010) i, nodes(i)
+        end do 
+        !ELEM
+        write(iow,4000)
+        do i=1, num_elem
+            num_nodes_elem = elements(i,1)
+            region = elements(i,2)
+            
+            k = elm_typ_ma(num_nodes_elem, region)
+            write(iow, 4010, advance='no') i, k
+            do j= 1, num_nodes_elem
+                write(iow, 4020, advance='no') elements(i,2+j)
+            end do
+            write(iow, 4030) num_node + i
+        end do
+        !MATE
+        write(iow,5000)
+        !END 
+        write(iow,6000)
+        !INTE
+        write(iow,7000)
+        !STOP
+        write(iow,8000)
+
+    close(unit=iow)
 
 2000 format('feap')
 3000 format(/,'coor')
