@@ -41,11 +41,13 @@ program quadtree_main
     end if
 
     ! TODO: MENU 
+    do
+
     write(*,1080) 
     write(*,1082)
-    !read(*,1083) token
-    token = 'exit'
-    1080 format(5x,'Type COMMAND to continue:'/)
+    read(*,1083) token
+    1080 format(5x,'Type a valid COMMAND to continue:'/ &
+        &       5x,'For help type "HELP"'/)
     1082 format(3x,'> ',$)
     1083 format(a5)
     if (pcomp(token,'mplot',5)) then
@@ -107,6 +109,7 @@ program quadtree_main
         1100 format(5x,'Undefined command')
 
     end if
+    end do
 
 end program quadtree_main
 
