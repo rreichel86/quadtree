@@ -1,9 +1,5 @@
 program quadtree_main
 
-
-    use codat
-    use iofile
-    use iosave
     use point_module
     use polygon_module
     use Qtree_module
@@ -13,16 +9,6 @@ program quadtree_main
     implicit none
     
     integer i, j, k, istat, zhl
-    real(kind=8) :: td(10)
-    
-    integer :: num_vertices, num_helperPoints, mat_nro
-    integer :: ipos,cumDiv, idx, aidx, eidx
-    integer, allocatable :: divisions(:)
-    logical, allocatable :: aHelperPoints(:)
-    type(point), allocatable :: vertices(:), helperPoints(:), tmpPoints(:)
-    type(point) :: centerPoint
-    real(kind=8) :: alpha, radius(2)
-    real(kind=8) :: dxi, xi, xcoord, ycoord
     
     character(len=20) filenameIn
     character(len=5) token
@@ -30,8 +16,6 @@ program quadtree_main
     logical pcomp
     integer num_nodes_elem, region
     
-    td = 0d0
-    coflg = .false.
     
     write(*,1000)
     1000 format (5x,'Please enter input file name') 
