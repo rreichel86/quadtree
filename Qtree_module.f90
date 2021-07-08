@@ -1363,7 +1363,6 @@ contains
                                 zhl = zhl + 1
                                 Qtr%intrsc_points(zhl)%pos = pt1
                                 Qtr%intrsc_points(zhl)%wpoly = nr1
-                                write(56,'(2f32.16)') pt1%x, pt1%y   
                             end if   
                         
                         ! Case 2: in-out* || out*-in
@@ -1385,7 +1384,6 @@ contains
                                 zhl = zhl + 1
                                 Qtr%intrsc_points(zhl)%pos = pt1
                                 Qtr%intrsc_points(zhl)%wpoly = nr1
-                                write(56,'(2f32.16)') pt1%x, pt1%y   
                             end if 
                         
                         !Case 3: out-out* || out*-out
@@ -1412,14 +1410,12 @@ contains
                                 zhl = zhl + 1
                                 Qtr%intrsc_points(zhl)%pos = pt1
                                 Qtr%intrsc_points(zhl)%wpoly = nr1
-                                write(56,'(2f32.16)') pt1%x, pt1%y   
                             end if
                             
                             if (intrsc2) then  
                                 zhl = zhl + 1
                                 Qtr%intrsc_points(zhl)%pos = pt2
                                 Qtr%intrsc_points(zhl)%wpoly = nr2
-                                write(56,'(2f32.16)') pt2%x, pt2%y   
                             end if
                             
                         !Case 4: out**-out* || out*-out**    
@@ -1443,14 +1439,12 @@ contains
                                 zhl = zhl + 1
                                 Qtr%intrsc_points(zhl)%pos = pt1
                                 Qtr%intrsc_points(zhl)%wpoly = nr1
-                                write(56,'(2f32.16)') pt1%x, pt1%y   
                             end if
                             
                             if ( intrsc2) then
                                 zhl = zhl + 1
                                 Qtr%intrsc_points(zhl)%pos = pt2
                                 Qtr%intrsc_points(zhl)%wpoly = nr2
-                                write(56,'(2f32.16)') pt2%x, pt2%y   
                             end if
                             
                         ! Case 5: on*-out** || out**-on*
@@ -1472,7 +1466,6 @@ contains
                                 zhl = zhl + 1
                                 Qtr%intrsc_points(zhl)%pos = pt1
                                 Qtr%intrsc_points(zhl)%wpoly = nr1
-                                write(56,'(2f32.16)') pt1%x, pt1%y   
                             end if 
                          
                         !! Case 6: in - on* || on* - in
@@ -2090,18 +2083,6 @@ contains
             ymax = maxval(Qtr%Boundary(1:4)%y)
             xmid = sum(Qtr%Boundary(1:4)%x)/4.d0
             ymid = sum(Qtr%Boundary(1:4)%y)/4.d0
-
-            if (Qtr%level.eq.0) num_node = num_node + 9
-            if (Qtr%level.gt.0) num_node = num_node + 5
-            if (Qtr%level.eq.0) write(56,'(2f32.16)') xmin, ymin
-            if (Qtr%level.eq.0) write(56,'(2f32.16)') xmax, ymin
-            if (Qtr%level.eq.0) write(56,'(2f32.16)') xmax, ymax
-            if (Qtr%level.eq.0) write(56,'(2f32.16)') xmin, ymax
-            write(56,'(2f32.16)') xmid, ymid
-            write(56,'(2f32.16)') xmid, ymin
-            write(56,'(2f32.16)') xmax, ymid
-            write(56,'(2f32.16)') xmid, ymax
-            write(56,'(2f32.16)') xmin, ymid
 
             level = Qtr%level + 1
 

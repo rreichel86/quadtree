@@ -55,11 +55,6 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     
     call QtrInit(root,polygons(1)%num_vertices,polygons(1)%vertices)
     
-    ! Subdivide, Balance, Compute intersections, 
-    ! Store discrete values of the boundary domain,
-    ! quads' and polygons' vertices (in a text file)
-    open(unit=56, file='coor.dat', status='unknown')
-    
         ! Subdivide
         call QtrSubdivide(root,level_min,nt,total_pts,max_seed_Q)
 
@@ -72,34 +67,11 @@ subroutine QtreeSR(np, polygons, ns, seeds)
 
         ! Compute intersections
         call QIntrsPts(root,root, np, polygons)
-        
-        do i = 1, np
-            zhl1 = polygons(i)%num_vertices
-            do j = 1, zhl1
-                write(56,'(2f32.16)') polygons(i)%vertices(j)%x, polygons(i)%vertices(j)%y
-            end do
-        end do
-        
-    close(56)
-    
     num_node = num_node + num_intrsc_pts + nv
-    
     Deallocate(total_pts, Stat=istat)
     Allocate (Temp_nodes(num_node),nodes_mask(num_node), Stat=istat)
     nodes_mask = .false.
-     
-    
-    ! Read all node coord form a file and store it in "Temp_nodes"
-    open(unit=56, file='coor.dat', status='old', action='Read', &
-         iostat=istat)
-       
-        do i=1, num_node     
-            read(56, '(2f32.16)', iostat=istat)   xinp, yinp  
-            Temp_nodes(i) = point(xinp,yinp)
         end do
-        
-    close(56)
-    
     !status - The Qtree is generated (balanced)
     !status - The FE mesh generation begins
     
