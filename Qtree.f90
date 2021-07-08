@@ -16,6 +16,7 @@ subroutine QtreeSR(np, polygons, ns, seeds)
      integer, intent(in) :: ns
     type(point), intent(in) :: seeds(ns)
     type (Qtree), pointer :: root => null()
+    type (QtreeList), pointer :: QtrList => null()
     integer :: nv, nt
     type (seed_point), allocatable :: total_pts(:)
 
@@ -54,26 +55,30 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     
     call QtrInit(root,polygons(1)%num_vertices,polygons(1)%vertices)
     
-    ! Subdivide, 
-    ! Balance, 
-    ! Compute intersections, 
-    ! Store discrete values of the boundary domain & all Qtr%boundary values & polygons(:)vertices (in a text file)
+    ! Subdivide, Balance, Compute intersections, 
+    ! Store discrete values of the boundary domain,
+    ! quads' and polygons' vertices (in a text file)
     open(unit=56, file='coor.dat', status='unknown')
     
+        ! Subdivide
         call QtrSubdivide(root,level_min,nt,total_pts,max_seed_Q)
-            
-        do  i = 1, 10
-            call QtrBalance(root,root,level_min) 
-        end do
+
         
-           call QIntrsPts(root,root, np, polygons)
+        allocate(QtrList)
+        call Qtr2List(root,QtrList)
         
-        do i = 1, np   
+        ! Balance
+        call QtrBalance(QtrList)
+
+        ! Compute intersections
+        call QIntrsPts(root,root, np, polygons)
+        
+        do i = 1, np
             zhl1 = polygons(i)%num_vertices
             do j = 1, zhl1
                 write(56,'(2f32.16)') polygons(i)%vertices(j)%x, polygons(i)%vertices(j)%y
-            end do   
-        end do 
+            end do
+        end do
         
     close(56)
     
