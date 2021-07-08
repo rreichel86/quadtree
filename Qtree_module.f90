@@ -92,7 +92,7 @@ type Qtree
     integer :: ref(36)
     integer :: signo(4) = 1
     integer :: wpoly(4) = 1
-    logical :: status(4) = .true.   ! wird abgeschaft RR
+    ! logical :: status(4) = .true.   ! wird abgeschaft RR
     integer :: num_mat_sets = 0
     integer :: mat_nros(3)  = [0,0,0]
     type (Qtree), pointer :: NW => null()
@@ -2153,7 +2153,7 @@ contains
         type(seed_point), intent(in), optional :: seeds(*)
         integer, intent(in), optional :: max_seed_Q
 
-        real*8 :: xmin, xmax, ymin, ymax, xmid, ymid, x0, y0
+        real*8 :: xmin, xmax, ymin, ymax, xmid, ymid
         real*8 :: boundary(8)
         integer :: i, istat, level, azhl, numseeds
         logical :: containsPoint
@@ -2184,9 +2184,6 @@ contains
                 Qtr%NW%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
 
-            x0 = sum(Qtr%NW%Boundary(1:4)%x)/4.d0
-            y0 = sum(Qtr%NW%Boundary(1:4)%y)/4.d0
-
             ! SW Child
             Qtr%SW%level = level
             Qtr%SW%ref = Qtr%ref
@@ -2198,9 +2195,6 @@ contains
             do i = 1,4
                 Qtr%SW%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
-
-            x0 = sum(Qtr%SW%Boundary(1:4)%x)/4.d0
-            y0 = sum(Qtr%SW%Boundary(1:4)%y)/4.d0
 
             ! NE Child
             Qtr%NE%level = level
@@ -2214,9 +2208,6 @@ contains
                 Qtr%NE%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
 
-            x0 = sum(Qtr%NE%Boundary(1:4)%x)/4.d0
-            y0 = sum(Qtr%NE%Boundary(1:4)%y)/4.d0
-
             ! SE Child
             Qtr%SE%level = level
             Qtr%SE%ref = Qtr%ref
@@ -2228,9 +2219,6 @@ contains
             do i = 1,4
                 Qtr%SE%Boundary(i) = point(boundary(2*i-1), boundary(2*i))
             end do
-
-            x0 = sum(Qtr%SE%Boundary(1:4)%x)/4.d0
-            y0 = sum(Qtr%SE%Boundary(1:4)%y)/4.d0
 
             if (present(n) .and. present(seeds).and. present(max_seed_Q)) then
 
