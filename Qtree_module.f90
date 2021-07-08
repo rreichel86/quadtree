@@ -119,6 +119,7 @@ type QtreeList
     Procedure, Pass :: append_
     Procedure, Pass :: pop_
     Procedure, Pass :: printPoints_
+    Procedure, Pass :: countPoints_
     Procedure, PAss :: isEmpty_
 end type
 
@@ -223,6 +224,27 @@ contains
         end do
 
     end subroutine
+
+    subroutine countPoints_(this,numPoints)
+
+        implicit none
+        class(QtreeList) :: this
+        integer :: numPoints
+        type(QtreeNode) , pointer :: Qnode
+
+        numPoints = 0
+        Qnode => this%HEAD
+        do
+            if ( .not. associated(Qnode) ) exit
+            ! Quad's boundary nodes
+            numPoints = numPoints + 4
+            ! intrsc_points
+            numPoints = numPoints + Qnode%Q%num_intrsc_points
+            Qnode => Qnode%next
+        end do
+
+    end subroutine
+
 
     recursive subroutine Qtr2List(Qtr,QtrList)
         implicit none
