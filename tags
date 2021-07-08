@@ -601,7 +601,6 @@
 200	temp/feaps6.for	/^200     x(1,n) = x(1,n) - dx$/;"	l	subroutine:transx	file:
 200	temp/feaps6.for	/^200   if(lflg) then$/;"	l	subroutine:writer	file:
 2000	Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeSR	file:
-2000	Qtree_module.f90	/^            2000 format(i2,' ',36i1)$/;"	l	subroutine:print_	file:
 2000	helpers.for	/^ 2000 format (' ** ERROR in ',a6,' ** end of file encountered')$/;"	l	subroutine:endclr	file:
 2000	helpers.for	/^ 2000 format(' Incorrect statement - reinput ')$/;"	l	subroutine:pcheck	file:
 2000	helpers.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconst	file:
@@ -1782,6 +1781,7 @@ conval	module.for	/^      module conval$/;"	m
 coor	module.for	/^      real*8, allocatable, dimension(:) :: coor,/;"	v	module:mdata
 coordinates	Qtree_module.f90	/^    recursive subroutine coordinates(/;"	s	module:Qtree_module
 copyhis	temp/feaps1.for	/^      subroutine copyhis(/;"	s
+countPoints_	Qtree_module.f90	/^    subroutine countPoints_(/;"	s	module:Qtree_module
 counter	Qtree_module.f90	/^    integer :: num_node, num_elem, counter$/;"	v	module:Qtree_data
 cplus	module.for	/^      real*8  augf,cplus$/;"	v	module:augdat
 crit	module.for	/^      real*8, allocatable, dimension(:) :: crit$/;"	v	module:pcrit
@@ -2711,7 +2711,7 @@ ppload	temp/feaps3.for	/^      subroutine ppload(/;"	s
 pqrblk	temp/feaps6.for	/^      subroutine pqrblk(/;"	s
 prefl	temp/feaps4.for	/^      subroutine prefl(/;"	s
 prfrst	temp/feaps5.for	/^      subroutine prfrst(/;"	s
-print_	Qtree_module.f90	/^    subroutine print_(/;"	s	module:Qtree_module
+printPoints_	Qtree_module.f90	/^    subroutine printPoints_(/;"	s	module:Qtree_module
 printh	module.for	/^      module printh$/;"	m
 prisdat	module.for	/^      module prisdat$/;"	m
 prlod	module.for	/^      module prlod$/;"	m
@@ -2818,6 +2818,7 @@ rpdata	module.for	/^      module rpdata$/;"	m
 rstprf	temp/feaps5.for	/^      subroutine rstprf(/;"	s
 rsum	module.for	/^      module rsum$/;"	m
 s0	module.for	/^      real*8  scale,scaleg,s0(/;"	v	module:pdata1
+savePoints_	Qtree_module.f90	/^    subroutine savePoints_(/;"	s	module:Qtree_module
 sblk	temp/feaps5.for	/^      subroutine sblk(/;"	s
 sblkco	temp/feaps5.for	/^      subroutine sblkco(/;"	s
 sblkdx	temp/feaps5.for	/^      subroutine sblkdx(/;"	s
@@ -2885,7 +2886,6 @@ sortPolygonsSR	SortSearch_module.f90	/^subroutine sortPolygonsSR(/;"	s	module:So
 sp	module.for	/^      real*8  sp,/;"	v	module:stepc
 sphere	temp/feaps6.for	/^      subroutine sphere(/;"	s
 splitQ	Qtree_module.f90	/^    logical function splitQ(/;"	f	module:Qtree_module
-status	Qtree_module.f90	/^    logical :: status(/;"	k	type:Qtree
 stepc	module.for	/^      module stepc$/;"	m
 storeh	temp/feaps6.for	/^      subroutine storeh(/;"	s
 storpl	temp/feaps4.for	/^      subroutine storpl(/;"	s
