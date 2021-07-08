@@ -118,7 +118,7 @@ type QtreeList
     contains
     Procedure, Pass :: append_
     Procedure, Pass :: pop_
-    Procedure, Pass :: print_
+    Procedure, Pass :: printPoints_
     Procedure, PAss :: isEmpty_
 end type
 
@@ -182,20 +182,43 @@ contains
 
     end subroutine
 
-    subroutine print_(this)
+    subroutine printPoints_(this,iow)
+
+        use Qtree_data, only: num_node
+
         implicit none
         class(QtreeList) :: this
+        integer :: iow
         type(QtreeNode) , pointer :: Qnode
 
-        integer level, ref(36)
+        integer i, numSeeds, numIntrscPoints
+
+        num_node = 0
 
         Qnode => this%HEAD
         do
             if ( .not. associated(Qnode) ) exit
-            level = Qnode%Q%level
-            ref = Qnode%Q%ref
-            write(*,2000) level, ref(1:2*level)
-            2000 format(i2,' ',36i1)
+            ! print Quad's boundary nodes
+            do i = 1, 4
+                write(iow,'(2f32.16)') Qnode%Q%Boundary(i)
+            end do
+            num_node = num_node + 4
+            ! print intrsc_points
+            numIntrscPoints = Qnode%Q%num_intrsc_points
+            if (numIntrscPoints .ne. 0) then
+                do i = 1, numIntrscPoints
+                    write(iow,'(2f32.16)') Qnode%Q%intrsc_points(i)%pos
+                end do
+                num_node = num_node + numIntrscPoints
+            end if
+            ! print seeding_points
+            if ( allocated(Qnode%Q%seeds) ) then
+                numSeeds = size(Qnode%Q%seeds)
+                do i = 1,  numSeeds
+                    write(iow,'(2f32.16)') Qnode%Q%seeds(i)%pos
+                end do
+                num_node = num_node + numSeeds
+            end if
             Qnode => Qnode%next
         end do
 
