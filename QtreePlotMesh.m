@@ -1,7 +1,7 @@
 clear all
 close all
-elem = load('selm.txt','-ascii');
-coor = load('scor.txt','-ascii');
+elem = load('./mtlb/selm.txt','-ascii');
+coor = load('./mtlb/scor.txt','-ascii');
 n = size(elem,1);  % number of elements 
 m = size(coor,1);  % number of nodes
 
@@ -33,6 +33,7 @@ for i = 1:n
     patch('Faces',elemNodes(i,1:numNodes(i)),'Vertices',coor(:,2:3),...
           'FaceVertexCData',matNro(i),'FaceColor','flat');
 end
+pause
 
 
 % plot(coor(m-n+1:m,2),coor(m-n+1:m,3),'k*')
