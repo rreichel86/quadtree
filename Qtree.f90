@@ -1,4 +1,4 @@
-subroutine QtreeSR(np, polygons, ns, seeds)
+subroutine QtreeSR(numPolygons, polygons, numSeeds, seeds)
 
     use point_module
     use seed_point_module
@@ -11,52 +11,51 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     
     implicit none 
     
-   integer, intent(in) :: np
-    type(polygon), intent(inout) :: polygons(np)
-     integer, intent(in) :: ns
-    type(point), intent(in) :: seeds(ns)
+   integer, intent(in) :: numPolygons
+    type(polygon), intent(inout) :: polygons(numPolygons)
+     integer, intent(in) :: numSeeds
+    type(point), intent(in) :: seeds(numSeeds)
     type (Qtree), pointer :: root => null()
     type (QtreeList), pointer :: QtrList => null()
-    integer :: nv, nt
-    type (seed_point), allocatable :: total_pts(:)
+    integer :: numVertices, numTotalPoints
+    type (seed_point), allocatable :: totalPointsArr(:)
 
     real*8 :: pi, start, finish, xinp, yinp
-    integer :: istat, i,j, index, zhl1, zhl2
+    integer :: istat, i,j, n, idx, zhl
     
     pi = 4.*atan(1.)
     
     call cpu_time(start)
 
-    nv = 0 
-    do i = 1, np
-        nv = nv + polygons(i)%num_vertices
+    numVertices = 0 
+    do i = 1, numPolygons
+        numVertices = numVertices + polygons(i)%num_vertices
     end do 
     
-    nt = ns + nv
-    Allocate(total_pts(nt), stat=istat)
+    numTotalPoints = numSeeds + numVertices
+    Allocate(totalPointsArr(numTotalPoints), stat=istat)
     
-    zhl1 = 1
-    zhl2 = 0
-    do i = 1, np
-        
-        zhl2 = zhl2 + polygons(i)%num_vertices
-        total_pts(zhl1:zhl2)%pos = polygons(i)%vertices
-        total_pts(zhl1:zhl2)%wpoly = i
-        zhl1 = zhl2+1
-        
-    end do 
-    
-    if (ns .gt. 0) then
-        do i = 1, ns
-            total_pts(nv+i)%pos = seeds(i)
-            total_pts(nv+i)%wpoly = 0
+    zhl = 0
+    do i = 1, numPolygons
+        n = polygons(i)%num_vertices
+        do j = 1, n
+            zhl = zhl + 1
+            totalPointsArr(zhl)%pos = polygons(i)%vertices(j)
+            totalPointsArr(zhl)%wpoly = i
+        end do
+    end do
+
+    if (numSeeds .gt. 0) then
+        do i = 1, numSeeds
+            totalPointsArr(numVertices+i)%pos = seeds(i)
+            totalPointsArr(numVertices+i)%wpoly = 0
         end do 
     end if 
     
     call QtrInit(root,polygons(1)%num_vertices,polygons(1)%vertices)
     
-        ! Subdivide
-        call QtrSubdivide(root,level_min,nt,total_pts,max_seed_Q)
+    ! Subdivide
+    call QtrSubdivide(root,level_min,numTotalPoints,totalPointsArr,max_seed_Q)
 
         
         allocate(QtrList)
@@ -65,10 +64,10 @@ subroutine QtreeSR(np, polygons, ns, seeds)
         ! Balance
         call QtrBalance(QtrList)
 
-        ! Compute intersections
-        call QIntrsPts(root,root, np, polygons)
-    num_node = num_node + num_intrsc_pts + nv
-    Deallocate(total_pts, Stat=istat)
+    ! Compute intersections
+    call QIntrsPts(root,root, numPolygons, polygons)
+    num_node = num_node + numVertices
+    Deallocate(totalPointsArr, Stat=istat)
     Allocate (Temp_nodes(num_node),nodes_mask(num_node), Stat=istat)
     nodes_mask = .false.
         end do
@@ -78,14 +77,12 @@ subroutine QtreeSR(np, polygons, ns, seeds)
     ! Sort read node coords in "Temp_nodes"
     call MergeSortSR(num_node, Temp_nodes)
 
-    
-    ! filter node coords 
-    ! -> only needed nodes coords 
-    do i = 1, np
-        zhl1 = polygons(i)%num_vertices
-        do j = 1, zhl1
-            call binarySearch_2 (Temp_nodes, polygons(i)%vertices(j), index)
-            if(index .ne. 0)  nodes_mask(index) = .true.
+    ! filter  Temp_nodes
+    do i = 1, numPolygons
+        n = polygons(i)%num_vertices
+        do j = 1, n
+            call binarySearch_2 (Temp_nodes, polygons(i)%vertices(j), idx)
+            if(idx .ne. 0)  nodes_mask(idx) = .true.
         end do
     end do
     
