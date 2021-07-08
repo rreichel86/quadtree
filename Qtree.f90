@@ -52,29 +52,42 @@ subroutine QtreeSR(numPolygons, polygons, numSeeds, seeds)
         end do 
     end if 
     
+    ! Quadtree decomposition
+    ! Initilize
     call QtrInit(root,polygons(1)%num_vertices,polygons(1)%vertices)
     
     ! Subdivide
     call QtrSubdivide(root,level_min,numTotalPoints,totalPointsArr,max_seed_Q)
 
+    allocate(QtrList)
+    call Qtr2List(root,QtrList)
         
-        allocate(QtrList)
-        call Qtr2List(root,QtrList)
-        
-        ! Balance
-        call QtrBalance(QtrList)
+    ! Balance
+    call QtrBalance(QtrList)
 
     ! Compute intersections
     call QIntrsPts(root,root, numPolygons, polygons)
+    call Qtr2List(root,QtrList)
+
+    call QtrList%countPoints_(num_node)
     num_node = num_node + numVertices
     Deallocate(totalPointsArr, Stat=istat)
     Allocate (Temp_nodes(num_node),nodes_mask(num_node), Stat=istat)
     nodes_mask = .false.
+
+    zhl = 0
+    do i = 1, numPolygons
+        n = polygons(i)%num_vertices
+        do j = 1, n
+            zhl = zhl + 1
+            Temp_nodes(zhl) = polygons(i)%vertices(j)
         end do
-    !status - The Qtree is generated (balanced)
-    !status - The FE mesh generation begins
-    
-    ! Sort read node coords in "Temp_nodes"
+    end do
+
+    n = num_node - numVertices + 1
+    call QtrList%savePoints_(n,Temp_nodes(zhl+1:num_node))
+
+    ! sort Temp_nodes
     call MergeSortSR(num_node, Temp_nodes)
 
     ! filter  Temp_nodes
