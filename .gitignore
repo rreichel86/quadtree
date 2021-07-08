@@ -4,3 +4,5 @@ build/**
 *.dat
 *.out
 Quadtree
+feap/**
+mtlb/**
