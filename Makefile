@@ -8,12 +8,12 @@ fcomp = ifort
 #FOR DEBUGGING
 switch = -module  obj -w -f77rtl -standard-semantics -fpp -D_BATCH_ -D_NOLIC_ -D_LINUX_ -D__INTEL_ -D__SHMDEBUG_ -O0  -init=zero -init=arrays -intconstant  -assume:byterecl -heap-arrays -g -check all -check noarg_temp_created -fpe0 -traceback -debug extended 
 
-baseList = main.for
+baseList = src/main.for
 baseObj = $(baseList:.for=.o)
 
-modList = module.for helpers.for
-modList2 = Point_Module.f90  Vector_Module.f90 Geom_Module.f90 \
-SortSearch_module.f90 Qtree_module.f90  Qtree.f90
+modList = src/module.for src/helpers.for
+modList2 = src/Point_Module.f90  src/Vector_Module.f90 src/Geom_Module.f90 \
+src/SortSearch_module.f90 src/Qtree_module.f90  src/Qtree.f90
 modObj = $(modList:.for=.o)
 modObj2 = $(modList2:.f90=.o)
 
