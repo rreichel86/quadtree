@@ -120,6 +120,7 @@ type QtreeList
     Procedure, Pass :: pop_
     Procedure, Pass :: printPoints_
     Procedure, Pass :: countPoints_
+    Procedure, Pass :: savePoints_
     Procedure, PAss :: isEmpty_
 end type
 
@@ -220,6 +221,46 @@ contains
                 end do
                 num_node = num_node + numSeeds
             end if
+            Qnode => Qnode%next
+        end do
+
+    end subroutine
+
+    subroutine savePoints_(this,numPoints,pointsArr)
+
+        implicit none
+        class(QtreeList) :: this
+        integer :: numPoints
+        type(point) :: pointsArr(numPoints)
+        type(QtreeNode) , pointer :: Qnode
+
+        integer i, zhl, numSeeds, numIntrscPoints
+
+        zhl = 0
+        Qnode => this%HEAD
+        do
+            if ( .not. associated(Qnode) ) exit
+            ! print Quad's boundary nodes
+            do i = 1, 4
+                zhl = zhl + 1
+                pointsArr(zhl) = Qnode%Q%Boundary(i)
+            end do
+            ! print intrsc_points
+            numIntrscPoints = Qnode%Q%num_intrsc_points
+            if (numIntrscPoints .ne. 0) then
+                do i = 1, numIntrscPoints
+                    zhl = zhl + 1
+                    pointsArr(zhl) = Qnode%Q%intrsc_points(i)%pos
+                end do
+            end if
+            ! ! print seeding_points
+            ! if ( allocated(Qnode%Q%seeds) ) then
+            !     numSeeds = size(Qnode%Q%seeds)
+            !     do i = 1,  numSeeds
+            !         zhl = zhl + 1
+            !         pointsArr(zhl) = Qnode%Q%seeds(i)%pos
+            !     end do
+            ! end if
             Qnode => Qnode%next
         end do
 
