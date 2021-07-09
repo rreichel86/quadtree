@@ -127,41 +127,41 @@ end type
 
 contains
     
+    ! QtreeList method
+    ! Append a QtreeNode to the QtreeList
     subroutine append_(this, Q)
         implicit none
         class(QtreeList) :: this
         type(Qtree), pointer :: Q
         
         if ( .not. associated(this%HEAD) ) then
-
             Allocate(this%HEAD)
             this%TAIL => this%HEAD
             this%TAIL%next => null()
             this%TAIL%Q => Q
-
         else
-
             Allocate(this%TAIL%next)
             this%TAIL => this%TAIL%next
             this%TAIL%next => null()
             this%TAIL%Q => Q
 
         end if
-
     end subroutine
     
+    ! QtreeList method
+    ! Check if a QtreeList is empty
     logical function isEmpty_(this)
         implicit none
         class(QtreeList) :: this
 
         isEmpty_ = .false.
-
         if (  .not. associated(this%HEAD) .and. .not. associated(this%TAIL) ) then
             isEmpty_ = .true.
         end if
-
     end function
     
+    ! QtreeList method
+    ! delete/return first QtreeNode from QtreeList
     subroutine pop_(this, Q)
         implicit none
         class(QtreeList) :: this
@@ -172,22 +172,18 @@ contains
             Q => null()
             return
         end if
-
         allocate(Qnode)
         Qnode => this%HEAD
         this%HEAD => This%HEAD%next
-        
         if ( .not. associated(this%HEAD) ) this%TAIL => null()
-            
         Q => Qnode%Q
         deallocate(Qnode)
-
     end subroutine
 
+    ! QtreeList method
+    ! write out the points stored in each QtreeNode
     subroutine printPoints_(this,iow)
-
         use Qtree_data, only: num_node
-
         implicit none
         class(QtreeList) :: this
         integer :: iow
@@ -196,7 +192,6 @@ contains
         integer i, numSeeds, numIntrscPoints
 
         num_node = 0
-
         Qnode => this%HEAD
         do
             if ( .not. associated(Qnode) ) exit
@@ -223,11 +218,11 @@ contains
             end if
             Qnode => Qnode%next
         end do
-
     end subroutine
 
+    ! QtreeList method
+    ! Store in an array the points stored in each QtreeNode
     subroutine savePoints_(this,numPoints,pointsArr)
-
         implicit none
         class(QtreeList) :: this
         integer :: numPoints
@@ -253,21 +248,13 @@ contains
                     pointsArr(zhl) = Qnode%Q%intrsc_points(i)%pos
                 end do
             end if
-            ! ! print seeding_points
-            ! if ( allocated(Qnode%Q%seeds) ) then
-            !     numSeeds = size(Qnode%Q%seeds)
-            !     do i = 1,  numSeeds
-            !         zhl = zhl + 1
-            !         pointsArr(zhl) = Qnode%Q%seeds(i)%pos
-            !     end do
-            ! end if
             Qnode => Qnode%next
         end do
-
     end subroutine
 
+    ! QtreeList method
+    ! count total number of points stored in each QtreeNode
     subroutine countPoints_(this,numPoints)
-
         implicit none
         class(QtreeList) :: this
         integer :: numPoints
