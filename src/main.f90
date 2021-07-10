@@ -364,6 +364,54 @@ subroutine read_seeds()
     
 end subroutine
 
+subroutine writeInputFileForMFEM()
+
+    use Qtree_data
+
+    implicit none
+    
+    integer :: iow
+    integer i,j,k
+    integer numsec, num_nodes_elem, region
+
+    ! coor.txt
+    ! [ number, x-coor, y-coor ]
+    iow = 60
+    open(unit=iow, file='./mfem/coor.txt', status='unknown')
+        do i=1, num_node + num_elem
+            write(iow,2000) i, nodes(i)
+        end do
+    close(unit=iow)
+    ! sections.txt
+    ! [ isec, region, node_1,...,node_nsec ]
+    iow = 60
+    open(unit=iow, file='./mfem/sections.txt', status='unknown')
+        numsec  = 0
+        do i = 1, num_elem
+            num_nodes_elem = elements(i,1)
+            region = elements(i,2)
+
+            do j = 1, num_nodes_elem
+                numsec = numsec + 1
+                write(iow, 2010, advance='no') numsec, region
+                if (j .ne. num_nodes_elem) write(iow,2020) elements(i,2+j), elements(i,3+j), num_node + i
+                if (j .eq. num_nodes_elem) write(iow,2020) elements(i,2+j), elements(i,3), num_node + i
+            end do
+        end do
+    close(unit=iow)
+    ! ord.txt
+    ! [ isec, pgrad, qgrad ]
+    iow = 60
+    open(unit=iow, file='./mfem/ord.txt', status='unknown')
+        do i=1, numsec
+            write(iow,2020) i,1,1
+        end do
+    close(unit=iow)
+2000 format(i6,2f32.16)
+2010 format(2i6)
+2020 format(3i6)
+
+end subroutine
 
 subroutine writeFeapInputFile()
 
