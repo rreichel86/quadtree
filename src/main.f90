@@ -329,6 +329,7 @@ subroutine readInputFile(filenameIn)
     else
         write(*,1070) istat
         1070 format(5x,'Error opening file: iostat =', i6) 
+        stop
     end if
     
     close(unit=ior)
