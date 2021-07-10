@@ -335,6 +335,35 @@ subroutine readInputFile(filenameIn)
     close(unit=ior)
 
 end subroutine
+ 
+subroutine read_seeds()
+
+    use point_module
+    use Qtree_input
+
+    implicit none
+
+    integer :: ior
+    real*8 :: x, y
+    integer :: i, istat
+
+    ior = 60
+    if ( allocated(seeds) ) deallocate(seeds)
+    
+    open(unit=60, file='./mfem/seeds.txt', status='old', action='Read', &
+        iostat=istat)
+
+        read(60, '(i6)') num_seeds
+        allocate(seeds(num_seeds), stat=istat)
+        do i=1, num_seeds
+            read(60, '(2f32.16)') x,y
+            seeds(i) = point(x, y)
+        end do
+
+    close(unit=ior)
+    
+end subroutine
+
 
 subroutine writeFeapInputFile()
 
