@@ -4,7 +4,6 @@ program quadtree_main
     use polygon_module
     use Qtree_module
     use Qtree_input
-    ! use Qtree_data
     
     implicit none
     
