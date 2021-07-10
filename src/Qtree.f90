@@ -253,27 +253,6 @@ logical function containsPoint(bx,pt)
         
         close(57)
     end subroutine 
- 
-    subroutine read_seeds(n, pts_arr)
-    use point_module 
-    implicit none 
-    
-    integer, intent(in) :: n
-    type (point) :: pts_arr(n)
-    real*8 :: xinp, yinp
-    integer :: i, istat
-    
-        open(unit=57, file='D:\seed.dat', status='old', action='Read', &
-            iostat=istat)
-       
-            do i=1, n     
-                read(57, '(2f32.16)', iostat=istat)   xinp, yinp  
-                pts_arr(i) = point(xinp,yinp)
-            end do
-        
-        close(57)
-        
-    end subroutine
     
     subroutine ellipse (a,b,pt_c,alpha,n,pts)
         use point_module
