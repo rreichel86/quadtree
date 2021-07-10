@@ -300,7 +300,11 @@ contains
 
         if (.not. associated(Qtr%NW)) then
             do i = 1, 4
-                write(iow,'(2f22.16)') Qtr%Boundary(i)
+                if (iow .gt. 0) then
+                    write(iow,2000) Qtr%Boundary(i)
+                else
+                    write(*,2000) Qtr%Boundary(i)
+                end if
             end do
         else
             call QtrPrintLeaves(iow, Qtr%NW)
@@ -308,6 +312,7 @@ contains
             call QtrPrintLeaves(iow, Qtr%NE)
             call QtrPrintLeaves(iow, Qtr%SE)
         end if
+2000 format(2f22.16)
 
     end subroutine
 
