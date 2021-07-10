@@ -74,6 +74,7 @@ program quadtree_main
 
         write(*,1086)
         1086 format(5x,'mfem'/)
+        call writeInputFileForMFEM()
 
     else if (pcomp(token,'feap',4)) then
 
