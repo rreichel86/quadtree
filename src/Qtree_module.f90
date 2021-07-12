@@ -52,7 +52,7 @@ module Qtree_input
             max_seed_Q = 0
             num_mat_sets = 0
             
-            deallocate(seeds, stat=istat)
+            if ( allocated(seeds) ) deallocate(seeds, stat=istat)
             
             do i = 1, np
                 call polygon_delete(polygons(i))
@@ -2158,7 +2158,7 @@ contains
     recursive subroutine QtrSubdivide(Qtr,level_min,n,seeds,max_seed_Q)
         use point_module
         use seed_point_module
-        use Qtree_data 
+        use Qtree_data
 
         implicit none
         Type (Qtree), pointer :: Qtr

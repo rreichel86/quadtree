@@ -601,12 +601,14 @@
 200	temp/feaps6.for	/^200     x(1,n) = x(1,n) - dx$/;"	l	subroutine:transx	file:
 200	temp/feaps6.for	/^200   if(lflg) then$/;"	l	subroutine:writer	file:
 2000	src/Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeSR	file:
+2000	src/Qtree_module.f90	/^2000 format(2f22.16)$/;"	l	subroutine:QtrPrintLeaves	file:
 2000	src/helpers.for	/^ 2000 format (' ** ERROR in ',a6,' ** end of file encountered')$/;"	l	subroutine:endclr	file:
 2000	src/helpers.for	/^ 2000 format(' Incorrect statement - reinput ')$/;"	l	subroutine:pcheck	file:
 2000	src/helpers.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconst	file:
 2000	src/helpers.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput	file:
 2000	src/helpers.for	/^2000  format(\/' *ERROR* attempting to input',i3,' value(s).',$/;"	l	subroutine:dcheck	file:
 2000	src/main.f90	/^2000 format('feap')$/;"	l	subroutine:writeFeapInputFile	file:
+2000	src/main.f90	/^2000 format(i6,2f32.16)$/;"	l	subroutine:writeInputFileForMFEM	file:
 2000	temp/feaps1.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput	file:
 2000	temp/feaps1.for	/^2000  format(' ** ERROR ** too many items requested, limit = 16')$/;"	l	subroutine:dinput2	file:
 2000	temp/feaps1.for	/^2000  format(' >Element',i4,' coordinates not input for nodes:'\/$/;"	l	subroutine:ckbrk8	file:
@@ -904,6 +906,7 @@
 201	temp/feaps5.for	/^201   continue$/;"	l	subroutine:sblk	file:
 201	temp/feaps5.for	/^201   continue$/;"	l	subroutine:sblkdx	file:
 201	temp/feaps6.for	/^201         do kk = 1,numel  ! find mate of node k$/;"	l	subroutine:tienod	file:
+2010	src/main.f90	/^2010 format(2i6)$/;"	l	subroutine:writeInputFileForMFEM	file:
 2010	temp/feaps2.for	/^2010  format(' Input: node#, inc., values'\/3x,'>',$)$/;"	l	subroutine:genvec	file:
 2010	temp/feaps2.for	/^2010  format(' Input: node#, inc., values'\/3x,'>',$)$/;"	l	subroutine:genvec1	file:
 2010	temp/feaps2.for	/^2010  format(' Input: node1, node2, inc.'\/3x,'>',$)$/;"	l	subroutine:genvec2	file:
@@ -948,6 +951,7 @@
 2019	temp/feaps4.for	/^2019  format(5x,'Total Memory in blank common in KB:')$/;"	l	subroutine:plshowm	file:
 202	temp/feaps4.for	/^202             call dinput(td,il-is+1)$/;"	l	subroutine:pmesh	file:
 202	temp/feaps6.for	/^202         if(jn3.eq.n3 .and.kn4.eq.n4) goto 203  ! nodes to tie$/;"	l	subroutine:tienod	file:
+2020	src/main.f90	/^2020 format(3i6)$/;"	l	subroutine:writeInputFileForMFEM	file:
 2020	temp/feaps2.for	/^2020  format(10x,'  --n1---n2--+--',8a8)$/;"	l	subroutine:esideb	file:
 2020	temp/feaps2.for	/^2020  format(20(5x,'nodes ',10(i8,1x)\/))$/;"	l	subroutine:genrsum	file:
 2020	temp/feaps4.for	/^2020  format(5x,'-------------------------------------------',\/$/;"	l	subroutine:pmesh	file:
@@ -1773,6 +1777,7 @@ connect_h_neighbor	src/Qtree_module.f90	/^    subroutine connect_h_neighbor(/;"	
 connect_h_seeds	src/Qtree_module.f90	/^    subroutine connect_h_seeds(/;"	s	module:Qtree_module
 connectivity	src/Qtree_module.f90	/^    recursive subroutine connectivity(/;"	s	module:Qtree_module
 containsPoint	src/Qtree.f90	/^logical function containsPoint(/;"	f
+containsPoint_	src/Qtree_module.f90	/^    logical function containsPoint_(/;"	f	module:Qtree_module
 contfl	src/module.for	/^      logical  contfl$/;"	v	module:slid3
 contv	src/module.for	/^      real*8  contv(/;"	v	module:contval
 contval	src/module.for	/^      module contval$/;"	m
@@ -2772,7 +2777,7 @@ rdata	src/module.for	/^      module rdata$/;"	m
 reacc	src/module.for	/^      real*8    reacc(/;"	v	module:plodfa
 react	src/module.for	/^      real*8    reacc(10,6),react$/;"	v	module:plodfa
 readInputFile	src/main.f90	/^subroutine readInputFile(/;"	s
-read_seeds	src/Qtree.f90	/^    subroutine read_seeds(/;"	s
+read_seeds	src/main.f90	/^subroutine read_seeds(/;"	s
 reader	temp/feaps5.for	/^      subroutine reader(/;"	s
 readerb	temp/feaps5.for	/^      subroutine readerb(/;"	s
 readf	temp/feaps5.for	/^      subroutine readf(/;"	s
@@ -2829,6 +2834,7 @@ scaleg	src/module.for	/^      real*8  scale,scaleg,/;"	v	module:pdata1
 scalev	temp/feaps5.for	/^      subroutine scalev(/;"	s
 sdata	src/module.for	/^      module sdata$/;"	m
 se55data	src/module.for	/^      module se55data$/;"	m
+searchPoint	src/Qtree_module.f90	/^    subroutine searchPoint(/;"	s	module:Qtree_module
 sectio	src/module.for	/^      module sectio$/;"	m
 seed_point	src/Point_Module.f90	/^type :: seed_point$/;"	t	module:seed_point_module
 seed_point_module	src/Point_Module.f90	/^module seed_point_module$/;"	m
@@ -2887,6 +2893,7 @@ sp	src/module.for	/^      real*8  sp,/;"	v	module:stepc
 sphere	temp/feaps6.for	/^      subroutine sphere(/;"	s
 splitQ	src/Qtree_module.f90	/^    logical function splitQ(/;"	f	module:Qtree_module
 stepc	src/module.for	/^      module stepc$/;"	m
+storeSeed	src/Qtree_module.f90	/^    subroutine storeSeed(/;"	s	module:Qtree_module
 storeh	temp/feaps6.for	/^      subroutine storeh(/;"	s
 storpl	temp/feaps4.for	/^      subroutine storpl(/;"	s
 storpl1	temp/feaps4.for	/^      subroutine storpl1(/;"	s
@@ -2894,6 +2901,7 @@ storps	temp/feaps4.for	/^      subroutine storps(/;"	s
 strea	src/module.for	/^      real*8, allocatable, dimension(:) :: strea /;"	v	module:strnam
 strnam	src/module.for	/^      module strnam$/;"	m
 strsus	src/module.for	/^      character*15 strsus(/;"	v	module:strnam
+subdivideQ	src/Qtree_module.f90	/^    subroutine subdivideQ /;"	s	module:Qtree_module
 subdt	src/module.for	/^      module subdt$/;"	m
 sumdt	src/module.for	/^      module sumdt$/;"	m
 summ	src/module.for	/^      real*8, allocatable, dimension(:) :: summ /;"	v	module:sumdt
@@ -3000,6 +3008,7 @@ wpoly	src/Point_Module.f90	/^    integer :: wpoly$/;"	k	type:intrsc_point
 wpoly	src/Point_Module.f90	/^    integer :: wpoly$/;"	k	type:seed_point
 wpoly	src/Qtree_module.f90	/^    integer :: wpoly(/;"	k	type:Qtree
 writeFeapInputFile	src/main.f90	/^subroutine writeFeapInputFile(/;"	s
+writeInputFileForMFEM	src/main.f90	/^subroutine writeInputFileForMFEM(/;"	s
 write_seeds	src/Qtree.f90	/^    subroutine write_seeds(/;"	s
 writef	temp/feaps5.for	/^      subroutine writef(/;"	s
 writer	temp/feaps6.for	/^      subroutine writer(/;"	s
