@@ -41,7 +41,6 @@ module Qtree_input
     type(point), allocatable :: seeds(:)
     integer :: level_min, max_seed_Q
     
-    
     contains
         subroutine QtrInputReset()
             implicit none
@@ -62,9 +61,6 @@ module Qtree_input
             deallocate(polygons, stat=istat)
             
         end subroutine
-    
-    
-    
     
 end module
 
@@ -117,12 +113,12 @@ type QtreeList
     type(QtreeNode), pointer :: HEAD => null()
     type(QtreeNode), pointer :: TAIL => null()
     contains
-    Procedure, Pass :: append_
-    Procedure, Pass :: pop_
-    Procedure, Pass :: printPoints_
-    Procedure, Pass :: countPoints_
-    Procedure, Pass :: savePoints_
-    Procedure, PAss :: isEmpty_
+        Procedure, Pass :: append_
+        Procedure, Pass :: pop_
+        Procedure, Pass :: printPoints_
+        Procedure, Pass :: countPoints_
+        Procedure, Pass :: savePoints_
+        Procedure, PAss :: isEmpty_
 end type
 
 
@@ -342,6 +338,11 @@ contains
 
     end function
 
+
+
+
+
+
      logical function isQ_in(Qtr)
         implicit none
         type(qtree), pointer :: Qtr
@@ -413,10 +414,6 @@ contains
         
         nullify(Qtr)
         Allocate(Qtr, Stat=istat)
-        !Allocate(Qtr%children(4), Stat=istat)
-        !do i=1,4
-        !    Qtr%children(i)%Q => Null()
-        !end do
         
         xmin = minval(Boundary(1:n)%x)
         xmax = maxval(Boundary(1:n)%x)
