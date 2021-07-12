@@ -100,7 +100,8 @@ type Qtree
     type (Qtree), pointer :: NE => null()
     type (Qtree), pointer :: SE => null()
     type (Qtree), pointer :: father => null()
-    
+    contains
+        Procedure, Pass :: containsPoint_
 end type
 
 type QtreePtr
@@ -316,6 +317,30 @@ contains
 
     end subroutine
 
+    logical function containsPoint_(this,pt)
+        use point_module
+
+        implicit none
+        Class(Qtree) :: this
+        type(point), intent(in) :: pt
+        
+        real*8 :: xmin, ymin, xmax, ymax
+        
+        xmin = this%Boundary(1)%x
+        ymin = this%Boundary(1)%y
+        xmax = this%Boundary(3)%x
+        ymax = this%Boundary(3)%y
+
+        containsPoint_ = .false.
+
+        if (pt%x < xmin) return
+        if (pt%x > xmax) return
+        if (pt%y < ymin) return
+        if (pt%y > ymax) return
+
+        containsPoint_ = .true.
+
+    end function
 
      logical function isQ_in(Qtr)
         implicit none
