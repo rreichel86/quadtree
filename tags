@@ -1617,8 +1617,10 @@ QtrInit	src/Qtree_module.f90	/^     subroutine QtrInit(/;"	s	module:Qtree_module
 QtrInputReset	src/Qtree_module.f90	/^        subroutine QtrInputReset(/;"	s	module:Qtree_input
 QtrPrintLeaves	src/Qtree_module.f90	/^    recursive subroutine QtrPrintLeaves(/;"	s	module:Qtree_module
 QtrRefNeighbourQ	src/Qtree_module.f90	/^    subroutine QtrRefNeighbourQ(/;"	s	module:Qtree_module
+QtrRefine	src/Qtree_module.f90	/^    subroutine QtrRefine(/;"	s	module:Qtree_module
 QtrSearchNeighbourQ	src/Qtree_module.f90	/^    subroutine QtrSearchNeighbourQ(/;"	s	module:Qtree_module
 QtrSubdivide	src/Qtree_module.f90	/^    recursive subroutine QtrSubdivide(/;"	s	module:Qtree_module
+QtrSubdivideNS	src/Qtree_module.f90	/^    recursive subroutine QtrSubdivideNS(/;"	s	module:Qtree_module
 Qtree	src/Qtree_module.f90	/^type Qtree$/;"	t	module:Qtree_module
 QtreeList	src/Qtree_module.f90	/^type QtreeList$/;"	t	module:Qtree_module
 QtreeNode	src/Qtree_module.f90	/^type QtreeNode$/;"	t	module:Qtree_module
@@ -1896,7 +1898,6 @@ eigmma	src/module.for	/^      real*8,allocatable,dimension(:) :: eigmma,/;"	v	mo
 eigv	src/module.for	/^      real*8, allocatable, dimension(:) :: eigd,eigv,/;"	v	module:subdt
 ekma	src/module.for	/^      real*8, allocatable, dimension(:) :: edis,ecor,etem,epve,ekma,/;"	v	module:mdata
 eldata	src/module.for	/^      module eldata$/;"	m
-elem	src/Qtree_module.f90	/^    integer, allocatable :: elem(/;"	k	type:Qtree
 elements	src/Qtree_module.f90	/^    integer, allocatable :: elements(/;"	v	module:Qtree_data
 ellipse	src/Qtree.f90	/^    subroutine ellipse /;"	s
 elm_typ_ma	src/Qtree_module.f90	/^    integer, allocatable :: elm_typ_ma(/;"	v	module:Qtree_data
@@ -2204,7 +2205,7 @@ irpt	src/module.for	/^      integer, allocatable, dimension(:) :: irpt$/;"	v	mod
 irtyp	src/module.for	/^      integer*4        irtyp,/;"	v	module:fe2tran
 is	src/module.for	/^      integer ise/;"	v	module:isecn
 isEmpty_	src/Qtree_module.f90	/^    logical function isEmpty_(/;"	f	module:Qtree_module
-isQ_in	src/Qtree_module.f90	/^     logical function isQ_in(/;"	f	module:Qtree_module
+isQ_in	src/Qtree_module.f90	/^    logical function isQ_in(/;"	f	module:Qtree_module
 isalloc	src/module.for	/^      logical, dimension(maxnum)        :: isalloc$/;"	v	module:allocdata
 isbfgs	src/module.for	/^      module isbfgs$/;"	m
 isbfgs1	src/module.for	/^      module isbfgs1$/;"	m
@@ -2893,7 +2894,6 @@ sp	src/module.for	/^      real*8  sp,/;"	v	module:stepc
 sphere	temp/feaps6.for	/^      subroutine sphere(/;"	s
 splitQ	src/Qtree_module.f90	/^    logical function splitQ(/;"	f	module:Qtree_module
 stepc	src/module.for	/^      module stepc$/;"	m
-storeSeed	src/Qtree_module.f90	/^    subroutine storeSeed(/;"	s	module:Qtree_module
 storeh	temp/feaps6.for	/^      subroutine storeh(/;"	s
 storpl	temp/feaps4.for	/^      subroutine storpl(/;"	s
 storpl1	temp/feaps4.for	/^      subroutine storpl1(/;"	s
