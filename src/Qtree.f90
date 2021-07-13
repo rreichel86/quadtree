@@ -15,7 +15,7 @@ subroutine QtreeSR(numPolygons, polygons, numSeeds, seeds)
     type(polygon), intent(inout) :: polygons(numPolygons)
      integer, intent(in) :: numSeeds
     type(point), intent(in) :: seeds(numSeeds)
-    type (Qtree), pointer :: root => null()
+    type (Qtree), pointer :: Quadtree => null()
     type (QtreeList), pointer :: QtrList => null()
     integer :: numVertices, numTotalPoints
     type (seed_point), allocatable :: totalPointsArr(:)
@@ -54,20 +54,20 @@ subroutine QtreeSR(numPolygons, polygons, numSeeds, seeds)
     
     ! Quadtree decomposition
     ! Initilize
-    call QtrInit(root,polygons(1)%num_vertices,polygons(1)%vertices)
+    call QtrInit(Quadtree,polygons(1)%num_vertices,polygons(1)%vertices)
     
     ! Subdivide
-    call QtrSubdivide(root,level_min,numTotalPoints,totalPointsArr,max_seed_Q)
+    call QtrSubdivide(Quadtree,level_min,numTotalPoints,totalPointsArr,max_seed_Q)
 
     allocate(QtrList)
-    call Qtr2List(root,QtrList)
+    call Qtr2List(Quadtree,QtrList)
         
     ! Balance
     call QtrBalance(QtrList)
 
     ! Compute intersections
-    call QIntrsPts(root,root, numPolygons, polygons)
-    call Qtr2List(root,QtrList)
+    call QIntrsPts(Quadtree,numPolygons, polygons)
+    call Qtr2List(Quadtree,QtrList)
 
     call QtrList%countPoints_(num_node)
     num_node = num_node + numVertices
@@ -99,7 +99,7 @@ subroutine QtreeSR(numPolygons, polygons, numSeeds, seeds)
         end do
     end do
     
-    call coordinates(root,root)
+    call coordinates(Quadtree)
     
     num_node = count(nodes_mask)
     Allocate (nodes(num_node+num_elem), elements(num_elem,16), elm_typ_ma(12,num_mat_sets), Stat=istat)
@@ -110,7 +110,7 @@ subroutine QtreeSR(numPolygons, polygons, numSeeds, seeds)
     ! end filter node coords
     
     open(unit=55, file='./mtlb/selm.txt', status='unknown')
-        call connectivity(root,root)
+        call connectivity(Quadtree)
     close(55)
     
     mate_zhl = 0
