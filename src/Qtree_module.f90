@@ -397,13 +397,12 @@ contains
 
         containsPoint_ = .false.
 
-        if (pt%x < xmin) return
-        if (pt%x > xmax) return
-        if (pt%y < ymin) return
-        if (pt%y > ymax) return
+        if (xmin .gt. pt%x) return
+        if (xmax .lt. pt%x) return
+        if (ymin .gt. pt%y) return
+        if (ymax .lt. pt%y) return
 
         containsPoint_ = .true.
-
     end function
 
 
