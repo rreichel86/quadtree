@@ -312,6 +312,90 @@ contains
 
     end subroutine
 
+    subroutine searchPoint(Qtr,pt,CQ)
+        use point_module
+
+        implicit none
+        Type(Qtree), pointer :: Qtr, CQ
+        Type(point), intent(in) :: pt
+
+        CQ => Qtr
+        do
+            if (CQ%level .eq. 18) return
+            if ( .not. associated(CQ%NW) ) exit
+            if ( CQ%NW%containsPoint_(pt) ) then
+                CQ => CQ%NW
+            else if ( CQ%SW%containsPoint_(pt) ) then
+                CQ => CQ%SW
+            else if ( CQ%NE%containsPoint_(pt) ) then
+                CQ => CQ%NE
+            else if ( CQ%SE%containsPoint_(pt) ) then
+                CQ => CQ%SE
+            end if
+        end do
+    end subroutine
+
+    subroutine QtrRefine(Qtr,seed)
+        use point_module
+
+        implicit none
+        Type(Qtree), pointer :: Qtr, Q
+        Type(seed_point), intent(in) :: seed
+
+        Q => Qtr
+        do
+            if (Q%level .eq. 18) return
+            if (Q%level .eq. 0) call subdivideQ (Q)
+            if ( .not. associated(Q%NW) ) then
+                call subdivideQ (Q)
+                exit
+            end if
+            if ( Q%NW%containsPoint_(seed%pos) ) then
+                Q => Q%NW
+            else if ( Q%SW%containsPoint_(seed%pos) ) then
+                Q => Q%SW
+            else if ( Q%NE%containsPoint_(seed%pos) ) then
+                Q => Q%NE
+            else if ( Q%SE%containsPoint_(seed%pos) ) then
+                Q => Q%SE
+            end if
+        end do
+    end subroutine
+
+    recursive subroutine QtrSubdivideNS(Qtr,level_min)
+        use point_module
+        use seed_point_module
+        use Qtree_data
+
+        implicit none
+        Type (Qtree), pointer :: Qtr
+        integer, intent(in) :: level_min
+
+        Type(point) :: v(9), childrenBoundary(4,4)
+        integer :: i, p, istat, level, azhl, numseeds
+        Type(QtreePtr), pointer :: children(:)
+
+        if (Qtr%level .ge. 18) return
+        if (Qtr%level .eq. 0) call subdivideQ (Qtr)
+        if (.not. associated(Qtr%NW)) then
+           call subdivideQ (Qtr)
+        end if
+        if (associated(Qtr%NW)) then
+
+            allocate(children(4), stat=istat)
+            children(1)%Q => Qtr%NW
+            children(2)%Q => Qtr%SW
+            children(3)%Q => Qtr%NE
+            children(4)%Q => Qtr%SE
+
+            do i = 1, 4
+                if( children(i)%Q%level.lt.level_min ) call QtrSubdivide (children(i)%Q,level_min)
+            end do
+
+        end if
+        if ( associated(children) ) deallocate (children, stat=istat)
+    end subroutine
+
     subroutine subdivideQ (Q)
         use point_module
 
