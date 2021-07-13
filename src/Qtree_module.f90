@@ -915,7 +915,7 @@ contains
     
     end subroutine
     
-    recursive subroutine connectivity(root,Qtr)
+    recursive subroutine connectivity(Qtr)
 
         use Qtree_data
         use Qtree_input 
@@ -926,7 +926,7 @@ contains
         
         implicit none
         
-        Type (Qtree), pointer :: root, Qtr
+        Type (Qtree), pointer :: Qtr
         logical :: Qchildren(4), cc, cc_2
         integer :: itr_nro
         
@@ -1471,10 +1471,10 @@ contains
             
         else if (count(Qchildren).gt.0) then
         
-            if (QChildren(1)) call connectivity(root,Qtr%NW)
-            if (QChildren(2)) call connectivity(root,Qtr%SW)
-            if (QChildren(3)) call connectivity(root,Qtr%NE)
-            if (QChildren(4)) call connectivity(root,Qtr%SE)
+            if (QChildren(1)) call connectivity(Qtr%NW)
+            if (QChildren(2)) call connectivity(Qtr%SW)
+            if (QChildren(3)) call connectivity(Qtr%NE)
+            if (QChildren(4)) call connectivity(Qtr%SE)
             
         end if 
    return 
@@ -1483,7 +1483,7 @@ contains
     end subroutine
     
     
-   recursive subroutine QIntrsPts(root,Qtr,num_poly,polygons)
+   recursive subroutine QIntrsPts(Qtr,num_poly,polygons)
         use Qtree_data
         !use  Qtree_input
         use SortSearch_module
@@ -1492,7 +1492,7 @@ contains
         
         implicit none
         
-        Type (Qtree), pointer :: root, Qtr
+        Type (Qtree), pointer :: Qtr
         integer, intent(in) :: num_poly
         Type (polygon), intent(in) :: polygons(num_poly)
         Type (segment) :: SQ
@@ -1765,21 +1765,21 @@ contains
                 end if
             
         else if (count(QChildren).gt.0) then  ! no children 
-            if (QChildren(1)) call QIntrsPts(root,Qtr%NW,num_poly,polygons)
-            if (QChildren(2)) call QIntrsPts(root,Qtr%SW,num_poly,polygons)
-            if (QChildren(3)) call QIntrsPts(root,Qtr%NE,num_poly,polygons)
-            if (QChildren(4)) call QIntrsPts(root,Qtr%SE,num_poly,polygons)
+            if (QChildren(1)) call QIntrsPts(Qtr%NW,num_poly,polygons)
+            if (QChildren(2)) call QIntrsPts(Qtr%SW,num_poly,polygons)
+            if (QChildren(3)) call QIntrsPts(Qtr%NE,num_poly,polygons)
+            if (QChildren(4)) call QIntrsPts(Qtr%SE,num_poly,polygons)
         end if 
     end subroutine 
      
-    recursive subroutine coordinates(root,Qtr)    ! später umbenennen
+    recursive subroutine coordinates(Qtr)    ! später umbenennen
         use Qtree_data
         use SortSearch_module
         use polygon_module
         
         implicit none
         
-        Type (Qtree), pointer :: root, Qtr
+        Type (Qtree), pointer :: Qtr
         logical :: Qchildren(4)
         integer :: i, index  !, ms, mwp, mip
         
@@ -1840,10 +1840,10 @@ contains
             end if
             
         else if (count(QChildren).gt.0) then
-            if (QChildren(1)) call coordinates(root,Qtr%NW)
-            if (QChildren(2)) call coordinates(root,Qtr%SW)
-            if (QChildren(3)) call coordinates(root,Qtr%NE)
-            if (QChildren(4)) call coordinates(root,Qtr%SE)
+            if (QChildren(1)) call coordinates(Qtr%NW)
+            if (QChildren(2)) call coordinates(Qtr%SW)
+            if (QChildren(3)) call coordinates(Qtr%NE)
+            if (QChildren(4)) call coordinates(Qtr%SE)
         end if 
     end subroutine
 
