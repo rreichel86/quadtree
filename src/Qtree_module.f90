@@ -120,7 +120,6 @@ type QtreeList
         Procedure, PAss :: isEmpty_
 end type
 
-
 contains
     
     ! QtreeList method
@@ -268,7 +267,6 @@ contains
         end do
 
     end subroutine
-
 
     recursive subroutine Qtr2List(Qtr,QtrList)
         implicit none
@@ -470,9 +468,9 @@ contains
         implicit none
         Class(Qtree) :: this
         type(point), intent(in) :: pt
-        
+
         real*8 :: xmin, ymin, xmax, ymax
-        
+
         xmin = this%Boundary(1)%x
         ymin = this%Boundary(1)%y
         xmax = this%Boundary(3)%x
@@ -488,43 +486,34 @@ contains
         containsPoint_ = .true.
     end function
 
-
-
-
-
-
-     logical function isQ_in(Qtr)
+    logical function isQ_in(Qtr)
         implicit none
         type(qtree), pointer :: Qtr
         logical :: in_cond(4), cq0
         integer :: ms, mwp, mip
-        
+
          cq0 = .false.
          ms = sum(Qtr%signo)
          mwp = sum(Qtr%wpoly)
          mip = Qtr%num_intrsc_points
-         
+
          if (ms .eq. 0) cq0 =  (Qtr%wpoly(1) .eq. Qtr%wpoly(2) ) &
                                & .and. ( Qtr%wpoly(2) .eq. Qtr%wpoly(3) ) &
                                & .and. ( Qtr%wpoly(3) .eq. Qtr%wpoly(4) )
-             
+
         in_cond(1) = (ms .gt. -1) &
                      .and. (.not.(ms .eq. 0 .and.  mwp .gt. 4  .and. cq0 .and. mip .eq. 0))
         in_cond(2) = (ms .eq. -1 .and. mip .ne. 0)
         in_cond(3) = (ms .eq. -2 .and. mip .ne. 0)
         in_cond(4) = (ms .eq. -4 .and. mwp .gt. 4 .and. mip .ne. 0)
-        
+
         if( count(in_cond) .eq.0 ) then
-        
            isQ_in = .false.
-        
-        else 
-            
-           isQ_in = .true.  
-        
-        end if 
-        
-            
+        else
+           isQ_in = .true.
+        end if
+
+
      end function
 
      recursive subroutine QsDelete(Qtr)
@@ -552,30 +541,30 @@ contains
         end if
     
     end subroutine
-    
+
      subroutine QtrInit(Qtr,n,Boundary)
         type(Qtree), pointer, intent(inout) :: Qtr 
         integer, intent(in) :: n
         type(point), intent(in) :: Boundary(n)
         real*8 :: xmin, xmax, ymin, ymax, mx
-        
+
         integer :: i, istat
-        
+
         nullify(Qtr)
         Allocate(Qtr, Stat=istat)
-        
+
         xmin = minval(Boundary(1:n)%x)
         xmax = maxval(Boundary(1:n)%x)
         ymin = minval(Boundary(1:n)%y)
         ymax = maxval(Boundary(1:n)%y)
-        
+
         mx = max(xmax-xmin,ymax-ymin)
-        
+
         Qtr%Boundary(1) = point(xmin,ymin)
         Qtr%Boundary(2) = point(xmax,ymin)
         Qtr%Boundary(3) = point(xmax,ymax)
         Qtr%Boundary(4) = point(xmin,ymax)
-        
+
     end subroutine 
     
     subroutine QtrDelete(Qtr)
@@ -1946,7 +1935,7 @@ contains
                     ! Check if current Quad has to be split
                     if ( splitQ(Q, dir, NQ) ) then 
                         ! split current Quad 
-                        call QtrSubdivide(Q,level+1)
+                        call subdivideQ (Q)
 
                         isSplit = .true.
                         call QtrList%append_(Q%NW)
