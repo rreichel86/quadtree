@@ -80,7 +80,6 @@ end interface
 type Qtree
 
     type(point) :: Boundary(4)
-    integer, allocatable :: elem(:)
     type(seed_point), allocatable :: seeds(:)
     type(intrsc_point) :: intrsc_points(4)
     integer :: num_intrsc_points = 0
@@ -455,7 +454,6 @@ contains
         
         if (count(QChildren).eq.0) then
                 
-               if(allocated(Qtr%elem)) deallocate(Qtr%elem, stat=istat)
                if(allocated(Qtr%seeds)) deallocate(Qtr%seeds, stat=istat)
                deallocate(Qtr, stat=istat)
                
@@ -1041,8 +1039,6 @@ contains
                 call polykernel(zhl,temp_coor(1:zhl),x0)
                 nodes(num_node + counter) = x0
                 
-                allocate (Qtr%elem(zhl), Stat = istat)
-                Qtr%elem = temp_elem(1:zhl)
                 nmat = Qtr%mat_nros(1)
                 
                 if (elm_typ_ma(zhl,nmat).eq.0)  then
@@ -1304,8 +1300,6 @@ contains
                 call polykernel(zhl,temp_coor(1:zhl),x0)
                 nodes(num_node + counter) = x0
                 
-                allocate (Qtr%elem(zhl), Stat = istat)
-                Qtr%elem = temp_elem(1:zhl)
                 nmat = Qtr%mat_nros(1)
                 
                 if (elm_typ_ma(zhl,nmat).eq.0)  then
@@ -1334,8 +1328,6 @@ contains
                 call polykernel(zhl_2,temp_coor_2(1:zhl_2),x0)
                 nodes(num_node + counter) = x0
                 
-                !allocate (Qtr%elem(zhl), Stat = istat)
-                !Qtr%elem = temp_elem(1:zhl)
                 nmat = Qtr%mat_nros(2)
                 
                 if (elm_typ_ma(zhl_2,nmat).eq.0)  then
@@ -1387,8 +1379,6 @@ contains
                 call polykernel(zhl,temp_coor(1:zhl),x0)
                 nodes(num_node + counter) = x0
                
-                allocate (Qtr%elem(zhl), Stat = istat)
-                Qtr%elem = temp_elem(1:zhl)
                 nmat = Qtr%mat_nros(1)
                 
                if (elm_typ_ma(zhl,nmat).eq.0)  then
