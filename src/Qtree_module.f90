@@ -313,6 +313,74 @@ contains
 
     end subroutine
 
+    subroutine subdivideQ (Q)
+        use point_module
+
+        implicit none
+        Type(Qtree), pointer :: Q
+
+        Type(point) :: v(9)
+        Type(point) :: childrenBoundary(4,4)
+        integer :: i, p, level, istat
+        Type(QtreePtr), pointer :: children(:)
+
+        if ( associated(Q%NW) ) return
+
+        do i = 1,4
+            v(i) = Q%Boundary(i)
+        end do
+
+        v(5)%x = ( v(1)%x + v(2)%x )/2d0
+        v(5)%y = ( v(1)%y + v(2)%y )/2d0
+        v(6)%x = ( v(2)%x + v(3)%x )/2d0
+        v(6)%y = ( v(2)%y + v(3)%y )/2d0
+        v(7)%x = ( v(3)%x + v(4)%x )/2d0
+        v(7)%y = ( v(3)%y + v(4)%y )/2d0
+        v(8)%x = ( v(4)%x + v(1)%x )/2d0
+        v(8)%y = ( v(4)%y + v(1)%y )/2d0
+        v(9)%x = ( v(1)%x + v(2)%x + v(3)%x + v(4)%x )/4d0
+        v(9)%y = ( v(1)%y + v(2)%y + v(3)%y + v(4)%y )/4d0
+
+        childrenBoundary(1,:) = [v(8),v(9),v(7),v(4)]
+        childrenBoundary(2,:) = [v(1),v(5),v(9),v(8)]
+        childrenBoundary(3,:) = [v(9),v(6),v(3),v(7)]
+        childrenBoundary(4,:) = [v(5),v(2),v(6),v(9)]
+
+        allocate (Q%NW, Q%SW, Q%NE, Q%SE, Stat=istat)
+        allocate(children(4), stat=istat)
+
+        do i = 1, 4
+            children(i)%Q => Null()
+        end do
+
+        children(1)%Q => Q%NW
+        children(2)%Q => Q%SW
+        children(3)%Q => Q%NE
+        children(4)%Q => Q%SE
+
+        level = Q%level + 1
+        do i = 1, 4
+            p = i - 1
+            children(i)%Q%level = level
+            children(i)%Q%ref = Q%ref
+            children(i)%Q%ref(2*level-1) = int(p/2) + 1
+            children(i)%Q%ref(2*level) = mod(p,2) + 1
+            children(i)%Q%father => Q
+            children(i)%Q%Boundary = childrenBoundary(i,:)
+        end do
+
+        if ( allocated (Q%seeds) ) then
+            do i = 1, 4
+                if ( children(i)%Q%containsPoint_(Q%seeds(1)%pos) ) then
+                    allocate(children(i)%Q%seeds(1))
+                    children(i)%Q%seeds(1) = Q%seeds(1)
+                end if
+            end do
+            deallocate (Q%seeds)
+        end if
+        if ( associated(children) ) deallocate (children, stat=istat)
+    end subroutine
+
     logical function containsPoint_(this,pt)
         use point_module
 
