@@ -1886,8 +1886,29 @@ contains
         end if 
     end subroutine
     
+    subroutine QtrReset(QtrList)
+        implicit none
+        type(QtreeList), pointer :: QtrList
+        type(Qtree), pointer :: Q
+
+
+        do
+            if ( QtrList%isEmpty_() ) exit
+            call QtrList%pop_(Q)
+            
+            Q%num_intrsc_points = 0
+            Q%signo = 1
+            Q%wpoly = 1
+            Q%num_mat_sets = 0
+            Q%mat_nros = [0,0,0]
+
+
+        end do
+    end subroutine
+
+   
     subroutine QtrBalance(QtrList)
-        implicit none 
+        implicit none
         type(QtreeList), pointer :: QtrList
         type(Qtree), pointer :: Q, AQ, NQ
         type(QtreePtr), pointer :: neighbours(:)
@@ -1910,9 +1931,9 @@ contains
             ! Loop over directions:
             ! 1 - West
             ! 2 - South
-            ! 3 - East 
-            ! 4 - North 
-            
+            ! 3 - East
+            ! 4 - North
+
             do dir = 1, 4
 
                 level = Q%level
@@ -1922,15 +1943,14 @@ contains
                 ! Possible Quad's Neighbour at current direction
                 call QtrRefNeighbourQ(level,refNQ(1:2*level),dir,0,existNQRef)
                 if (existNQRef) then
-                   
+
                     call nearestCommonAncestor(Q,level,refNQ(1:2*level),AQ)
                     call QtrSearchNeighbourQ(AQ,level,refNQ(1:2*level),NQ)
-                    
+
                     counter = counter + 1
                     neighbours(counter)%Q => NQ
-                    
-                    if (isSplit) continue
 
+                    if (isSplit) continue
                     ! Check if current Quad has to be split
                     if ( splitQ(Q, dir, NQ) ) then 
                         ! split current Quad 
@@ -1961,9 +1981,7 @@ contains
                     end if
                 end do
             end if
-
         end do
-
     end subroutine
 
     logical function splitQ(Q,dir,NQ)
