@@ -183,7 +183,7 @@
 100	temp/feaps6.for	/^100   if(ior.lt.0) write(*,3001)$/;"	l	subroutine:transx	file:
 100	temp/feaps6.for	/^100   if(lflg) then$/;"	l	subroutine:writer	file:
 100	temp/feaps6.for	/^100   k = 8$/;"	l	subroutine:shap2	file:
-1000	src/Qtree.f90	/^1000    format(i6','f32.16','f32.16)$/;"	l	subroutine:QtreeSR	file:
+1000	src/Qtree.f90	/^1000    format(i6','f32.16','f32.16)$/;"	l	subroutine:QtreeMeshSR	file:
 1000	src/Qtree_module.f90	/^1000    format(i6','i6','i6','i6,','i6','i6','i6','i6,','i6','i6','i6','i6,','i6','i6','i6','i6)$/;"	l	subroutine:connectivity	file:
 1000	src/helpers.for	/^ 1000 format(75a1)$/;"	l	subroutine:setval	file:
 1000	src/helpers.for	/^ 1000 format(a2,76a1)$/;"	l	subroutine:pconst	file:
@@ -513,7 +513,7 @@
 19	temp/feaps3.for	/^19    g19(1)  = 0.9924068438435844031890177d0$/;"	l	subroutine:pgauss	file:
 19	temp/feaps4.for	/^19    continue$/;"	l	subroutine:pmesh	file:
 191	temp/feaps3.for	/^191   continue$/;"	l	subroutine:pgauss	file:
-1999	src/Qtree.f90	/^1999    format(\/4x,'Q T R E E  M E S H')$/;"	l	subroutine:QtreeSR	file:
+1999	src/Qtree.f90	/^1999    format(\/4x,'Q T R E E  M E S H')$/;"	l	subroutine:QtreeMeshSR	file:
 2	temp/feaps2.for	/^2     continue$/;"	l	subroutine:f3d	file:
 2	temp/feaps2.for	/^2     one = 1.d0$/;"	l	subroutine:shape1D	file:
 2	temp/feaps2.for	/^2     pg(1) = -dsqrt(3.0d0)\/3.0d0$/;"	l	subroutine:gaus1D	file:
@@ -600,8 +600,8 @@
 200	temp/feaps6.for	/^200     r = x(1,n)$/;"	l	subroutine:sphere	file:
 200	temp/feaps6.for	/^200     x(1,n) = x(1,n) - dx$/;"	l	subroutine:transx	file:
 200	temp/feaps6.for	/^200   if(lflg) then$/;"	l	subroutine:writer	file:
-2000	src/Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeSR	file:
-2000	src/Qtree_module.f90	/^2000 format(2f22.16)$/;"	l	subroutine:QtrPrintLeaves	file:
+2000	src/Qtree.f90	/^2000    format(5x,'Total Time            =',f10.3,' seconds')   $/;"	l	subroutine:QtreeMeshSR	file:
+2000	src/Qtree_module.f90	/^2000 format(2f22.16,2i6)$/;"	l	subroutine:QtrPrintLeaves	file:
 2000	src/helpers.for	/^ 2000 format (' ** ERROR in ',a6,' ** end of file encountered')$/;"	l	subroutine:endclr	file:
 2000	src/helpers.for	/^ 2000 format(' Incorrect statement - reinput ')$/;"	l	subroutine:pcheck	file:
 2000	src/helpers.for	/^ 2000 format(5x,'Parameter ',a1,a1,' = ',e15.8)$/;"	l	subroutine:pconst	file:
@@ -1618,17 +1618,20 @@ QtrInputReset	src/Qtree_module.f90	/^        subroutine QtrInputReset(/;"	s	modu
 QtrPrintLeaves	src/Qtree_module.f90	/^    recursive subroutine QtrPrintLeaves(/;"	s	module:Qtree_module
 QtrRefNeighbourQ	src/Qtree_module.f90	/^    subroutine QtrRefNeighbourQ(/;"	s	module:Qtree_module
 QtrRefine	src/Qtree_module.f90	/^    subroutine QtrRefine(/;"	s	module:Qtree_module
+QtrReset	src/Qtree_module.f90	/^    subroutine QtrReset(/;"	s	module:Qtree_module
 QtrSearchNeighbourQ	src/Qtree_module.f90	/^    subroutine QtrSearchNeighbourQ(/;"	s	module:Qtree_module
 QtrSubdivide	src/Qtree_module.f90	/^    recursive subroutine QtrSubdivide(/;"	s	module:Qtree_module
 QtrSubdivideNS	src/Qtree_module.f90	/^    recursive subroutine QtrSubdivideNS(/;"	s	module:Qtree_module
 Qtree	src/Qtree_module.f90	/^type Qtree$/;"	t	module:Qtree_module
 QtreeList	src/Qtree_module.f90	/^type QtreeList$/;"	t	module:Qtree_module
+QtreeMeshRefineSR	src/Qtree.f90	/^subroutine QtreeMeshRefineSR(/;"	s
+QtreeMeshSR	src/Qtree.f90	/^subroutine QtreeMeshSR(/;"	s
 QtreeNode	src/Qtree_module.f90	/^type QtreeNode$/;"	t	module:Qtree_module
 QtreePtr	src/Qtree_module.f90	/^type QtreePtr$/;"	t	module:Qtree_module
-QtreeSR	src/Qtree.f90	/^subroutine QtreeSR(/;"	s
 Qtree_data	src/Qtree_module.f90	/^module Qtree_data$/;"	m
 Qtree_input	src/Qtree_module.f90	/^module Qtree_input$/;"	m
 Qtree_module	src/Qtree_module.f90	/^module  Qtree_module$/;"	m
+Quadtree	src/main.f90	/^    type (Qtree), pointer :: Quadtree$/;"	v	program:quadtree_main
 SE	src/Qtree_module.f90	/^    type (Qtree), pointer :: SE /;"	k	type:Qtree
 SW	src/Qtree_module.f90	/^    type (Qtree), pointer :: SW /;"	k	type:Qtree
 SortSearch_module	src/SortSearch_module.f90	/^module  SortSearch_module$/;"	m
