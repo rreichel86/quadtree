@@ -9,7 +9,7 @@ program quadtree_main
     
     integer i, j, k, istat, zhl
     
-    character(len=20) filenameIn
+    character(len=40) filenameIn
     character(len=5) token
     character cc*4, yyy*80, xxx*80
     logical pcomp
@@ -23,8 +23,8 @@ program quadtree_main
 
     write(*,1000)
     1000 format (5x,'Please enter input file name: ',$) 
-    ! read(*,'(A)') filenameIn
-    filenameIn = 'Test.txt'
+    read(*,'(A)') filenameIn
+    ! filenameIn = 'SquareCircularHole.txt'
     write(*,1010) filenameIn
     1010 format (5x,'The input file mame is: ', A) 
     
@@ -129,7 +129,7 @@ subroutine readInputFile(filenameIn)
 
     implicit none
 
-    character(len=20), intent(in) ::  filenameIn
+    character(len=40), intent(in) ::  filenameIn
 
     real(kind=8) :: td(10)
     character cc*4, yyy*80, xxx*80
