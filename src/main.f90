@@ -17,6 +17,8 @@ program quadtree_main
     
     integer :: cstat, estat
     character(len=100) :: cmsg
+    type (Qtree), pointer :: Quadtree
+
 
 
     write(*,1000)
@@ -31,11 +33,12 @@ program quadtree_main
 
     ! Generate Quadtree mesh
     if (polygons(1)%init) then
+        allocate(Quadtree)
         if (allocated(seeds)) then
             num_seeds = size(seeds)
-            call QtreeSR(num_poly,polygons, num_seeds, seeds) 
+            call QtreeMeshSR(Quadtree, num_poly,polygons, num_seeds, seeds) 
         else
-            call QtreeSR(num_poly,polygons, 0, point(0d0,0d0))
+            call QtreeMeshSR(Quadtree, num_poly,polygons, 0, point(0d0,0d0))
         end if
     end if
 

@@ -1,4 +1,4 @@
-subroutine QtreeSR(numPolygons, polygons, numSeeds, seeds)
+subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
 
     use point_module
     use seed_point_module
