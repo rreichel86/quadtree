@@ -338,7 +338,7 @@ contains
 
         implicit none
         Type(Qtree), pointer :: Qtr, Q
-        Type(seed_point), intent(in) :: seed
+        Type(point), intent(in) :: seed
 
         Q => Qtr
         do
@@ -348,13 +348,13 @@ contains
                 call subdivideQ (Q)
                 exit
             end if
-            if ( Q%NW%containsPoint_(seed%pos) ) then
+            if ( Q%NW%containsPoint_(seed) ) then
                 Q => Q%NW
-            else if ( Q%SW%containsPoint_(seed%pos) ) then
+            else if ( Q%SW%containsPoint_(seed) ) then
                 Q => Q%SW
-            else if ( Q%NE%containsPoint_(seed%pos) ) then
+            else if ( Q%NE%containsPoint_(seed) ) then
                 Q => Q%NE
-            else if ( Q%SE%containsPoint_(seed%pos) ) then
+            else if ( Q%SE%containsPoint_(seed) ) then
                 Q => Q%SE
             end if
         end do
