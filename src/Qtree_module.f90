@@ -550,8 +550,7 @@ contains
 
         integer :: i, istat
 
-        nullify(Qtr)
-        Allocate(Qtr, Stat=istat)
+        if ( .not. associated(Qtr) ) Allocate(Qtr, Stat=istat)
 
         xmin = minval(Boundary(1:n)%x)
         xmax = maxval(Boundary(1:n)%x)
