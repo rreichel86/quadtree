@@ -48,14 +48,14 @@ program quadtree_main
     write(*,1080) 
     write(*,1082)
     read(*,1083) token
-    1080 format(5x,'Type a valid COMMAND to continue:'/ &
+    1080 format(5x,'Type available COMMAND to continue:'/ &
         &       5x,'For help type "HELP"'/)
     1082 format(3x,'> ',$)
     1083 format(a5)
     if (pcomp(token,'mplot',5)) then
 
-        write(*,1084)
-        1084 format(5x,'mplot'/)
+        ! write(*,1084)
+        ! 1084 format(5x,'mplot'/)
         call execute_command_line("matlab -nodesktop -nosplash -r 'QtreePlotMesh; exit'", exitstat=estat, &
             & cmdstat=cstat, cmdmsg=cmsg)
 
@@ -70,25 +70,25 @@ program quadtree_main
 
     else if (pcomp(token,'parv',4)) then
 
-        write(*,1085)
-        1085 format(5x,'parv'/)
+        ! write(*,1085)
+        ! 1085 format(5x,'parv'/)
 
     else if (pcomp(token,'mfem',4)) then
 
-        write(*,1086)
-        1086 format(5x,'mfem'/)
+        ! write(*,1086)
+        ! 1086 format(5x,'mfem'/)
         call writeInputFileForMFEM()
 
     else if (pcomp(token,'feap',4)) then
 
-        write(*,1087)
-        1087 format(5x,'feap'/)
-        call writeFeapInputFile()
+        ! write(*,1087)
+        ! 1087 format(5x,'feap'/)
+        ! call writeFeapInputFile()
 
     else if (pcomp(token,'rfine',5)) then
 
-        write(*,1088)
-        1088 format(5x,'rfine'/)
+        ! write(*,1088)
+        ! 1088 format(5x,'rfine'/)
         call read_seeds()
         call QtreeMeshRefineSR(Quadtree, num_poly,polygons, num_seeds, seeds) 
         
@@ -96,18 +96,18 @@ program quadtree_main
     else if (pcomp(token,'help',4)) then
         
         write(*,1081)
-        1081 format(/5x,'MPLOT'/ &
-            &       5x,'PARV'/ &
-            &       5x,'MFEM'/ &
-            &       5x,'FEAP'/ &
-            &       5x,'RFINE'/ &
-            &       5x,'HELP'/ &
-            &       5x,'EXIT'/)
+        1081 format(/5x,'MPLOT',' - Plot Quadtree Mesh in MATLAB '/ &
+            ! &        5x,'PARV ',' - Save Quadtree Mesh Data for visualization with the program PARAVIEW' / &
+            &        5x,'MFEM ',' - Generate MFEM input files' / &
+            ! &        5x,'FEAP ',' - Genarate FEAP input file' / &
+            &        5x,'RFINE',' - Refine Quadtree Mesh' / &
+            &        5x,'HELP ',' - List available COMMANDS' / &
+            &        5x,'EXIT '/)
 
     else if (pcomp(token,'exit',4)) then
         
-        write(*,1089)
-        1089 format(5x,'exit'/)
+        ! write(*,1089)
+        ! 1089 format(5x,'exit'/)
         exit
 
     else 
