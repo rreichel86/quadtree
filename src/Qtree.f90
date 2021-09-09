@@ -11,11 +11,12 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
     
     implicit none 
     
-   integer, intent(in) :: numPolygons
+    type (Qtree), pointer, intent(inout) :: Q3
+    integer, intent(in) :: numPolygons
     type(polygon), intent(inout) :: polygons(numPolygons)
      integer, intent(in) :: numSeeds
     type(point), intent(in) :: seeds(numSeeds)
-    type (Qtree), pointer :: Quadtree => null()
+
     type (QtreeList), pointer :: QtrList => null()
     integer :: numVertices, numTotalPoints
     type (seed_point), allocatable :: totalPointsArr(:)
@@ -54,20 +55,20 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
     
     ! Quadtree decomposition
     ! Initilize
-    call QtrInit(Quadtree,polygons(1)%num_vertices,polygons(1)%vertices)
+    call QtrInit(Q3,polygons(1)%num_vertices,polygons(1)%vertices)
     
     ! Subdivide
-    call QtrSubdivide(Quadtree,level_min,numTotalPoints,totalPointsArr,max_seed_Q)
+    call QtrSubdivide(Q3,level_min,numTotalPoints,totalPointsArr,max_seed_Q)
 
     allocate(QtrList)
-    call Qtr2List(Quadtree,QtrList)
+    call Qtr2List(Q3,QtrList)
         
     ! Balance
     call QtrBalance(QtrList)
 
     ! Compute intersections
-    call QIntrsPts(Quadtree,numPolygons, polygons)
-    call Qtr2List(Quadtree,QtrList)
+    call QIntrsPts(Q3,numPolygons, polygons)
+    call Qtr2List(Q3,QtrList)
 
     call QtrList%countPoints_(num_node)
     num_node = num_node + numVertices
@@ -99,7 +100,7 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
         end do
     end do
     
-    call coordinates(Quadtree)
+    call coordinates(Q3)
     
     num_node = count(nodes_mask)
     Allocate (nodes(num_node+num_elem), elements(num_elem,16), elm_typ_ma(12,num_mat_sets), Stat=istat)
@@ -110,7 +111,7 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
     ! end filter node coords
     
     open(unit=55, file='./mtlb/selm.txt', status='unknown')
-        call connectivity(Quadtree)
+        call connectivity(Q3)
     close(55)
     
     mate_zhl = 0
