@@ -89,6 +89,9 @@ program quadtree_main
 
         write(*,1088)
         1088 format(5x,'rfine'/)
+        call read_seeds()
+        call QtreeMeshRefineSR(Quadtree, num_poly,polygons, num_seeds, seeds) 
+        
 
     else if (pcomp(token,'help',4)) then
         

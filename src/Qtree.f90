@@ -144,6 +144,121 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
     
 end subroutine    
 
+subroutine QtreeMeshRefineSR(Q3, numPolygons, polygons, numSeeds, seeds)
+
+    use point_module
+    use seed_point_module
+    use Qtree_module
+    use polygon_module
+    use segment_module
+    use SortSearch_module
+    use Qtree_data   
+    use Qtree_input, only: num_mat_sets
+    
+    implicit none 
+    
+    type (Qtree), pointer, intent(inout) :: Q3
+    integer, intent(in) :: numPolygons
+    type(polygon), intent(inout) :: polygons(numPolygons)
+     integer, intent(in) :: numSeeds
+    type(point), intent(in) :: seeds(numSeeds)
+
+    type (QtreeList), pointer :: QtrList => null()
+    integer :: numVertices, numTotalPoints
+    type (seed_point), allocatable :: totalPointsArr(:)
+
+    real*8 :: pi, start, finish, xinp, yinp
+    integer :: istat, i,j, n, idx, zhl
+    
+    pi = 4.*atan(1.)
+    
+    numVertices = 0 
+    do i = 1, numPolygons
+        numVertices = numVertices + polygons(i)%num_vertices
+    end do 
+
+    ! Quadtree refinement
+    call QtrDataReset()
+
+    allocate(QtrList)
+    call Qtr2List(Q3,QtrList)
+
+    call QtrReset(QtrList)
+    
+    ! Refine
+    do i = 1, numSeeds
+        call QtrRefine(Q3, seeds(i))
+    end do
+
+    call Qtr2List(Q3,QtrList)
+
+    ! Balance
+    call QtrBalance(QtrList)
+
+    ! Compute intersections
+    call QIntrsPts(Q3,numPolygons, polygons)
+    call Qtr2List(Q3,QtrList)
+
+    call QtrList%countPoints_(num_node)
+    num_node = num_node + numVertices
+    Allocate (Temp_nodes(num_node),nodes_mask(num_node), Stat=istat)
+    nodes_mask = .false.
+
+    zhl = 0
+    do i = 1, numPolygons
+        n = polygons(i)%num_vertices
+        do j = 1, n
+            zhl = zhl + 1
+            Temp_nodes(zhl) = polygons(i)%vertices(j)
+        end do
+    end do
+
+    n = num_node - numVertices + 1
+    call QtrList%savePoints_(n,Temp_nodes(zhl+1:num_node))
+
+    ! sort Temp_nodes
+    call MergeSortSR(num_node, Temp_nodes)
+
+    ! filter  Temp_nodes
+    do i = 1, numPolygons
+        n = polygons(i)%num_vertices
+        do j = 1, n
+            call binarySearch_2 (Temp_nodes, polygons(i)%vertices(j), idx)
+            if(idx .ne. 0)  nodes_mask(idx) = .true.
+        end do
+    end do
+    
+    call coordinates(Q3)
+    
+    num_node = count(nodes_mask)
+    Allocate (nodes(num_node+num_elem), elements(num_elem,16), elm_typ_ma(12,num_mat_sets), Stat=istat)
+    nodes(1:num_node) = pack(Temp_nodes,nodes_mask)
+    
+    call MergeSortSR(num_node, nodes(1:num_node))
+    deallocate( Temp_nodes, nodes_mask, Stat = istat)
+    ! end filter node coords
+    
+    open(unit=55, file='./mtlb/selm.txt', status='unknown')
+        call connectivity(Q3)
+    close(55)
+    
+    mate_zhl = 0
+    do i = 1, 12
+        do j = 1, num_mat_sets
+           if ( elm_typ_ma(i,j) .ne. 0 ) then
+                mate_zhl = mate_zhl + 1
+                elm_typ_ma(i,j) = mate_zhl
+           end if
+        end do
+    end do
+
+    open(unit=56, file='./mtlb/scor.txt', status='unknown')
+        do i=1, num_node + num_elem
+            write(56,'(i6,2f32.16)')  i, nodes(i)
+        end do
+    close(56)
+
+end subroutine
 
 subroutine HowManyPoints(bx,n,pts,azhl)
     use point_module
