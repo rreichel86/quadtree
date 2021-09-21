@@ -7,29 +7,6 @@ implicit none
 contains
 
 
-recursive function binarySearch (a, value) result (index)
-!use point_module
-implicit none
-type(point), intent(in) :: a(:)
-type(point), intent(in) :: value
-integer          :: index, mid, n
-
-n = size(a)
-mid = size(a)/2 + 1
-if (size(a) == 0) then
-index = 0
-else if (a(mid) > value) then
-index = binarySearch(a(:mid-1), value)
-else if (.not.(a(mid) > value)) then
-index = binarySearch(a(mid+1:), value)
-if (index .ne. 0) then
-index = mid + index
-end if
-else
-index = mid
-end if
-end function binarySearch
-
 subroutine binarySearch_2 (a, value, index)
 !use point_module
 type(point), intent(in) :: a(:)
