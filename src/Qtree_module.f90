@@ -11,22 +11,16 @@ end interface
 
 
 type Qtree
-
-    type(point) :: Boundary(4)
-    type(seed_point), allocatable :: seeds(:)
-    type(intrsc_point) :: intrsc_points(4)
-    integer :: num_intrsc_points = 0
     integer :: level = 0
     integer :: ref(36)
-    integer :: signo(4) = 1
-    integer :: wpoly(4) = 1
-    ! logical :: status(4) = .true.   ! wird abgeschaft RR
-    integer :: num_mat_sets = 0
-    integer :: mat_nros(3)  = [0,0,0]
-    type (Qtree), pointer :: NW => null()
-    type (Qtree), pointer :: SW => null()
-    type (Qtree), pointer :: NE => null()
-    type (Qtree), pointer :: SE => null()
+    real(8), allocatable :: vertices(:,:)
+    integer, allocatable :: idxVertices(:)
+    integer, allocatable :: signos(:)
+    real(8), allocatable :: seeds(:,:)
+    type (Qtree), pointer :: NW => null() !1
+    type (Qtree), pointer :: SW => null() !2
+    type (Qtree), pointer :: NE => null() !3
+    type (Qtree), pointer :: SE => null() !4
     type (Qtree), pointer :: father => null()
     contains
         Procedure, Pass :: containsPoint_
