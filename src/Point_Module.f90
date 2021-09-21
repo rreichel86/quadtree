@@ -14,10 +14,7 @@ end Type
 Interface assignment(=)
     module procedure point_to_array
     module procedure array_to_point
-    !module procedure array_to_pointArray
-    !module procedure pointArray_to_array
 end Interface
-
 
 Interface operator (>)
     module procedure greater_than
@@ -54,33 +51,6 @@ contains
         pt_result%x = array(1)
         pt_result%y = array(2)
     end subroutine array_to_point
-    
-    !subroutine  array_to_pointArray(pts_result, array)
-    !    type (point), intent(out) :: pts_result(:)
-    !    real*8, intent(in) :: array(:)
-    !    integer ::i, n
-    !    
-    !    n = size(array)/2
-    !    
-    !    do i = 1,n
-    !    pts_result(i) = array(2*i-1:2*i)
-    !    end do
-    !    
-    !end subroutine array_to_pointArray
-    
-    !subroutine  pointArray_to_array(array_result, pts)
-    !    type (point), intent(in) :: pts(:)
-    !    real*8, intent(out) :: array_result(:)
-    !    integer ::i, n
-    !    
-    !    n = size(pts)
-    !    
-    !    do i = 1,n
-    !     array_result(2*i-1:2*i) = pts(i)
-    !    end do
-    !    
-    !end subroutine pointArray_to_array
-    
 
     function equal_to (pt_1, pt_2)
         logical :: equal_to
@@ -201,7 +171,6 @@ contains
            orientation = 0
         end if 
         
-    
     end function orientation 
     
 end module    
