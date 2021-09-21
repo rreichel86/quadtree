@@ -95,7 +95,7 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
     do i = 1, numPolygons
         n = polygons(i)%num_vertices
         do j = 1, n
-            call binarySearch_2 (Temp_nodes, polygons(i)%vertices(j), idx)
+            call binarySearch (Temp_nodes, polygons(i)%vertices(j), idx)
             if(idx .ne. 0)  nodes_mask(idx) = .true.
         end do
     end do
@@ -224,7 +224,7 @@ subroutine QtreeMeshRefineSR(Q3, numPolygons, polygons, numSeeds, seeds)
     do i = 1, numPolygons
         n = polygons(i)%num_vertices
         do j = 1, n
-            call binarySearch_2 (Temp_nodes, polygons(i)%vertices(j), idx)
+            call binarySearch (Temp_nodes, polygons(i)%vertices(j), idx)
             if(idx .ne. 0)  nodes_mask(idx) = .true.
         end do
     end do

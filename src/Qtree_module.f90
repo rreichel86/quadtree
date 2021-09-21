@@ -1103,7 +1103,7 @@ contains
                 
                 !------------
                 do i = 1, zhl
-                    call binarySearch_2 (nodes(1:num_node), temp_coor(i), index)
+                    call binarySearch (nodes(1:num_node), temp_coor(i), index)
                     temp_elem(i) = index
                     if (index == 0) write(*,*) counter, temp_coor(i), index
                 end do 
@@ -1364,7 +1364,7 @@ contains
                 
                 !------------
                 do i = 1, zhl
-                    call binarySearch_2 (nodes(1:num_node), temp_coor(i), index)
+                    call binarySearch (nodes(1:num_node), temp_coor(i), index)
                     temp_elem(i) = index
                     if (index == 0) write(*,*) counter, temp_coor(i), index
                 end do 
@@ -1392,7 +1392,7 @@ contains
                 
                 !------------
                 do i = 1, zhl_2
-                    call binarySearch_2 (nodes(1:num_node), temp_coor_2(i), index)
+                    call binarySearch (nodes(1:num_node), temp_coor_2(i), index)
                     temp_elem_2(i) = index
                     if (index == 0) write(*,*) counter, temp_coor_2(i), zhl_2
                 end do 
@@ -1443,7 +1443,7 @@ contains
                
                !------------
                do i = 1, zhl
-                    call binarySearch_2 (nodes(1:num_node), temp_coor(i), index)
+                    call binarySearch (nodes(1:num_node), temp_coor(i), index)
                     temp_elem(i) = index
                     if (index == 0) write(*,*) counter, temp_coor(i), index
                end do 
@@ -1799,7 +1799,7 @@ contains
                 
                     do i = 1, 4
                          if(Qtr%signo(i).ge.0) then
-                            call binarySearch_2 (Temp_nodes, Qtr%Boundary(i), index)
+                            call binarySearch (Temp_nodes, Qtr%Boundary(i), index)
                             nodes_mask(index) = .true. 
                         end if     
                     end do 
@@ -1807,7 +1807,7 @@ contains
                     if(Qtr%num_intrsc_points .gt. 0) then
                     
                         do i = 1, Qtr%num_intrsc_points
-                            call binarySearch_2 (Temp_nodes, Qtr%intrsc_points(i)%pos, index)
+                            call binarySearch (Temp_nodes, Qtr%intrsc_points(i)%pos, index)
                             nodes_mask(index) = .true.     
                         end do
                             
@@ -1824,12 +1824,12 @@ contains
                             if ( Qtr%signo (i) .gt. 0) cycle
                             if ( (Qtr%signo(i) .eq. -1 .and. Qtr%wpoly(i) .gt. 1) ) then
                                 
-                                call binarySearch_2 (Temp_nodes, Qtr%Boundary(i), index)
+                                call binarySearch (Temp_nodes, Qtr%Boundary(i), index)
                                 nodes_mask(index) = .true. 
                                 
                             else if ( (Qtr%signo(i) .eq. 0 .and. Qtr%wpoly(i) .gt. 1) ) then
                                 
-                                call binarySearch_2 (Temp_nodes, Qtr%Boundary(i), index)
+                                call binarySearch (Temp_nodes, Qtr%Boundary(i), index)
                                 nodes_mask(index) = .true. 
                                 
                             end if   
@@ -1872,7 +1872,7 @@ contains
                     
                             if ( Qtr%signo (i) .ge. 0) cycle
                             if ( Qtr%signo(i) .eq. -1 .and. Qtr%wpoly(i) .gt. 1) then
-                                call binarySearch_2 (Temp_nodes, Qtr%Boundary(i), index)
+                                call binarySearch (Temp_nodes, Qtr%Boundary(i), index)
                                 nodes_mask(index) = .true. 
                             end if  
                         end do    

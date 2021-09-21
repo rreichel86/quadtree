@@ -6,47 +6,37 @@ implicit none
 
 contains
 
+subroutine binarySearch (a, value, index)
+    type(point), intent(in) :: a(:)
+    type(point), intent(in) :: value
+    integer, intent (out) :: index
 
-subroutine binarySearch_2 (a, value, index)
-!use point_module
-type(point), intent(in) :: a(:)
-type(point), intent(in) :: value
-integer, intent (out) :: index
+    integer :: startIndex, stopIndex, middle
 
-integer :: startIndex, stopIndex, middle
+    startIndex = 1
+    stopIndex = size(a)
+    middle = Floor(0.5*(stopIndex + startIndex))
 
-startIndex = 1
-stopIndex = size(a)
-middle = Floor(0.5*(stopIndex + startIndex))
+    do while( .not.(a(middle) == value) .and. (startIndex < stopIndex))
 
-do while( .not.(a(middle) == value) .and. (startIndex < stopIndex))
+        if( a(middle) > value ) then
+            stopIndex = middle - 1
+        else if ( .not. (a(middle) > value) ) then
+            startIndex = middle + 1
+        end if
 
-if( a(middle) > value ) then
+    middle = Floor(0.5*(stopIndex + startIndex))
 
-stopIndex = middle - 1
+    end do
 
-else if ( .not. (a(middle) > value) ) then
-
-startIndex = middle + 1
-
-end if
-
-middle = Floor(0.5*(stopIndex + startIndex))
-
-end do
-
-if(a(middle) == value) then
-
-index = middle
-return
-
-else
-index = 0
-return
-end if
-
-end subroutine
-
+    if(a(middle) == value) then
+        index = middle
+        return
+    else
+        index = 0
+        return
+    end if
+end subroutine binarySearch
 
 subroutine Merge(A,NA,B,NB,C,NC)
     implicit none
