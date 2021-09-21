@@ -13,7 +13,8 @@ baseObj = $(baseList:.for=.o)
 
 modList = src/module.for src/helpers.for
 modList2 = src/Point_Module.f90  src/Vector_Module.f90 src/Geom_Module.f90 \
-src/SortSearch_module.f90 src/Qtree_module.f90  src/Qtree.f90
+src/SortSearch_module.f90 src/Qtree_input.f90 src/Qtree_data.f90 \
+src/Qtree_module.f90  src/Qtree.f90
 modObj = $(modList:.for=.o)
 modObj2 = $(modList2:.f90=.o)
 
