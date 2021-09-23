@@ -1,8 +1,6 @@
 module  Qtree_module
-use point_module
-use seed_point_module
-use intrsc_point_module
 
+use point_module
 
 interface binaryTransformation
     module procedure binaryTransformation_2
@@ -41,10 +39,10 @@ type QtreeList
     contains
         Procedure, Pass :: append_
         Procedure, Pass :: pop_
-        Procedure, Pass :: printPoints_
+        Procedure, Pass :: isEmpty_
         Procedure, Pass :: countPoints_
+        Procedure, Pass :: countNodes_
         Procedure, Pass :: savePoints_
-        Procedure, PAss :: isEmpty_
 end type
 
 contains
@@ -111,25 +109,16 @@ contains
         type(point) :: pointsArr(numPoints)
         type(QtreeNode) , pointer :: Qnode
 
-        integer i, zhl, numSeeds, numIntrscPoints
+        integer i, zhl
 
         zhl = 0
         Qnode => this%HEAD
         do
             if ( .not. associated(Qnode) ) exit
-            ! print Quad's boundary nodes
             do i = 1, 4
                 zhl = zhl + 1
-                pointsArr(zhl) = Qnode%Q%Boundary(i)
+                pointsArr(zhl) = Qnode%Q%vertices(i,:)
             end do
-            ! print intrsc_points
-            numIntrscPoints = Qnode%Q%num_intrsc_points
-            if (numIntrscPoints .ne. 0) then
-                do i = 1, numIntrscPoints
-                    zhl = zhl + 1
-                    pointsArr(zhl) = Qnode%Q%intrsc_points(i)%pos
-                end do
-            end if
             Qnode => Qnode%next
         end do
     end subroutine
@@ -146,10 +135,23 @@ contains
         Qnode => this%HEAD
         do
             if ( .not. associated(Qnode) ) exit
-            ! Quad's boundary nodes
             numPoints = numPoints + 4
-            ! intrsc_points
-            numPoints = numPoints + Qnode%Q%num_intrsc_points
+            Qnode => Qnode%next
+        end do
+
+    end subroutine
+    
+    subroutine countNodes_(this,numNodes)
+        implicit none
+        class(QtreeList) :: this
+        integer :: numNodes
+        type(QtreeNode) , pointer :: Qnode
+
+        numNodes = 0
+        Qnode => this%HEAD
+        do
+            if ( .not. associated(Qnode) ) exit
+            numNodes = numNodes + 1
             Qnode => Qnode%next
         end do
 
@@ -175,16 +177,15 @@ contains
         implicit none
         integer :: iow
         type (Qtree), pointer :: Qtr
-        type (QtreeList), pointer :: QtrList
 
         integer :: i
 
-        if (.not. associated(Qtr%NW)) then
+        if (.not. associated(Qtr%NW) .and. allocated(Qtr%vertices) ) then
             do i = 1, 4
                 if (iow .gt. 0) then
-                    write(iow,2000) Qtr%Boundary(i)
+                    write(iow,2000) Qtr%vertices(i,:)
                 else
-                    write(*,2000) Qtr%Boundary(i)
+                    write(*,2000) Qtr%vertices(i,:)
                 end if
             end do
         else
@@ -198,16 +199,12 @@ contains
     end subroutine
 
     recursive subroutine QtrSubdivideNS(Qtr,level_min)
-        use point_module
-        use seed_point_module
-        use Qtree_data
 
         implicit none
         Type (Qtree), pointer :: Qtr
         integer, intent(in) :: level_min
 
-        Type(point) :: v(9), childrenBoundary(4,4)
-        integer :: i, p, istat, level, azhl, numseeds
+        integer :: i, istat, level
         Type(QtreePtr), pointer :: children(:)
 
         if (Qtr%level .ge. 18) return
@@ -224,7 +221,7 @@ contains
             children(4)%Q => Qtr%SE
 
             do i = 1, 4
-                if( children(i)%Q%level.lt.level_min ) call QtrSubdivide (children(i)%Q,level_min)
+                if( children(i)%Q%level.lt.level_min ) call QtrSubdivideNS (children(i)%Q,level_min)
             end do
 
         end if
@@ -237,39 +234,35 @@ contains
         implicit none
         Type(Qtree), pointer :: Q
 
-        Type(point) :: v(9)
-        Type(point) :: childrenBoundary(4,4)
-        integer :: i, p, level, istat
+        real(8) :: v(9,2)
+        integer :: i, level, istat
+        integer :: idx(4,4)
         Type(QtreePtr), pointer :: children(:)
 
         if ( associated(Q%NW) ) return
 
         do i = 1,4
-            v(i) = Q%Boundary(i)
+            v(i,:) = Q%vertices(i,:)
         end do
 
-        v(5)%x = ( v(1)%x + v(2)%x )/2d0
-        v(5)%y = ( v(1)%y + v(2)%y )/2d0
-        v(6)%x = ( v(2)%x + v(3)%x )/2d0
-        v(6)%y = ( v(2)%y + v(3)%y )/2d0
-        v(7)%x = ( v(3)%x + v(4)%x )/2d0
-        v(7)%y = ( v(3)%y + v(4)%y )/2d0
-        v(8)%x = ( v(4)%x + v(1)%x )/2d0
-        v(8)%y = ( v(4)%y + v(1)%y )/2d0
-        v(9)%x = ( v(1)%x + v(2)%x + v(3)%x + v(4)%x )/4d0
-        v(9)%y = ( v(1)%y + v(2)%y + v(3)%y + v(4)%y )/4d0
+        v(5,1) = ( v(1,1) + v(2,1) )/2d0
+        v(5,2) = ( v(1,2) + v(2,2) )/2d0
+        v(6,1) = ( v(2,1) + v(3,1) )/2d0
+        v(6,2) = ( v(2,2) + v(3,2) )/2d0
+        v(7,1) = ( v(3,1) + v(4,1) )/2d0
+        v(7,2) = ( v(3,2) + v(4,2) )/2d0
+        v(8,1) = ( v(4,1) + v(1,1) )/2d0
+        v(8,2) = ( v(4,2) + v(1,2) )/2d0
+        v(9,1) = ( v(1,1) + v(2,1) + v(3,1) + v(4,1) )/4d0
+        v(9,2) = ( v(1,2) + v(2,2) + v(3,2) + v(4,2) )/4d0
 
-        childrenBoundary(1,:) = [v(8),v(9),v(7),v(4)]
-        childrenBoundary(2,:) = [v(1),v(5),v(9),v(8)]
-        childrenBoundary(3,:) = [v(9),v(6),v(3),v(7)]
-        childrenBoundary(4,:) = [v(5),v(2),v(6),v(9)]
+        idx(1,:) = [8,9,7,4]
+        idx(2,:) = [1,5,9,8]
+        idx(3,:) = [9,6,3,7]
+        idx(4,:) = [5,2,6,9]
 
         allocate (Q%NW, Q%SW, Q%NE, Q%SE, Stat=istat)
         allocate(children(4), stat=istat)
-
-        do i = 1, 4
-            children(i)%Q => Null()
-        end do
 
         children(1)%Q => Q%NW
         children(2)%Q => Q%SW
@@ -278,20 +271,21 @@ contains
 
         level = Q%level + 1
         do i = 1, 4
-            p = i - 1
             children(i)%Q%level = level
             children(i)%Q%ref = Q%ref
-            children(i)%Q%ref(2*level-1) = int(p/2) + 1
-            children(i)%Q%ref(2*level) = mod(p,2) + 1
+            children(i)%Q%ref(level) = i
             children(i)%Q%father => Q
-            children(i)%Q%Boundary = childrenBoundary(i,:)
+            children(i)%Q%vertices(1,:) = v(idx(i,1),:)
+            children(i)%Q%vertices(2,:) = v(idx(i,2),:)
+            children(i)%Q%vertices(3,:) = v(idx(i,3),:)
+            children(i)%Q%vertices(4,:) = v(idx(i,4),:)
         end do
 
         if ( allocated (Q%seeds) ) then
             do i = 1, 4
-                if ( children(i)%Q%containsPoint_(Q%seeds(1)%pos) ) then
-                    allocate(children(i)%Q%seeds(1))
-                    children(i)%Q%seeds(1) = Q%seeds(1)
+                if ( children(i)%Q%containsPoint_(Q%seeds(1,:)) ) then
+                    allocate(children(i)%Q%seeds(1,2))
+                    children(i)%Q%seeds(1,:) = Q%seeds(1,:)
                 end if
             end do
             deallocate (Q%seeds)
@@ -299,61 +293,37 @@ contains
         if ( associated(children) ) deallocate (children, stat=istat)
     end subroutine
 
-    logical function containsPoint_(this,pt)
-        use point_module
-
+    logical function containsPoint_(this,point)
         implicit none
+
         Class(Qtree) :: this
-        type(point), intent(in) :: pt
+        real(8), intent(in) :: point(2)
 
         real*8 :: xmin, ymin, xmax, ymax
 
-        xmin = this%Boundary(1)%x
-        ymin = this%Boundary(1)%y
-        xmax = this%Boundary(3)%x
-        ymax = this%Boundary(3)%y
-
+        xmin = this%vertices(1,1)
+        ymin = this%vertices(1,2)
+        
+        xmax = this%vertices(3,1)
+        ymax = this%vertices(3,2)
+        
         containsPoint_ = .false.
-
-        if (xmin .gt. pt%x) return
-        if (xmax .lt. pt%x) return
-        if (ymin .gt. pt%y) return
-        if (ymax .lt. pt%y) return
-
-        containsPoint_ = .true.
-    end function
-
-    logical function isQ_in(Qtr)
-        implicit none
-        type(qtree), pointer :: Qtr
-        logical :: in_cond(4), cq0
-        integer :: ms, mwp, mip
-
-         cq0 = .false.
-         ms = sum(Qtr%signo)
-         mwp = sum(Qtr%wpoly)
-         mip = Qtr%num_intrsc_points
-
-         if (ms .eq. 0) cq0 =  (Qtr%wpoly(1) .eq. Qtr%wpoly(2) ) &
-                               & .and. ( Qtr%wpoly(2) .eq. Qtr%wpoly(3) ) &
-                               & .and. ( Qtr%wpoly(3) .eq. Qtr%wpoly(4) )
-
-        in_cond(1) = (ms .gt. -1) &
-                     .and. (.not.(ms .eq. 0 .and.  mwp .gt. 4  .and. cq0 .and. mip .eq. 0))
-        in_cond(2) = (ms .eq. -1 .and. mip .ne. 0)
-        in_cond(3) = (ms .eq. -2 .and. mip .ne. 0)
-        in_cond(4) = (ms .eq. -4 .and. mwp .gt. 4 .and. mip .ne. 0)
-
-        if( count(in_cond) .eq.0 ) then
-           isQ_in = .false.
-        else
-           isQ_in = .true.
+        
+        if ( point(1) .lt. xmin ) then
+            return
+        else if ( point(1) .gt. xmax ) then
+            return
+        else if ( point(2) .lt. ymin ) then
+            return
+        else if ( point(2) .gt. ymax ) then
+            return
         end if
 
+        containsPoint_ = .true.
 
-     end function
+    end function
 
-     recursive subroutine QsDelete(Qtr)
+    recursive subroutine QsDelete(Qtr)
         implicit none
         Type (Qtree), pointer :: Qtr
         logical :: Qchildren(4)
@@ -379,27 +349,29 @@ contains
     
     end subroutine
 
-     subroutine QtrInit(Qtr,n,Boundary)
+    subroutine QtrInit(Qtr,n,points)
+        implicit none
         type(Qtree), pointer, intent(inout) :: Qtr 
         integer, intent(in) :: n
-        type(point), intent(in) :: Boundary(n)
-        real*8 :: xmin, xmax, ymin, ymax, mx
+        real(8), intent(in) :: points(n,2)
 
-        integer :: i, istat
+        ! local variables
+        integer :: istat
+        real*8 :: xmin, xmax, ymin, ymax
 
         if ( .not. associated(Qtr) ) Allocate(Qtr, Stat=istat)
 
-        xmin = minval(Boundary(1:n)%x)
-        xmax = maxval(Boundary(1:n)%x)
-        ymin = minval(Boundary(1:n)%y)
-        ymax = maxval(Boundary(1:n)%y)
+        xmin = minval(points(:,1))
+        ymin = minval(points(:,2))
 
-        mx = max(xmax-xmin,ymax-ymin)
+        xmax = maxval(points(:,1))
+        ymax = maxval(points(:,2))
 
-        Qtr%Boundary(1) = point(xmin,ymin)
-        Qtr%Boundary(2) = point(xmax,ymin)
-        Qtr%Boundary(3) = point(xmax,ymax)
-        Qtr%Boundary(4) = point(xmin,ymax)
+        allocate( Qtr%vertices(4,2) )
+        Qtr%vertices(1,1:2) = point(xmin,ymin)
+        Qtr%vertices(2,1:2) = point(xmax,ymin)
+        Qtr%vertices(3,1:2) = point(xmax,ymax)
+        Qtr%vertices(4,1:2) = point(xmin,ymax)
 
     end subroutine 
     
