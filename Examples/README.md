@@ -14,7 +14,7 @@
 |  Example_1.txt                | Circular disk with circular hole |
 |  Example_2.txt                | Circular disk with circular inclusion |
 |  SquareCircularHole.txt       | Square with circular hole |
-|  SquareCircularInclusion.txt  | Square with circulae inclusion |
+|  SquareCircularInclusion.txt  | Square with circular inclusion |
 |  YetiFootprint.txt            | Yeti footprint |
 
 
