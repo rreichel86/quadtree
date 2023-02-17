@@ -27,8 +27,6 @@ poly_nro, typ, naterial_nro, num_vertices, num_helpers
 ...
 
 num_poly
-
-
 ```
 
 
@@ -45,7 +43,7 @@ num_poly
 | b | semi-minor axis |
 | xc | x-coord ellipse center |
 | yc | y-coord ellipse xenter |
-| alpha | rotate ellipse alpha degrees counterclockwise with respect to the x-axis |  
+| alpha | rotate ellipse alpha degrees counterclockwise with respect to the x-axis |
 | vertex_nro|  vertex number |
 |num_divisions| number of divisions |
 |x-coord| vertex/helperpoint x-coord |
@@ -54,4 +52,36 @@ num_poly
 
 ### SEED mesh command
 
+```
+seed (optional)
+num_seeds
+seed_nro,num_divisions,x-ccord,y-coord
+
+...
+
+num_seeds
+```
+
+|   |   |
+| --- | --- |
+| num_seeds | number of seeding points |
+| seed_nro |  seeding point number |
+| num_divisions | number of divisions |
+| x-coord | seeding point x-coord |
+| y-coord | seeding point y-coord |
+
 ### QTREE mesh commad
+
+```
+qtree
+level_min, max_seeds_cell
+
+```
+
+|   |   |
+| --- | --- |
+| level_min |  minimum division level |
+| max_seeds_cell |  maximum seeding points per cell |
+
+
+
