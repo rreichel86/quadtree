@@ -1,9 +1,16 @@
 
 ## Mesh commands
 
-### POLY mesh command
+- [`POLY`](#poly)
+- [`SEED`](#seed)
+- [`QTRE`](#qtre)
 
----
+### `POLY` mesh command <a name="poly"></a>
+
+The `POLY` mesh command is used to define a heterogeneous solid, which is
+described by its boundary and material interfaces. The boundary and material
+interfaces are modeled as simple closed polygonal chains.
+
 
 ```
 poly
@@ -30,7 +37,6 @@ poly_nro, typ, naterial_nro, num_vertices, num_helpers
 
 num_poly
 ```
----
 
 | Parameter | Description |
 | :--- | :--- |
@@ -45,16 +51,16 @@ num_poly
 | b | semi-minor axis |
 | xc | x-coord ellipse center |
 | yc | y-coord ellipse xenter |
-| alpha | rotate ellipse alpha degrees counterclockwise with respect to the x-axis |
+| alpha | rotate ellipse $\alpha$ degrees counterclockwise with respect to the x-axis |
 | vertex_nro|  vertex number |
 |num_divisions| number of divisions |
 |x-coord| vertex/helperpoint x-coord |
 |y-coord| vertex/helperpoint y-coord |
 
 
-### SEED mesh command
-
----
+### `SEED` mesh command <a name="seed"></a>
+The `SEED` mesh command is used to define seeding points. The seeding points
+can be used to control the local density of the quadtree mesh.
 
 ```
 seed (optional)
@@ -66,7 +72,6 @@ seed_nro,num_divisions,x-ccord,y-coord
 num_seeds
 ```
 
----
 
 
 | Parameter | Description |
@@ -77,9 +82,10 @@ num_seeds
 | x-coord | seeding point x-coord |
 | y-coord | seeding point y-coord |
 
-### QTREE mesh commad
+### `QTRE` mesh commad <a name="qtre"></a>
+The `QTRE` mesh command is used to specify the parameters to control the quadtree
+decomposition
 
----
 
 ```
 qtree
@@ -87,7 +93,6 @@ level_min, max_seeds_cell
 
 ```
 
----
 
 | Parameter | Description |
 | :--- | :--- |
