@@ -1,7 +1,21 @@
 
 # Quadtree meshing algorithm
 
-# Contact <a name="CONTACT"></a>  
+## Table of contents  
+
+# Wha's is in the directory?  
+
+| File      | Description |
+| :-------- | :---- |
+| Examples  | Contains examples of how to define the domain to be meshes |
+| src       | Source code |
+
+# Prerequisites  
+
+# Getting started  
+
+# Contact <a name="Contact"></a>  
+
 
 **Rainer Reichel** M.Sc.  
 LBB - Lehrstuhl für Baustatik und Baudynamik  
