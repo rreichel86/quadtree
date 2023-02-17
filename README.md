@@ -3,12 +3,12 @@
 
 ## Table of contents  
 
-1. [What's in the directory?](#whats-in-the-directory?)
-2. [Prerequisites](#prerequisites)
-3. [Getting started](#getting-started)  
-4. [Contact <a name="Contact"></a>](#contact)
+1. [What's in the directory? <a name="whats-in-the-directory"></a>](#whats-in-the-directory)
+2. [Prerequisites <a name="prerequisites"></a>](#prerequisites)
+3. [Getting started <a name="getting-started"></a>](#getting-started)  
+4. [Contact <a name="contact"></a>  ](#contact)
 
-# What's in the directory?  
+# What's in the directory? <a name="whats-in-the-directory"></a>
 
 | File            | Description |
 | :-------------- | :---- |
@@ -18,11 +18,11 @@
 | README.md       | This file |
 | src             | Source code |
 
-# Prerequisites  
+# Prerequisites <a name="prerequisites"></a>
 
-# Getting started  
+# Getting started <a name="getting-started"></a>
 
-# Contact <a name="Contact"></a>  
+# Contact <a name="contact"></a>  
 
 
 **Rainer Reichel** M.Sc.  
