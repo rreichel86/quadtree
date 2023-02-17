@@ -6,6 +6,5 @@
 ├── Example_2.txt  
 ├── SquareCircularHole.txt  
 ├── SquareCircularInclusion.txt  
-├── YetiFootprint.txt  
-└── iYeti.feap  
+└── YetiFootprint.txt  
 
