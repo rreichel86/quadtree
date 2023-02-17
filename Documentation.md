@@ -1,9 +1,9 @@
 
 ## Mesh commands
 
-- [`POLY`](#poly)
-- [`SEED`](#seed)
-- [`QTRE`](#qtre)
+- [`POLY` mesh command](#poly)
+- [`SEED` mesh command](#seed)
+- [`QTRE` mesh command](#qtre)
 
 ### `POLY` mesh command <a name="poly"></a>
 
@@ -40,22 +40,28 @@ num_poly
 
 | Parameter | Description |
 | :--- | :--- |
-| num_poly | number of polygons |
-| num_materials | number of material sets|
-| poly_nro | polygon number |
-| typ | polygon typ |
-| material_nro | material set number |
-| num_vertices | number of vertices |
-| num_helpers | number of helperpoints |
-| a | semi-major axis |
-| b | semi-minor axis |
-| xc | x-coord ellipse center |
-| yc | y-coord ellipse xenter |
-| alpha | rotate ellipse $\alpha$ degrees counterclockwise with respect to the x-axis |
-| vertex_nro|  vertex number |
-|num_divisions| number of divisions |
-|x-coord| vertex/helperpoint x-coord |
-|y-coord| vertex/helperpoint y-coord |
+| `num_poly` | number of polygons |
+| `num_materials` | number of material sets|
+| `poly_nro` | polygon number |
+| `typ` | polygon typ:  |
+|       |   +1 The polygonal chain represent the outer bounday |
+|       |   -1 The polygonal chain represent a material interface |
+| `material_nro` | material set number |
+| `num_vertices` | number of vertices of the polygon | 
+|                | number of discrete points of an  ellipse ( for `a` not equal 0) |
+| `num_helpers` | number of helperpoints |
+| `a` | semi-major axis |
+|     | To define arbitrary polygons set `a` equal 0 |
+|     | Then list the vertices of the polygon  | 
+|     | and if necesary the helperpoints |
+| `b` | semi-minor axis |
+| `xc` | x-coord ellipse center |
+| `yc` | y-coord ellipse xenter |
+| `alpha` | rotate ellipse $\alpha$ degrees counterclockwise with respect to the x-axis |
+| `vertex_nro` |  vertex number |
+| `num_divisions` | number of divisions |
+| `x-coord` | vertex/helperpoint x-coord |
+| `y-coord` | vertex/helperpoint y-coord |
 
 
 ### `SEED` mesh command <a name="seed"></a>
@@ -76,11 +82,11 @@ num_seeds
 
 | Parameter | Description |
 | :--- | :--- |
-| num_seeds | number of seeding points |
-| seed_nro |  seeding point number |
-| num_divisions | number of divisions |
-| x-coord | seeding point x-coord |
-| y-coord | seeding point y-coord |
+| `num_seeds` | number of seeding points |
+| `seed_nro` |  seeding point number |
+| `num_divisions` | number of divisions |
+| `x-coord` | seeding point x-coord |
+| `y-coord` | seeding point y-coord |
 
 ### `QTRE` mesh commad <a name="qtre"></a>
 The `QTRE` mesh command is used to specify the parameters to control the quadtree
@@ -96,8 +102,8 @@ level_min, max_seeds_cell
 
 | Parameter | Description |
 | :--- | :--- |
-| level_min |  minimum division level |
-| max_seeds_cell |  maximum seeding points per cell |
+| `level_min` |  minimum division level |
+| `max_seeds_cell` |  maximum seeding points per cell |
 
 
 
