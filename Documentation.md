@@ -3,6 +3,8 @@
 
 ### POLY mesh command
 
+---
+
 ```
 poly
 num_poly, num_materials
@@ -28,10 +30,10 @@ poly_nro, typ, naterial_nro, num_vertices, num_helpers
 
 num_poly
 ```
+---
 
-
-|   |   |
-| --- | --- |
+| Parameter | Description |
+| :--- | :--- |
 | num_poly | number of polygons |
 | num_materials | number of material sets|
 | poly_nro | polygon number |
@@ -52,6 +54,8 @@ num_poly
 
 ### SEED mesh command
 
+---
+
 ```
 seed (optional)
 num_seeds
@@ -62,8 +66,11 @@ seed_nro,num_divisions,x-ccord,y-coord
 num_seeds
 ```
 
-|   |   |
-| --- | --- |
+---
+
+
+| Parameter | Description |
+| :--- | :--- |
 | num_seeds | number of seeding points |
 | seed_nro |  seeding point number |
 | num_divisions | number of divisions |
@@ -72,14 +79,18 @@ num_seeds
 
 ### QTREE mesh commad
 
+---
+
 ```
 qtree
 level_min, max_seeds_cell
 
 ```
 
-|   |   |
-| --- | --- |
+---
+
+| Parameter | Description |
+| :--- | :--- |
 | level_min |  minimum division level |
 | max_seeds_cell |  maximum seeding points per cell |
 
