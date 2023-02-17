@@ -3,6 +3,11 @@
 
 ## Table of contents  
 
+1. [What's in the directory?](#whats-in-the-directory?)
+2. [Prerequisites](#prerequisites)
+3. [Getting started]  
+4. [Contact <a name="Contact"></a>]
+
 # What's in the directory?  
 
 | File            | Description |
