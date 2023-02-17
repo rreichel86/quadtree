@@ -33,7 +33,19 @@ for i = 1:n
     patch('Faces',elemNodes(i,1:numNodes(i)),'Vertices',coor(:,2:3),...
           'FaceVertexCData',matNro(i),'FaceColor','flat');
 end
-pause
+hold off
+
+
+
+fileName = input("Please enter file name: [QtreeMesh]: ", "s");
+
+if isempty(fileName)
+    fileName = 'QtreeMesh';
+    print(fileName,'-dpng');
+else 
+    print(fileName,'-dpng');
+end
+
 
 
 % plot(coor(m-n+1:m,2),coor(m-n+1:m,3),'k*')
