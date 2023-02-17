@@ -8,3 +8,13 @@
 ├── SquareCircularInclusion.txt  
 └── YetiFootprint.txt  
 
+
+| File                          | Description |
+| :---------------------------- | :----- |
+|  Example_1.txt                | Circular disk with circular hole |
+|  Example_2.txt                | Circular disk with circular inclusion |
+|  SquareCircularHole.txt       | Square with circular hole |
+|  SquareCircularInclusion.txt  | Square with circulae inclusion |
+|  YetiFootprint.txt            | Yeti footprint |
+
+
