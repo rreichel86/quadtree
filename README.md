@@ -3,12 +3,15 @@
 
 ## Table of contents  
 
-# Wha's is in the directory?  
+# What's in the directory?  
 
-| File      | Description |
-| :-------- | :---- |
-| Examples  | Contains examples of how to define the domain to be meshes |
-| src       | Source code |
+| File            | Description |
+| :-------------- | :---- |
+| Examples        | Contains examples of how to define the domain to be meshes |
+| Makefile        | Makefile to build the project |
+| QtreePlotMesh.m | MATLAB script to plot quadtree mesh |
+| README.md       | This file |
+| src             | Source code |
 
 # Prerequisites  
 
