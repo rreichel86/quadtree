@@ -1,5 +1,5 @@
 
-# A Quadtree based finite element mesh generator to dsicretize two-dimensional heterogeneous solids
+# A Quadtree based finite element mesh generator to discretize two-dimensional heterogeneous solids
 
 ## Table of contents  
 
