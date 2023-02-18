@@ -1,5 +1,5 @@
 
-# Quadtree meshing algorithm
+# A Quadtree based finite element mesh generator to dsicretize two-dimensional heterogeneous solids
 
 ## Table of contents  
 
