@@ -35,7 +35,9 @@
 
 # Acknowledgments <a name="acknowledgments"></a>
 
-The financial support of the DFG (German Research Foundation) under project number 433734847 is gratefully acknowledged.
+The financial support of the DFG (German Research Foundation) under 
+[project number 433734847](https://gepris.dfg.de/gepris/projekt/433734847?language=en)
+is gratefully acknowledged.
 
 # Contact <a name="contact"></a>  
 
