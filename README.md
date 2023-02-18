@@ -6,7 +6,8 @@
 1. [What's in the directory? ](#whats-in-the-directory)
 2. [Prerequisites ](#prerequisites)
 3. [Getting started ](#getting-started)  
-4. [Contact](#contact)
+4. [Acknowledgments](#acknowledgments)
+5. [Contact](#contact)
 
 # What's in the directory? <a name="whats-in-the-directory"></a>
 
@@ -30,6 +31,11 @@
 # Prerequisites <a name="prerequisites"></a>
 
 # Getting started <a name="getting-started"></a>
+
+
+# Acknowledgments <a name="acknowledgments"></a>
+
+The financial support of the DFG (German Research Foundation) under project number 433734847 is gratefully acknowledged.
 
 # Contact <a name="contact"></a>  
 
