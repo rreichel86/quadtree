@@ -14,7 +14,7 @@ chains.
 | <img src="./Images/QtreeBSP_7.png" alt=" " width="150px"/> | <img src="./Images/QtreeBSP_8.png" alt=" " width="150px"/> | <img src="./Images/QtreeBSP_9.png" alt=" " width="150px"/> |
 
 
-## Table of contents  
+### Table of contents  
 
 1. [What's in the directory? ](#whats-in-the-directory)
 2. [Prerequisites ](#prerequisites)
@@ -22,7 +22,7 @@ chains.
 4. [Acknowledgments](#acknowledgments)
 5. [Contact](#contact)
 
-# What's in the directory? <a name="whats-in-the-directory"></a>
+## What's in the directory? <a name="whats-in-the-directory"></a>
 
 .  
 ├── Documentation.md  
@@ -41,18 +41,18 @@ chains.
 | README.md           | This file |
 | src                 | Source code |
 
-# Prerequisites <a name="prerequisites"></a>
+## Prerequisites <a name="prerequisites"></a>
 
-# Getting started <a name="getting-started"></a>
+## Getting started <a name="getting-started"></a>
 
 
-# Acknowledgments <a name="acknowledgments"></a>
+## Acknowledgments <a name="acknowledgments"></a>
 
 The financial support of the DFG (German Research Foundation) under 
 [project number 433734847](https://gepris.dfg.de/gepris/projekt/433734847?language=en)
 is gratefully acknowledged.
 
-# Contact <a name="contact"></a>  
+## Contact <a name="contact"></a>  
 
 
 **Rainer Reichel** M.Sc.  
