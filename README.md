@@ -25,7 +25,7 @@ chains.
 ## What's in the directory? <a name="whats-in-the-directory"></a>
 
 .  
-├── Documentation.md  
+├── Documentation  
 ├── Examples  
 ├── Makefile  
 ├── QtreePlotMesh.m  
@@ -34,12 +34,12 @@ chains.
 
 | File            | Description |
 | :-------------- | :---- |
-| Documententation.md | Documentation |
-| Examples            | Contains examples of how to define the domain to be meshes |
+| Documentation | Documentation |
+| Examples            | Contains examples of how to define the domain to be meshed |
 | Makefile            | Makefile to build the project |
-| QtreePlotMesh.m     | MATLAB script to plot quadtree mesh |
+| QtreePlotMesh.m     | MATLAB script to plot the Quadtree mesh |
 | README.md           | This file |
-| src                 | Source code |
+| src                 | Source code of the Quadtree mesh generator|
 
 ## Prerequisites <a name="prerequisites"></a>
 
