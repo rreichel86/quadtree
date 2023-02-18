@@ -6,18 +6,18 @@ element mesh generator is developed. The solid is given by its outer boundary
 and material interfaces. These are later modeled by simple closed polygonal
 chains. 
 
-<img src="./Images/Homogen.pdf" alt=" " width="150px"/>
-<img src="./Images/Heterogen.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_O.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_1.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_2.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_3.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_4.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_5.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_6.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_7.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_8.pdf" alt=" " width="150px"/>
-<img src="./Images/QtreeBSP_9.pdf" alt=" " width="150px"/>
+<img src="./Images/Homogen.png" alt=" " width="150px"/>
+<img src="./Images/Heterogen.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_O.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_1.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_2.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_3.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_4.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_5.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_6.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_7.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_8.png" alt=" " width="150px"/>
+<img src="./Images/QtreeBSP_9.png" alt=" " width="150px"/>
 
 
 ## Table of contents  
