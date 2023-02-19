@@ -19,15 +19,62 @@ program quadtree_main
     character(len=100) :: cmsg
     type (Qtree), pointer :: Quadtree
 
+    integer cnt, len, status
+    character(len=128) commandArg
+    logical exists
 
+    filenameIn = ' '
 
-    write(*,1000)
-    1000 format (5x,'Please enter input file name: ',$) 
-    read(*,'(A)') filenameIn
-    ! filenameIn = 'SquareCircularHole.txt'
-    write(*,1010) filenameIn
-    1010 format (5x,'The input file mame is: ', A) 
-    
+    ! get command line arguments
+    cnt = command_argument_count ()
+
+    ! ./Quadtree -h
+    ! ./Quadtree --help
+    ! ./Quadtree input.txt
+    if ( cnt .eq.  1) then
+        call get_command_argument (1, commandArg, len, status)
+        if (status .ne. 0) then 
+            write(*,*) 'get_command_argument failed: status = ', status
+            stop
+        end if
+
+        write(*,*)  
+
+        if ( commandArg(1:len)  == '-h' .or. commandArg(1:len) == '--help' ) then
+            write(*,*) 'A Quadtree based mesh generator'
+            write(*,*) 'Usage: ./Quadtree [arguments] input.txt'
+            write(*,*)
+            write(*,*) 'Arguments:'
+            write(*,*) ' -h or --help         Prints this help message and exit'
+            ! write(*,*) ' -i, --iteractive     Iteractive mode'     ! not implemented yet!
+            stop
+
+        else if ( commandArg(len-3:len) == '.txt' ) then
+
+            inquire (File = commandArg(1:len), EXIST = exists)
+            if (.not. exists) then
+                write(*,*) 'Specified input file: ', commandArg(1:len) 
+                write(*,*) 'does not exits.'
+                stop
+            end if
+            filenameIn = commandArg(1:len)
+            write(*,1010) filenameIn
+            1010 format (5x,'The input file mame is: ', A)
+
+        else
+            write(*,*) 'Unknown option argument = ', commandArg(1:len)
+            write(*,*) 'More info with: ./Quadtree --help'
+            stop
+        end if
+    end if
+
+    if ( filenameIn == ' ' ) then
+        write(*,1000)
+        1000 format (5x,'Please enter input file name: ',$) 
+        read(*,'(A)') filenameIn
+        write(*,1010) filenameIn
+    end if 
+
     ! Read input file 
     call readInputFile(filenameIn)
 
