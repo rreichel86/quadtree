@@ -6,7 +6,7 @@ fcomp = ifort
 
 
 #FOR DEBUGGING
-switch = -module  obj -w -f77rtl -standard-semantics -fpp -D_BATCH_ -D_NOLIC_ -D_LINUX_ -D__INTEL_ -D__SHMDEBUG_ -O0  -init=zero -init=arrays -intconstant  -assume:byterecl -heap-arrays -g -check all -check noarg_temp_created -fpe0 -traceback -debug extended 
+switch = -module  obj -w -f77rtl -standard-semantics  -O0  -init=zero -init=arrays -intconstant  -assume:byterecl -heap-arrays -g -check all -check noarg_temp_created -fpe0 -traceback -debug extended 
 
 baseList = src/main.for
 baseObj = $(baseList:.for=.o)
@@ -26,31 +26,18 @@ dir:
 
 base: $(baseObj)
 %.o: %.for
-	$(fcomp) $(switch) -c $< -o obj/$(notdir $@) -mkl
-
-ele: $(eleObj)
-%.o: %.for
-	$(fcomp) $(switch) -c $< -o obj/$(notdir $@) -mkl
-
-mat: $(matObj)
-%.o: %.for
-	$(fcomp) $(switch) -c $< -o obj/$(notdir $@) -mkl
+	$(fcomp) $(switch) -c $< -o obj/$(notdir $@)
 
 modules: $(modObj)
 %.o: %.for
-	$(fcomp) $(switch) -c $< -o obj/$(notdir $@) -mkl
+	$(fcomp) $(switch) -c $< -o obj/$(notdir $@)
 
 modules2: $(modObj2)
 %.o: %.f90
-	$(fcomp) $(switch) -c $< -o obj/$(notdir $@) -mkl
-
-
-rwth: $(rwthObj)
-%.o: %.for
-	$(fcomp) $(switch) -c $< -o obj/$(notdir $@) -mkl
+	$(fcomp) $(switch) -c $< -o obj/$(notdir $@)
 
 Quadtree: modules modules2 base
-	$(fcomp) -mkl $(switch) obj/*.o -o Quadtree
+	$(fcomp) $(switch) obj/*.o -o Quadtree
 clean:
 	@echo "target clean: delete obj/*"
 	@rm -rf $(OBJPATH)
