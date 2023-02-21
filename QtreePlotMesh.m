@@ -1,7 +1,7 @@
 clear all
 close all
-elem = load('./mtlb/selm.txt','-ascii');
-coor = load('./mtlb/scor.txt','-ascii');
+elem = load('./Output/plot/selm.txt','-ascii');
+coor = load('./Output/plot/scor.txt','-ascii');
 n = size(elem,1);  % number of elements 
 m = size(coor,1);  % number of nodes
 
