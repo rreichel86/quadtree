@@ -40,7 +40,7 @@ hold off
 fileName = input("Please enter file name: [QtreeMesh]: ", "s");
 
 if isempty(fileName)
-    fileName = 'QtreeMesh';
+    fileName = './Output/plot/QtreeMesh';
     print(fileName,'-dpng');
 else 
     print(fileName,'-dpng');
