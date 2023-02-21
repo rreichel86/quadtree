@@ -440,7 +440,7 @@ subroutine writeInputFileForMFEM()
     ! coor.txt
     ! [ number, x-coor, y-coor ]
     iow = 60
-    open(unit=iow, file='./mfem/coor.txt', status='unknown')
+    open(unit=iow, file='./Output/mfem/coor.txt', status='unknown')
         do i=1, num_node + num_elem
             write(iow,2000) i, nodes(i)
         end do
@@ -448,7 +448,7 @@ subroutine writeInputFileForMFEM()
     ! sections.txt
     ! [ isec, region, node_1,...,node_nsec ]
     iow = 60
-    open(unit=iow, file='./mfem/sections.txt', status='unknown')
+    open(unit=iow, file='./Output/mfem/sections.txt', status='unknown')
         numsec  = 0
         do i = 1, num_elem
             num_nodes_elem = elements(i,1)
@@ -465,7 +465,7 @@ subroutine writeInputFileForMFEM()
     ! ord.txt
     ! [ isec, pgrad, qgrad ]
     iow = 60
-    open(unit=iow, file='./mfem/ord.txt', status='unknown')
+    open(unit=iow, file='./Output/mfem/ord.txt', status='unknown')
         do i=1, numsec
             write(iow,2020) i,1,1
         end do
