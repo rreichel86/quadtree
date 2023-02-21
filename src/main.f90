@@ -21,9 +21,10 @@ program quadtree_main
 
     integer cnt, len, status
     character(len=128) commandArg
-    logical exists
+    logical exists, interactiveMode
 
     filenameIn = ' '
+    interactiveMode = .false.
 
     ! get command line arguments
     cnt = command_argument_count ()
@@ -31,8 +32,10 @@ program quadtree_main
     ! ./Quadtree -h
     ! ./Quadtree --help
     ! ./Quadtree input.txt
-    if ( cnt .eq.  1) then
-        call get_command_argument (1, commandArg, len, status)
+    ! ./Quadtree -i input.txt
+    ! ./Quadtree -interactive input.txt
+    do i = 1, cnt
+        call get_command_argument (i, commandArg, len, status)
         if (status .ne. 0) then 
             write(*,*) 'get_command_argument failed: status = ', status
             stop
@@ -46,8 +49,11 @@ program quadtree_main
             write(*,*)
             write(*,*) 'Arguments:'
             write(*,*) ' -h or --help         Prints this help message and exit'
-            ! write(*,*) ' -i, --iteractive     Iteractive mode'     ! not implemented yet!
+            write(*,*) ' -i, --iteractive     Iteractive mode'
             stop
+
+        else if ( commandArg(1:len)  == '-i' .or. commandArg(1:len) == '--iteractive' ) then
+            interactiveMode = .true.
 
         else if ( commandArg(len-3:len) == '.txt' ) then
 
@@ -60,13 +66,14 @@ program quadtree_main
             filenameIn = commandArg(1:len)
             write(*,1010) filenameIn
             1010 format (5x,'The input file mame is: ', A)
+            exit
 
         else
             write(*,*) 'Unknown option argument = ', commandArg(1:len)
             write(*,*) 'More info with: ./Quadtree --help'
             stop
         end if
-    end if
+    end do
 
     if ( filenameIn == ' ' ) then
         write(*,1000)
@@ -88,6 +95,8 @@ program quadtree_main
             call QtreeMeshSR(Quadtree, num_poly,polygons, 0, point(0d0,0d0))
         end if
     end if
+
+    if( .not. interactiveMode ) stop
 
     ! TODO: MENU 
     do
