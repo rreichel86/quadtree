@@ -488,7 +488,7 @@ subroutine writeFeapInputFile()
 
     iow = 60
 
-    open(unit=iow, file='./feap/iTest.feap', status='unknown')
+    open(unit=iow, file='./Output/feap/iTest.feap', status='unknown')
 
         !FEAP
         write(iow,2000)
