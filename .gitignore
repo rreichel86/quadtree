@@ -4,6 +4,8 @@ build/**
 *.dat
 *.out
 Quadtree
-feap/**
-mtlb/**
-mfem/**
+Output/feap/*
+Output/mfem/*
+Output/plot/*.png
+Output/mesh/*.txt
+Output/mfem/*
