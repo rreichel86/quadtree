@@ -17,10 +17,9 @@ chains.
 ### Table of contents  
 
 1. [What's in the directory? ](#whats-in-the-directory)
-2. [Prerequisites ](#prerequisites)
-3. [Getting started ](#getting-started)  
-4. [Acknowledgments](#acknowledgments)
-5. [Contact](#contact)
+2. [Using the Quadtree mesh generator](#using-the-quadtree-mesh-generator)
+3. [Acknowledgments](#acknowledgments)
+4. [Contact](#contact)
 
 ## What's in the directory? <a name="whats-in-the-directory"></a>
 
@@ -41,9 +40,22 @@ chains.
 | README.md           | This file |
 | src                 | Source code of the Quadtree mesh generator|
 
-## Prerequisites <a name="prerequisites"></a>
 
-## Getting started <a name="getting-started"></a>
+## Using the Quadtree mesh generator
+
+### Command Line Options
+
+```
+ -h or --help           Print this help message and exit
+ -i or --iteractive     Iteractive mode
+
+```
+
+To run the [YetiFootprint.txt](./Examples/YetiFootprint.txt) example in Examples/
+```
+ $ ./Quadtree Examples/YetiFootprint.txt
+
+```
 
 
 ## Acknowledgments <a name="acknowledgments"></a>
