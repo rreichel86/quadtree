@@ -110,7 +110,7 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
     deallocate( Temp_nodes, nodes_mask, Stat = istat)
     ! end filter node coords
     
-    open(unit=55, file='./mtlb/selm.txt', status='unknown')
+    open(unit=55, file='./Output/mesh/selm.txt', status='unknown')
         call connectivity(Q3)
     close(55)
     
@@ -126,7 +126,7 @@ subroutine QtreeMeshSR(Q3, numPolygons, polygons, numSeeds, seeds)
         end do 
     end do 
     
-    open(unit=56, file='./mtlb/scor.txt', status='unknown')
+    open(unit=56, file='./Output/mesh/scor.txt', status='unknown')
         !write(56, '(i6)') num_node
         do i=1, num_node + num_elem    
             write(56,'(i6,2f32.16)')  i, nodes(i)         
@@ -239,7 +239,7 @@ subroutine QtreeMeshRefineSR(Q3, numPolygons, polygons, numSeeds, seeds)
     deallocate( Temp_nodes, nodes_mask, Stat = istat)
     ! end filter node coords
     
-    open(unit=55, file='./mtlb/selm.txt', status='unknown')
+    open(unit=55, file='./Output/mesh/selm.txt', status='unknown')
         call connectivity(Q3)
     close(55)
     
@@ -253,7 +253,7 @@ subroutine QtreeMeshRefineSR(Q3, numPolygons, polygons, numSeeds, seeds)
         end do
     end do
 
-    open(unit=56, file='./mtlb/scor.txt', status='unknown')
+    open(unit=56, file='./Output/mesh/scor.txt', status='unknown')
         do i=1, num_node + num_elem
             write(56,'(i6,2f32.16)')  i, nodes(i)
         end do
