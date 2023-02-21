@@ -1,6 +1,8 @@
 
 # A Quadtree based finite element mesh generator to discretize two-dimensional heterogeneous solids
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
+
 The two-dimensional heterogeneous solid is given by its outer boundary
 and material interfaces. These are later modeled by simple closed polygonal
 chains.  
