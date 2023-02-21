@@ -413,7 +413,7 @@ subroutine read_seeds()
     ior = 60
     if ( allocated(seeds) ) deallocate(seeds)
     
-    open(unit=60, file='./mfem/seeds.txt', status='old', action='Read', &
+    open(unit=60, file='./Output/mfem/seeds.txt', status='old', action='Read', &
         iostat=istat)
 
         read(60, '(i6)') num_seeds
