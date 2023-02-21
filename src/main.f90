@@ -9,7 +9,7 @@ program quadtree_main
     
     integer i, j, k, istat, zhl
     
-    character(len=40) filenameIn
+    character(len=229) filenameIn
     character(len=5) token
     character cc*4, yyy*80, xxx*80
     logical pcomp
