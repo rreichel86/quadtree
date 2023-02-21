@@ -34,9 +34,9 @@ chains.
 
 | File            | Description |
 | :-------------- | :---- |
-| Makefile            | Makefile to build the project |
 | [Documentation](./Documentation/) | Documentation |
 | [Examples](./Examples/)            | Contains examples of how to define the domain to be meshed |
+| Makefile            | Makefile to build the Quadtree mesh generator |
 | QtreePlotMesh.m     | MATLAB script to plot the Quadtree mesh |
 | README.md           | This file |
 | src                 | Source code of the Quadtree mesh generator|
