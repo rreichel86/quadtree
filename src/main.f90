@@ -98,7 +98,6 @@ program quadtree_main
 
     if( .not. interactiveMode ) stop
 
-    ! TODO: MENU 
     do
 
     write(*,1080) 
