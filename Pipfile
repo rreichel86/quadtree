@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 vtk = "*"
 jupyter = "*"
+pyvista = "*"
+trame = "*"
+trame-vuetify = "*"
+trame-vtk = "*"
 
 [dev-packages]
 
