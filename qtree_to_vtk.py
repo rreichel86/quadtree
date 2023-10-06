@@ -54,7 +54,7 @@ for id in range(number_of_elements):
 qtree_vtk_dataset.GetCellData().AddArray(array)
 
 writer = vtk.vtkXMLUnstructuredGridWriter()
-writer.SetFileName("output.vtu")
+writer.SetFileName("./Output/parv/QtreeMesh.vtu")
 writer.SetInputData(qtree_vtk_dataset)
 writer.Write()
 
