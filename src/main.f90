@@ -107,7 +107,7 @@ program quadtree_main
         &       5x,'For help type "HELP"'/)
     1082 format(3x,'> ',$)
     1083 format(a5)
-    if (pcomp(token,'mplot',5)) then
+    if (pcomp(token,'plot',4)) then
 
         ! write(*,1084)
         ! 1084 format(5x,'mplot'/)
@@ -161,7 +161,7 @@ program quadtree_main
     else if (pcomp(token,'help',4)) then
         
         write(*,1081)
-        1081 format(/5x,'MPLOT',' - Plot Quadtree Mesh in MATLAB '/ &
+        1081 format(/5x,'PLOT',' -  Plot Quadtree Mesh'/ &
             &        5x,'PARV ',' - Save Quadtree Mesh Data for visualization in PARAVIEW' / &
             &        5x,'MFEM ',' - Generate MFEM input files' / &
             ! &        5x,'FEAP ',' - Genarate FEAP input file' / &
