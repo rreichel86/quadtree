@@ -112,7 +112,7 @@ program quadtree_main
         ! write(*,1084)
         ! 1084 format(5x,'mplot'/)
         ! call execute_command_line("matlab -nodesktop -nosplash -r 'QtreePlotMesh; exit'", exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
-        call execute_command_line("python qtree_to_vtk.py", exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+        call execute_command_line("python plot_qtree_mesh.py", exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
 
         if (cstat .gt. 0) then
             print *, "    Command execution failed with error ", trim(cmsg)
