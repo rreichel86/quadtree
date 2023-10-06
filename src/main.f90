@@ -127,6 +127,16 @@ program quadtree_main
 
         ! write(*,1085)
         ! 1085 format(5x,'parv'/)
+        call execute_command_line("python qtree_to_vtk.py", exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+        if (cstat .gt. 0) then
+            print *, "    Command execution failed with error ", trim(cmsg)
+        else if (cstat .lt. 0) then 
+            print *, "    Command execution not supported"
+        else
+            print *, "    Command completed with status ", estat
+        end if
+        
 
     else if (pcomp(token,'mfem',4)) then
 
@@ -152,7 +162,7 @@ program quadtree_main
         
         write(*,1081)
         1081 format(/5x,'MPLOT',' - Plot Quadtree Mesh in MATLAB '/ &
-            ! &        5x,'PARV ',' - Save Quadtree Mesh Data for visualization with the program PARAVIEW' / &
+            &        5x,'PARV ',' - Save Quadtree Mesh Data for visualization in PARAVIEW' / &
             &        5x,'MFEM ',' - Generate MFEM input files' / &
             ! &        5x,'FEAP ',' - Genarate FEAP input file' / &
             &        5x,'RFINE',' - Refine Quadtree Mesh' / &
