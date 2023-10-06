@@ -57,5 +57,3 @@ writer = vtk.vtkXMLUnstructuredGridWriter()
 writer.SetFileName("./Output/parv/QtreeMesh.vtu")
 writer.SetInputData(qtree_vtk_dataset)
 writer.Write()
-
-print("Done!")
