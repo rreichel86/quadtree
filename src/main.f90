@@ -127,7 +127,7 @@ program quadtree_main
 
         ! write(*,1085)
         ! 1085 format(5x,'parv'/)
-        call execute_command_line("python qtree_to_vtk.py", exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+        call execute_command_line('python qtree_to_vtk.py "'//filenameIn//'"', exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
 
         if (cstat .gt. 0) then
             print *, "    Command execution failed with error ", trim(cmsg)

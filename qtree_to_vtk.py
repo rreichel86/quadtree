@@ -3,6 +3,15 @@ import vtk
 sys.path.append("./src/")
 from elmtData import Node_2d, Element
 
+filename_in = ""
+filename_vtk = "./Output/parv/QtreeMesh.vtu"
+
+if len(sys.argv) == 2:
+    filename_in = sys.argv[1]
+filename_vtk = "./Output/parv/" + filename_in.split('/')[-1].replace(".txt",".vtu")
+print(filename_vtk)
+
+
 list_of_nodes = []
 list_of_elements = []
 
@@ -54,6 +63,6 @@ for id in range(number_of_elements):
 qtree_vtk_dataset.GetCellData().AddArray(array)
 
 writer = vtk.vtkXMLUnstructuredGridWriter()
-writer.SetFileName("./Output/parv/QtreeMesh.vtu")
+writer.SetFileName(filename_vtk)
 writer.SetInputData(qtree_vtk_dataset)
 writer.Write()
