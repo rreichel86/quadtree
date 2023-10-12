@@ -45,16 +45,16 @@ class Node_2d:
         return [self._x, self._y]
 
 class MeshData:
-    def __inti__(self):
+    def __init__(self, nodes_filename, elements_filename):
         self._list_of_nodes = []
         self._list_of_elements = []
-        load_elements()
-        load_nodes()
+        self.load_nodes(nodes_filename)
+        self.load_elements(elements_filename)
 
-    def load_elements(self):
-        with open('./Output/mesh/selm.txt') as elmt_data:
     # Read elements from a file
     # nro, nnodes, mat_nro, nodes
+    def load_elements(self, elements_filename): 
+        with open(elements_filename, 'r') as elmt_data: 
             lines = elmt_data.readlines()
             for line in lines:
                 elmt = list(map(int, line.split()))
@@ -62,10 +62,10 @@ class MeshData:
                 node_ids = node_ids[:number_of_nodes]
                 self._list_of_elements.append( Element(id, number_of_nodes, material_set_id, node_ids) )
 
-    def load_nodes(self):
-        with open('./Output/mesh/scor.txt') as node_data:
     # Read nodes from a file
     # nro, x-coord, y-coord
+    def load_nodes(self, nodes_filename):
+        with open(nodes_filename, 'r') as node_data:
             lines = node_data.readlines()
             for line in lines:
                 first, *rest = line.split()
