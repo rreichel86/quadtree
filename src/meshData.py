@@ -52,9 +52,9 @@ class MeshData:
         load_nodes()
 
     def load_elements(self):
-        # Read elements from a file
-        # nro, nnodes, mat_nro, nodes
         with open('./Output/mesh/selm.txt') as elmt_data:
+    # Read elements from a file
+    # nro, nnodes, mat_nro, nodes
             lines = elmt_data.readlines()
             for line in lines:
                 elmt = list(map(int, line.split()))
@@ -63,9 +63,9 @@ class MeshData:
                 self._list_of_elements.append( Element(id, number_of_nodes, material_set_id, node_ids) )
 
     def load_nodes(self):
-        # Read nodes from a file
-        # nro, x-coord, y-coord
         with open('./Output/mesh/scor.txt') as node_data:
+    # Read nodes from a file
+    # nro, x-coord, y-coord
             lines = node_data.readlines()
             for line in lines:
                 first, *rest = line.split()
