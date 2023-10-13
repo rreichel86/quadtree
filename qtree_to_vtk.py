@@ -11,6 +11,15 @@ if len(sys.argv) == 2:
     filename_vtk = "./Output/parv/" + filename_in.split('/')[-1].replace(".txt",".vtu")
 print(filename_vtk)
 
+nodes_filename = './Output/mesh/scor.txt'
+elements_filename = './Output/mesh/selm.txt'
+
+# Load qtree mesh data
+qtreeData = MeshData(nodes_filename, elements_filename)
+nodes = qtreeData.nodes
+elements = qtreeData.elements
+number_of_nodes = qtreeData.number_of_nodes
+number_of_elements = qtreeData.number_of_elements
 
 # Create VTK object for the data model
 qtree_vtk_dataset = vtk.vtkUnstructuredGrid() 
