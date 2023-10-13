@@ -27,7 +27,7 @@ qtree_vtk_dataset = vtk.vtkUnstructuredGrid()
 # Create the points by defining their coordinates
 points = vtk.vtkPoints()
 for id in range(number_of_nodes):
-    points.InsertPoint(id, [*list_of_nodes[id].coords, 0])
+    points.InsertPoint(id, [*nodes[id].coords, 0])
 qtree_vtk_dataset.SetPoints(points)
 
 # Create the cells by specifying connectivity
