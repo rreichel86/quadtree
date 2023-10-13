@@ -3,13 +3,13 @@ import vtk
 sys.path.append("./src/")
 from meshData import MeshData
 
-filename_in = ""
-filename_vtk = "./Output/parv/QtreeMesh.vtu"
+input_filename = ""
+vtk_filename = "./Output/parv/QtreeMesh.vtu"
 
 if len(sys.argv) == 2:
-    filename_in = sys.argv[1]
-    filename_vtk = "./Output/parv/" + filename_in.split('/')[-1].replace(".txt",".vtu")
-print(filename_vtk)
+    input_filename = sys.argv[1]
+    vtk_filename = "./Output/parv/" + input_filename.split('/')[-1].replace(".txt",".vtu")
+print(vtk_filename)
 
 nodes_filename = './Output/mesh/scor.txt'
 elements_filename = './Output/mesh/selm.txt'
@@ -46,6 +46,6 @@ for id in range(number_of_elements):
 qtree_vtk_dataset.GetCellData().AddArray(array)
 
 writer = vtk.vtkXMLUnstructuredGridWriter()
-writer.SetFileName(filename_vtk)
+writer.SetFileName(vtk_filename)
 writer.SetInputData(qtree_vtk_dataset)
 writer.Write()
