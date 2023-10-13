@@ -8,7 +8,7 @@ filename_vtk = "./Output/parv/QtreeMesh.vtu"
 
 if len(sys.argv) == 2:
     filename_in = sys.argv[1]
-filename_vtk = "./Output/parv/" + filename_in.split('/')[-1].replace(".txt",".vtu")
+    filename_vtk = "./Output/parv/" + filename_in.split('/')[-1].replace(".txt",".vtu")
 print(filename_vtk)
 
 
