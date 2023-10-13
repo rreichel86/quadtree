@@ -16,7 +16,9 @@ elements_filename = './Output/mesh/selm.txt'
 
 # Load qtree mesh data
 qtreeData = MeshData(nodes_filename, elements_filename)
+# Create VTK object from qtree mesh data
 qtree_vtk_dataset = qtreeData.create_vtk_object()
+# Write VTK object to disk
 writer = vtk.vtkXMLUnstructuredGridWriter()
 writer.SetFileName(vtk_filename)
 writer.SetInputData(qtree_vtk_dataset)
