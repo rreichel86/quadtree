@@ -1,7 +1,7 @@
 import sys
 import vtk
 sys.path.append("./src/")
-from elmtData import Node_2d, Element
+from meshData import MeshData
 
 filename_in = ""
 filename_vtk = "./Output/parv/QtreeMesh.vtu"
@@ -11,32 +11,6 @@ if len(sys.argv) == 2:
     filename_vtk = "./Output/parv/" + filename_in.split('/')[-1].replace(".txt",".vtu")
 print(filename_vtk)
 
-
-list_of_nodes = []
-list_of_elements = []
-
-# Read elements from a file
-# nro, nnodes, mat_nro, nodes
-with open('./Output/mesh/selm.txt') as elmt_data:
-    lines = elmt_data.readlines()
-    for line in lines:
-        elmt = list(map(int, line.split()))
-        id, number_of_nodes, material_set_id, *node_ids = elmt
-        node_ids = node_ids[:number_of_nodes]
-        list_of_elements.append( Element(id, number_of_nodes, material_set_id, node_ids) )
-
-# Read nodes from a file
-# nro, x-coord, y-coord
-with open('./Output/mesh/scor.txt') as node_data:
-    lines = node_data.readlines()
-    for line in lines:
-        first, *rest = line.split()
-        id = int(first)
-        coords = list(map(float, rest))
-        list_of_nodes.append( Node_2d(id, *coords) )
-
-number_of_elements = len(list_of_elements)
-number_of_nodes = len(list_of_nodes)
 
 # Create VTK object for the data model
 qtree_vtk_dataset = vtk.vtkUnstructuredGrid() 
