@@ -1,3 +1,4 @@
+import vtk
 
 class Element:
     def __init__(self, id, number_of_nodes, material_set_id, node_ids=None):
@@ -88,3 +89,30 @@ class MeshData:
     @property
     def number_of_elements(self):
         return len(self._list_of_elements)
+
+    def create_vtk_object(self): 
+        # Create VTK object for the mesh data
+        vtk_dataset = vtk.vtkUnstructuredGrid() 
+
+        # Create the points by defining their coordinates
+        points = vtk.vtkPoints()
+        for id in range(self.number_of_nodes):
+            points.InsertPoint(id, [*self.nodes[id].coords, 0])
+        vtk_dataset.SetPoints(points)
+
+        # Create the cells by specifying connectivity
+        vtk_dataset.Allocate(self.number_of_elements)
+        for id in range(self.number_of_elements):
+            point_ids = list(map(lambda a: a - 1, self.elements[id].node_ids))
+            num_point_ids = self.elements[id].number_of_nodes
+            vtk_dataset.InsertNextCell(7,num_point_ids,point_ids)
+
+        # Create data arrays (on cells)
+        array = vtk.vtkIntArray()
+        array.SetName("material_set_id")
+        array.SetNumberOfValues(self.number_of_elements)
+        for id in range(self.number_of_elements):
+            array.SetValue(id, self.elements[id].material_set_id)
+        vtk_dataset.GetCellData().AddArray(array)
+        return vtk_dataset
+
