@@ -33,8 +33,8 @@ qtree_vtk_dataset.SetPoints(points)
 # Create the cells by specifying connectivity
 qtree_vtk_dataset.Allocate(number_of_elements)
 for id in range(number_of_elements):
-    point_ids = list(map(lambda a: a - 1, list_of_elements[id].node_ids))
-    num_point_ids = list_of_elements[id].number_of_nodes
+    point_ids = list(map(lambda a: a - 1, elements[id].node_ids))
+    num_point_ids = elements[id].number_of_nodes
     qtree_vtk_dataset.InsertNextCell(7,num_point_ids,point_ids)
 
 # Create data arrays (on cells)
@@ -42,7 +42,7 @@ array = vtk.vtkIntArray()
 array.SetName("material_set_id")
 array.SetNumberOfValues(number_of_elements)
 for id in range(number_of_elements):
-    array.SetValue(id, list_of_elements[id].material_set_id)
+    array.SetValue(id, elements[id].material_set_id)
 qtree_vtk_dataset.GetCellData().AddArray(array)
 
 writer = vtk.vtkXMLUnstructuredGridWriter()
