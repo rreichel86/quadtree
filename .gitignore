@@ -5,8 +5,9 @@ build/**
 *.out
 Quadtree
 Output/feap/*
-Output/mfem/*
 Output/plot/*.png
 Output/mesh/*.txt
 Output/parv/*
-Output/mfem/*
+Output/mfem/sections.txt
+Output/mfem/ord.txt
+Output/mfem/coor.txt
