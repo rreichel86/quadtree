@@ -8,4 +8,5 @@ Output/feap/*
 Output/mfem/*
 Output/plot/*.png
 Output/mesh/*.txt
+Output/parv/*
 Output/mfem/*
