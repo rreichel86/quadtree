@@ -61,8 +61,7 @@ corresponding finite element meshes are shown in Figures (k) and (l).
 | QtreePlotMesh.m     | MATLAB script to plot the Quadtree mesh |
 | README.md           | This file |
 | src                 | Source code of the Quadtree mesh generator|
-| src/write_seeds.m   | MATLAB function to write seeding points to a text file
-e.g. `seeds.txt` |
+| src/write_seeds.m   | MATLAB function to write seeding points to a text file e.g. `seeds.txt` |
 
 
 ## Using the Quadtree mesh generator
