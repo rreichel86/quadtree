@@ -41,6 +41,7 @@ corresponding finite element meshes are shown in Figures (k) and (l).
 ├── Makefile  
 ├── Output/mesh  
 ├── Output/plot  
+├── Output/mfem
 ├── QtreePlotMesh.m  
 ├── README.md  
 └── src  
@@ -55,9 +56,12 @@ corresponding finite element meshes are shown in Figures (k) and (l).
 |                     | `selm.txt` - File containing the element connectivity |
 | Output/plot         | polygonal mesh plot as a PNG image |
 |                     | `QuadtreeMesh.png` (default name)|
+| Output/mfem         |                                  |
+|                     | `seeds.txt` - File containing seeding points |
 | QtreePlotMesh.m     | MATLAB script to plot the Quadtree mesh |
 | README.md           | This file |
 | src                 | Source code of the Quadtree mesh generator|
+| src/write_seeds.m   | MATLAB function to write seeding points to a text file|
 
 
 ## Using the Quadtree mesh generator
