@@ -74,14 +74,14 @@ corresponding finite element meshes are shown in Figures (k) and (l).
 
 ```
 
-To run, for example, the [YetiFootprint.txt](./Examples/YetiFootprint.txt) example in Examples/
+To run, for example, the [YetiFootprint.txt](./Examples/YetiFootprint.txt) example in [Examples/](./Examples/)
 ```
  $ ./Quadtree Examples/YetiFootprint.txt
 
 ```
 The polygonal mesh data is stored in ./Output/mesh/scor.txt and
 ./Output/mesh/selm.txt; `scor.txt` contains the nodal coordinates and
-`selm.txt` the element connectivity.
+`selm.txt` the elements' connectivity.
 
 
 ## Acknowledgments <a name="acknowledgments"></a>
