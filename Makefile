@@ -41,4 +41,5 @@ Quadtree: modules modules2 base
 clean:
 	@echo "target clean: delete obj/*"
 	@rm -rf $(OBJPATH)
-	
+run:
+	./Quadtree -i Examples/YetiFootprint.txt
